@@ -89,6 +89,7 @@ npm publish
  - [ ] Style API
  - [ ] Integrate with CI
  - [ ] Testing
+ - [ ] Add/remove event listeners
 
 👔 License
 ----
