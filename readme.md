@@ -1,14 +1,14 @@
 Nutmeg
 ====
 
-Build vanilla Web Components with a little spice.
+Build, test, and publish vanilla Web Components with a little spice
 
 🚧  **Nutmeg is an experimental tool and is not recommended for production use.**
 
 👌 Overview
 ----
 
-Nutmeg is here to help you build, test and publish Web Components in minutes.
+Nutmeg is here to help you build, test, and publish Web Components in minutes.
 
 By default you get the following:
 
