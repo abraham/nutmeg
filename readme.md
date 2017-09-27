@@ -76,12 +76,13 @@ npm publish
 ✅ TODO
 ----
 
-- [ ] Update test emoji https://emojipedia.org/test-tube/
+- [ ] [Update test emoji](https://emojipedia.org/test-tube/)
 - [ ] Add CLI tests
 - [ ] Website
 - [ ] Explore upgrade paths for components
 - [ ] Optimize builds
 - [ ] Support additional property types
+- [ ] [Improve best practices use](https://developers.google.com/web/fundamentals/web-components/best-practices)
 - [ ] Add more examples
  - [ ] External dependencies
  - [ ] Event API
