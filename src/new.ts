@@ -53,11 +53,12 @@ const attributes = program.args.slice(1).map((attribute) => {
   };
 });
 
-
+const primitives = ['boolean', 'number', 'string'];
 const data = {
   name: pascalCase(tag),
   tag: tag,
   attributes: attributes,
+  observedAttributes: attributes.filter(attr => primitives.includes(attr.type)).map(attr => attr.name)
 };
 const copyOptions = {
   overwrite: true,

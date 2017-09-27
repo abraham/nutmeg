@@ -7,7 +7,7 @@ export class <%= name %> extends HTMLElement {
   }
 
   static get observedAttributes(): string[] {
-    return [<% print(`'${attributes.map(attr => attr.name).join("', '")}'`) %>];
+    return ['<% print(`${observedAttributes.join("', '")}`) %>'];
   }
 
   connectedCallback() {
