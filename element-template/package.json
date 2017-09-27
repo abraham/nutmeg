@@ -1,0 +1,49 @@
+{
+  "name": "<%= tag %>",
+  "version": "0.1.0",
+  "description": "Generated Nutmeg Web Component",
+  "main": "dist/<%= tag %>.js",
+  "types": "dist/<%= tag %>.d.ts",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [
+    "<%= tag %>",
+    "nutmeg"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack",
+    "prepare": "npm run build",
+    "serve": "npm run watch & http-server",
+    "test": "npm run build && karma start --single-run --browsers ChromeHeadless,Firefox,Opera karma.conf.js",
+    "watch": "webpack --watch"
+  },
+  "dependencies": {
+    "lit-html": "^0.6.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.0.4",
+    "@types/karma-fixture": "^0.2.3",
+    "@types/mocha": "^2.2.43",
+    "@webcomponents/webcomponentsjs": "^1.0.13",
+    "bdd-lazy-var": "^1.3.0",
+    "browser-es-module-loader": "^0.4.1",
+    "chai": "^4.1.2",
+    "http-server": "^0.10.0",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-firefox-launcher": "^1.0.1",
+    "karma-fixture": "^0.2.6",
+    "karma-html2js-preprocessor": "^1.1.0",
+    "karma-mocha": "^1.3.0",
+    "karma-opera-launcher": "^1.0.0",
+    "karma-safari-launcher": "^1.0.0",
+    "karma-webpack": "^2.0.4",
+    "karma": "^1.7.1",
+    "mocha": "^3.5.3",
+    "ts-loader": "^2.3.7",
+    "typescript": "^2.5.2",
+    "webpack": "^3.6.0"
+  }
+}

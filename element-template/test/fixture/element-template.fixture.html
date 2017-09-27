@@ -1,0 +1,12 @@
+<<%= tag %>>Some value</<%= tag %>>
+<div>
+  <style>
+    <%= tag %>.blue {
+      --<%= tag %>-background-color: #03A9F4;
+    }
+  </style>
+  <<%= tag %> class="blue"></<%= tag %>>
+</div>
+<% attributes.forEach(attribute => {
+  print(`<${tag} ${attribute.name}="Some value"></${tag}>\n`);
+}); %>

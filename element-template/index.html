@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= tag %> demos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script nomodule src="./node_modules/browser-es-module-loader/dist/babel-browser-build.js"></script>
+  <script nomodule src="./node_modules/browser-es-module-loader/dist/browser-es-module-loader.js"></script>
+
+  <script src="./dist/<%= tag %>.js" type="module"></script>
+  <style>
+    body {
+      background-color: #eee;
+      padding: 24px;
+    }
+
+    <%= tag %> {
+      margin: 8px;
+    }
+
+    <%= tag %>.blue {
+      --<%= tag %>-background-color: #03A9F4;
+    }
+  </style>
+</head>
+<body>
+<% attributes.forEach(attribute => {
+    print(`  <${tag} ${attribute.name}="Some value"></${tag}>\n\n`);
+  }); %>  <<%= tag %>>Slot content</<%= tag %>>
+
+  <<%= tag %> class="blue"></<%= tag %>>
+</body>
+</html>

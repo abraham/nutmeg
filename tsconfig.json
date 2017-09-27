@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "outDir": "dist/",
+    "declarationDir": "./",
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "es2017",
+    "skipLibCheck": true,
+    "lib": ["es2017", "dom"],
+    "declaration": true,
+    "inlineSources": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+  },
+  "exclude": [
+    "node_modules",
+    "element-template",
+  ]
+}

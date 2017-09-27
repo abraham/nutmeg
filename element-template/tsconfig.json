@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "declaration": false,
+    "declaration": true,
+    "declarationDir": "./",
+    "inlineSources": true,
+    "lib": ["es2017", "dom"],
+    "module": "commonjs",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUnusedParameters": true,
+    "outDir": "dist/",
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "target": "es2017",
+  }
+}
