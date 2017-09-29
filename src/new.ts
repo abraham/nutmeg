@@ -7,7 +7,7 @@ import through = require('through2');
 import pascalCase = require('pascal-case')
 import shell = require("shelljs");
 
-program.command('new <name> [attribute:type...]', 'generate a Web Component')
+program.command('new <name> [property:type...]', 'generate a Web Component')
 program.parse(process.argv);
 
 const tag = program.args[0];
