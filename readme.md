@@ -39,7 +39,13 @@ Once Nutmeg is installed you can generate a new Web Component with `nutmeg new`.
 nutmeg new hello-world name:string
 ```
 
-🚧  `string` is the only type currently supported.
+Properties can be created as `string`, `boolean`, `number`, `object`, and as arrays by adding `[]` to the end.
+
+```
+nutmeg new grilled-cheese quantity:number pickles:boolean cheese:string[]
+```
+
+🚧  Property tests are currently only created for primitive types such as `string`, `boolean`, and `number`.
 
 
 This will create a `hello-world` directory, stub out a base Web Component, and install the default dependencies.
@@ -81,7 +87,6 @@ npm publish
 - [ ] Website
 - [ ] Explore upgrade paths for components
 - [ ] Optimize builds
-- [ ] Support additional property types
 - [ ] [Improve best practices use](https://developers.google.com/web/fundamentals/web-components/best-practices)
 - [ ] Add more examples
  - [ ] External dependencies
