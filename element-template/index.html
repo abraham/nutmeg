@@ -26,9 +26,12 @@
   </style>
 </head>
 <body>
-<% attributes.forEach(attribute => {
-    print(`  <${tag} ${attribute.name}="Some value"></${tag}>\n\n`);
-  }); %>  <<%= tag %>>Slot content</<%= tag %>>
+  <<%= tag %>></<%= tag %>>
+
+  <<%= tag %> <%= attributes.filter(attr => primitiveTypes.includes(attr.type))
+                            .map(attr => `${attr.name}="Pickle"`).join(' ') %>></<%= tag %>>
+
+  <<%= tag %>>Slot content</<%= tag %>>
 
   <<%= tag %> class="blue"></<%= tag %>>
 </body>
