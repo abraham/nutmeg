@@ -1,8 +1,8 @@
 import { html, render, TemplateResult } from 'lit-html';
 
 export class <%= name %> extends HTMLElement {
-<% attributes.filter(attr => richTypes.includes(attr.type) || attr.type.endsWith('[]')).forEach((attribute) => {
-    print(`  public ${attribute.name}: ${attribute.type};\n`);
+<% attributes.filter(attr => richTypes.includes(attr.type) || attr.type.endsWith('[]')).forEach((attr) => {
+    print(`  public ${attr.name}: ${attr.type} = ${attr.type.endsWith('[]') ? '[]' : '{}'};\n`);
 }); %>
   constructor() {
     super();
@@ -23,9 +23,9 @@ export class <%= name %> extends HTMLElement {
   attributeChangedCallback(_name: string, _oldValue: any, _newValue: any) {
     this.render();
   }
-<% attributes.filter(attribute => primitiveTypes.includes(attribute.type))
-             .forEach((attribute) => {
-  print("\n" + partial(`${attribute.type}.property.ts`, attribute));
+<% attributes.filter(attr => primitiveTypes.includes(attr.type))
+             .forEach((attr) => {
+  print("\n" + partial(`${attr.type}.property.ts`, attr));
 }) %>
   private get styles(): TemplateResult {
     return html`
@@ -54,9 +54,9 @@ export class <%= name %> extends HTMLElement {
       <div class="content">
         Welcome to &lt;<%= tag %>&gt;
 
-        <ul><% attributes.filter(attribute => primitiveTypes.includes(attribute.type))
-                         .forEach((attribute) => {
-              print(`\n          <li>${attribute.name}: \${this.${attribute.name} === null ? 'N/A' : this.${attribute.name}}</li>`);
+        <ul><% attributes.filter(attr => primitiveTypes.includes(attr.type))
+                         .forEach((attr) => {
+              print(`\n          <li>${attr.name}: \${this.${attr.name} === null ? 'N/A' : this.${attr.name}}</li>`);
             }); %>
         </ul>
 

@@ -38,7 +38,7 @@ describe('<<%= tag %>>', () => {
       component = fixture.load(fixturePath)[FIXTURES.SLOT];
     });
 
-    it('name is rendered', () => {
+    it('is rendered', () => {
       // Firefox has different output so testing for inclusion instead of exact match.
       const slot = component.shadowRoot.querySelector('slot');
       expect(slot.assignedNodes()[0].wholeText).to.include(DEFAULTS.STRING);
