@@ -68,9 +68,9 @@ describe('<<%= tag %>>', () => {
       });
     });
   });
-<% attributes.filter(attribute => !attribute.type.endsWith('[]')).forEach((attribute) => {
-  if (primitiveTypes.includes(attribute.type)) {
-    print("\n" + partial(`${attribute.type}.test.js`, attribute));
-  }
+<% attributes.filter(attribute => !attribute.type.endsWith('[]'))
+             .filter(attribute => primitiveTypes.includes(attribute.type))
+             .forEach((attribute) => {
+  print("\n" + partial(`${attribute.type}.test.js`, attribute));
 }) %>
 });

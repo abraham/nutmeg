@@ -23,54 +23,10 @@ export class <%= name %> extends HTMLElement {
   attributeChangedCallback(_name: string, _oldValue: any, _newValue: any) {
     this.render();
   }
-<% attributes.filter(attr => primitiveTypes.includes(attr.type)).forEach((attribute) => {
-  switch(attribute.type) {
-    case 'number':
-      print(`\n  get ${attribute.name}(): ${attribute.type} {
-    if (this.hasAttribute('${attribute.name}')) {
-      return Number(this.getAttribute('${attribute.name}'));
-    } else {
-      return null;
-    }
-  }
-
-  set ${attribute.name}(value: ${attribute.type}) {
-    if (value) {
-      this.setAttribute('${attribute.name}', String(value));
-    } else {
-      this.removeAttribute('${attribute.name}');
-    }
-  }`);
-    break;
-    case 'string':
-      print(`\n  get ${attribute.name}(): ${attribute.type} {
-    return this.getAttribute('${attribute.name}');
-  }
-
-  set ${attribute.name}(value: ${attribute.type}) {
-    if (value) {
-      this.setAttribute('${attribute.name}', value);
-    } else {
-      this.removeAttribute('${attribute.name}');
-    }
-  }`);
-    break;
-    case 'boolean':
-      print(`\n  get ${attribute.name}(): ${attribute.type} {
-    return this.hasAttribute('${attribute.name}');
-  }
-
-  set ${attribute.name}(value: ${attribute.type}) {
-    if (value) {
-      this.setAttribute('${attribute.name}', '');
-    } else {
-      this.removeAttribute('${attribute.name}');
-    }
-  }`);
-    break;
-  }
-}); %>
-
+<% attributes.filter(attribute => primitiveTypes.includes(attribute.type))
+             .forEach((attribute) => {
+  print("\n" + partial(`${attribute.type}.property.ts`, attribute));
+}) %>
   private get styles(): TemplateResult {
     return html`
       <style>
