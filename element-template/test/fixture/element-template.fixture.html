@@ -1,4 +1,5 @@
-<<%= tag %>>Some value</<%= tag %>>
+<<%= tag %>></<%= tag %>>
+<<%= tag %>>Pickle</<%= tag %>>
 <div>
   <style>
     <%= tag %>.blue {
@@ -7,6 +8,18 @@
   </style>
   <<%= tag %> class="blue"></<%= tag %>>
 </div>
-<% attributes.forEach(attribute => {
-  print(`<${tag} ${attribute.name}="Some value"></${tag}>\n`);
-}); %>
+<<%= tag %><% attributes.filter(attr => primitiveTypes.includes(attr.type))
+                        .forEach(attr => {
+                          switch(attr.type) {
+                            case 'boolean':
+                              print(` ${attr.name}`)
+                              break;
+                            case 'number':
+                              print(` ${attr.name}="42"`)
+                              break;
+                            case 'string':
+                              print(` ${attr.name}="Pickle"`)
+                              break;
+                          }
+                        }); %>></<%= tag %>>
+<<%= tag %>></<%= tag %>>

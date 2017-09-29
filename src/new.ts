@@ -53,16 +53,33 @@ const attributes = program.args.slice(1).map((attribute) => {
   };
 });
 
-const primitives = ['boolean', 'number', 'string'];
+const templateOptions = {
+  interpolate: /<%=([\s\S]+?)%>/g,
+  imports: {
+    partial: function(partialName: string, data: object) {
+      let partial = fs.readFileSync(path.resolve(templateDir, './partial', partialName)).toString();
+      return template(partial, templateOptions)(data);
+    },
+  },
+};
+const primitiveTypes = ['boolean', 'number', 'string'];
+const richTypes = ['object', 'array'];
 const data = {
   name: pascalCase(tag),
   tag: tag,
   attributes: attributes,
-  observedAttributes: attributes.filter(attr => primitives.includes(attr.type)).map(attr => attr.name)
+  observedAttributes: attributes.filter(attr => primitiveTypes.includes(attr.type)).map(attr => attr.name),
+  primitiveTypes: primitiveTypes,
+  richTypes: richTypes,
 };
 const copyOptions = {
   overwrite: true,
   dot: true,
+  filter: [
+    '**/*',
+    '!partial',
+    '!partial/*',
+  ],
   rename: function(filePath: string) {
     if (filePath === 'gitignore') {
       return '.gitignore';
@@ -71,7 +88,7 @@ const copyOptions = {
   },
   transform: function(_src: string, _dest: string, _stats: object) {
     return through(function(chunk: string, _enc: string, done: any)    {
-      done(null, template(chunk, { interpolate: /<%=([\s\S]+?)%>/g })(data));
+      done(null, template(chunk, templateOptions)(data));
     });
   }
 };
