@@ -68,7 +68,7 @@ npm run test
 🗞️ Publish
 ----
 
-Publishing to NPM is easy but make sure you are logged in first with `npm login`. Be sure to fill out `package.json` values like author, etc.
+Publishing to NPM is easy but make sure you are logged in first with `npm login`. Be sure to fill out `package.json` values like author and update the name in `readme.md` if you change it.
 
 ```
 npm publish

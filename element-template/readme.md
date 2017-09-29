@@ -32,3 +32,5 @@ License
 ----
 
 <%= name %> is released under an MIT license.
+
+Built, tested, and published with [Nutmeg](https://nutmeg.tools).
