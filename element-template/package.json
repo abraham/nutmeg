@@ -20,7 +20,7 @@
     "watch": "webpack --watch"
   },
   "dependencies": {
-    "lit-html": "^0.6.0"
+    "lit-html": "^0.7.0"
   },
   "devDependencies": {
     "@types/chai": "4.0.4",
