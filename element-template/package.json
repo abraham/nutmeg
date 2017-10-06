@@ -41,7 +41,7 @@
     "karma-safari-launcher": "1.0.0",
     "karma-webpack": "2.0.4",
     "karma": "1.7.1",
-    "mocha": "4.0.0",
+    "mocha": "4.0.1",
     "ts-loader": "2.3.7",
     "typescript": "2.5.3",
     "webpack": "3.6.0"
