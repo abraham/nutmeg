@@ -37,8 +37,7 @@
     "prepare": "npm run build",
     "watch": "webpack --watch"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "webpack": "3.6.0",
     "ts-loader": "2.3.7",
