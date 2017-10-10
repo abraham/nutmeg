@@ -1,6 +1,6 @@
 {
   "name": "@nutmeg/cli",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Build, test, and publish vanilla Web Components with a little spice",
   "main": "dist/cli.js",
   "types": "dist/cli.d.ts",
@@ -20,7 +20,9 @@
     "webcomponents",
     "shadow-dom",
     "shadowdom",
-    "lit-html"
+    "lit-html",
+    "nutmeg",
+    "typescript"
   ],
   "author": {
     "name": "Abraham Williams",
