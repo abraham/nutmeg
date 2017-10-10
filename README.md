@@ -87,7 +87,6 @@ npm publish
 - [ ] Website
 - [ ] Explore upgrade paths for components
 - [ ] Optimize builds
-- [ ] [Improve best practices use](https://developers.google.com/web/fundamentals/web-components/best-practices)
 - [ ] Add more examples
  - [ ] External dependencies
  - [ ] Event API

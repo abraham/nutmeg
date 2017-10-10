@@ -14,6 +14,7 @@ export class <%= name %> extends HTMLElement {
   }
 
   connectedCallback() {
+    this.upgradeProperties();
     this.render();
   }
 
@@ -22,6 +23,17 @@ export class <%= name %> extends HTMLElement {
 
   attributeChangedCallback(_name: string, _oldValue: any, _newValue: any) {
     this.render();
+  }
+
+  private upgradeProperties() {
+    // Support lazy properties https://developers.google.com/web/fundamentals/web-components/best-practices#lazy-properties
+    (<any>this).constructor['observedAttributes'].forEach((prop: string) => {
+      if (this.hasOwnProperty(prop)) {
+        let value = (<any>this)[prop];
+        delete (<any>this)[prop];
+        (<any>this)[prop] = value;
+      }
+    });
   }
 <% attributes.filter(attr => primitiveTypes.includes(attr.type))
              .forEach((attr) => {
