@@ -26,7 +26,7 @@ Check out a new Git branch to start working on with `git checkout -b useful-feat
 
 Have `npm run watch` in a terminal window. This will watch for changes to the code and rebuild `dist` as needed. You can now make changes to the `src` and `template-element` files as desired and try out those changes.
 
-Contribute
+🔼 Contribute
 ----
 
 Once you are happy with your changes commit them to Git with a short but descriptive message.
