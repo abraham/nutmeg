@@ -39,7 +39,7 @@
     "karma-mocha": "1.3.0",
     "karma-opera-launcher": "1.0.0",
     "karma-safari-launcher": "1.0.0",
-    "karma-webpack": "2.0.4",
+    "karma-webpack": "2.0.5",
     "karma": "1.7.1",
     "mocha": "3.5.3",
     "ts-loader": "2.3.7",
