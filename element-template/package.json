@@ -16,7 +16,7 @@
     "build": "webpack",
     "prepare": "npm run build",
     "serve": "npm run watch & http-server",
-    "test": "npm run build && karma start --single-run --browsers ChromeHeadless,Firefox,Opera karma.conf.js",
+    "test": "npm run build && karma start",
     "watch": "webpack --watch"
   },
   "dependencies": {

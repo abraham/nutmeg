@@ -4,6 +4,7 @@ webpackConfig.entry = undefined;
 module.exports = function(config) {
   config.set({
     frameworks: ['mocha', 'chai', 'fixture'],
+    browsers: ['ChromeHeadless'],
     files: [
       {
         pattern: 'test/*.test.js',
@@ -14,6 +15,7 @@ module.exports = function(config) {
       },
     ],
     reporters: ['progress'],
+    singleRun: true,
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
