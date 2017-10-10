@@ -50,7 +50,7 @@
     "@types/through2": "2.0.33",
     "commander": "2.11.0",
     "lodash.template": "4.4.0",
-    "mocha": "3.5.3",
+    "mocha": "4.0.1",
     "pascal-case": "2.0.1",
     "recursive-copy": "2.0.6",
     "shelljs": "0.7.8",
