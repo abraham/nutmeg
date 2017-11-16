@@ -46,7 +46,7 @@
     "typescript": "2.6.1",
     "@types/commander": "2.11.0",
     "@types/lodash.template": "4.4.3",
-    "@types/node": "8.0.52",
+    "@types/node": "8.0.53",
     "@types/shelljs": "0.7.6",
     "@types/through2": "2.0.33",
     "commander": "2.11.0",
