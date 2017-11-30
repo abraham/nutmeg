@@ -41,7 +41,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "webpack": "3.8.1",
+    "webpack": "3.9.1",
     "ts-loader": "3.2.0",
     "typescript": "2.6.2",
     "@types/commander": "2.11.0",
