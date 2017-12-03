@@ -23,7 +23,7 @@
     "lit-html": "^0.7.0"
   },
   "devDependencies": {
-    "@types/chai": "4.0.6",
+    "@types/chai": "4.0.7",
     "@types/karma-fixture": "0.2.3",
     "@types/mocha": "2.2.44",
     "@webcomponents/webcomponentsjs": "1.0.20",
