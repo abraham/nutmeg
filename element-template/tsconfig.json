@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "allowJs": false,
     "declaration": true,
     "declarationDir": "./",
     "inlineSources": true,
