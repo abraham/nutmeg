@@ -1,6 +1,6 @@
 import { html, render, TemplateResult } from 'lit-html';
 
-export class <%= name %> extends HTMLElement {
+export default class <%= name %> extends HTMLElement {
 <% attributes.filter(attr => richTypes.includes(attr.type) || attr.type.endsWith('[]')).forEach((attr) => {
     print(`  public ${attr.name}: ${attr.type} = ${attr.type.endsWith('[]') ? '[]' : '{}'};\n`);
 }); %>
