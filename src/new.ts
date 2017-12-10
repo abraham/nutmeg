@@ -81,8 +81,8 @@ const copyOptions = {
     '!partial/*',
   ],
   rename: function(filePath: string) {
-    if (filePath === 'gitignore') {
-      return '.gitignore';
+    if (['gitignore', 'travis.yml'].includes(filePath)) {
+      return `.${filePath}`;
     }
     return filePath.replace('element-template', tag).replace('.template', '');
   },
