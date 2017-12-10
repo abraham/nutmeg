@@ -4,7 +4,7 @@ webpackConfig.entry = undefined;
 module.exports = function(config) {
   config.set({
     frameworks: ['mocha', 'chai', 'fixture'],
-    browsers: ['ChromeHeadless'],
+    browsers: ['ChromeHeadless', 'FirefoxHeadless'],
     files: [
       {
         pattern: 'test/*.test.js',

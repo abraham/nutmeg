@@ -1,7 +1,5 @@
 {
   "compilerOptions": {
-    "allowJs": false,
-    "declaration": false,
     "declaration": true,
     "declarationDir": "./",
     "inlineSources": true,
@@ -14,6 +12,9 @@
     "outDir": "dist/",
     "skipLibCheck": true,
     "sourceMap": true,
-    "target": "es2017"
-  }
+    "target": "es2017",
+  },
+  "exclude": [
+    "node_modules",
+  ]
 }
