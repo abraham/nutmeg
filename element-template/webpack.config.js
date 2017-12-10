@@ -1,7 +1,8 @@
 const path = require('path');
+const name = '<%= tag %>';
 
 module.exports = {
-  entry: './src/<%= tag %>.ts',
+  entry: `./src/${name}.ts`,
   module: {
     rules: [{
         test: /\.tsx?$/,
@@ -14,11 +15,12 @@ module.exports = {
       },
     ],
   },
-  resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
-  },
   output: {
-    filename: '<%= tag %>.js',
+    filename: `${name}.js`,
     path: path.resolve(__dirname, 'dist'),
+  },
+  resolve: {
+    root: path.resolve(__dirname, 'src'),
+    extensions: ['.tsx', '.ts', '.js'],
   },
 };
