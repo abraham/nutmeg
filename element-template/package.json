@@ -3,9 +3,17 @@
   "version": "0.1.0",
   "description": "Generated Nutmeg Web Component",
   "main": "dist/<%= tag %>.js",
+  "module": "dist/<%= tag %>.js",
+  "unpkg": "dist/<%= tag %>.min.js",
   "types": "dist/<%= tag %>.d.ts",
   "directories": {
     "test": "test"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=8.0.0"
   },
   "keywords": [
     "<%= tag %>",
@@ -13,11 +21,14 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "webpack",
+    "build": "tsc && webpack",
+    "clean": "rm -rf dist/*",
+    "prebuild": "npm run clean",
     "prepare": "npm run build",
+    "pretest": "npm run build",
     "serve": "npm run watch & http-server",
-    "test": "npm run build && karma start",
-    "watch": "webpack --watch"
+    "test": "karma start",
+    "watch": "tsc --watch & webpack --watch"
   },
   "dependencies": {
     "lit-html": "^0.7.0"
@@ -40,7 +51,6 @@
     "karma-safari-launcher": "1.0.0",
     "karma-webpack": "2.0.6",
     "mocha": "4.0.1",
-    "ts-loader": "3.2.0",
     "typescript": "2.6.2",
     "uglifyjs-webpack-plugin": "1.1.2",
     "webpack": "3.10.0"

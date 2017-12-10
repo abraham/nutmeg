@@ -5,20 +5,8 @@ const name = '<%= tag %>';
 module.exports = {
   devtool: 'source-map',
   entry: {
-    [`${name}`]: path.resolve(__dirname, 'src', `${name}.ts`),
-    [`${name}.min`]: path.resolve(__dirname, 'src', `${name}.ts`),
-  },
-  module: {
-    rules: [{
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-    ],
+    [`${name}.bundled`]: path.resolve(__dirname, 'dist', `${name}.js`),
+    [`${name}.min`]: path.resolve(__dirname, 'dist', `${name}.js`),
   },
   output: {
     filename: '[name].js',
@@ -31,11 +19,10 @@ module.exports = {
       sourceMap: true,
       uglifyOptions: {
         ecma: 7,
-        warnings: true,
-      }
-    })
+      },
+    }),
   ],
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.js'],
   },
 };
