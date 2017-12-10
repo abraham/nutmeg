@@ -2,7 +2,8 @@ const path = require('path');
 const name = '<%= tag %>';
 
 module.exports = {
-  entry: `./src/${name}.ts`,
+  devtool: 'source-map',
+  entry: path.resolve(__dirname, 'src', `${name}.ts`),
   module: {
     rules: [{
         test: /\.tsx?$/,
@@ -20,7 +21,6 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   resolve: {
-    root: path.resolve(__dirname, 'src'),
     extensions: ['.tsx', '.ts', '.js'],
   },
 };
