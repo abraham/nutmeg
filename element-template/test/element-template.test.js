@@ -4,7 +4,7 @@
 // import 'karma-fixture';
 import '@webcomponents/webcomponentsjs/webcomponents-lite';
 
-import { <%= name %> } from '../src/<%= tag %>';
+import { <%= name %> } from '..';
 
 describe('<<%= tag %>>', () => {
   let component;
