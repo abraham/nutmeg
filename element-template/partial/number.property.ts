@@ -1,4 +1,4 @@
-  get <%= name %>(): number {
+  get <%= name %>(): number | null {
     if (this.hasAttribute('<%= name %>')) {
       return Number(this.getAttribute('<%= name %>'));
     } else {
@@ -6,7 +6,7 @@
     }
   }
 
-  set <%= name %>(value: number) {
+  set <%= name %>(value: number | null) {
     if (value) {
       this.setAttribute('<%= name %>', String(value));
     } else {

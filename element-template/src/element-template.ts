@@ -1,6 +1,8 @@
 import { html, render, TemplateResult } from 'lit-html';
 
 export default class <%= name %> extends HTMLElement {
+  public shadowRoot: ShadowRoot;
+
 <% attributes.filter(attr => richTypes.includes(attr.type) || attr.type.endsWith('[]')).forEach((attr) => {
     print(`  public ${attr.name}: ${attr.type} = ${attr.type.endsWith('[]') ? '[]' : '{}'};\n`);
 }); %>
@@ -23,6 +25,10 @@ export default class <%= name %> extends HTMLElement {
 
   attributeChangedCallback(_name: string, _oldValue: any, _newValue: any) {
     this.render();
+  }
+
+  render() {
+    render(this.template, this.shadowRoot);
   }
 
   private upgradeProperties() {
@@ -75,10 +81,6 @@ export default class <%= name %> extends HTMLElement {
         <slot></slot>
       </div>
     `;
-  }
-
-  render() {
-    render(this.template, this.shadowRoot);
   }
 }
 
