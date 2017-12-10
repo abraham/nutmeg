@@ -1,6 +1,7 @@
 import { html, render, TemplateResult } from 'lit-html';
 
 export default class <%= name %> extends HTMLElement {
+  /** The constructor always attaches a shadowRoot so no need for it to be null. */
   public shadowRoot: ShadowRoot;
 
 <% attributes.filter(attr => richTypes.includes(attr.type) || attr.type.endsWith('[]')).forEach((attr) => {
@@ -11,28 +12,33 @@ export default class <%= name %> extends HTMLElement {
     this.attachShadow({ mode: 'open' });
   }
 
-  static get observedAttributes(): string[] {
-    return ['<% print(`${observedAttributes.join("', '")}`) %>'];
-  }
-
+  /** The element instance has been inserted into the DOM. */
   connectedCallback() {
     this.upgradeProperties();
     this.render();
   }
 
+  /** The element instance has been removed from the DOM. */
   disconnectedCallback() {
   }
 
+  /** Watch for changes to these attributes. */
+  static get observedAttributes(): string[] {
+    return ['<% print(`${observedAttributes.join("', '")}`) %>'];
+  }
+
+  /** Rerender when the observed attributes change. */
   attributeChangedCallback(_name: string, _oldValue: any, _newValue: any) {
     this.render();
   }
 
+  /** Rerender the element. */
   render() {
     render(this.template, this.shadowRoot);
   }
 
+  /** Support lazy properties https://developers.google.com/web/fundamentals/web-components/best-practices#lazy-properties */
   private upgradeProperties() {
-    // Support lazy properties https://developers.google.com/web/fundamentals/web-components/best-practices#lazy-properties
     (<any>this).constructor['observedAttributes'].forEach((prop: string) => {
       if (this.hasOwnProperty(prop)) {
         let value = (<any>this)[prop];
@@ -45,6 +51,7 @@ export default class <%= name %> extends HTMLElement {
              .forEach((attr) => {
   print("\n" + partial(`${attr.type}.property.ts`, attr));
 }) %>
+  /** Styling for the element. */
   private get styles(): TemplateResult {
     return html`
       <style>
@@ -66,6 +73,7 @@ export default class <%= name %> extends HTMLElement {
     `;
   }
 
+  /** HTML Template for the element. */
   private get template(): TemplateResult {
     return html`
       ${this.styles}
