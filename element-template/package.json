@@ -29,6 +29,7 @@
     "@webcomponents/webcomponentsjs": "1.0.20",
     "chai": "4.1.2",
     "http-server": "0.10.0",
+    "karma": "1.7.1",
     "karma-chai": "0.1.0",
     "karma-chrome-launcher": "2.2.0",
     "karma-firefox-launcher": "1.1.0",
@@ -38,10 +39,10 @@
     "karma-opera-launcher": "1.0.0",
     "karma-safari-launcher": "1.0.0",
     "karma-webpack": "2.0.6",
-    "karma": "1.7.1",
     "mocha": "4.0.1",
     "ts-loader": "3.2.0",
     "typescript": "2.6.2",
+    "uglifyjs-webpack-plugin": "^1.1.2",
     "webpack": "3.10.0"
   }
 }
