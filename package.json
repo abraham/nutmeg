@@ -11,9 +11,6 @@
   "directories": {
     "test": "test"
   },
-  "files": [
-    "element-template"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/abraham/nutmeg-cli.git"

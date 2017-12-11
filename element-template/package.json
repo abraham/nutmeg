@@ -9,9 +9,6 @@
   "directories": {
     "test": "test"
   },
-  "files": [
-    "dist"
-  ],
   "engines": {
     "node": ">=8.0.0"
   },
