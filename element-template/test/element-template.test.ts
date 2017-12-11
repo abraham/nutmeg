@@ -1,10 +1,10 @@
-// TODO: Move test file to TypeScript.
-// import 'mocha';
-// import { expect } from 'chai';
-// import 'karma-fixture';
-import '@webcomponents/webcomponentsjs/webcomponents-lite';
+import 'mocha';
+import { expect } from 'chai';
+import 'karma-fixture';
+import '@webcomponents/webcomponentsjs/webcomponents-sd-ce';
 
-import { <%= name %> } from '..';
+// Karma doesn't support ESModules yet
+import '../dist/<%= tag %>.bundled';
 
 describe('<<%= tag %>>', () => {
   let component;

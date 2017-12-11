@@ -1,20 +1,17 @@
-var webpackConfig = require('./webpack.config.js');
-webpackConfig.entry = undefined;
-
 module.exports = function(config) {
   config.set({
-    frameworks: ['mocha', 'chai', 'fixture'],
+    frameworks: ['mocha', 'chai', 'fixture', 'karma-typescript'],
     browsers: ['ChromeHeadless', 'FirefoxHeadless'],
     files: [
       {
-        pattern: 'test/*.test.js',
+        pattern: 'test/*.test.ts',
         watched: false,
       },
       {
         pattern: 'test/fixture/**/*',
       },
     ],
-    reporters: ['progress'],
+    reporters: ['progress', 'karma-typescript'],
     singleRun: true,
     port: 9876,
     colors: true,
@@ -22,12 +19,8 @@ module.exports = function(config) {
     autoWatch: false,
     concurrency: Infinity,
     preprocessors: {
-      'test/**/*.test.js': ['webpack'],
+      'test/**/*.test.ts': ['karma-typescript'],
       'test/fixture/**/*.fixture.html' : ['html2js'],
-    },
-    webpack: webpackConfig,
-    webpackMiddleware: {
-      stats: 'errors-only'
     },
   });
 }
