@@ -1,7 +1,7 @@
 import program = require('commander');
 
 program
-  .version('0.2.2')
+  .version('0.2.3')
   .usage('new <name> [property:type...]')
   .command('new <name> [property:type...]', 'generate a Web Component');
 
