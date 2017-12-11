@@ -71,6 +71,6 @@ describe('<<%= tag %>>', () => {
 <% attributes.filter(attribute => !attribute.type.endsWith('[]'))
              .filter(attribute => primitiveTypes.includes(attribute.type))
              .forEach((attribute) => {
-  print("\n" + partial(`${attribute.type}.test.js`, attribute));
+  print("\n" + partial(`${attribute.type}.test.ts`, attribute));
 }) %>
 });
