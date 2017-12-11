@@ -88,12 +88,12 @@ npm publish
 - [ ] Explore upgrade paths for components
 - [ ] Optimize builds
 - [ ] Add more examples
- - [ ] External dependencies
- - [ ] Event API
- - [ ] Style API
- - [ ] Integrate with CI
- - [ ] Testing
- - [ ] Add/remove event listeners
+- - [ ] External dependencies
+- - [ ] Event API
+- - [ ] Style API
+- - [ ] Integrate with CI
+- - [ ] Testing
+- - [ ] Add/remove event listeners
 
 👔 License
 ----
