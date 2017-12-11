@@ -12,7 +12,7 @@ Nutmeg is here to help you build, test, and publish Web Components in minutes.
 
 By default you get the following:
 
-- Web Component v1
+- Custom Elements v1
 - Shadow DOM v1
 - TypeScript
 - lit-html
