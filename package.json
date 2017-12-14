@@ -47,7 +47,7 @@
     "ts-loader": "3.2.0",
     "typescript": "2.6.2",
     "@types/lodash.template": "4.4.3",
-    "@types/node": "8.5.0",
+    "@types/node": "8.5.1",
     "@types/shelljs": "0.7.7",
     "@types/through2": "2.0.33",
     "commander": "2.12.2",
