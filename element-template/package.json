@@ -27,7 +27,7 @@
     "watch": "tsc --watch & webpack --watch"
   },
   "dependencies": {
-    "lit-html": "0.7.0"
+    "lit-html": "0.7.1"
   },
   "devDependencies": {
     "@types/chai": "4.0.10",
