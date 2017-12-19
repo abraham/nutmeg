@@ -1,10 +1,6 @@
 import 'mocha';
 import { expect } from 'chai';
 import 'karma-fixture';
-import '@webcomponents/webcomponentsjs/webcomponents-sd-ce';
-
-// Karma doesn't support ESModules yet
-import '../dist/<%= tag %>.bundled';
 
 describe('<<%= tag %>>', () => {
   let component;

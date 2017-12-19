@@ -3,13 +3,10 @@ module.exports = function(config) {
     frameworks: ['mocha', 'chai', 'fixture', 'karma-typescript'],
     browsers: ['ChromeHeadless', 'FirefoxHeadless'],
     files: [
-      {
-        pattern: 'test/*.test.ts',
-        watched: false,
-      },
-      {
-        pattern: 'test/fixture/**/*',
-      },
+      './node_modules/@webcomponents/webcomponentsjs/webcomponents-sd-ce.js',
+      { pattern: 'src/*.ts' },
+      { pattern: 'test/*.test.ts' },
+      { pattern: 'test/fixture/*.html' },
     ],
     reporters: ['progress', 'karma-typescript'],
     singleRun: true,
@@ -19,8 +16,16 @@ module.exports = function(config) {
     autoWatch: false,
     concurrency: Infinity,
     preprocessors: {
-      'test/**/*.test.ts': ['karma-typescript'],
-      'test/fixture/**/*.fixture.html' : ['html2js'],
+      '**/*.ts': ['karma-typescript'],
+      'test/fixture/**/*.html' : ['html2js'],
     },
+    karmaTypescriptConfig: {
+      compilerOptions: {
+        target: 'es2017',
+      },
+      bundlerOptions: {
+        transforms: [require("karma-typescript-es6-transform")({presets: 'es2015'})],
+      }
+    }
   });
 }
