@@ -56,6 +56,8 @@ You can now serve the component for development on http://localhost:8080.
 npm run serve
 ```
 
+With `serve` running you can make edits to the component and see the changes take effect without manually reloading the development page.
+
 🔬 Test
 ----
 
