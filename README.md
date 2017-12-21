@@ -85,10 +85,8 @@ npm publish
 ----
 
 - [ ] [Update test emoji](https://emojipedia.org/test-tube/)
-- [ ] Add CLI tests
 - [ ] Website
 - [ ] Explore upgrade paths for components
-- [ ] Optimize builds
 - [ ] Add more examples
 - - [ ] External dependencies
 - - [ ] Event API
