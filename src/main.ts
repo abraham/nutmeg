@@ -1,7 +1,8 @@
 import program = require('commander');
+const version = require('../package.json')['version'];
 
 program
-  .version('0.2.7')
+  .version(version)
   .usage('new <name> [property:type...]')
   .command('new <name> [property:type...]', 'generate a Web Component');
 
