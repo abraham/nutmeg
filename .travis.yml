@@ -11,3 +11,5 @@ before_install:
 os:
   - linux
   - osx
+addons:
+  firefox: "latest"
