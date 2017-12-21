@@ -1,11 +1,12 @@
-import program = require('commander');
-import path = require('path');
 import copy = require('recursive-copy');
 import fs = require('fs');
+import hasbin = require('hasbin');
+import pascalCase = require('pascal-case')
+import path = require('path');
+import program = require('commander');
+import shell = require("shelljs");
 import template = require('lodash.template');
 import through = require('through2');
-import pascalCase = require('pascal-case')
-import shell = require("shelljs");
 
 program.command('new <name> [property:type...]', 'generate a Web Component')
 program.parse(process.argv);
@@ -14,6 +15,7 @@ const tag = program.args[0];
 const workdingDir = path.resolve('./');
 const templateDir = path.resolve(process.argv[1], '../../element-template');
 const destinationDir = path.resolve(workdingDir, `./${tag}`);
+const hasYarn = hasbin.sync('yarn');
 
 const validName = 0 < tag.indexOf('-')
   && tag.indexOf('-') < tag.length - 1
@@ -107,7 +109,11 @@ copy(templateDir, destinationDir, copyOptions)
     shell.exec('git add .');
     shell.exec('git commit -m "Initial commit from @nutmeg/cli"');
     console.log('Installing dependencies');
-    shell.exec('npm install');
+    if (hasYarn) {
+      shell.exec('yarn');
+    } else {
+      shell.exec('npm install');
+    }
     console.log('');
     console.log('Run `npm run serve` to start 🌱 building');
   })
