@@ -41,6 +41,9 @@
     "test": "cd tmp && ../bin/nutmeg new ci-test first:number second:string third:boolean && cd ci-test && npm run test",
     "watch": "webpack --watch"
   },
+  "engines": {
+    "node" : ">=8"
+  },
   "dependencies": {},
   "devDependencies": {
     "webpack": "3.10.0",
