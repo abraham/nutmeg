@@ -24,7 +24,7 @@ export default class <%= name %> extends HTMLElement {
 
   /** Watch for changes to these attributes. */
   static get observedAttributes(): string[] {
-    return ['<% print(`${observedAttributes.join("', '")}`) %>'];
+    return [<% print(observedAttributes.map(word => `'${word}'`).join(', ')) %>];
   }
 
   /** Rerender when the observed attributes change. */
