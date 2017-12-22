@@ -1,7 +1,7 @@
 language: node_js
 node_js:
-  - "node"
-  - "8"
+  - node
+  - 8
 env:
   - PKG_ENV=npm
   - PKG_ENV=yarn
@@ -12,4 +12,5 @@ os:
   - linux
   - osx
 addons:
-  firefox: "latest"
+  firefox: latest
+  chrome: stable
