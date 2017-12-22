@@ -1,10 +1,16 @@
 language: node_js
 node_js:
-  - "node"
-  - "8"
+  - node
+  - 8
 env:
   - PKG_ENV=npm
   - PKG_ENV=yarn
 before_install:
   - if [[ "$PKG_ENV" == "yarn" ]]; then curl -o- -L https://yarnpkg.com/install.sh | bash; fi
   - if [[ "$PKG_ENV" == "yarn" ]]; then export PATH=$HOME/.yarn/bin:$PATH; fi
+os:
+  - linux
+  - osx
+addons:
+  firefox: latest
+  chrome: stable
