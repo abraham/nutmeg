@@ -32,7 +32,7 @@
   "devDependencies": {
     "@types/chai": "4.0.10",
     "@types/karma-fixture": "0.2.3",
-    "@types/mocha": "2.2.44",
+    "@types/mocha": "2.2.45",
     "@webcomponents/webcomponentsjs": "1.0.22",
     "babel-preset-es2015": "6.24.1",
     "chai": "4.1.2",
