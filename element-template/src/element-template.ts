@@ -34,6 +34,11 @@ export default class <%= name %> extends HTMLElement {
     render(this.template, this.shadowRoot as ShadowRoot);
   }
 
+  /** Helper to quickly query the rendered shadowRoot. `this.$('div.actions')` */
+  private $(selectors: string): Element | null {
+    return this.shadowRoot.querySelector(selectors);
+  }
+
   /** Support lazy properties https://developers.google.com/web/fundamentals/web-components/best-practices#lazy-properties */
   private upgradeProperties() {
     (<any>this).constructor['observedAttributes'].forEach((prop: string) => {
