@@ -1,9 +1,6 @@
 import { html, render, TemplateResult } from 'lit-html';
 
 export default class <%= name %> extends HTMLElement {
-  /** The constructor always attaches a shadowRoot so no need for it to be null. */
-  public shadowRoot: ShadowRoot;
-
 <% attributes.filter(attr => richTypes.includes(attr.type) || attr.type.endsWith('[]')).forEach((attr) => {
     print(`  public ${attr.name}: ${attr.type} = ${attr.type.endsWith('[]') ? '[]' : '{}'};\n`);
 }); %>
@@ -34,7 +31,7 @@ export default class <%= name %> extends HTMLElement {
 
   /** Rerender the element. */
   render() {
-    render(this.template, this.shadowRoot);
+    render(this.template, this.shadowRoot as ShadowRoot);
   }
 
   /** Support lazy properties https://developers.google.com/web/fundamentals/web-components/best-practices#lazy-properties */
