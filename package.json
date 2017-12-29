@@ -53,7 +53,7 @@
     "commander": "2.12.2",
     "hasbin": "1.2.3",
     "lodash.template": "4.4.0",
-    "mocha": "4.0.1",
+    "mocha": "4.1.0",
     "pascal-case": "2.0.1",
     "recursive-copy": "2.0.8",
     "shelljs": "0.7.8",
