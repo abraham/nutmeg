@@ -36,7 +36,7 @@
         });
 
         it('is not rendered in shadowRoot', () => {
-          expect(component.shadowRoot.querySelector('.content').innerText).to.include(`<%= name %>: N/A`);
+          expect(component.shadowRoot.querySelector('.content').innerText).to.not.include(`<%= name %>: ${DEFAULTS.NUMBER}`);
         });
       });
     });
@@ -74,7 +74,7 @@
         });
 
         it('is not rendered in shadowRoot', () => {
-          expect(component.shadowRoot.querySelector('.content').innerText).to.include(`<%= name %>: N/A`);
+          expect(component.shadowRoot.querySelector('.content').innerText).to.not.include(`<%= name %>: ${DEFAULTS.NUMBER}`);
         });
       });
     });
