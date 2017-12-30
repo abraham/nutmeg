@@ -36,7 +36,7 @@ export default class <%= name %> extends HTMLElement {
 
   /** Helper to quickly query the rendered shadowRoot. `this.$('div.actions')` */
   private $(selectors: string): Element | null {
-    return this.shadowRoot.querySelector(selectors);
+    return (this.shadowRoot as ShadowRoot).querySelector(selectors);
   }
 
   /** Support lazy properties https://developers.google.com/web/fundamentals/web-components/best-practices#lazy-properties */
