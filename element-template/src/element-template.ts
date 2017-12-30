@@ -1,6 +1,7 @@
 import { html, render, TemplateResult } from 'lit-html';
 
 export class <%= name %> extends HTMLElement {
+  private _connected = false;
 <% attributes.filter(attr => richTypes.includes(attr.type) || attr.type.endsWith('[]')).forEach((attr) => {
     print(`  public ${attr.name}: ${attr.type} = ${attr.type.endsWith('[]') ? '[]' : '{}'};\n`);
 }); %>
@@ -11,12 +12,14 @@ export class <%= name %> extends HTMLElement {
 
   /** The element instance has been inserted into the DOM. */
   connectedCallback() {
+    this._connected = true;
     this.upgradeProperties();
     this.render();
   }
 
   /** The element instance has been removed from the DOM. */
   disconnectedCallback() {
+    this._connected = false;
   }
 
   /** Watch for changes to these attributes. */
@@ -31,7 +34,9 @@ export class <%= name %> extends HTMLElement {
 
   /** Rerender the element. */
   render() {
-    render(this.template, this.shadowRoot as ShadowRoot);
+    if(this._connected) {
+      render(this.template, this.shadowRoot as ShadowRoot);
+    }
   }
 
   /** Helper to quickly query the rendered shadowRoot. `this.$('div.actions')` */
