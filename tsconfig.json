@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "inlineSources": true,
+    "lib": ["es2017", "dom"],
+    "listEmittedFiles": true,
+    "module": "es2015",
+    "moduleResolution": "Node",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUnusedParameters": true,
+    "outDir": "dist",
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "sourceRoot": "src",
+    "strict": true,
+    "target": "es2017",
+  },
+  "include": [
+    "src"
+  ],
+}

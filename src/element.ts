@@ -1,0 +1,74 @@
+import { html, render, TemplateResult } from 'lit-html';
+
+/** Extending classes are expected to define `template` and `styles`. */
+export interface Element {
+  template: TemplateResult;
+  styles: TemplateResult;
+  shadowRoot: ShadowRoot;
+}
+
+export class Element extends HTMLElement {
+  private _connected = false;
+
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+  }
+
+  /** The component instance has been inserted into the DOM. */
+  public connectedCallback() {
+    this._connected = true;
+    this.upgradeProperties();
+    this.render();
+  }
+
+  /** The component instance has been removed from the DOM. */
+  public disconnectedCallback() {
+    this._connected = false;
+  }
+
+  /** Rerender when the observed attributes change. */
+  public attributeChangedCallback(_name: string, _oldValue: any, _newValue: any) {
+    this.render();
+  }
+
+  /** Render the component. */
+  public render(): void {
+    if (this._connected) {
+      render(this._template, this.shadowRoot as ShadowRoot);
+    }
+  }
+
+  /** Combine the components styles and template. */
+  private get _template(): TemplateResult {
+    return html`
+      ${this.styles}
+      ${this.template}
+    `;
+  }
+
+  /** Helper to quickly query the rendered shadowRoot. `this.$('div.actions')` */
+  private $(selectors: string): Element | null {
+    return (this.shadowRoot as ShadowRoot).querySelector(selectors);
+  }
+
+  /** Support lazy properties https://developers.google.com/web/fundamentals/web-components/best-practices#lazy-properties */
+  private upgradeProperties() {
+    const instance = <any>this;
+    (instance).constructor['observedAttributes'].forEach((prop: string) => {
+      if (instance.hasOwnProperty(prop)) {
+        let value = (instance)[prop];
+        delete (instance)[prop];
+        (instance)[prop] = value;
+      }
+    });
+  }
+}
+
+const Nutmeg = {
+  Element: Element,
+  html: html,
+  TemplateResult: TemplateResult,
+}
+
+export { Nutmeg, html, TemplateResult };
