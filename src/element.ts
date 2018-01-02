@@ -1,4 +1,5 @@
 import { html, render, TemplateResult } from 'lit-html';
+import { Property } from './decorators';
 
 /** Extending classes are expected to define `template` and `styles`. */
 export interface Element {
@@ -65,10 +66,6 @@ export class Element extends HTMLElement {
   }
 }
 
-const Nutmeg = {
-  Element: Element,
-  html: html,
-  TemplateResult: TemplateResult,
-}
+const Nutmeg = { Element: Element };
 
-export { Nutmeg, html, TemplateResult };
+export { Nutmeg, Property, html, TemplateResult };
