@@ -20,6 +20,7 @@ export class Element extends HTMLElement {
   public connectedCallback() {
     this._connected = true;
     this.upgradeProperties();
+    this.upgradeAttributes();
     this.render();
   }
 
@@ -56,11 +57,23 @@ export class Element extends HTMLElement {
   /** Support lazy properties https://developers.google.com/web/fundamentals/web-components/best-practices#lazy-properties */
   private upgradeProperties() {
     const instance = <any>this;
-    (instance).constructor['observedAttributes'].forEach((prop: string) => {
+    const props = (instance).constructor['observedAttributes'].concat((instance).constructor['observedProperties']);
+    props.forEach((prop: string) => {
       if (instance.hasOwnProperty(prop)) {
         let value = (instance)[prop];
         delete (instance)[prop];
         (instance)[prop] = value;
+      }
+    });
+  }
+
+  /** Perform a one-time upgrade of complex properties from JSON encoded attributes. */
+  private upgradeAttributes() {
+    const instance = <any>this;
+    (instance).constructor['observedProperties'].forEach((prop: string) => {
+      if (instance.hasAttribute(prop)) {
+        (instance)[prop] = JSON.parse(instance.getAttribute(prop));
+        instance.removeAttribute(prop);
       }
     });
   }
