@@ -22,12 +22,13 @@
     "clean": "rm -rf dist/*",
     "prebuild": "npm run clean",
     "prepare": "npm run build",
+    "pretest": "npm run build",
     "serve": "tsc --watch & webpack-dev-server --open",
     "test": "karma start",
     "watch": "tsc --watch & webpack --watch"
   },
   "dependencies": {
-    "lit-html": "0.7.1"
+    "@nutmeg/element": "0.1.0"
   },
   "devDependencies": {
     "@types/chai": "4.0.10",
