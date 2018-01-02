@@ -23,6 +23,11 @@ export class <%= name %> extends Nutmeg.Element {
     return [<% print(observedAttributes.map(word => `'${word}'`).join(', ')) %>];
   }
 
+  /** Watch for changes to these properties. */
+  public static get observedProperties(): string[] {
+    return [<% print(observedProperties.map(word => `'${word}'`).join(', ')) %>];
+  }
+
   /** Rerender when the observed attributes change. */
   public attributeChangedCallback(name: string, oldValue: any, newValue: any) {
     super.attributeChangedCallback(name, oldValue, newValue)
