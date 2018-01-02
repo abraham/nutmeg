@@ -71,6 +71,7 @@ const data = {
   tag: tag,
   attributes: attributes,
   observedAttributes: attributes.filter(attr => primitiveTypes.includes(attr.type)).map(attr => attr.name),
+  observedProperties: attributes.filter(attr => !primitiveTypes.includes(attr.type)).map(attr => attr.name),
   primitiveTypes: primitiveTypes,
   richTypes: richTypes,
 };
