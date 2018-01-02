@@ -33,5 +33,12 @@
   <<%= tag %>>Slot content</<%= tag %>>
 
   <<%= tag %> class="blue"></<%= tag %>>
+
+  <script>
+    /** Set complex properties */
+    // document.querySelector('<%= tag %>').foo = ['bar'];
+  </script>
+
+  <!-- In development `<%= tag %>.bundled.js` will automatically be loaded. -->
 </body>
 </html>
