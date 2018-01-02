@@ -1,65 +1,39 @@
-import { html, render, TemplateResult } from 'lit-html';
+import { Nutmeg, html, TemplateResult } from '@nutmeg/element';
 
-export class <%= name %> extends HTMLElement {
-  private _connected = false;
+export class <%= name %> extends Nutmeg.Element {
 <% attributes.filter(attr => richTypes.includes(attr.type) || attr.type.endsWith('[]')).forEach((attr) => {
     print(`  public ${attr.name}: ${attr.type} = ${attr.type.endsWith('[]') ? '[]' : '{}'};\n`);
 }); %>
   constructor() {
     super();
-    this.attachShadow({ mode: 'open' });
   }
 
-  /** The element instance has been inserted into the DOM. */
-  connectedCallback() {
-    this._connected = true;
-    this.upgradeProperties();
-    this.render();
+  /** The component instance has been inserted into the DOM. */
+  public connectedCallback() {
+    super.connectedCallback();
   }
 
-  /** The element instance has been removed from the DOM. */
-  disconnectedCallback() {
-    this._connected = false;
+  /** The component instance has been removed from the DOM. */
+  public disconnectedCallback() {
+    super.disconnectedCallback()
   }
 
   /** Watch for changes to these attributes. */
-  static get observedAttributes(): string[] {
+  public static get observedAttributes(): string[] {
     return [<% print(observedAttributes.map(word => `'${word}'`).join(', ')) %>];
   }
 
   /** Rerender when the observed attributes change. */
-  attributeChangedCallback(_name: string, _oldValue: any, _newValue: any) {
-    this.render();
+  public attributeChangedCallback(name: string, oldValue: any, newValue: any) {
+    super.attributeChangedCallback(name, oldValue, newValue)
   }
 
-  /** Rerender the element. */
-  render() {
-    if(this._connected) {
-      render(this.template, this.shadowRoot as ShadowRoot);
-    }
-  }
-
-  /** Helper to quickly query the rendered shadowRoot. `this.$('div.actions')` */
-  private $(selectors: string): Element | null {
-    return (this.shadowRoot as ShadowRoot).querySelector(selectors);
-  }
-
-  /** Support lazy properties https://developers.google.com/web/fundamentals/web-components/best-practices#lazy-properties */
-  private upgradeProperties() {
-    (<any>this).constructor['observedAttributes'].forEach((prop: string) => {
-      if (this.hasOwnProperty(prop)) {
-        let value = (<any>this)[prop];
-        delete (<any>this)[prop];
-        (<any>this)[prop] = value;
-      }
-    });
-  }
 <% attributes.filter(attr => primitiveTypes.includes(attr.type))
              .forEach((attr) => {
   print("\n" + partial(`${attr.type}.property.ts`, attr));
 }) %>
-  /** Styling for the element. */
-  private get styles(): TemplateResult {
+  /** Styling for the component. */
+  public get styles(): TemplateResult {
     return html`
       <style>
         :host {
@@ -80,10 +54,9 @@ export class <%= name %> extends HTMLElement {
     `;
   }
 
-  /** HTML Template for the element. */
-  private get template(): TemplateResult {
+  /** HTML Template for the component. */
+  public get template(): TemplateResult {
     return html`
-      ${this.styles}
       <div class="content">
         Welcome to &lt;<%= tag %>&gt;
 

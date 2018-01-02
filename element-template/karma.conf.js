@@ -4,7 +4,7 @@ module.exports = function(config) {
     browsers: ['ChromeHeadless', 'FirefoxHeadless'],
     files: [
       './node_modules/@webcomponents/webcomponentsjs/webcomponents-sd-ce.js',
-      { pattern: 'src/*.ts' },
+      { pattern: 'dist/*.bundled.js' },
       { pattern: 'test/*.test.ts' },
       { pattern: 'test/fixture/*.html' },
     ],
