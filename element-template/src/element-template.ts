@@ -3,7 +3,7 @@ import { html, render, TemplateResult } from 'lit-html';
 export class <%= name %> extends HTMLElement {
   private _connected = false;
 <% attributes.filter(attr => richTypes.includes(attr.type) || attr.type.endsWith('[]')).forEach((attr) => {
-    print(`  public ${attr.name}: ${attr.type} = ${attr.type.endsWith('[]') ? '[]' : '{}'};\n`);
+    print(`  public ${attr.name}: ${attr.type};\n`);
 }); %>
   constructor() {
     super();
