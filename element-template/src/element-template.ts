@@ -89,7 +89,7 @@ export class <%= name %> extends HTMLElement {
 
         <ul><% attributes.filter(attr => primitiveTypes.includes(attr.type))
                          .forEach((attr) => {
-              print(`\n          <li>${attr.name}: \${this.${attr.name} === null ? 'N/A' : this.${attr.name}}</li>`);
+              print(`\n          <li>${attr.name}: \${this.${attr.name}}</li>`);
             }); %>
         </ul>
 
