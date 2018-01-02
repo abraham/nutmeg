@@ -1,8 +1,8 @@
-import { Nutmeg, html, TemplateResult } from '@nutmeg/element';
+import { Nutmeg, Property, html, TemplateResult } from '@nutmeg/element';
 
 export class <%= name %> extends Nutmeg.Element {
-<% attributes.filter(attr => richTypes.includes(attr.type) || attr.type.endsWith('[]')).forEach((attr) => {
-    print(`  public ${attr.name}: ${attr.type} = ${attr.type.endsWith('[]') ? '[]' : '{}'};\n`);
+<% attributes.forEach((attr) => {
+    print(`  @Property() public ${attr.name}: ${attr.type};\n`);
 }); %>
   constructor() {
     super();
@@ -28,10 +28,6 @@ export class <%= name %> extends Nutmeg.Element {
     super.attributeChangedCallback(name, oldValue, newValue)
   }
 
-<% attributes.filter(attr => primitiveTypes.includes(attr.type))
-             .forEach((attr) => {
-  print("\n" + partial(`${attr.type}.property.ts`, attr));
-}) %>
   /** Styling for the component. */
   public get styles(): TemplateResult {
     return html`
