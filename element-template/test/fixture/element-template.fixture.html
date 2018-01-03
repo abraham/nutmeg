@@ -8,18 +8,8 @@
   </style>
   <<%= tag %> class="blue"></<%= tag %>>
 </div>
-<<%= tag %><% attributes.filter(attr => primitiveTypes.includes(attr.type))
-                        .forEach(attr => {
-                          switch(attr.type) {
-                            case 'boolean':
-                              print(` ${attr.name}`)
-                              break;
-                            case 'number':
-                              print(` ${attr.name}="42"`)
-                              break;
-                            case 'string':
-                              print(` ${attr.name}="Pickle"`)
-                              break;
-                          }
+<<%= tag %><% properties.primitive
+                        .forEach(property => {
+                          print(` ${property.name}="${property.value}"`)
                         }); %>></<%= tag %>>
 <<%= tag %>></<%= tag %>>

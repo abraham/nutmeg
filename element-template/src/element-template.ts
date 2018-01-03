@@ -1,8 +1,8 @@
 import { Nutmeg, Property, html, TemplateResult } from '@nutmeg/element';
 
 export class <%= name %> extends Nutmeg.Element {
-<% attributes.forEach((attr) => {
-    print(`  @Property() public ${attr.name}: ${attr.type};\n`);
+<% properties.properties.forEach((property) => {
+    print(`  @Property() public ${property.name}: ${property.type};\n`);
 }); %>
   constructor() {
     super();
@@ -61,9 +61,8 @@ export class <%= name %> extends Nutmeg.Element {
       <div class="content">
         Welcome to &lt;<%= tag %>&gt;
 
-        <ul><% attributes.filter(attr => primitiveTypes.includes(attr.type))
-                         .forEach((attr) => {
-              print(`\n          <li>${attr.name}: \${this.${attr.name}}</li>`);
+        <ul><% properties.primitive.forEach((property) => {
+              print(`\n          <li>${property.name}: \${this.${property.name}}</li>`);
             }); %>
         </ul>
 
