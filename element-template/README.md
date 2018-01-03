@@ -20,8 +20,8 @@ Usage
 ----
 
 ```
-<% attributes.forEach(attribute => {
-    print(`  <${tag} ${attribute.name}="Some value"></${tag}>\n\n`);
+<% properties.properties.forEach(property => {
+    print(`  <${tag} ${property.name}="${property.value}"></${tag}>\n\n`);
   }); %>  <<%= tag %>>Slot content</<%= tag %>>
 ```
 

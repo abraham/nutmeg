@@ -64,9 +64,7 @@ describe('<<%= tag %>>', () => {
       });
     });
   });
-<% attributes.filter(attribute => !attribute.type.endsWith('[]'))
-             .filter(attribute => primitiveTypes.includes(attribute.type))
-             .forEach((attribute) => {
-  print("\n" + partial(`${attribute.type}.test.ts`, attribute));
+<% properties.primitive.forEach((property) => {
+  print("\n" + partial(`${property.type}.test.ts`, property));
 }) %>
 });

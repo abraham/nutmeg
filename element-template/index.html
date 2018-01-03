@@ -27,8 +27,7 @@
 <body>
   <<%= tag %>></<%= tag %>>
 
-  <<%= tag %> <%= attributes.filter(attr => primitiveTypes.includes(attr.type))
-                            .map(attr => `${attr.name}="Pickle"`).join(' ') %>></<%= tag %>>
+  <<%= tag %> <%= properties.primitive.map(property => `${property.name}="${property.value}"`).join(' ') %>></<%= tag %>>
 
   <<%= tag %>>Slot content</<%= tag %>>
 
