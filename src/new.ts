@@ -12,10 +12,10 @@ program.parse(process.argv);
 
 const component = new Component(program.args[0]);
 const nutmegDir = path.resolve(process.argv[1]);
-const workdingDir = path.resolve('./');
+const workingDir = path.resolve('./');
 const requestedProperties = program.args.slice(1);
 const properties = new Properties(requestedProperties);
-const generator = new Generator(nutmegDir, workdingDir, component.tag);
+const generator = new Generator(nutmegDir, workingDir, component.tag);
 const data = {
   name: component.name,
   tag: component.tag,
