@@ -17,15 +17,15 @@ interface data {
 
 export class Generator {
   private nutmegDir: string;
-  private workdingDir: string;
+  private workingDir: string;
   private tag: string;
   private data: data;
   private originTag = 'element-template';
   private fileFilter = [ '**/*', '!partial', '!partial/*' ];
 
-  constructor(nutmegDir: string, workdingDir: string, tag: string) {
+  constructor(nutmegDir: string, workingDir: string, tag: string) {
     this.nutmegDir = nutmegDir;
-    this.workdingDir = workdingDir;
+    this.workingDir = workingDir;
     this.tag = tag;
   }
 
@@ -78,11 +78,11 @@ export class Generator {
   }
 
   private get destinationDir(): string {
-    return path.resolve(this.workdingDir, `./${this.tag}`);
+    return path.resolve(this.workingDir, `./${this.tag}`);
   }
 
   private trimFilename(path: string): string {
-    return path.split(`${this.workdingDir}/`)[1];
+    return path.split(`${this.workingDir}/`)[1];
   }
 
   private transform(_src: string, _dest: string, _stats: object) {
