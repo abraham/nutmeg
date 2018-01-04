@@ -5,8 +5,11 @@
   "main": "dist/cli.js",
   "types": "dist/cli.d.ts",
   "bin": {
-    "nutmeg": "bin/nutmeg",
-    "nutmeg-new": "bin/nutmeg-new"
+    "nutmeg-build": "bin/nutmeg-build",
+    "nutmeg-new": "bin/nutmeg-new",
+    "nutmeg-serve": "bin/nutmeg-serve",
+    "nutmeg-watch": "bin/nutmeg-watch",
+    "nutmeg": "bin/nutmeg"
   },
   "directories": {
     "test": "test"
@@ -42,9 +45,17 @@
     "watch": "webpack --watch"
   },
   "engines": {
-    "node" : ">=8"
+    "node": ">=8"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@webcomponents/webcomponentsjs": "1.0.22",
+    "html-webpack-plugin": "2.30.1",
+    "ts-loader": "3.2.0",
+    "typescript": "2.6.2",
+    "uglifyjs-webpack-plugin": "1.1.5",
+    "webpack": "3.10.0",
+    "webpack-dev-server": "2.9.7"
+  },
   "devDependencies": {
     "@types/lodash.template": "4.4.3",
     "@types/node": "8.5.7",
@@ -53,14 +64,10 @@
     "commander": "2.12.2",
     "hasbin": "1.2.3",
     "lodash.template": "4.4.0",
-    "mocha": "4.1.0",
     "pascal-case": "2.0.1",
     "recursive-copy": "2.0.8",
     "shelljs": "0.7.8",
-    "through2": "2.0.3",
-    "ts-loader": "3.2.0",
-    "typescript": "2.6.2",
-    "webpack": "3.10.0"
+    "through2": "2.0.3"
   },
   "browser": {
     "fs": false,

@@ -3,8 +3,11 @@ const path = require('path');
 module.exports = {
   target: 'node',
   entry: {
+    build: './src/build.ts',
     main: './src/main.ts',
     new: './src/new.ts',
+    serve: './src/serve.ts',
+    watch: './src/watch.ts',
   },
   module: {
     rules: [{
