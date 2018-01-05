@@ -23,15 +23,9 @@ const data = {
   primitiveTypes: properties.primitiveTypes,
 };
 
-if (!component.valid) {
-   exit('Component name must be in format of `foo-bar`');
-}
-if (generator.destinationDirExists) {
-   exit(`Directory "${component.tag}" already exists`);
-}
-if (!properties.valid) {
-  exit('Properties must be in format of `name:type`');
-}
+exit('Component name must be in format of `foo-bar`', !component.valid);
+exit(`Directory "${component.tag}" already exists`, generator.destinationDirExists);
+exit('Properties must be in format of `name:type`', !properties.valid);
 
 generator.execute(data)
   .then(() => {

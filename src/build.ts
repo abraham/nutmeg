@@ -1,6 +1,7 @@
 import path = require('path');
 import program = require('commander');
 import shell = require("shelljs");
+
 import { isNutmegComponent, exit } from './utils';
 
 program.command('build [path]', 'compile a Web Component')
@@ -18,12 +19,7 @@ const webpackCmd = `webpack --config ${webpackConfigFile} --env.tag=${tag} --env
 console.log('webpackCmd', webpackCmd);
 console.log('nutmegDir', nutmegDir, 'workingDir', workingDir);
 
-if (!isNutmegComponent(workingDir)) {
-   exit("Directory doesn't have a package.json with @nutmeg/element as a dependancy.");
-}
-
-// TODO: validate package.json exists
-// TODO: validate tag name from directory
+exit("Directory doesn't have a package.json with @nutmeg/element as a dependancy.", !isNutmegComponent(workingDir));
 
 shell.exec(`rm -rf ${distDir}`);
 shell.exec(`npx ${tscCmd}`);

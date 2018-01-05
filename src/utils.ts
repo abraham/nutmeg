@@ -21,9 +21,11 @@ function hasYarn(): boolean {
   return hasbin.sync('yarn');
 }
 
-function exit(message: string): void {
-   console.error(message);
-   process.exit(1);
+function exit(message: string, condition = true): void {
+  if (condition) {
+    console.error(message);
+    process.exit(1);
+  }
 }
 
 function commitToGit(): void {
