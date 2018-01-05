@@ -1,6 +1,6 @@
 import { Nutmeg, Property, html, TemplateResult } from '@nutmeg/element';
 
-export class <%= name %> extends Nutmeg.Element {
+export class <%= name %> extends Nutmeg.Seed {
 <% properties.properties.forEach((property) => {
     print(`  @Property() public ${property.name}: ${property.type};\n`);
 }); %>
