@@ -1,5 +1,21 @@
 import hasbin = require('hasbin');
-import shell = require("shelljs");
+import shell = require('shelljs');
+import path = require('path');
+import fs = require('fs');
+
+function isNutmegComponent(workingDir: string): boolean {
+  try {
+    const meta = loadPackageJson(workingDir);
+    return meta && meta.dependencies && meta.dependencies.hasOwnProperty('@nutmeg/element');
+  } catch(e) {
+    return false;
+  }
+}
+
+function loadPackageJson(dir: string): { dependencies: {} } {
+  const packagePath = path.resolve(dir, 'package.json');
+  return JSON.parse(fs.readFileSync(packagePath).toString());
+}
 
 function hasYarn(): boolean {
   return hasbin.sync('yarn');
@@ -30,4 +46,5 @@ export {
   exit,
   hasYarn,
   installDependencies,
+  isNutmegComponent,
 };
