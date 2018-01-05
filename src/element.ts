@@ -79,6 +79,9 @@ export class Element extends HTMLElement {
   }
 }
 
-const Nutmeg = { Element: Element };
+const Nutmeg = {
+  Element: Element,
+  Seed: Element,
+};
 
 export { Nutmeg, Property, html, TemplateResult };
