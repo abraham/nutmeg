@@ -28,7 +28,7 @@
     "watch": "tsc --watch & webpack --watch"
   },
   "dependencies": {
-    "@nutmeg/element": "0.2.1"
+    "@nutmeg/element": "0.3.0"
   },
   "devDependencies": {
     "@types/chai": "4.1.0",
