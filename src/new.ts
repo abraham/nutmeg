@@ -20,8 +20,6 @@ const data = {
   name: component.name,
   tag: component.tag,
   properties: properties,
-  observedAttributes: properties.primitive.map(property => property.name),
-  observedProperties: properties.complex.map(property => property.name),
   primitiveTypes: properties.primitiveTypes,
 };
 

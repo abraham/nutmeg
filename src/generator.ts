@@ -10,8 +10,6 @@ interface data {
   name: string;
   tag: string;
   properties: Properties,
-  observedAttributes: string[],
-  observedProperties: string[],
   primitiveTypes: string[],
 };
 
