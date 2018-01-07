@@ -1,5 +1,6 @@
 module.exports = function(config) {
   config.set({
+    basePath: '/Users/abraham/dev/nutmeg/sandbox/pixel-pie',
     frameworks: ['mocha', 'chai', 'fixture', 'karma-typescript'],
     browsers: ['ChromeHeadless', 'FirefoxHeadless'],
     files: [

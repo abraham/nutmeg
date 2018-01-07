@@ -8,6 +8,7 @@
     "nutmeg-build": "bin/nutmeg-build",
     "nutmeg-new": "bin/nutmeg-new",
     "nutmeg-serve": "bin/nutmeg-serve",
+    "nutmeg-test": "bin/nutmeg-test",
     "nutmeg-watch": "bin/nutmeg-watch",
     "nutmeg": "bin/nutmeg"
   },
@@ -49,12 +50,27 @@
   },
   "dependencies": {
     "@webcomponents/webcomponentsjs": "1.0.22",
+    "babel-preset-es2015": "6.24.1",
+    "chai": "4.1.2",
     "html-webpack-plugin": "2.30.1",
+    "karma-chai": "0.1.0",
+    "karma-chrome-launcher": "2.2.0",
+    "karma-firefox-launcher": "1.1.0",
+    "karma-fixture": "0.2.6",
+    "karma-html2js-preprocessor": "1.1.0",
+    "karma-mocha": "1.3.0",
+    "karma-opera-launcher": "1.0.0",
+    "karma-safari-launcher": "1.0.0",
+    "karma-typescript-es6-transform": "1.0.3",
+    "karma-typescript": "3.0.9",
+    "karma-webpack": "2.0.9",
+    "karma": "2.0.0",
+    "mocha": "4.1.0",
     "ts-loader": "3.2.0",
     "typescript": "2.6.2",
     "uglifyjs-webpack-plugin": "1.1.5",
-    "webpack": "3.10.0",
-    "webpack-dev-server": "2.9.7"
+    "webpack-dev-server": "2.10.0",
+    "webpack": "3.10.0"
   },
   "devDependencies": {
     "@types/lodash.template": "4.4.3",

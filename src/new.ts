@@ -14,7 +14,7 @@ program.parse(process.argv);
 const component = new Component(program.args[0]);
 const nutmegDir = path.resolve(process.argv[1], '../..');
 const workingDir = path.resolve('./');
-const cliVersion = program.development ? `file:${nutmegDir}` : require('../package.json')['version'];
+const cliVersion = program.development ? `file:../../cli` : require('../package.json')['version'];
 const requestedProperties = program.args.slice(1);
 const properties = new Properties(requestedProperties);
 const generator = new Generator(nutmegDir, workingDir, component.tag);
