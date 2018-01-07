@@ -3,13 +3,13 @@ import { TemplateResult } from 'lit-html';
 import { Property } from './decorators';
 
 /** Extending classes are expected to define `template` and `styles`. */
-export interface Element {
+interface Element {
   template: TemplateResult;
   styles: TemplateResult;
   shadowRoot: ShadowRoot;
 }
 
-export class Element extends HTMLElement {
+class Element extends HTMLElement {
   private _connected = false;
 
   constructor() {
@@ -80,14 +80,11 @@ export class Element extends HTMLElement {
   }
 }
 
-const Nutmeg = {
-  Element: Element,
-  Seed: Element,
-};
-
 export {
+  Element as Seed,
+  Element,
   html,
-  Nutmeg,
+  Property as Prop,
   Property,
   TemplateResult,
 };
