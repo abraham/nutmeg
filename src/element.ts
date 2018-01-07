@@ -50,8 +50,17 @@ class Element extends HTMLElement {
   /** Combine the components styles and template. */
   private get _template(): TemplateResult {
     return html`
-      ${this.styles}
-      ${this.template}
+    <style>
+      :host {
+        display: block;
+      }
+
+      :host([hidden]) {
+        display: none;
+      }
+    </style>
+    ${this.styles}
+    ${this.template}
     `;
   }
 
