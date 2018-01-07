@@ -42,17 +42,17 @@ class Element extends HTMLElement {
     }
   }
 
+  /** Helper to quickly query the rendered shadowRoot. `this.$('div.actions')` */
+  public $(selectors: string): Element | null {
+    return (this.shadowRoot as ShadowRoot).querySelector(selectors);
+  }
+
   /** Combine the components styles and template. */
   private get _template(): TemplateResult {
     return html`
       ${this.styles}
       ${this.template}
     `;
-  }
-
-  /** Helper to quickly query the rendered shadowRoot. `this.$('div.actions')` */
-  private $(selectors: string): Element | null {
-    return (this.shadowRoot as ShadowRoot).querySelector(selectors);
   }
 
   /** Support lazy properties https://developers.google.com/web/fundamentals/web-components/best-practices#lazy-properties */
