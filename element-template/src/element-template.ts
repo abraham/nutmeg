@@ -20,12 +20,7 @@ export class <%= name %> extends Seed {
 
   /** Watch for changes to these attributes. */
   public static get observedAttributes(): string[] {
-    return [<% print(observedAttributes.map(word => `'${word}'`).join(', ')) %>];
-  }
-
-  /** Watch for changes to these properties. */
-  public static get observedProperties(): string[] {
-    return [<% print(observedProperties.map(word => `'${word}'`).join(', ')) %>];
+    return super.observedAttributes;
   }
 
   /** Rerender when the observed attributes change. */
