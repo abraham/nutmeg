@@ -11,6 +11,7 @@ interface Element {
 
 class Element extends HTMLElement {
   private _connected = false;
+  private static observedProperties: string[] = [];
 
   constructor() {
     super();
