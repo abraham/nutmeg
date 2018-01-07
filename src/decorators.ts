@@ -3,8 +3,18 @@ import 'reflect-metadata';
 
 const primitiveTypes = [Boolean, Number, String];
 
-function shouldObserveProperty(target: HTMLElement, key: string, type: any) {
-  return !primitiveTypes.includes(type) && !(<any>target).constructor['observedProperties'].includes(key);
+function alreadyObserved(target: HTMLElement, key: string, type: any) {
+  return (<any>target).constructor[observeType(type)].includes(key);
+}
+
+function observeType(type: any): string {
+  return primitiveTypes.includes(type) ? 'observedAttributes' : 'observedProperties';
+}
+
+function observe(target: HTMLElement, key: string, type: any) {
+  if (!alreadyObserved(target, key, type)) {
+    (<any>target).constructor[observeType(type)].push(key);
+  }
 }
 
 function getter(key: string, type: any) {
@@ -52,9 +62,7 @@ function setter(key: string, type: any) {
 export function Property() {
   return function(target: HTMLElement, key: string) {
     const type = Reflect.getMetadata('design:type', target, key);
-    if (shouldObserveProperty(target, key, type)) {
-      (<any>target).constructor['observedProperties'].push(key);
-    }
+    observe(target, key, type);
 
     Object.defineProperty(target, key, {
       configurable: true,
