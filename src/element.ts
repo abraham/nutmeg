@@ -1,4 +1,5 @@
-import { html, render, TemplateResult } from 'lit-html';
+import { html, render } from 'lit-html/lib/lit-extended';
+import { TemplateResult } from 'lit-html';
 import { Property } from './decorators';
 
 /** Extending classes are expected to define `template` and `styles`. */
@@ -84,4 +85,9 @@ const Nutmeg = {
   Seed: Element,
 };
 
-export { Nutmeg, Property, html, TemplateResult };
+export {
+  html,
+  Nutmeg,
+  Property,
+  TemplateResult,
+};
