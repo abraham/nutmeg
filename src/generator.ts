@@ -72,7 +72,7 @@ export class Generator {
   }
 
   private get templateDir(): string {
-    return path.resolve(this.nutmegDir, `../../${this.originTag}`);
+    return path.resolve(this.nutmegDir, this.originTag);
   }
 
   private get destinationDir(): string {
