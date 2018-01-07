@@ -1,4 +1,4 @@
-import { Element } from './element';
+import { Seed } from './element';
 import 'reflect-metadata';
 
 const primitiveTypes = [Boolean, Number, String];
@@ -8,7 +8,7 @@ function shouldObserveProperty(target: HTMLElement, key: string, type: any) {
 }
 
 function getter(key: string, type: any) {
-  return function(this: Element) {
+  return function(this: Seed) {
     switch(type) {
       case String:
         return this.getAttribute(key);
@@ -27,7 +27,7 @@ function getter(key: string, type: any) {
 }
 
 function setter(key: string, type: any) {
-  return function(this: Element, value: any) {
+  return function(this: Seed, value: any) {
     if (value === null || value === undefined || value === false) {
       this.removeAttribute(key);
     } else {
