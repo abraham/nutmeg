@@ -23,7 +23,7 @@ class Element extends HTMLElement {
   public connectedCallback() {
     this._connected = true;
     this.upgradeProperties();
-    this.upgradeAttributes();
+    this.upgradePropertyAttributes();
     this.render();
   }
 
@@ -80,7 +80,7 @@ class Element extends HTMLElement {
   }
 
   /** Perform a one-time upgrade of complex properties from JSON encoded attributes. */
-  private upgradeAttributes() {
+  private upgradePropertyAttributes() {
     const instance = <any>this;
     (instance).constructor['observedProperties'].forEach((prop: string) => {
       if (instance.hasAttribute(prop)) {
