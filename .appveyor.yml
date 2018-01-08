@@ -9,8 +9,8 @@ install:
   # Get the latest stable version of Node.js or io.js
   - ps: Install-Product node $env:nodejs_version
   # install modules
-  - npm install
-  - npm install --global .
+  - npm install --no-optional
+  - npm install --global . --no-optional
 
 # Post-install test scripts.
 test_script:

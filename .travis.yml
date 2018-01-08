@@ -9,7 +9,7 @@ before_install:
   - if [[ "$PKG_ENV" == "yarn" ]]; then curl -o- -L https://yarnpkg.com/install.sh | bash; fi
   - if [[ "$PKG_ENV" == "yarn" ]]; then export PATH=$HOME/.yarn/bin:$PATH; fi
 before_script:
-  - npm install --global .
+  - npm install --global . --no-optional
 os:
   - linux
   - osx

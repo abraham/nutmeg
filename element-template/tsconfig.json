@@ -3,7 +3,6 @@
     "declaration": true,
     "inlineSources": true,
     "lib": ["es2017", "dom"],
-    "listEmittedFiles": true,
     "module": "es2015",
     "moduleResolution": "Node",
     "noFallthroughCasesInSwitch": true,
