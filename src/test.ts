@@ -24,4 +24,4 @@ console.log('karmaCmd', karmaCmd);
 
 exit("Directory doesn't have a package.json with @nutmeg/element as a dependancy.", !isNutmegComponent(workingDir));
 
-shell.exec(`npx ${karmaCmd}`);
+shell.exec(`NUTMEG_WORKING_DIR='${workingDir}' npx ${karmaCmd}`);

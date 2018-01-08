@@ -1,6 +1,6 @@
 module.exports = function(config) {
   config.set({
-    basePath: '/Users/abraham/dev/nutmeg/sandbox/pixel-pie',
+    basePath: process.env['NUTMEG_WORKING_DIR'],
     frameworks: ['mocha', 'chai', 'fixture', 'karma-typescript'],
     browsers: ['ChromeHeadless', 'FirefoxHeadless'],
     files: [
@@ -22,11 +22,11 @@ module.exports = function(config) {
     },
     karmaTypescriptConfig: {
       compilerOptions: {
-        target: 'es2017',
+        target: 'es2015',
       },
       bundlerOptions: {
         transforms: [require("karma-typescript-es6-transform")({presets: 'es2015'})],
-      }
-    }
+      },
+    },
   });
 }
