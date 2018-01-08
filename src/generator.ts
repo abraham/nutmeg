@@ -68,7 +68,7 @@ export class Generator {
   }
 
   private partialPath(partialName: string) {
-    return path.resolve(this.templateDir, './partial', partialName);
+    return path.resolve(this.templateDir, 'partial', partialName);
   }
 
   private get templateDir(): string {
@@ -76,11 +76,11 @@ export class Generator {
   }
 
   private get destinationDir(): string {
-    return path.resolve(this.workingDir, `./${this.tag}`);
+    return path.resolve(this.workingDir, this.tag);
   }
 
-  private trimFilename(path: string): string {
-    return path.split(`${this.workingDir}/`)[1];
+  private trimFilename(filePath: string): string {
+    return filePath.split(`${this.workingDir}${path.sep}`)[1];
   }
 
   private transform(_src: string, _dest: string, _stats: object) {
