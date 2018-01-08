@@ -1,10 +1,15 @@
 import pascalCase = require('pascal-case')
+import path = require('path');
 
 export class Component {
   public tag: string;
 
   constructor(tag: string) {
       this.tag = tag;
+  }
+
+  public static tagFromPath(workingDir: string): string {
+    return workingDir.split(path.sep)[workingDir.split(path.sep).length - 1];
   }
 
   public get valid(): boolean {

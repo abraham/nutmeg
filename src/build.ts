@@ -2,6 +2,7 @@ import path = require('path');
 import program = require('commander');
 import shell = require("shelljs");
 
+import { Component } from './component';
 import { isNutmegComponent, exit } from './utils';
 
 program.command('build [path]', 'compile a Web Component')
@@ -12,7 +13,7 @@ const nutmegDir = path.resolve(process.argv[1], '../..');
 const workingDir = path.resolve(program.args[0]);
 const typescriptConfigFile = path.resolve(workingDir, 'tsconfig.json');
 const webpackConfigFile = path.resolve(nutmegDir, 'webpack.component.config.js');
-const tag = workingDir.split('/')[workingDir.split('/').length - 1];
+const tag = Component.tagFromPath(workingDir);
 const tscCmd = `tsc --project ${typescriptConfigFile}`;
 const webpackCmd = `webpack --config ${webpackConfigFile} --env.tag=${tag} --env.workingDir=${workingDir}`;
 
