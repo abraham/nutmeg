@@ -14,4 +14,5 @@ const distDir = path.resolve(workingDir, './dist');
 exit("Directory doesn't have a package.json with @nutmeg/element as a dependancy.", !isNutmegComponent(workingDir));
 
 console.log(`Cleaning ${distDir}`);
+
 shell.exec(`rm -rf ${distDir}`);

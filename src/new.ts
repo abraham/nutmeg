@@ -9,6 +9,7 @@ import { Properties, Property } from './properties';
 
 program.command('new <name> [property:type...]', 'generate a Web Component')
        .option('--cli-source [location]', 'install @nutmeg/cli dependency from local or github');
+
 program.parse(process.argv);
 
 const component = new Component(program.args[0]);
@@ -35,7 +36,7 @@ generator.execute(data)
     shell.cd(component.tag);
     commitToGit();
     installDependencies();
-    console.log('');
+    console.log();
     console.log(`Run \`npm run serve\` from ${component.tag} to start 🌱 building`);
   })
   .catch((error: object) => {
