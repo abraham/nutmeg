@@ -16,7 +16,7 @@ const tag = workingDir.split('/')[workingDir.split('/').length - 1];
 const tscCmd = `tsc --project ${typescriptConfigFile} --watch`;
 const webpackCmd = `webpack --config ${webpackConfigFile} --env.tag=${tag} --env.workingDir=${workingDir} --watch`;
 
-const karmaConfigFile = path.resolve(nutmegDir, 'karma.build.conf.js');
+const karmaConfigFile = path.resolve(nutmegDir, 'karma.component.config.js');
 const karmaCmd = `karma start ${karmaConfigFile}`;
 
 console.log('nutmegDir', nutmegDir, 'workingDir', workingDir);
