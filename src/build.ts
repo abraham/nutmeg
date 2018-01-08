@@ -5,7 +5,8 @@ import shell = require("shelljs");
 import { isNutmegComponent, exit } from './utils';
 
 program.command('build [path]', 'compile a Web Component')
-  .parse(process.argv);
+       .option('--production', 'compile a Web Component for deployment') // NOTE: This is currently not used.
+       .parse(process.argv);
 
 const nutmegDir = path.resolve(process.argv[1], '../..');
 const workingDir = path.resolve(program.args[0]);

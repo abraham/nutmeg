@@ -19,8 +19,9 @@
   "license": "MIT",
   "scripts": {
     "build": "npx nutmeg build .",
+    "build:production": "npx nutmeg build . --production",
     "prebuild": "npx nutmeg clean .",
-    "prepare": "npm run build",
+    "prepare": "npm run build:production",
     "pretest": "npm run build",
     "serve": "npx nutmeg serve .",
     "test": "npx nutmeg test .",
@@ -33,7 +34,6 @@
     "@nutmeg/cli": "<%= cliSource %>",
     "@types/chai": "4.1.0",
     "@types/karma-fixture": "0.2.3",
-    "@types/mocha": "2.2.46",
-    "typescript": "2.6.2"
+    "@types/mocha": "2.2.46"
   }
 }
