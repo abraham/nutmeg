@@ -4,6 +4,7 @@ module.exports = {
   target: 'node',
   entry: {
     build: './src/build.ts',
+    clean: './src/clean.ts',
     main: './src/main.ts',
     new: './src/new.ts',
     serve: './src/serve.ts',

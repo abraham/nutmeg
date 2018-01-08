@@ -6,6 +6,7 @@
   "types": "dist/cli.d.ts",
   "bin": {
     "nutmeg-build": "bin/nutmeg-build",
+    "nutmeg-clean": "bin/nutmeg-clean",
     "nutmeg-new": "bin/nutmeg-new",
     "nutmeg-serve": "bin/nutmeg-serve",
     "nutmeg-test": "bin/nutmeg-test",
