@@ -11,7 +11,7 @@ const nutmegDir = path.resolve(process.argv[1], '../..');
 const workingDir = path.resolve(program.args[0]);
 const distDir = path.resolve(workingDir, './dist');
 const typescriptConfigFile = path.resolve(workingDir, 'tsconfig.json');
-const webpackConfigFile = path.resolve(nutmegDir, 'webpack.build.config.js');
+const webpackConfigFile = path.resolve(nutmegDir, 'webpack.component.config.js');
 const tag = workingDir.split('/')[workingDir.split('/').length - 1];
 const tscCmd = `tsc --project ${typescriptConfigFile}`;
 const webpackCmd = `webpack --config ${webpackConfigFile} --env.tag=${tag} --env.workingDir=${workingDir}`;
