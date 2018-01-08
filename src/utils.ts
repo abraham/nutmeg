@@ -34,9 +34,10 @@ function commitToGit(): void {
   shell.exec('git commit -m "Initial commit from @nutmeg/cli"');
 }
 
-function installDependencies(): void {
-  console.log('Installing dependencies');
-  if (hasYarn()) {
+function installDependencies(useYarn: boolean): void {
+  const withYarn = hasYarn() && useYarn;
+  console.log(`Installing dependencies with ${withYarn ? 'yarn' : 'npm'}`);
+  if (withYarn) {
     shell.exec('yarn');
   } else {
     shell.exec('npm install');
