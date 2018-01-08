@@ -40,7 +40,7 @@ function installDependencies(useYarn: boolean): void {
   if (withYarn) {
     shell.exec('yarn');
   } else {
-    shell.exec('npm install');
+    shell.exec('npm install --no-optional');
   }
 }
 
