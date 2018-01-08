@@ -6,7 +6,6 @@ const webpack = require('webpack');
 module.exports = function(env, argv) {
   const tag = env.tag;
   const workingDir = env.workingDir;
-  console.log('path', path.resolve(workingDir, '.'), 'tag', tag);
 
   return {
     context: workingDir,
