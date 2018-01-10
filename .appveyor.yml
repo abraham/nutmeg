@@ -1,22 +1,29 @@
-# Test against the latest version of this Node.js version
 environment:
   matrix:
     - nodejs_version: "9"
+      PKG: "yarn"
+    - nodejs_version: "9"
+      PKG: "npm"
     - nodejs_version: "8"
+      PKG: "yarn"
+    - nodejs_version: "8"
+      PKG: "npm"
 
-# Install scripts. (runs after repo cloning)
 install:
-  # Get the latest stable version of Node.js or io.js
   - ps: Install-Product node $env:nodejs_version
-  # install modules
-  - npm install --no-optional
-  - npm install --global . --no-optional
+  - IF "%PKG%" == "npm" npm install
+  - IF "%PKG%" == "npm" npm run build
+  - IF "%PKG%" == "npm" npm install --global . --no-optional
+  - IF "%PKG%" == "yarn" yarn install
+  - IF "%PKG%" == "yarn" yarn run build
+  - IF "%PKG%" == "yarn" yarn global add file:%cd%
 
-# Post-install test scripts.
 test_script:
   - node --version
-  - npm --version
-  - npm test
+  - IF "%PKG%" == "npm" npm --version
+  - IF "%PKG%" == "npm" npm test
+  - IF "%PKG%" == "yarn" yarn --version
+  - IF "%PKG%" == "yarn" yarn pretest
+  - IF "%PKG%" == "yarn" yarn run test:yarn
 
-# Don't actually build.
 build: off
