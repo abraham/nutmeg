@@ -31,6 +31,11 @@ jobs:
     docker:
       - image: circleci/node:9-browsers
     steps:
+      - run: firefox --version
+      # - run: deb http://security.ubuntu.com/ubuntu trusty-security main
+      - run: sudo apt-get update
+      - run: sudo apt-get install firefox
+      - run: firefox --version
       - checkout
       - run: node --version
       - run: npm --version
