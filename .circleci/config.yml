@@ -1,6 +1,18 @@
 version: 2
 jobs:
-  macos_npm:
+  node8_npm:
+    macos:
+      xcode: "9.1.0"
+    steps:
+      - checkout
+      - run: brew install caskroom/cask/firefox caskroom/cask/google-chrome
+      - run: node --version
+      - run: npm --version
+      - run: npm install
+      - run: npm build
+      - run: npm install --global .
+      - run: npm run test
+  node9_npm:
     macos:
       xcode: "9.1.0"
     steps:
@@ -13,7 +25,20 @@ jobs:
       - run: npm build
       - run: npm install --global .
       - run: npm run test
-  macos_yarn:
+  node8_yarn:
+    macos:
+      xcode: "9.1.0"
+    steps:
+      - checkout
+      - run: brew install caskroom/cask/firefox caskroom/cask/google-chrome
+      - run: node --version
+      - run: yarn --version
+      - run: yarn install
+      - run: yarn run build
+      - run: yarn global add file:$PWD
+      - run: yarn run pretest
+      - run: yarn run test:yarn
+  node9_yarn:
     macos:
       xcode: "9.1.0"
     steps:
@@ -27,34 +52,12 @@ jobs:
       - run: yarn global add file:$PWD
       - run: yarn run pretest
       - run: yarn run test:yarn
-  linux_npm:
-    docker:
-      - image: circleci/node:9-browsers
-    steps:
-      - checkout
-      - run: node --version
-      - run: npm --version
-      - run: npm install
-      - run: sudo npm install --global . --no-optional
-      - run: npm run test
-  linux_yarn:
-    docker:
-      - image: circleci/node:9-browsers
-    steps:
-      - checkout
-      - run: node --version
-      - run: yarn --version
-      - run: yarn install
-      - run: yarn run build
-      - run: yarn global add file:$PWD
-      - run: yarn run pretest
-      - run: yarn run test:yarn
 
 workflows:
   version: 2
   build:
     jobs:
-      - macos_npm
-      - macos_yarn
-      - linux_npm
-      - linux_yarn
+      - node8_npm
+      - node9_npm
+      - node8_yarn
+      - node9_yarn
