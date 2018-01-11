@@ -7,8 +7,8 @@ import { Generator } from './generator';
 import { hasYarn, exit, commitToGit, installDependencies } from './utils';
 import { Properties, Property } from './properties';
 
-program.command('new <name> [property:type...]', 'generate a Web Component')
-       .option('--cli-source [location]', 'install @nutmeg/cli dependency from local or github')
+program.command('new <component-name> [property:type...]', 'generate a Web Component')
+       .option('--cli-source <location>', 'install @nutmeg/cli dependency from local or github')
        .option('--no-yarn', 'always use NPM');
 
 program.parse(process.argv);

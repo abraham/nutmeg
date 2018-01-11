@@ -4,8 +4,8 @@ import shell = require("shelljs");
 
 import { isNutmegComponent, exit } from './utils';
 
-program.command('clean [path]', "clean a Web Component's compiled files")
-  .parse(process.argv);
+program.command('clean <path>', "clean a Web Component's compiled files")
+       .parse(process.argv);
 
 const nutmegDir = path.resolve(process.argv[1], '../..');
 const workingDir = path.resolve(program.args[0]);

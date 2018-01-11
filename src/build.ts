@@ -5,7 +5,7 @@ import shell = require("shelljs");
 import { Component } from './component';
 import { isNutmegComponent, exit } from './utils';
 
-program.command('build [path]', 'compile a Web Component')
+program.command('build <path>', 'compile a Web Component')
        .option('--production', 'compile a Web Component for deployment') // NOTE: This is currently not used.
        .parse(process.argv);
 
