@@ -1,0 +1,28 @@
+language: node_js
+node_js:
+  - node
+  - 8
+env:
+  - PKG_ENV=npm
+  - PKG_ENV=yarn
+before_install:
+  - if [[ "$PKG_ENV" == "yarn" ]]; then curl -o- -L https://yarnpkg.com/install.sh | bash; fi
+  - if [[ "$PKG_ENV" == "yarn" ]]; then export PATH=$HOME/.yarn/bin:$PATH; fi
+before_script:
+  - node --version
+  - if [[ "$PKG_ENV" == "npm" ]]; then npm --version; fi
+  - if [[ "$PKG_ENV" == "npm" ]]; then npm install; fi
+  - if [[ "$PKG_ENV" == "npm" ]]; then npm install --global . --no-optional; fi
+  - if [[ "$PKG_ENV" == "yarn" ]]; then yarn --version; fi
+  - if [[ "$PKG_ENV" == "yarn" ]]; then yarn install; fi
+  - if [[ "$PKG_ENV" == "yarn" ]]; then yarn build; fi
+  - if [[ "$PKG_ENV" == "yarn" ]]; then yarn global add file:$PWD; fi
+  - if [[ "$PKG_ENV" == "yarn" ]]; then yarn pretest; fi
+script:
+  - if [[ "$PKG_ENV" == "npm" ]]; then npm run test; fi
+  - if [[ "$PKG_ENV" == "yarn" ]]; then yarn run test:yarn; fi
+os:
+  - linux
+addons:
+  firefox: latest
+  chrome: stable
