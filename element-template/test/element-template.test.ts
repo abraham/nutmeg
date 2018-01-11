@@ -1,70 +1,75 @@
 import 'mocha';
 import { expect } from 'chai';
-import 'karma-fixture';
 
 describe('<<%= tag %>>', () => {
   let component;
-  let fixturePath = '<%= tag %>.fixture.html';
-  const FIXTURES = {
-    DEFAULT: 0,
-    SLOT: 1,
-    STYLE: 2,
-    ATTRIBUTES: 3,
-    PROPERTIES: 4,
-  };
-  const DEFAULTS = {
-    BOOLEAN: true,
-    NUMBER: 42,
-    STRING: 'Pickle',
-    OBJECT: {
-      foo: 'bar',
-    },
-  }
 
-  before(() => {
-    fixture.setBase('test/fixture')
+  describe('without properties', () => {
+    beforeEach(() => {
+      component = fixture('<<%= tag %>></<%= tag %>>');
+    });
+
+    it('renders default', () => {
+      expect(component.$('.content').innerText).to.include('Welcome to <<%= tag %>>');
+    });
   });
 
-  afterEach(() => {
-    fixture.cleanup()
-  });
+  <% properties.properties.forEach((property) => {
+    print("\n" + partial(`property.ts`, { property: property, tag: tag}));
+  }) %>
 
   describe('slot', () => {
     beforeEach(() => {
-      component = fixture.load(fixturePath)[FIXTURES.SLOT];
+      component = fixture('<<%= tag %>>slot content</<%= tag %>>');
     });
 
     it('is rendered', () => {
       // Firefox has different output so testing for inclusion instead of exact match.
-      const slot = component.shadowRoot.querySelector('slot');
-      expect(slot.assignedNodes()[0].wholeText).to.include(DEFAULTS.STRING);
+      expect(component.$('slot').assignedNodes()[0].wholeText).to.include('slot content');
       // TODO: Switch to simpler test when Firefox is no longer polyfilled.
-      // expect(component.innerText).equal('Cat');
+      // expect(component.innerText).equal('slot content');
     });
   });
 
   describe('--<%= tag %>-background-color', () => {
     describe('with default', () => {
       beforeEach(() => {
-        component = fixture.load(fixturePath)[FIXTURES.SLOT];
+        component = fixture('<<%= tag %>></<%= tag %>>');
       });
 
       it('is set', () => {
-        expect(getComputedStyle(component.shadowRoot.querySelector('.content')).backgroundColor).equal('rgb(250, 250, 250)');
+        expect(getComputedStyle(component.$('.content')).backgroundColor).equal('rgb(250, 250, 250)');
       });
     });
 
     describe('with outside value', () => {
       beforeEach(() => {
-        component = fixture.load(fixturePath)[FIXTURES.STYLE].querySelector('<%= tag %>');
+        component = fixture(`
+          <div>
+            <style>
+              <%= tag %>.blue {
+                --<%= tag %>-background-color: #03A9F4;
+              }
+            </style>
+            <<%= tag %> class="blue"></<%= tag %>>
+          </div>
+        `).querySelector('<%= tag %>');
       });
 
-      it('is set blue', () => {
-        expect(getComputedStyle(component.shadowRoot.querySelector('.content')).backgroundColor).equal('rgb(3, 169, 244)');
+      it('is set', () => {
+        expect(getComputedStyle(component.$('.content')).backgroundColor).equal('rgb(3, 169, 244)');
       });
     });
   });
-<% properties.primitive.forEach((property) => {
-  print("\n" + partial(`${property.type}.test.ts`, property));
-}) %>
 });
+
+function fixture(tag: string): HTMLElement {
+  function fixtureContainer(): HTMLElement {
+    let div = document.createElement('div');
+    div.classList.add('fixture');
+    return div;
+  }
+  let fixture = document.body.querySelector('.fixture') || document.body.appendChild(fixtureContainer());
+  fixture.innerHTML = tag;
+  return fixture.children[0] as HTMLElement;
+}
