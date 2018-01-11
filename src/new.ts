@@ -9,7 +9,8 @@ import { Properties, Property } from './properties';
 
 program.command('new <component-name> [property:type...]', 'generate a Web Component')
        .option('--cli-source <location>', 'install @nutmeg/cli dependency from local or github')
-       .option('--no-yarn', 'always use NPM');
+       .option('--no-yarn', 'always use NPM')
+       .option('--no-dependencies', 'skip installing dependencies');
 
 program.parse(process.argv);
 
@@ -36,7 +37,7 @@ generator.execute(data)
   .then(() => {
     shell.cd(component.tag);
     commitToGit();
-    installDependencies(program.yarn);
+    installDependencies({ withYarn: program.yarn, withDependencies: program.dependencies });
     console.log();
     console.log(`Run \`npm run serve\` from ${component.tag} to start 🌱 building`);
   })
