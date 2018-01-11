@@ -44,9 +44,14 @@ class Element extends HTMLElement {
     }
   }
 
-  /** Helper to quickly query the rendered shadowRoot. `this.$('div.actions')` */
+  /** Helper to query the rendered shadowRoot with querySelector. `this.$('div.actions')` */
   public $(selectors: string): Element | null {
     return (this.shadowRoot as ShadowRoot).querySelector(selectors);
+  }
+
+  /** Helper to query the rendered shadowRoot with querySelectorAll. `this.$$('div.actions')` */
+  public $$(selectors: string): NodeListOf<Element> {
+    return (this.shadowRoot as ShadowRoot).querySelectorAll(selectors);
   }
 
   /** Combine the components styles and template. */
