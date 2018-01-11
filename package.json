@@ -1,6 +1,6 @@
 {
   "name": "@nutmeg/element",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Nutmeg Web Component base class",
   "main": "dist/element.js",
   "module": "dist/element.js",
