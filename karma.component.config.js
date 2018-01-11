@@ -1,13 +1,12 @@
 module.exports = function(config) {
   config.set({
     basePath: process.env['INIT_CWD'],
-    frameworks: ['mocha', 'chai', 'fixture', 'karma-typescript'],
+    frameworks: ['mocha', 'chai', 'karma-typescript'],
     browsers: ['ChromeHeadless', 'FirefoxHeadless'],
     files: [
       './node_modules/@webcomponents/webcomponentsjs/webcomponents-sd-ce.js',
       { pattern: 'dist/*.bundled.js' },
       { pattern: 'test/*.test.ts' },
-      { pattern: 'test/fixture/*.html' },
     ],
     reporters: ['progress', 'karma-typescript'],
     singleRun: true,
@@ -18,7 +17,6 @@ module.exports = function(config) {
     concurrency: Infinity,
     preprocessors: {
       '**/*.ts': ['karma-typescript'],
-      'test/fixture/**/*.html' : ['html2js'],
     },
     karmaTypescriptConfig: {
       compilerOptions: {
