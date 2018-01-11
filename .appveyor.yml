@@ -26,4 +26,9 @@ test_script:
   - IF "%PKG%" == "yarn" yarn pretest
   - IF "%PKG%" == "yarn" yarn run test:yarn
 
+cache:
+ - "%LOCALAPPDATA%\\Yarn"
+ - node_modules
+ - '%APPDATA%\npm-cache'
+
 build: off

@@ -9,7 +9,13 @@ jobs:
       - run: brew install caskroom/cask/firefox caskroom/cask/google-chrome
       - run: node --version
       - run: npm --version
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
       - run: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
       - run: npm build
       - run: npm install --global .
       - run: npm run test
@@ -22,7 +28,13 @@ jobs:
       - run: brew install caskroom/cask/firefox caskroom/cask/google-chrome
       - run: node --version
       - run: npm --version
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
       - run: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
       - run: npm build
       - run: npm install --global .
       - run: npm run test
@@ -34,7 +46,13 @@ jobs:
       - run: brew install caskroom/cask/firefox caskroom/cask/google-chrome
       - run: node --version
       - run: yarn --version
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
       - run: yarn install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
       - run: yarn run build
       - run: yarn global add file:$PWD
       - run: yarn run pretest
@@ -48,7 +66,13 @@ jobs:
       - run: brew install caskroom/cask/firefox caskroom/cask/google-chrome
       - run: node --version
       - run: yarn --version
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
       - run: yarn install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
       - run: yarn run build
       - run: yarn global add file:$PWD
       - run: yarn run pretest
