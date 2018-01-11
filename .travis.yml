@@ -23,6 +23,10 @@ script:
   - if [[ "$PKG_ENV" == "yarn" ]]; then yarn run test:yarn; fi
 os:
   - linux
+cache:
+  yarn: true
+  directories:
+  - node_modules
 addons:
   firefox: latest
   chrome: stable
