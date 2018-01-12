@@ -12,7 +12,7 @@ function isNutmegComponent(workingDir: string): boolean {
   }
 }
 
-function loadPackageJson(dir: string): { dependencies: {} } {
+function loadPackageJson(dir: string): { dependencies: {}, main: string } {
   const packagePath = path.resolve(dir, 'package.json');
   return JSON.parse(fs.readFileSync(packagePath).toString());
 }
@@ -54,4 +54,5 @@ export {
   hasYarn,
   installDependencies,
   isNutmegComponent,
+  loadPackageJson,
 };
