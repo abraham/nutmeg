@@ -34,13 +34,17 @@ function commitToGit(): void {
   shell.exec('git commit -m "Initial commit from @nutmeg/cli"');
 }
 
-function installDependencies(useYarn: boolean): void {
-  const withYarn = hasYarn() && useYarn;
-  console.log(`Installing dependencies with ${withYarn ? 'yarn' : 'npm'}`);
-  if (withYarn) {
-    shell.exec('yarn');
+function installDependencies(options: { withYarn: boolean, withDependencies: boolean }): void {
+  if (!options.withDependencies) {
+    console.log('Skipping dependencies');
   } else {
-    shell.exec('npm install --no-optional');
+    const useYarn = hasYarn() && options.withYarn;
+    console.log(`Installing dependencies with ${useYarn ? 'yarn' : 'npm'}`);
+    if (useYarn) {
+      shell.exec('yarn');
+    } else {
+      shell.exec('npm install --no-optional');
+    }
   }
 }
 
