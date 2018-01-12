@@ -8,6 +8,7 @@ Build, test, and publish vanilla Web Components with a little spice
 [![Linux Build Status](https://img.shields.io/travis/abraham/nutmeg-cli.svg?style=flat&label=linux)](https://travis-ci.org/abraham/nutmeg-cli)
 [![Windows Build Status](https://img.shields.io/appveyor/ci/abraham/nutmeg-cli.svg?style=flat&label=windows)](https://ci.appveyor.com/project/abraham/nutmeg-cli)
 [![Dependency Status](https://david-dm.org/abraham/nutmeg-cli.svg?style=flat)](https://david-dm.org/abraham/nutmeg-cli)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fabraham%2Fnutmeg-cli.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fabraham%2Fnutmeg-cli?ref=badge_shield)
 
 
 🚧  **Nutmeg is an experimental tool and is not recommended for production use.**
@@ -146,3 +147,6 @@ Out of the box many of the [Google Web Fundamentals Custom Element Best Practice
 ## 👔 License
 
 Nutmeg is released under an MIT license.
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fabraham%2Fnutmeg-cli.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fabraham%2Fnutmeg-cli?ref=badge_large)
