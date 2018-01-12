@@ -12,7 +12,7 @@ const nutmegDir = path.resolve(process.argv[1], '../..');
 const workingDir = path.resolve(program.args[0]);
 const typescriptConfigFile = path.resolve(workingDir, 'tsconfig.json');
 const webpackConfigFile = path.resolve(nutmegDir, 'webpack.component.config.js');
-const tag = Component.tagFromPath(workingDir);
+const tag = Component.tagFromPackage(workingDir);
 const tscCmd = `tsc --project ${typescriptConfigFile} --watch`;
 const webpackCmd = `webpack-dev-server --config ${webpackConfigFile} --env.tag=${tag} --env.workingDir=${workingDir} --open`;
 
