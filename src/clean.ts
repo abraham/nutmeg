@@ -2,7 +2,9 @@ import * as path from 'path';
 import * as program from 'commander';
 import * as shell from 'shelljs';
 
-import { isNutmegComponent, exit } from './utils';
+import { isNutmegComponent, exit, notifyOfUpdate } from './utils';
+
+notifyOfUpdate();
 
 program.command('clean <path>', "clean a Web Component's compiled files")
        .parse(process.argv);

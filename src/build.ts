@@ -3,7 +3,9 @@ import * as program from 'commander';
 import * as shell from 'shelljs';
 
 import { Component } from './component';
-import { isNutmegComponent, exit } from './utils';
+import { isNutmegComponent, exit, notifyOfUpdate } from './utils';
+
+notifyOfUpdate();
 
 program.command('build <path>', 'compile a Web Component')
        .option('--production', 'compile a Web Component for deployment') // NOTE: This is currently not used.

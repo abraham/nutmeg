@@ -1,6 +1,10 @@
 import * as program from 'commander';
 
+import { notifyOfUpdate } from './utils';
+
 const pkg = require('../package.json');
+
+notifyOfUpdate();
 
 program.version(pkg.version)
        .usage('new <copmonent-name> [property:type...]')

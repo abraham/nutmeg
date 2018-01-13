@@ -2,7 +2,9 @@ import * as path from 'path';
 import * as program from 'commander';
 import * as shell from 'shelljs';
 
-import { isNutmegComponent, exit } from './utils';
+import { isNutmegComponent, exit, notifyOfUpdate } from './utils';
+
+notifyOfUpdate();
 
 program.command('test <path>', 'test a Web Component')
        .parse(process.argv);
