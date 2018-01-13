@@ -40,12 +40,12 @@
   },
   "homepage": "https://github.com/abraham/nutmeg-cli",
   "scripts": {
-    "build": "webpack",
+    "build": "tsc",
     "prepare": "npm run build",
     "pretest": "mkdir tmp",
     "test": "cd tmp && nutmeg new ci-test first:number second:string third:boolean --cli-source file:../.. --no-yarn && cd ci-test && npm run test",
     "test:yarn": "cd tmp && nutmeg new ci-test first:number second:string third:boolean --cli-source file:../.. && cd ci-test && npm run test",
-    "watch": "webpack --watch"
+    "watch": "tsc --watch"
   },
   "engines": {
     "node": ">=8"

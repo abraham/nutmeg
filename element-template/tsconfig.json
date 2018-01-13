@@ -2,9 +2,9 @@
   "compilerOptions": {
     "declaration": true,
     "inlineSources": true,
-    "lib": ["es2017", "dom"],
-    "module": "es2015",
-    "moduleResolution": "Node",
+    "lib": ["esnext", "dom"],
+    "module": "esnext",
+    "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
@@ -14,10 +14,14 @@
     "sourceMap": true,
     "sourceRoot": "src",
     "strict": true,
-    "target": "es2017",
+    "target": "esnext",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
   },
+  "exclude": [
+    "node_modules",
+    "dist",
+  ],
   "include": [
     "src"
   ],

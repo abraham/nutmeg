@@ -1,21 +1,26 @@
 {
   "compilerOptions": {
-    "allowJs": true,
-    "inlineSources": true,
-    "lib": ["es2017", "dom"],
+    "declaration": true,
+    "inlineSources": false,
+    "lib": ["esnext", "dom"],
     "module": "commonjs",
+    "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noUnusedParameters": true,
-    "outDir": "dist/",
+    "outDir": "dist",
     "skipLibCheck": true,
-    "sourceMap": true,
-    "target": "es2017",
+    "sourceMap": false,
+    "target": "esnext",
+    "strict": true,
   },
   "exclude": [
     "node_modules",
     "element-template",
     "dist",
-  ]
+  ],
+  "include": [
+    "src"
+  ],
 }
