@@ -1,11 +1,13 @@
-import path = require('path');
-import program = require('commander');
-import shell = require("shelljs");
+import * as path from 'path';
+import * as program from 'commander';
+import * as shell from 'shelljs';
 
 import { Component } from './component';
 import { Generator } from './generator';
-import { hasYarn, exit, commitToGit, installDependencies } from './utils';
+import { hasYarn, exit, commitToGit, installDependencies, notifyOfUpdate } from './utils';
 import { Properties, Property } from './properties';
+
+notifyOfUpdate();
 
 program.command('new <component-name> [property:type...]', 'generate a Web Component')
        .option('--cli-source <location>', 'install @nutmeg/cli dependency from local or github')

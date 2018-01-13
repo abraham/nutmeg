@@ -1,5 +1,5 @@
-import pascalCase = require('pascal-case')
-import path = require('path');
+import * as path from 'path';
+import pascalCase = require('pascal-case');
 
 import { loadPackageJson } from './utils';
 
