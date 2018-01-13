@@ -6,7 +6,7 @@ import through = require('through2');
 
 import { Properties } from './properties';
 
-interface data {
+export interface data {
   name: string;
   tag: string;
   properties: Properties,
