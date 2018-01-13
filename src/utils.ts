@@ -2,6 +2,14 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as shell from 'shelljs';
 import hasbin = require('hasbin');
+import * as updateNotifier from 'update-notifier';
+import { NotifyOptions } from 'update-notifier';
+
+const pkg = require('../package.json');
+
+function notifyOfUpdate() {
+  updateNotifier({ pkg: pkg }).notify({ defer: true } as NotifyOptions);
+}
 
 function isNutmegComponent(workingDir: string): boolean {
   try {
@@ -55,4 +63,5 @@ export {
   installDependencies,
   isNutmegComponent,
   loadPackageJson,
+  notifyOfUpdate,
 };
