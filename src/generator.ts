@@ -1,8 +1,8 @@
-import copy = require('recursive-copy');
-import fs = require('fs');
-import path = require('path');
+import * as copy from 'recursive-copy';
+import * as fs from 'fs';
+import * as path from 'path';
+import * as through from 'through2';
 import template = require('lodash.template');
-import through = require('through2');
 
 import { Properties } from './properties';
 

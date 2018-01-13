@@ -1,7 +1,8 @@
-import program = require('commander');
-const version = require('../package.json')['version'];
+import * as program from 'commander';
 
-program.version(version)
+const pkg = require('../package.json');
+
+program.version(pkg.version)
        .usage('new <copmonent-name> [property:type...]')
        .command('build <path>', 'compile a Web Component')
        .command('clean <path>', "clean a Web Component's compiled files")

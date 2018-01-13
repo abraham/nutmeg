@@ -1,7 +1,7 @@
+import * as fs from 'fs';
+import * as path from 'path';
+import * as shell from 'shelljs';
 import hasbin = require('hasbin');
-import shell = require('shelljs');
-import path = require('path');
-import fs = require('fs');
 
 function isNutmegComponent(workingDir: string): boolean {
   try {
