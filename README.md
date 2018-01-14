@@ -148,7 +148,7 @@ Out of the box many of the [Google Web Fundamentals Custom Element Best Practice
 
 ## 🔍 Example
 
-[Example Web Component](https://github.com/abraham/nutmeg-hello-world) built using `nutmeg hello-world name:string`.
+[Example Web Component](https://github.com/abraham/nutmeg-hello-world) built using `nutmeg new hello-world name:string`.
 
 ## 👔 License
 
