@@ -37,21 +37,22 @@ function exit(message: string, condition = true): void {
 }
 
 function commitToGit(): void {
-  shell.exec('git init');
-  shell.exec('git add .');
-  shell.exec('git commit -m "Initial commit from @nutmeg/cli"');
+  shell.exec('git init', { silent: true });
+  shell.exec('git add .', { silent: true });
+  shell.exec('git commit -m "Initial commit from @nutmeg/cli"', { silent: true });
+  console.log('🗄️  Commiting files to initial Git repository');
 }
 
 function installDependencies(options: { withYarn: boolean, withDependencies: boolean }): void {
   if (!options.withDependencies) {
-    console.log('Skipping dependencies');
+    console.log('📦 Skipping dependencies');
   } else {
     const useYarn = hasYarn() && options.withYarn;
-    console.log(`Installing dependencies with ${useYarn ? 'yarn' : 'npm'}`);
+    console.log(`🎁 Installing dependencies with ${useYarn ? 'Yarn' : 'NPM'}`);
     if (useYarn) {
-      shell.exec('yarn');
+      shell.exec('yarn', { silent: true });
     } else {
-      shell.exec('npm install --no-optional');
+      shell.exec('npm install', { silent: true });
     }
   }
 }

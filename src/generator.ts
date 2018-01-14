@@ -34,14 +34,14 @@ export class Generator {
   public execute(data: data) {
     this.data = data;
     return copy(this.templateDir, this.destinationDir, this.copyOptions)
-      .on(copy.events.COPY_FILE_START, (copyOperation: any) => {
-        console.info('Copying file ' + this.trimFilename(copyOperation.dest));
+      .on(copy.events.COPY_FILE_START, (_copyOperation: any) => {
+        // console.info('Copying file ' + this.trimFilename(copyOperation.dest));
       })
       .on(copy.events.ERROR, (_error: object, copyOperation: any) => {
         console.error('Unable to copy ' + this.trimFilename(copyOperation.dest));
       })
       .then((results: object[]) => {
-        console.info(`${results.length} files copied`);
+        console.info(`🖨️  Generating component with ${results.length} files`);
       })
   }
 
