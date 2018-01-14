@@ -1,3 +1,4 @@
+# Work-around for https://github.com/travis-ci/travis-ci/issues/8836
 sudo: true
 language: node_js
 node_js:
