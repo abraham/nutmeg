@@ -14,7 +14,7 @@ function notifyOfUpdate() {
 function isNutmegComponent(workingDir: string): boolean {
   try {
     const meta = loadPackageJson(workingDir);
-    return meta && meta.dependencies && meta.dependencies.hasOwnProperty('@nutmeg/element');
+    return meta && meta.dependencies && meta.dependencies.hasOwnProperty('@nutmeg/seed');
   } catch(e) {
     return false;
   }

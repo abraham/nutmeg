@@ -1,4 +1,4 @@
-import { Seed, Property, html, TemplateResult } from '@nutmeg/element';
+import { Seed, Property, html, TemplateResult } from '@nutmeg/seed';
 
 export class <%= name %> extends Seed {
 <% properties.properties.forEach((property) => {
