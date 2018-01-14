@@ -76,7 +76,7 @@
     "typescript": "2.6.2",
     "uglifyjs-webpack-plugin": "1.1.6",
     "update-notifier": "2.3.0",
-    "webpack-dev-server": "2.10.1",
+    "webpack-dev-server": "2.11.0",
     "webpack": "3.10.0"
   },
   "devDependencies": {
