@@ -16,8 +16,9 @@ const workingDir = path.resolve(program.args[0]);
 const typescriptConfigFile = path.resolve(workingDir, 'tsconfig.json');
 const webpackConfigFile = path.resolve(nutmegDir, 'webpack.component.config.js');
 const tag = Component.tagFromPackage(workingDir);
+const productionFlag = program.production ? '--env.production' : '';
 const tscCmd = `tsc --project ${typescriptConfigFile}`;
-const webpackCmd = `webpack --config ${webpackConfigFile} --env.tag=${tag} --env.workingDir=${workingDir}`;
+const webpackCmd = `webpack --config ${webpackConfigFile} --env.tag=${tag} ${productionFlag} --env.workingDir=${workingDir}`;
 
 exit("Directory doesn't have a package.json with @nutmeg/element as a dependancy.", !isNutmegComponent(workingDir));
 
