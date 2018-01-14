@@ -23,7 +23,7 @@ module.exports = function(config) {
         target: 'es2015',
       },
       bundlerOptions: {
-        transforms: [require("karma-typescript-es6-transform")({presets: 'es2015'})],
+        transforms: [require("karma-typescript-es6-transform")({ presets: 'env' })],
       },
     },
   });
