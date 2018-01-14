@@ -20,10 +20,26 @@ Usage
 ----
 
 ```
-<% properties.properties.forEach(property => {
-    print(`  <${tag} ${property.name}="${property.value}"></${tag}>\n\n`);
-  }); %>  <<%= tag %>>Slot content</<%= tag %>>
+<<%= tag %>></<%= tag %>>
+
+<<%= tag %><% properties.primitive.forEach(property => {
+  if (property.type == 'boolean') {
+    print(` ${property.name}`);
+  } else {
+    print(` ${property.name}="${property.value}"`);
+  }
+}) %>></<%= tag %>>
+
+<<%= tag %>>Slot content</<%= tag %>>
 ```
+
+<% if (properties.complex.length > 0) {
+  print('```\n');
+  properties.complex.forEach(property => {
+    print(`document.querySelector('<${tag}>').${property.name} = ${property.type};\n`);
+  });
+  print('\n```');
+} %>
 
 License
 ----
