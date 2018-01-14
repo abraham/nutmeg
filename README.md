@@ -1,6 +1,5 @@
 # Nutmeg
 
-
 Build, test, and publish vanilla Web Components with a little spice
 
 [![Version Status](https://img.shields.io/npm/v/@nutmeg/cli.svg?style=flat&label=version&colorB=4bc524)](https://npmjs.com/package/@nutmeg/cli)
@@ -9,8 +8,10 @@ Build, test, and publish vanilla Web Components with a little spice
 [![Windows Build Status](https://img.shields.io/appveyor/ci/abraham/nutmeg-cli.svg?style=flat&label=windows)](https://ci.appveyor.com/project/abraham/nutmeg-cli)
 [![Dependency Status](https://david-dm.org/abraham/nutmeg-cli.svg?style=flat)](https://david-dm.org/abraham/nutmeg-cli)
 
+🚧  *Nutmeg is in active development and it's APIs are still in flux.*
 
-🚧  **Nutmeg is an experimental tool and is not recommended for production use.**
+<img src="https://nutmeg.tools/img/icon-medium.png" itemprop="image" alt="Nutmeg icon" width="0">
+<img src="https://nutmeg.tools/img/logo-small.png" alt="Nutmeg logo" height="200">
 
 ## 👌 Overview
 
@@ -29,7 +30,6 @@ By default you get the following:
 - Web Component best practices
 
 ## 📌 Install
-
 
 Installing is simple via NPM.
 
