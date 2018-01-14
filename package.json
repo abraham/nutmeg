@@ -83,7 +83,7 @@
     "lodash.template": "4.4.0",
     "pascal-case": "2.0.1",
     "recursive-copy": "2.0.8",
-    "shelljs": "0.7.8",
+    "shelljs": "0.8.0",
     "through2": "2.0.3"
   },
   "browser": {
