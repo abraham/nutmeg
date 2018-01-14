@@ -68,6 +68,7 @@ class Seed extends HTMLElement {
     </style>
     ${this.styles}
     ${this.template}
+    <!-- Built, tested, and published with Nutmeg. https://nutmeg.tools -->
     `;
   }
 
