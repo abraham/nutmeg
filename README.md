@@ -127,6 +127,10 @@ Running the tests from within `hello-world`.
 npm run test
 ```
 
+### 🔭 Continuous Integration
+
+Components are generated with [AppVeyor](https://www.appveyor.com/), [CircleCI](https://circleci.com/), and [TravisCI](https://travis-ci.org/) pre-configured to run tests on Windows, macOS, and Linux respectively.
+
 ## 🗞️ Publish
 
 Publishing to NPM is easy but make sure you are logged in first with `npm login`. Be sure to fill out `package.json` values like author and update the name in `readme.md` if you change it.
