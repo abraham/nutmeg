@@ -3,13 +3,13 @@ import { TemplateResult } from 'lit-html';
 import { Property } from './decorators';
 
 /** Extending classes are expected to define `template` and `styles`. */
-interface Element {
+interface Seed {
   template: TemplateResult;
   styles: TemplateResult;
   shadowRoot: ShadowRoot;
 }
 
-class Element extends HTMLElement {
+class Seed extends HTMLElement {
   private _connected = false;
   private static observedProperties: string[] = [];
   public static observedAttributes: string[] = [];
@@ -97,8 +97,7 @@ class Element extends HTMLElement {
 }
 
 export {
-  Element as Seed,
-  Element,
+  Seed,
   html,
   Property as Prop,
   Property,

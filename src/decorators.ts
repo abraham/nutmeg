@@ -1,4 +1,4 @@
-import { Seed } from './element';
+import { Seed } from './seed';
 import 'reflect-metadata';
 
 const primitiveTypes = [Boolean, Number, String];
