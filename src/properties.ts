@@ -41,7 +41,7 @@ export class Properties {
   }
 
   private parseProperties(properties: string[]): Property[] {
-    return properties.map((property) => {
+    return properties.sort().map((property) => {
       const [name, type] = this.split(property);
       return {
         name: name,
