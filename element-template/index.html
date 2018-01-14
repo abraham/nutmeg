@@ -28,7 +28,13 @@
 <body>
   <<%= tag %>></<%= tag %>>
 
-  <<%= tag %> <%= properties.primitive.map(property => `${property.name}="${property.value}"`).join(' ') %>></<%= tag %>>
+  <<%= tag %><% properties.primitive.forEach(property => {
+    if (property.type == 'boolean') {
+      print(` ${property.name}`);
+    } else {
+      print(` ${property.name}="${property.value}"`);
+    }
+  }) %>></<%= tag %>>
 
   <<%= tag %>>Slot content</<%= tag %>>
 
@@ -36,7 +42,13 @@
 
   <script>
     /** Set complex properties */
-    // document.querySelector('<%= tag %>').foo = ['bar'];
+<% if (properties.complex.length > 0) {
+    properties.complex.forEach(property => {
+      print(`    // document.querySelector('<${tag}>').${property.name} = ${property.type};\n`);
+    });
+  } else {
+    print(`    // document.querySelector('${tag}').foo = ['bar'];`);
+  } %>
   </script>
 
   <!-- In development `<%= tag %>.bundled.js` will automatically be loaded. -->
