@@ -82,7 +82,7 @@ The `@Property()` decorator provides some nice features out of the box. There ar
 
 #### ✍️ Automatic rendering
 
-Any properties decorated with `@Property` will automatically render when set. If you need to manually render
+Any properties decorated with `@Property` will automatically render when set.
 
 #### 📟 Primitive properties are reflected to the DOM
 
@@ -134,6 +134,9 @@ Publishing to NPM is easy but make sure you are logged in first with `npm login`
 ```bash
 npm publish
 ```
+### 📇 Dependencies
+
+Once published, it's recommended that you set up [Renovate](https://renovateapp.com/) to keep your dependencies current. Nutmeg has already setup a default renovate config for you, you just have to [install the free GitHub app](https://github.com/apps/renovate).
 
 ## 😎 Best practices
 
