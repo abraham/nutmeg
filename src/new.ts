@@ -40,8 +40,8 @@ generator.execute(data)
     shell.cd(component.tag);
     commitToGit();
     installDependencies({ withYarn: program.yarn, withDependencies: program.dependencies });
-    console.log();
-    console.log(`Run \`npm run serve\` from ${component.tag} to start 🌱 building`);
+    console.log(`🎉 Component generated`);
+    console.log(`🌱 Run \`npm run serve\` from ${component.tag} to start building`);
   })
   .catch((error: object) => {
     return console.error(`Copy failed: ${error}`);
