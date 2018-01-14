@@ -1,11 +1,11 @@
 {
-  "name": "@nutmeg/element",
-  "version": "0.3.1",
-  "description": "Nutmeg Web Component base class",
-  "main": "dist/element.js",
-  "module": "dist/element.js",
-  "unpkg": "dist/element.min.js",
-  "types": "dist/element.d.ts",
+  "name": "@nutmeg/seed",
+  "version": "0.4.0",
+  "description": "Nutmeg Web Component Seed",
+  "main": "dist/seed.js",
+  "module": "dist/seed.js",
+  "unpkg": "dist/seed.min.js",
+  "types": "dist/seed.d.ts",
   "directories": {
     "test": "test"
   },
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/abraham/nutmeg-element.git"
+    "url": "git+https://github.com/abraham/nutmeg-seed.git"
   },
   "keywords": [
     "web-components",

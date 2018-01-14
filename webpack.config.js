@@ -2,7 +2,7 @@ const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
 
-const name = 'element';
+const name = 'seed';
 
 module.exports = {
   devServer: {

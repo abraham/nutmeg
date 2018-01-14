@@ -2,9 +2,9 @@
   "compilerOptions": {
     "declaration": true,
     "inlineSources": true,
-    "lib": ["es2017", "dom"],
+    "lib": ["esnext", "dom"],
     "listEmittedFiles": true,
-    "module": "es2015",
+    "module": "esnext",
     "moduleResolution": "Node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
@@ -15,11 +15,15 @@
     "sourceMap": true,
     "sourceRoot": "src",
     "strict": true,
-    "target": "es2017",
+    "target": "esnext",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
   },
   "include": [
     "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
   ],
 }
