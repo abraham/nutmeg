@@ -31,7 +31,7 @@ function getter(key: string, type: any) {
       case Boolean:
         return this.hasAttribute(key);
       default:
-        return (<any>this)[`_${key}`];
+        return (<any>this)[`__${key}`];
     }
   }
 }
@@ -52,7 +52,7 @@ function setter(key: string, type: any) {
           this.setAttribute(key, '');
           break;
         default:
-         (<any>this)[`_${key}`] = value;
+         (<any>this)[`__${key}`] = value;
       }
     }
     this.render();
