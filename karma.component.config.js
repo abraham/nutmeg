@@ -1,4 +1,4 @@
-module.exports = function (config) {
+module.exports = function(config) {
   config.set({
     basePath: process.env['INIT_CWD'],
     frameworks: ['mocha', 'chai', 'karma-typescript', 'sinon'],
