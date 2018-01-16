@@ -45,7 +45,7 @@
   "homepage": "https://nutmeg.tools",
   "dependencies": {
     "lit-html": "0.8.0",
-    "reflect-metadata": "0.1.10"
+    "reflect-metadata": "0.1.12"
   },
   "devDependencies": {
     "typescript": "2.6.2",
