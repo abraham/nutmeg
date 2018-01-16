@@ -90,7 +90,7 @@ export class Generator {
   }
 
   private dotFile(filePath: string): boolean {
-    return ['gitignore', 'travis.yml'].includes(filePath)
+    return ['gitignore', 'travis.yml', 'appveyor.yml'].includes(filePath)
   }
 
   private rename(filePath: string) {
