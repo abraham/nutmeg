@@ -1,7 +1,7 @@
 module.exports = function(config) {
   config.set({
     basePath: process.env['INIT_CWD'],
-    frameworks: ['mocha', 'chai', 'karma-typescript'],
+    frameworks: ['mocha', 'chai', 'karma-typescript', 'sinon'],
     browsers: ['ChromeHeadless', 'FirefoxHeadless'],
     files: [
       './node_modules/@webcomponents/webcomponentsjs/webcomponents-sd-ce.js',
