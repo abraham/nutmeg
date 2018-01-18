@@ -86,7 +86,7 @@
     "@types/node": "9.3.0",
     "@types/shelljs": "0.7.7",
     "@types/through2": "2.0.33",
-    "@types/update-notifier": "1.0.2"
+    "@types/update-notifier": "1.0.3"
   },
   "browser": {
     "fs": false,
