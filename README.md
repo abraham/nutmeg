@@ -1,4 +1,5 @@
-# Nutmeg
+<img src="https://nutmeg.tools/img/icon-medium.png" itemprop="image" alt="Nutmeg icon" width="0">
+<img src="https://nutmeg.tools/img/logo-small.png" alt="Nutmeg logo" height="200">
 
 Build, test, and publish vanilla Web Components with a little spice
 
@@ -9,9 +10,6 @@ Build, test, and publish vanilla Web Components with a little spice
 [![Dependency Status](https://david-dm.org/abraham/nutmeg-cli.svg?style=flat)](https://david-dm.org/abraham/nutmeg-cli)
 
 🚧  *Nutmeg is in active development and it's APIs are still in flux.*
-
-<img src="https://nutmeg.tools/img/icon-medium.png" itemprop="image" alt="Nutmeg icon" width="0">
-<img src="https://nutmeg.tools/img/logo-small.png" alt="Nutmeg logo" height="200">
 
 ## 👌 Overview
 
@@ -109,6 +107,13 @@ grilledCheese.cheese.includes('sharp cheddar') === true;
 <grilled-cheese></grilled-cheese>
 ```
 
+#### `$` and `$$`
+
+`$` and `$$` are shortcuts provided for quickly selecting elements within the shadowRoot.
+
+- `$` is a shortcut for `this.shadowRoot.querySelector`.
+- `$$` is a shortcut for `this.shadowRoot.querySelectorAll`.
+
 ### 🍽️ Serve
 
 You can now serve the component for development on http://localhost:8080 by running:
@@ -146,9 +151,10 @@ Once published, it's recommended that you set up [Renovate](https://renovateapp.
 
 Out of the box many of the [Google Web Fundamentals Custom Element Best Practices](https://developers.google.com/web/fundamentals/web-components/best-practices#place-any-children-the-element-creates-into-its-shadow-root) are handled automatically.
 
-## 🔍 Example
+## 🔍 Examples
 
-[Example Web Component](https://github.com/abraham/nutmeg-hello-world) built using `nutmeg new hello-world name:string`.
+- [HelloWorld](https://github.com/abraham/nutmeg-hello-world) built using `nutmeg new hello-world name:string`.
+- [TwitterStatus](https://github.com/abraham/twitter-status) for embedding tweets.
 
 ## 👔 License
 
