@@ -15,7 +15,7 @@ export class <%= name %> extends Seed {
 
   /** The component instance has been removed from the DOM. */
   public disconnectedCallback() {
-    super.disconnectedCallback()
+    super.disconnectedCallback();
   }
 
   /** Watch for changes to these attributes. */
