@@ -74,7 +74,7 @@
     "shelljs": "0.8.1",
     "sinon": "^4.1.6",
     "through2": "2.0.3",
-    "ts-loader": "3.2.0",
+    "ts-loader": "3.3.0",
     "typescript": "2.6.2",
     "uglifyjs-webpack-plugin": "1.1.6",
     "update-notifier": "2.3.0",
