@@ -51,6 +51,8 @@
     "node": ">=8"
   },
   "dependencies": {
+    "@types/chai": "4.1.1",
+    "@types/mocha": "2.2.46",
     "@webcomponents/webcomponentsjs": "1.1.0",
     "babel-preset-env": "1.6.1",
     "chai": "4.1.2",
