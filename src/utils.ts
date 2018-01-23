@@ -48,7 +48,7 @@ function installDependencies(options: { withYarn: boolean, withDependencies: boo
     console.log('📦 Skipping dependencies');
   } else {
     const useYarn = hasYarn() && options.withYarn;
-    console.log(`🎁 Installing dependencies with ${useYarn ? 'Yarn' : 'NPM'}`);
+    console.log(`🎁  Installing dependencies with ${useYarn ? 'Yarn' : 'NPM'}`);
     if (useYarn) {
       shell.exec('yarn', { silent: true });
     } else {
