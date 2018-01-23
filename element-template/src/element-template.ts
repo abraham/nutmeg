@@ -25,7 +25,7 @@ export class <%= name %> extends Seed {
 
   /** Rerender when the observed attributes change. */
   public attributeChangedCallback(name: string, oldValue: any, newValue: any) {
-    super.attributeChangedCallback(name, oldValue, newValue)
+    super.attributeChangedCallback(name, oldValue, newValue);
   }
 
   /** Styling for the component. */
