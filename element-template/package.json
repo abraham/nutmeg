@@ -33,7 +33,6 @@
   "devDependencies": {
     "@nutmeg/cli": "<%= cliSource %>",
     "@types/chai": "4.1.1",
-    "@types/mocha": "2.2.46",
-    "@webcomponents/webcomponentsjs": "1.1.0"
+    "@types/mocha": "2.2.46"
   }
 }
