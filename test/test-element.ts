@@ -6,6 +6,8 @@ export class TestElement extends Seed {
   @Property() public boolean: boolean;
   @Property() public stringArray: string[];
   @Property() public object: object;
+  @Property() public multiWordAttribute: boolean;
+  @Property() public multiWordProperty: boolean;
 
   constructor() {
     super();

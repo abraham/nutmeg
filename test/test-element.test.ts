@@ -26,6 +26,52 @@ describe('TestElement', () => {
     });
   });
 
+  describe('multi word attribute', () => {
+    describe('when defined', () => {
+      beforeEach(() => {
+        component = fixture('<test-element multi-word-attribute></test-element>');
+      });
+
+      it('is case converted', () => {
+        expect(component.multiWordAttribute).to.be.true;
+      });
+    });
+
+    describe('when set', () => {
+      beforeEach(() => {
+        component = fixture('<test-element></test-element>');
+        component.multiWordAttribute = true;
+      });
+
+      it('is case converted', () => {
+        expect(component.hasAttribute('multi-word-attribute')).to.be.true;
+      });
+    });
+  });
+
+  describe('multi word property', () => {
+    describe('when defined', () => {
+      beforeEach(() => {
+        component = fixture('<test-element multi-word-property="true"></test-element>');
+      });
+
+      it('is case converted', () => {
+        expect(component.multiWordProperty).to.be.true;
+      });
+    });
+
+    describe('when set', () => {
+      beforeEach(() => {
+        component = fixture('<test-element></test-element>');
+        component.multiWordProperty = true;
+      });
+
+      it('is case converted', () => {
+        expect(component.hasAttribute('multi-word-property')).to.be.true;
+      });
+    });
+  });
+
   describe('attributes', () => {
     describe('as a string', () => {
       describe('when defined', () => {
