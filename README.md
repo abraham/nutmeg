@@ -51,7 +51,7 @@ Once Nutmeg is installed you can generate a new Web Component with `nutmeg new <
 nutmeg new hello-world name:string
 ```
 
-This will create a `hello-world` directory, stub out a base Web Component class `HelloWorld` that extends the Nutmeg `Seed` base class, and install the default dependencies.
+This will create a `hello-world` directory, stub out a base Web Component class `HelloWorld` that extends the Nutmeg `Seed` base class, and install the default dependencies. You can use either `fooBar` or `foo-bar` for multi-word properties and `fooBar` will be used in HTML and `fooBar` will be used in JavaScript.
 
 ### 🏡 Properties
 
