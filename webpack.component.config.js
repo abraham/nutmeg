@@ -48,5 +48,5 @@ module.exports = function(env, argv) {
     resolve: {
       extensions: ['.js'],
     },
-  }
+  };
 }
