@@ -1,6 +1,8 @@
 import { html, render } from 'lit-html/lib/lit-extended';
 import { TemplateResult } from 'lit-html';
+
 import { Property } from './decorators';
+import { attributeNameFromProperty, propertyNameFromAttribute } from './utils';
 
 /** Extending classes are expected to define `template` and `styles`. */
 interface Seed {
@@ -98,9 +100,11 @@ class Seed extends HTMLElement {
 }
 
 export {
-  Seed,
+  attributeNameFromProperty,
   html,
   Property as Prop,
   Property,
+  propertyNameFromAttribute,
+  Seed,
   TemplateResult,
 };
