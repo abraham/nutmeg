@@ -17,16 +17,17 @@ program.command('new <component-name> [property:type...]', 'generate a Web Compo
 
 program.parse(process.argv);
 
+const pkg = require('../package.json');
 const component = new Component(program.args[0]);
 const nutmegDir = path.resolve(process.argv[1], '../..');
 const workingDir = path.resolve('./');
-const cliSource = program.cliSource || require('../package.json')['version'];
 const requestedProperties = program.args.slice(1);
 const installedWithYarn = fs.existsSync(path.resolve(nutmegDir, 'yarn.lock'));
 const properties = new Properties(requestedProperties);
 const generator = new Generator(nutmegDir, workingDir, component.tag);
 const data = {
-  cliSource: cliSource,
+  cliSource: program.cliSource || pkg['version'],
+  seedVersion: pkg['dependencies']['@nutmeg/seed'],
   name: component.name,
   primitiveTypes: properties.primitiveTypes,
   properties: properties,

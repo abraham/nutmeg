@@ -24,9 +24,9 @@ Usage
 
 <<%= tag %><% properties.primitive.forEach(property => {
   if (property.type == 'boolean') {
-    print(` ${property.name}`);
+    print(` ${property.attribute}`);
   } else {
-    print(` ${property.name}="${property.value}"`);
+    print(` ${property.attribute}="${property.value}"`);
   }
 }) %>></<%= tag %>>
 

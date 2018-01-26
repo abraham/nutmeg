@@ -1,4 +1,7 @@
+import { propertyNameFromAttribute, attributeNameFromProperty } from './utils';
+
 export interface Property {
+  attribute: string;
   name: string;
   type: Primative;
   value: string | number | boolean | null;
@@ -44,7 +47,8 @@ export class Properties {
     return properties.sort().map((property) => {
       const [name, type] = this.split(property);
       return {
-        name: name,
+        attribute: attributeNameFromProperty(name),
+        name: propertyNameFromAttribute(name),
         type: type,
         value: this.defaultValues[type],
       };
