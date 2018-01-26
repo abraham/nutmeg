@@ -9,7 +9,7 @@ Build, test, and publish vanilla Web Components with a little spice
 [![Windows Build Status](https://img.shields.io/appveyor/ci/abraham/nutmeg-seed.svg?style=flat&label=windows)](https://ci.appveyor.com/project/abraham/nutmeg-seed)
 [![Dependency Status](https://david-dm.org/abraham/nutmeg-seed.svg?style=flat)](https://david-dm.org/abraham/nutmeg-seed)
 
-This is the base Web Component class used in [@nutmeg/cli](https://nutmeg.tools) generated components.
+This is the Web Component base class used in [@nutmeg/cli](https://nutmeg.tools) generated components.
 
 ## 👔 License
 
