@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
     "declaration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "inlineSources": true,
     "lib": ["esnext", "dom"],
     "module": "esnext",
@@ -15,14 +17,12 @@
     "sourceRoot": "src",
     "strict": true,
     "target": "esnext",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
   },
   "exclude": [
     "node_modules",
     "dist",
   ],
   "include": [
-    "src"
+    "src",
   ],
 }
