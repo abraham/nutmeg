@@ -1,11 +1,13 @@
 import { Seed, Property, html, TemplateResult } from '../src/seed';
 
 export class TestElement extends Seed {
-  @Property() public one: string;
-  @Property() public two: number;
-  @Property() public three: boolean;
-  @Property() public four: string[];
-  @Property() public five: object;
+  @Property() public string: string;
+  @Property() public number: number;
+  @Property() public boolean: boolean;
+  @Property() public stringArray: string[];
+  @Property() public object: object;
+  @Property() public multiWordAttribute: boolean;
+  @Property() public multiWordProperty: boolean;
 
   constructor() {
     super();
@@ -55,11 +57,11 @@ export class TestElement extends Seed {
         Welcome to &lt;test-element&gt;
 
         <ul>
-          <li>one: ${this.one}</li>
-          <li>two: ${this.two}</li>
-          <li>three: ${this.three}</li>
-          <li>four: ${this.four}</li>
-          <li>five: ${this.five}</li>
+          <li>string: ${this.string}</li>
+          <li>number: ${this.number}</li>
+          <li>boolean: ${this.boolean}</li>
+          <li>stringArray: ${this.stringArray}</li>
+          <li>object: ${this.object}</li>
         </ul>
 
         <div id="money">money</div>

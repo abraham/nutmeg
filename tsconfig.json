@@ -1,29 +1,7 @@
 {
-  "compilerOptions": {
-    "declaration": true,
-    "inlineSources": true,
-    "lib": ["esnext", "dom"],
-    "listEmittedFiles": true,
-    "module": "esnext",
-    "moduleResolution": "Node",
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noUnusedParameters": true,
-    "outDir": "dist",
-    "skipLibCheck": true,
-    "sourceMap": true,
-    "sourceRoot": "src",
-    "strict": true,
-    "target": "esnext",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-  },
+  "extends": "./tsconfig.production",
   "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
+    "src",
+    "test"
   ],
 }

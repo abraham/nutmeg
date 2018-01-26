@@ -1,58 +1,62 @@
-import { Seed } from './seed';
 import 'reflect-metadata';
+
+import { Seed } from './seed';
+import { attributeNameFromProperty, propertyNameFromAttribute, privatePropertyName } from './utils';
 
 const primitiveTypes = [Boolean, Number, String];
 
-function alreadyObserved(target: HTMLElement, key: string, type: any) {
-  return (<any>target).constructor[observeType(type)].includes(key);
+function alreadyObserved(target: HTMLElement, name: string, type: any) {
+  return (<any>target).constructor[observeType(type)].includes(name);
 }
 
 function observeType(type: any): string {
   return primitiveTypes.includes(type) ? 'observedAttributes' : 'observedProperties';
 }
 
-function observe(target: HTMLElement, key: string, type: any) {
-  if (!alreadyObserved(target, key, type)) {
-    (<any>target).constructor[observeType(type)].push(key);
+function observe(target: HTMLElement, name: string, type: any) {
+  if (!alreadyObserved(target, name, type)) {
+    (<any>target).constructor[observeType(type)].push(name);
   }
 }
 
-function getter(key: string, type: any) {
+function getter(name: string, type: any) {
+  const attributeName = attributeNameFromProperty(name);
   return function(this: Seed) {
     switch(type) {
       case String:
-        return this.getAttribute(key);
+        return this.getAttribute(attributeName);
       case Number:
-        if (this.hasAttribute(key)) {
-          return Number(this.getAttribute(key));
+        if (this.hasAttribute(attributeName)) {
+          return Number(this.getAttribute(attributeName));
         } else {
           return null;
         }
       case Boolean:
-        return this.hasAttribute(key);
+        return this.hasAttribute(attributeName);
       default:
-        return (<any>this)[`__${key}`];
+        return (<any>this)[privatePropertyName(name)];
     }
   }
 }
 
-function setter(key: string, type: any) {
+function setter(name: string, type: any) {
+  const attributeName = attributeNameFromProperty(name);
   return function(this: Seed, value: any) {
     if (value === null || value === undefined || value === false) {
-      this.removeAttribute(key);
+      this.removeAttribute(attributeName);
     } else {
       switch (type) {
         case String:
-          this.setAttribute(key, String(value));
+          this.setAttribute(attributeName, String(value));
           break;
         case Number:
-          this.setAttribute(key, String(value));
+          this.setAttribute(attributeName, String(value));
           break;
         case Boolean:
-          this.setAttribute(key, '');
+          this.setAttribute(attributeName, '');
           break;
         default:
-         (<any>this)[`__${key}`] = value;
+         (<any>this)[privatePropertyName(name)] = value;
       }
     }
     this.render();
@@ -60,15 +64,15 @@ function setter(key: string, type: any) {
 }
 
 export function Property() {
-  return function(target: HTMLElement, key: string) {
-    const type = Reflect.getMetadata('design:type', target, key);
-    observe(target, key, type);
+  return function(target: HTMLElement, name: string) {
+    const type = Reflect.getMetadata('design:type', target, name);
+    observe(target, name, type);
 
-    Object.defineProperty(target, key, {
+    Object.defineProperty(target, name, {
       configurable: true,
       enumerable: true,
-      get: getter(key, type),
-      set: setter(key, type),
+      get: getter(name, type),
+      set: setter(name, type),
     });
   }
 }

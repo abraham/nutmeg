@@ -27,7 +27,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "tsc && webpack",
+    "build": "tsc --project tsconfig.production.json && webpack",
     "clean": "rm -rf dist/*",
     "prebuild": "npm run clean",
     "prepare": "npm run build",
