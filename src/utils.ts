@@ -57,6 +57,20 @@ function installDependencies(options: { withYarn: boolean, withDependencies: boo
   }
 }
 
+/** Copied from @nutmeg/seed. Make changes there. */
+export function attributeNameFromProperty(name :string): string {
+  return name.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase();
+}
+
+/** Copied from @nutmeg/seed. Make changes there. */
+export function propertyNameFromAttribute(name :string): string {
+  if (name.includes('-')) {
+    return name.toLowerCase().replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+  } else {
+    return name;
+  }
+}
+
 export {
   commitToGit,
   exit,
