@@ -5,7 +5,7 @@
     "lib": ["esnext", "dom"],
     "listEmittedFiles": true,
     "module": "esnext",
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
@@ -20,7 +20,7 @@
     "emitDecoratorMetadata": true,
   },
   "include": [
-    "src"
+    "src",
   ],
   "exclude": [
     "node_modules",
