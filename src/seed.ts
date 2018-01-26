@@ -45,12 +45,12 @@ class Seed extends HTMLElement {
   }
 
   /** Helper to query the rendered shadowRoot with querySelector. `this.$('div.actions')` */
-  public $(selectors: string): Element | null {
+  public $(selectors: string): HTMLElement | null {
     return (this.shadowRoot as ShadowRoot).querySelector(selectors);
   }
 
   /** Helper to query the rendered shadowRoot with querySelectorAll. `this.$$('div.actions')` */
-  public $$(selectors: string): NodeListOf<Element> {
+  public $$(selectors: string): NodeListOf<HTMLElement> {
     return (this.shadowRoot as ShadowRoot).querySelectorAll(selectors);
   }
 
