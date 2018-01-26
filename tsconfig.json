@@ -12,8 +12,8 @@
     "outDir": "dist",
     "skipLibCheck": true,
     "sourceMap": false,
-    "target": "esnext",
     "strict": true,
+    "target": "esnext",
   },
   "exclude": [
     "node_modules",
@@ -21,6 +21,6 @@
     "dist",
   ],
   "include": [
-    "src"
+    "src",
   ],
 }
