@@ -1,7 +1,7 @@
 import 'mocha';
 import { expect } from 'chai';
 
-import { propertyNameFromAttribute } from './../src/utils';
+import { attributeNameFromProperty, propertyNameFromAttribute, privatePropertyName } from './../src/utils';
 
 describe('utils', () => {
   describe('propertyNameFromAttribute', () => {
@@ -13,8 +13,28 @@ describe('utils', () => {
       expect(propertyNameFromAttribute('foo')).to.equal('foo');
     });
 
-    it('normalizes casing', () => {
+    it('normalizes case', () => {
       expect(propertyNameFromAttribute('fOO-bAR')).to.equal('fooBar');
+    });
+
+    it('ignores non dash names', () => {
+      expect(propertyNameFromAttribute('fOO')).to.equal('fOO');
+    });
+  });
+
+  describe('attributeNameFromProperty', () => {
+    it('converts multi-word property to attribute  name', () => {
+      expect(attributeNameFromProperty('fooBarBaz')).to.equal('foo-bar-baz');
+    });
+
+    it('leaves single word properties alone', () => {
+      expect(attributeNameFromProperty('foo')).to.equal('foo');
+    });
+  });
+
+  describe('privatePropertyName', () => {
+    it('is formatted', () => {
+      expect(privatePropertyName('foo')).to.equal('__foo');
     });
   });
 });
