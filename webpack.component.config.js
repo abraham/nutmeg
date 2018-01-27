@@ -9,7 +9,6 @@ module.exports = function(env, argv) {
   const workingDir = env.workingDir;
   let entry = {
     [`${tag}.bundled`]: path.resolve('dist', `${tag}.js`),
-    [`${tag}.min`]: path.resolve('dist', `${tag}.js`),
   };
   let plugins = [
     new UglifyJsPlugin({
@@ -28,7 +27,9 @@ module.exports = function(env, argv) {
     new webpack.NamedModulesPlugin(),
   ];
 
-  if (!production) {
+  if (production) {
+    entry[`${tag}.min`] = path.resolve('dist', `${tag}.js`);
+  } else {
     plugins.push(new webpack.HotModuleReplacementPlugin());
   }
 
@@ -36,9 +37,9 @@ module.exports = function(env, argv) {
     context: workingDir,
     devServer: {
       contentBase: path.resolve(workingDir, '.'),
-      hot: true,
+      hot: !production,
     },
-    devtool: 'source-map',
+    devtool: production ? 'source-map' : 'eval',
     entry: entry,
     output: {
       filename: '[name].js',
