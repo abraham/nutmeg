@@ -1,9 +1,11 @@
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = function(env, argv) {
+  const analyzer = env.analyzer;
   const production = env.production;
   const tag = env.tag;
   const workingDir = env.workingDir;
@@ -26,6 +28,10 @@ module.exports = function(env, argv) {
     }),
     new webpack.NamedModulesPlugin(),
   ];
+
+  if (analyzer) {
+    plugins.push(new BundleAnalyzerPlugin());
+  }
 
   if (production) {
     entry[`${tag}.min`] = path.resolve('dist', `${tag}.js`);
