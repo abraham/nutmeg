@@ -7,7 +7,7 @@ module.exports = function(config) {
       './node_modules/@webcomponents/webcomponentsjs/webcomponents-sd-ce.js',
       { pattern: 'dist/*.bundled.js' },
       { pattern: 'test/*.test.ts' },
-      { pattern: 'test/*.json', watched: true, served: true, included: false },
+      { pattern: 'test/**/*.json', watched: true, served: true, included: false },
     ],
     reporters: ['progress', 'karma-typescript'],
     singleRun: true,
