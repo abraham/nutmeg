@@ -2,7 +2,7 @@ module.exports = function(config) {
   config.set({
     basePath: process.env['INIT_CWD'],
     frameworks: ['mocha', 'chai', 'karma-typescript', 'sinon'],
-    browsers: ['ChromeHeadless', 'FirefoxHeadless'],
+    browsers: ['ChromeHeadless'],
     files: [
       './node_modules/@webcomponents/webcomponentsjs/webcomponents-sd-ce.js',
       { pattern: 'dist/*.bundled.js' },
