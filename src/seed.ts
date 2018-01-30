@@ -42,18 +42,18 @@ class Seed extends HTMLElement {
   /** Render the component. */
   public render(): void {
     if (this._connected) {
-      render(this._template, this.shadowRoot as ShadowRoot);
+      render(this._template, this.shadowRoot);
     }
   }
 
-  /** Helper to query the rendered shadowRoot with querySelector. `this.$('div.actions')` */
-  public $(selectors: string): HTMLElement | null {
-    return (this.shadowRoot as ShadowRoot).querySelector(selectors);
+  /** Helper to query the rendered shadowRoot with querySelector. `this.$('tag.class')` */
+  public $(selectors: string): HTMLElement {
+    return this.shadowRoot.querySelector(selectors) as HTMLElement;
   }
 
-  /** Helper to query the rendered shadowRoot with querySelectorAll. `this.$$('div.actions')` */
+  /** Helper to query the rendered shadowRoot with querySelectorAll. `this.$$('tag.class')` */
   public $$(selectors: string): NodeListOf<HTMLElement> {
-    return (this.shadowRoot as ShadowRoot).querySelectorAll(selectors);
+    return this.shadowRoot.querySelectorAll(selectors);
   }
 
   /** Combine the components styles and template. */
