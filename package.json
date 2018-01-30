@@ -51,7 +51,7 @@
     "node": ">=8"
   },
   "dependencies": {
-    "@nutmeg/seed": "0.6.0",
+    "@nutmeg/seed": "0.6.1",
     "@types/chai": "4.1.2",
     "@types/mocha": "2.2.47",
     "@webcomponents/webcomponentsjs": "1.1.0",
