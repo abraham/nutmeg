@@ -92,7 +92,8 @@
     "@types/node": "9.4.0",
     "@types/shelljs": "0.7.7",
     "@types/through2": "2.0.33",
-    "@types/update-notifier": "2.0.0"
+    "@types/update-notifier": "2.0.0",
+    "codecov": "3.0.0"
   },
   "browser": {
     "fs": false,

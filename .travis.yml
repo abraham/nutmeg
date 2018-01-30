@@ -23,6 +23,8 @@ before_script:
 script:
   - if [[ "$PKG_ENV" == "npm" ]]; then npm run test; fi
   - if [[ "$PKG_ENV" == "yarn" ]]; then yarn run test:yarn; fi
+after_success:
+  - npx run codecov
 os:
   - linux
 cache:
