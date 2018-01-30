@@ -2,8 +2,10 @@ import 'mocha';
 import { expect } from 'chai';
 import * as sinon from 'sinon';
 
+import { <%= name %> } from '../src/<%= tag %>';
+
 describe('<<%= tag %>>', () => {
-  let component;
+  let component: <%= name %>;
 
   describe('without properties', () => {
     beforeEach(() => {
@@ -25,10 +27,7 @@ describe('<<%= tag %>>', () => {
     });
 
     it('is rendered', () => {
-      // Firefox has different output so testing for inclusion instead of exact match.
-      expect(component.$('slot').assignedNodes()[0].wholeText).to.include('slot content');
-      // TODO: Switch to simpler test when Firefox is no longer polyfilled.
-      // expect(component.innerText).equal('slot content');
+      expect(component.innerText).equal('slot content');
     });
   });
 
@@ -54,7 +53,7 @@ describe('<<%= tag %>>', () => {
             </style>
             <<%= tag %> class="blue"></<%= tag %>>
           </div>
-        `).querySelector('<%= tag %>');
+        `).querySelector('<%= tag %>') as <%= name %>;
       });
 
       it('is set', () => {
@@ -64,7 +63,7 @@ describe('<<%= tag %>>', () => {
   });
 });
 
-function fixture(tag: string): HTMLElement {
+function fixture(tag: string): <%= name %> {
   function fixtureContainer(): HTMLElement {
     let div = document.createElement('div');
     div.classList.add('fixture');
@@ -72,5 +71,5 @@ function fixture(tag: string): HTMLElement {
   }
   let fixture = document.body.querySelector('.fixture') || document.body.appendChild(fixtureContainer());
   fixture.innerHTML = tag;
-  return fixture.children[0] as HTMLElement;
+  return fixture.children[0] as <%= name %>;
 }
