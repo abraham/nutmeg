@@ -5,12 +5,16 @@ import { attributeNameFromProperty, propertyNameFromAttribute, privatePropertyNa
 
 const primitiveTypes = [Boolean, Number, String];
 
+function isPrimitive(type: any): boolean {
+  return primitiveTypes.includes(type);
+}
+
 function alreadyObserved(target: HTMLElement, name: string, type: any) {
   return (<any>target).constructor[observeType(type)].includes(name);
 }
 
 function observeType(type: any): string {
-  return primitiveTypes.includes(type) ? 'observedAttributes' : 'observedProperties';
+  return isPrimitive(type) ? 'observedAttributes' : 'observedProperties';
 }
 
 function observe(target: HTMLElement, name: string, type: any) {
@@ -42,6 +46,13 @@ function getter(name: string, type: any) {
 function setter(name: string, type: any) {
   const attributeName = attributeNameFromProperty(name);
   return function(this: Seed, value: any) {
+    if (this._ignoreDefaultValue(name) && isPrimitive(type)) {
+      this._ignoredDefaultAttributes[name] = true;
+      return;
+    } else if (!this._ignoredDefaultAttributes[name]) {
+      this._ignoredDefaultAttributes[name] = true;
+    }
+
     if (value === null || value === undefined || value === false) {
       this.removeAttribute(attributeName);
     } else {

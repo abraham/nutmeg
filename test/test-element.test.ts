@@ -27,153 +27,328 @@ describe('TestElement', () => {
   });
 
   describe('multi word attribute', () => {
-    describe('when defined', () => {
-      beforeEach(() => {
-        component = fixture('<test-element multi-word-attribute></test-element>');
+    describe('without default', () => {
+      describe('when defined', () => {
+        beforeEach(() => {
+          component = fixture('<test-element multi-word-attribute></test-element>');
+        });
+
+        it('is case converted', () => {
+          expect(component.multiWordAttribute).to.be.true;
+        });
       });
 
-      it('is case converted', () => {
-        expect(component.multiWordAttribute).to.be.true;
+      describe('when set', () => {
+        beforeEach(() => {
+          component = fixture('<test-element></test-element>');
+          component.multiWordAttribute = true;
+        });
+
+        it('is case converted', () => {
+          expect(component.hasAttribute('multi-word-attribute')).to.be.true;
+        });
       });
     });
 
-    describe('when set', () => {
-      beforeEach(() => {
-        component = fixture('<test-element></test-element>');
-        component.multiWordAttribute = true;
+    describe('with default', () => {
+      describe('when defined', () => {
+        beforeEach(() => {
+          component = fixture('<test-element multi-word-attribute-default></test-element>');
+        });
+
+        it('is case converted', () => {
+          expect(component.multiWordAttributeDefault).to.be.true;
+        });
       });
 
-      it('is case converted', () => {
-        expect(component.hasAttribute('multi-word-attribute')).to.be.true;
+      describe('when set', () => {
+        beforeEach(() => {
+          component = fixture('<test-element></test-element>');
+          component.multiWordAttributeDefault = true;
+        });
+
+        it('is case converted', () => {
+          expect(component.hasAttribute('multi-word-attribute-default')).to.be.true;
+        });
       });
     });
   });
 
   describe('multi word property', () => {
-    describe('when defined', () => {
-      beforeEach(() => {
-        component = fixture('<test-element multi-word-property="true"></test-element>');
+    describe('without default', () => {
+      describe('when defined', () => {
+        beforeEach(() => {
+          component = fixture('<test-element multi-word-property="true"></test-element>');
+        });
+
+        it('is case converted', () => {
+          expect(component.multiWordProperty).to.be.true;
+        });
       });
 
-      it('is case converted', () => {
-        expect(component.multiWordProperty).to.be.true;
+      describe('when set', () => {
+        beforeEach(() => {
+          component = fixture('<test-element></test-element>');
+          component.multiWordProperty = true;
+        });
+
+        it('is case converted', () => {
+          expect(component.hasAttribute('multi-word-property')).to.be.true;
+        });
       });
     });
 
-    describe('when set', () => {
-      beforeEach(() => {
-        component = fixture('<test-element></test-element>');
-        component.multiWordProperty = true;
+    describe('with default', () => {
+      describe('when defined', () => {
+        beforeEach(() => {
+          component = fixture('<test-element multi-word-property-default="true"></test-element>');
+        });
+
+        it('is case converted', () => {
+          expect(component.multiWordPropertyDefault).to.be.true;
+        });
       });
 
-      it('is case converted', () => {
-        expect(component.hasAttribute('multi-word-property')).to.be.true;
+      describe('when set', () => {
+        beforeEach(() => {
+          component = fixture('<test-element></test-element>');
+          component.multiWordPropertyDefault = true;
+        });
+
+        it('is case converted', () => {
+          expect(component.hasAttribute('multi-word-property-default')).to.be.true;
+        });
       });
     });
   });
 
   describe('attributes', () => {
     describe('as a string', () => {
-      describe('when defined', () => {
-        beforeEach(() => {
-          component = fixture('<test-element string="awesome"></test-element>');
+      describe('without default', () => {
+        describe('when defined', () => {
+          beforeEach(() => {
+            component = fixture('<test-element string="awesome"></test-element>');
+          });
+
+          it('is gettable', () => {
+            expect(component.string).equal('awesome');
+          });
+
+          it('is rendered in shadowRoot', () => {
+            expect(component.$('.content').innerText).to.include('string: awesome');
+          });
         });
 
-        it('is gettable', () => {
-          expect(component.string).equal('awesome');
-        });
+        describe('when set', () => {
+          beforeEach(() => {
+            component = fixture('<test-element string="awesome"></test-element>');
+            component.string = 'sauce';
+          });
 
-        it('is rendered in shadowRoot', () => {
-          expect(component.$('.content').innerText).to.include('string: awesome');
+          it('is gettable', () => {
+            expect(component.string).equal('sauce');
+          });
+
+          it('is reflected to attribute', () => {
+            expect(component.getAttribute('string')).equal('sauce');
+          });
+
+          it('is rendered in shadowRoot', () => {
+            expect(component.$('.content').innerText).to.include('string: sauce');
+          });
         });
       });
 
-      describe('when set', () => {
-        beforeEach(() => {
-          component = fixture('<test-element one="awesome"></test-element>');
-          component.string = 'sauce';
+      describe('with default', () => {
+        describe('as default', () => {
+          beforeEach(() => {
+            component = fixture('<test-element></test-element>');
+          });
+
+          it('is gettable', () => {
+            expect(component.stringDefault).equal('default');
+          });
+
+          it('is rendered in shadowRoot', () => {
+            expect(component.$('.content').innerText).to.include('stringDefault: default');
+          });
         });
 
-        it('is gettable', () => {
-          expect(component.string).equal('sauce');
+        describe('when defined', () => {
+          beforeEach(() => {
+            component = fixture('<test-element string-default="awesome"></test-element>');
+          });
+
+          it('is gettable', () => {
+            expect(component.stringDefault).equal('awesome');
+          });
+
+          it('is rendered in shadowRoot', () => {
+            expect(component.$('.content').innerText).to.include('stringDefault: awesome');
+          });
         });
 
-        it('is reflected to attribute', () => {
-          expect(component.getAttribute('string')).equal('sauce');
-        });
+        describe('when set', () => {
+          beforeEach(() => {
+            component = fixture('<test-element string-default="awesome"></test-element>');
+            component.stringDefault = 'sauce';
+          });
 
-        it('is rendered in shadowRoot', () => {
-          expect(component.$('.content').innerText).to.include('string: sauce');
+          it('is gettable', () => {
+            expect(component.stringDefault).equal('sauce');
+          });
+
+          it('is reflected to attribute', () => {
+            expect(component.getAttribute('string-default')).equal('sauce');
+          });
+
+          it('is rendered in shadowRoot', () => {
+            expect(component.$('.content').innerText).to.include('stringDefault: sauce');
+          });
         });
       });
     });
 
     describe('as a number', () => {
-      describe('when defined', () => {
-        beforeEach(() => {
-          component = fixture('<test-element number="13"></test-element>');
+      describe('without default', () => {
+        describe('when defined', () => {
+          beforeEach(() => {
+            component = fixture('<test-element number="13"></test-element>');
+          });
+
+          it('is gettable', () => {
+            expect(component.number).equal(13);
+          });
+
+          it('is rendered in shadowRoot', () => {
+            expect(component.$('.content').innerText).to.include('number: 13');
+          });
         });
 
-        it('is gettable', () => {
-          expect(component.number).equal(13);
-        });
+        describe('when set', () => {
+          beforeEach(() => {
+            component = fixture('<test-element number="13"></test-element>');
+            component.number = 42;
+          });
 
-        it('is rendered in shadowRoot', () => {
-          expect(component.$('.content').innerText).to.include('number: 13');
+          it('is gettable', () => {
+            expect(component.number).equal(42);
+          });
+
+          it('is reflected to attribute', () => {
+            expect(component.getAttribute('number')).equal('42');
+          });
+
+          it('is rendered in shadowRoot', () => {
+            expect(component.$('.content').innerText).to.include('number: 42');
+          });
         });
       });
 
-      describe('when set', () => {
-        beforeEach(() => {
-          component = fixture('<test-element number="13"></test-element>');
-          component.number = 42;
+      describe('with default', () => {
+        describe('when defined', () => {
+          beforeEach(() => {
+            component = fixture('<test-element number-default="13"></test-element>');
+          });
+
+          it('is gettable', () => {
+            expect(component.numberDefault).equal(13);
+          });
+
+          it('is rendered in shadowRoot', () => {
+            expect(component.$('.content').innerText).to.include('numberDefault: 13');
+          });
         });
 
-        it('is gettable', () => {
-          expect(component.number).equal(42);
-        });
+        describe('when set', () => {
+          beforeEach(() => {
+            component = fixture('<test-element number-default="13"></test-element>');
+            component.numberDefault = 42;
+          });
 
-        it('is reflected to attribute', () => {
-          expect(component.getAttribute('number')).equal('42');
-        });
+          it('is gettable', () => {
+            expect(component.numberDefault).equal(42);
+          });
 
-        it('is rendered in shadowRoot', () => {
-          expect(component.$('.content').innerText).to.include('number: 42');
+          it('is reflected to attribute', () => {
+            expect(component.getAttribute('number-default')).equal('42');
+          });
+
+          it('is rendered in shadowRoot', () => {
+            expect(component.$('.content').innerText).to.include('numberDefault: 42');
+          });
         });
       });
     });
 
     describe('as a boolean', () => {
+      describe('without default', () => {
+        describe('when defined', () => {
+          beforeEach(() => {
+            component = fixture('<test-element boolean></test-element>');
+          });
+
+          it('is gettable', () => {
+            expect(component.boolean).to.be.true;
+          });
+
+          it('is rendered in shadowRoot', () => {
+            expect(component.$('.content').innerText).to.include('boolean: true');
+          });
+        });
+
+        describe('when set', () => {
+          beforeEach(() => {
+            component = fixture('<test-element boolean></test-element>');
+            component.boolean = false;
+          });
+
+          it('is gettable', () => {
+            expect(component.boolean).to.be.false;
+          });
+
+          it('is reflected to attribute', () => {
+            expect(component.hasAttribute('boolean')).to.be.false;
+          });
+
+          it('is rendered in shadowRoot', () => {
+            expect(component.$('.content').innerText).to.include('boolean: false');
+          });
+        });
+      });
+    });
+
+    describe('with default', () => {
       describe('when defined', () => {
         beforeEach(() => {
-          component = fixture('<test-element boolean></test-element>');
+          component = fixture('<test-element boolean-default></test-element>');
         });
 
         it('is gettable', () => {
-          expect(component.boolean).to.be.true;
+          expect(component.booleanDefault).to.be.true;
         });
 
         it('is rendered in shadowRoot', () => {
-          expect(component.$('.content').innerText).to.include('boolean: true');
+          expect(component.$('.content').innerText).to.include('booleanDefault: true');
         });
       });
 
       describe('when set', () => {
         beforeEach(() => {
-          component = fixture('<test-element boolean></test-element>');
-          component.boolean = false;
+          component = fixture('<test-element boolean-default></test-element>');
+          component.booleanDefault = false;
         });
 
         it('is gettable', () => {
-          expect(component.boolean).to.be.false;
+          expect(component.booleanDefault).to.be.false;
         });
 
         it('is reflected to attribute', () => {
-          expect(component.hasAttribute('boolean')).to.be.false;
+          expect(component.hasAttribute('boolean-default')).to.be.false;
         });
 
         it('is rendered in shadowRoot', () => {
-          expect(component.$('.content').innerText).to.include('boolean: false');
+          expect(component.$('.content').innerText).to.include('booleanDefault: false');
         });
       });
     });
@@ -181,79 +356,162 @@ describe('TestElement', () => {
 
   describe('properties', () => {
     describe('as an array', () => {
-      describe('when defined', () => {
-        beforeEach(() => {
-          component = fixture('<test-element stringArray=\'["a","b"]\'></test-element>');
+      describe('without default', () => {
+        describe('when defined', () => {
+          beforeEach(() => {
+            component = fixture('<test-element string-array=\'["a","b"]\'></test-element>');
+          });
+
+          it('is gettable', () => {
+            expect(component.stringArray).to.eql(['a', 'b']);
+          });
+
+          it('attribute is removed', () => {
+            expect(component.hasAttribute('string-array')).to.be.false;
+          });
+
+          it('is rendered in shadowRoot', () => {
+            expect(component.$('.content').innerText).to.include('stringArray: ab');
+          });
         });
 
-        it('is gettable', () => {
-          expect(component.stringArray).to.eql(['a', 'b']);
-        });
+        describe('when set', () => {
+          beforeEach(() => {
+            component = fixture('<test-element string-array=\'["a","b"]\'></test-element>');
+            component.stringArray = ['c', 'd'];
+          });
 
-        it('attribute is removed', () => {
-          expect(component.hasAttribute('stringArray')).to.be.false;
-        });
+          it('is gettable', () => {
+            expect(component.stringArray).to.eql(['c', 'd']);
+          });
 
-        it('is rendered in shadowRoot', () => {
-          expect(component.$('.content').innerText).to.include('stringArray: ab');
+          it('is reflected to attribute', () => {
+            expect(component.hasAttribute('string-array')).equal(false);
+          });
+
+          it('is rendered in shadowRoot', () => {
+            expect(component.$('.content').innerText).to.include('stringArray: cd');
+          });
         });
       });
 
-      describe('when set', () => {
-        beforeEach(() => {
-          component = fixture('<test-element stringArray=\'["a","b"]\'></test-element>');
-          component.stringArray = ['c', 'd'];
+      describe('with default', () => {
+        describe('when defined', () => {
+          beforeEach(() => {
+            component = fixture('<test-element string-array-default=\'["a","b"]\'></test-element>');
+          });
+
+          it('is gettable', () => {
+            expect(component.stringArrayDefault).to.eql(['a', 'b']);
+          });
+
+          it('attribute is removed', () => {
+            expect(component.hasAttribute('string-array-default')).to.be.false;
+          });
+
+          it('is rendered in shadowRoot', () => {
+            expect(component.$('.content').innerText).to.include('stringArrayDefault: ab');
+          });
         });
 
-        it('is gettable', () => {
-          expect(component.stringArray).to.eql(['c', 'd']);
-        });
+        describe('when set', () => {
+          beforeEach(() => {
+            component = fixture('<test-element string-array-default=\'["a","b"]\'></test-element>');
+            component.stringArrayDefault = ['c', 'd'];
+          });
 
-        it('is reflected to attribute', () => {
-          expect(component.hasAttribute('stringArray')).equal(false);
-        });
+          it('is gettable', () => {
+            expect(component.stringArrayDefault).to.eql(['c', 'd']);
+          });
 
-        it('is rendered in shadowRoot', () => {
-          expect(component.$('.content').innerText).to.include('stringArray: cd');
+          it('is not reflected to attribute', () => {
+            expect(component.hasAttribute('string-array-default')).equal(false);
+          });
+
+          it('is rendered in shadowRoot', () => {
+            expect(component.$('.content').innerText).to.include('stringArrayDefault: cd');
+          });
         });
       });
     });
 
     describe('as an object', () => {
-      describe('when defined', () => {
-        beforeEach(() => {
-          component = fixture('<test-element object=\'{"a":"b"}\'></test-element>');
+      describe('without default', () => {
+        describe('when defined', () => {
+          beforeEach(() => {
+            component = fixture('<test-element object=\'{"a":"b"}\'></test-element>');
+          });
+
+          it('is gettable', () => {
+            expect(component.object).to.eql({a: 'b'});
+          });
+
+          it('attribute is removed', () => {
+            expect(component.hasAttribute('object')).to.be.false;
+          });
+
+          it('is rendered in shadowRoot', () => {
+            expect(component.$('.content').innerText).to.include('object: [object Object]');
+          });
         });
 
-        it('is gettable', () => {
-          expect(component.object).to.eql({a: 'b'});
-        });
+        describe('when set', () => {
+          beforeEach(() => {
+            component = fixture('<test-element object=\'{"a":"b"}\'></test-element>');
+            component.object = {c: 'd'};
+          });
 
-        it('attribute is removed', () => {
-          expect(component.hasAttribute('object')).to.be.false;
-        });
+          it('is gettable', () => {
+            expect(component.object).to.eql({c: 'd'});
+          });
 
-        it('is rendered in shadowRoot', () => {
-          expect(component.$('.content').innerText).to.include('object: [object Object]');
+          it('is reflected to attribute', () => {
+            expect(component.hasAttribute('object')).to.be.false;
+          });
+
+          it('is rendered in shadowRoot', () => {
+            expect(component.$('.content').innerText).to.include('object: [object Object]');
+          });
         });
       });
 
-      describe('when set', () => {
-        beforeEach(() => {
-          component = fixture('<test-element object=\'{"a":"b"}\'></test-element>');
-          component.object = {c: 'd'};
+      describe('with default', () => {
+        describe('when defined', () => {
+          beforeEach(() => {
+            component = fixture('<test-element object-default=\'{"a":"b"}\'></test-element>');
+          });
+
+          it('is gettable', () => {
+            expect(component.objectDefault).to.eql({a: 'b'});
+          });
+
+          it('attribute is removed', () => {
+            expect(component.hasAttribute('object-default')).to.be.false;
+          });
+
+          it('is rendered in shadowRoot', () => {
+            expect(component.$('.content').innerText).to.include('objectDefault: [object Object]');
+          });
         });
 
-        it('is gettable', () => {
-          expect(component.object).to.eql({c: 'd'});
-        });
+        describe('when set', () => {
+          beforeEach(() => {
+            component = fixture('<test-element object-default=\'{"a":"b"}\'></test-element>');
+            component.objectDefault = {c: 'd'};
+          });
 
-        it('is reflected to attribute', () => {
-          expect(component.hasAttribute('object')).to.be.false;
-        });
+          it('is gettable', () => {
+            expect(component.objectDefault).to.eql({c: 'd'});
+          });
 
-        it('is rendered in shadowRoot', () => {
-          expect(component.$('.content').innerText).to.include('object: [object Object]');
+          it('is not reflected to attribute', () => {
+            expect(component.hasAttribute('object-default')).to.be.false;
+            expect(component.hasAttribute('objectDefault')).to.be.false;
+          });
+
+          it('is rendered in shadowRoot', () => {
+            expect(component.$('.content').innerText).to.include('objectDefault: [object Object]');
+          });
         });
       });
     });
