@@ -17,7 +17,7 @@ export class Generator {
   private nutmegDir: string;
   private workingDir: string;
   private tag: string;
-  private data: data;
+  private data: data | undefined;
   private originTag = 'element-template';
   private fileFilter = [ '**/*', '!partial', '!partial/*' ];
 
