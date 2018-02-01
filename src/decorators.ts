@@ -46,6 +46,13 @@ function getter(name: string, type: any) {
 function setter(name: string, type: any) {
   const attributeName = attributeNameFromProperty(name);
   return function(this: Seed, value: any) {
+    if (this._ignoreDefaultValue(name) && isPrimitive(type)) {
+      this._ignoredDefaultAttributes[name] = true;
+      return;
+    } else if (!this._ignoredDefaultAttributes[name]) {
+      this._ignoredDefaultAttributes[name] = true;
+    }
+
     if (value === null || value === undefined || value === false) {
       this.removeAttribute(attributeName);
     } else {

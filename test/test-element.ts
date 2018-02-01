@@ -1,6 +1,14 @@
 import { Seed, Property, html, TemplateResult } from '../src/seed';
 
 export class TestElement extends Seed {
+  @Property() public stringDefault: string = 'default';
+  @Property() public numberDefault: number = 0;
+  @Property() public booleanDefault: boolean = true;
+  @Property() public stringArrayDefault: string[] = ['default'];
+  @Property() public objectDefault: {} = { default: true };
+  @Property() public multiWordAttributeDefault: boolean = false;
+  @Property() public multiWordPropertyDefault: boolean = false;
+
   @Property() public string: string | undefined;
   @Property() public number: number | undefined;
   @Property() public boolean: boolean | undefined;
@@ -62,6 +70,11 @@ export class TestElement extends Seed {
           <li>boolean: ${this.boolean}</li>
           <li>stringArray: ${this.stringArray}</li>
           <li>object: ${this.object}</li>
+          <li>stringDefault: ${this.stringDefault}</li>
+          <li>numberDefault: ${this.numberDefault}</li>
+          <li>booleanDefault: ${this.booleanDefault}</li>
+          <li>stringArrayDefault: ${this.stringArrayDefault}</li>
+          <li>objectDefault: ${this.objectDefault}</li>
         </ul>
 
         <div id="money">money</div>

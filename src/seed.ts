@@ -13,6 +13,7 @@ interface Seed {
 
 class Seed extends HTMLElement {
   private _connected = false;
+  public _ignoredDefaultAttributes: { [index: string]: boolean } = {};
   private static observedProperties: string[] = [];
   public static observedAttributes: string[] = [];
 
@@ -91,11 +92,17 @@ class Seed extends HTMLElement {
   private upgradePropertyAttributes() {
     const instance = <any>this;
     (instance).constructor['observedProperties'].forEach((prop: string) => {
-      if (instance.hasAttribute(prop)) {
-        (instance)[prop] = JSON.parse(instance.getAttribute(prop));
-        instance.removeAttribute(prop);
+      const attribute = attributeNameFromProperty(prop);
+      if (instance.hasAttribute(attribute)) {
+        (instance)[prop] = JSON.parse(instance.getAttribute(attribute));
+        instance.removeAttribute(attribute);
       }
     });
+  }
+
+  /** Assume TypeScript is setting a default value and it should be ignored because of a user set value. */
+  public _ignoreDefaultValue(name: string): boolean {
+    return !this._connected && !this._ignoredDefaultAttributes[name] && this.hasAttribute(attributeNameFromProperty(name));
   }
 }
 
