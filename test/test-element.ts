@@ -1,13 +1,13 @@
 import { Seed, Property, html, TemplateResult } from '../src/seed';
 
 export class TestElement extends Seed {
-  @Property() public string: string;
-  @Property() public number: number;
-  @Property() public boolean: boolean;
-  @Property() public stringArray: string[];
-  @Property() public object: object;
-  @Property() public multiWordAttribute: boolean;
-  @Property() public multiWordProperty: boolean;
+  @Property() public string: string | undefined;
+  @Property() public number: number | undefined;
+  @Property() public boolean: boolean | undefined;
+  @Property() public stringArray: string[] | undefined;
+  @Property() public object: object | undefined;
+  @Property() public multiWordAttribute: boolean | undefined;
+  @Property() public multiWordProperty: boolean | undefined;
 
   constructor() {
     super();
