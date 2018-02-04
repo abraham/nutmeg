@@ -15,8 +15,7 @@ program.command('build <path>', 'compile a Web Component')
 
 const nutmegDir = path.resolve(process.argv[1], '../..');
 const workingDir = path.resolve(program.args[0]);
-const prodTsConfigFile = path.resolve(workingDir, 'tsconfig.production.json');
-const tsConfigFile = fs.existsSync(prodTsConfigFile) ? prodTsConfigFile : path.resolve(workingDir, 'tsconfig.json');
+const tsConfigFile = path.resolve(workingDir, 'tsconfig.production.json');
 const webpackConfigFile = path.resolve(nutmegDir, 'webpack.component.config.js');
 const tag = Component.tagFromPackage(workingDir);
 const productionFlag = program.production ? '--env.production' : '';
