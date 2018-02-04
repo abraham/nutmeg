@@ -3,7 +3,6 @@
     "declaration": true,
     "inlineSources": true,
     "lib": ["esnext", "dom"],
-    "listEmittedFiles": true,
     "module": "esnext",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
