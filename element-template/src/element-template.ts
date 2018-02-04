@@ -36,6 +36,10 @@ export class <%= name %> extends Seed {
           box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0 ,0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
         }
 
+        * {
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        }
+
         .content {
           background-color: var(--<%= tag %>-background-color, #FAFAFA);
           color: #212121;
