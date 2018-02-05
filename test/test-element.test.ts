@@ -15,6 +15,36 @@ describe('TestElement', () => {
     });
   });
 
+  describe('observedAttributes', () => {
+    it('is set', () => {
+      const expected = [
+        'boolean-default',
+        'boolean',
+        'multi-word-attribute-default',
+        'multi-word-attribute',
+        'number-default',
+        'number',
+        'string-default',
+        'string',
+      ];
+      expect(TestElement.observedAttributes.sort()).to.eql(expected.sort());
+    });
+  });
+
+  describe('observedProperties', () => {
+    it('is set', () => {
+      const expected = [
+        'multiWordPropertyDefault',
+        'multiWordProperty',
+        'objectDefault',
+        'object',
+        'stringArrayDefault',
+        'stringArray',
+      ];
+      expect(TestElement.observedProperties.sort()).to.eql(expected.sort());
+    });
+  });
+
   describe('slot', () => {
     beforeEach(() => {
       component = fixture('<test-element>slot content</test-element>');
@@ -78,22 +108,22 @@ describe('TestElement', () => {
     describe('without default', () => {
       describe('when defined', () => {
         beforeEach(() => {
-          component = fixture('<test-element multi-word-property="true"></test-element>');
+          component = fixture('<test-element multi-word-property="[true]"></test-element>');
         });
 
         it('is case converted', () => {
-          expect(component.multiWordProperty).to.be.true;
+          expect(component.multiWordProperty).to.eql([true]);
         });
       });
 
       describe('when set', () => {
         beforeEach(() => {
           component = fixture('<test-element></test-element>');
-          component.multiWordProperty = true;
+          component.multiWordProperty = [true];
         });
 
-        it('is case converted', () => {
-          expect(component.hasAttribute('multi-word-property')).to.be.true;
+        it('is not reflected', () => {
+          expect(component.hasAttribute('multi-word-property')).to.be.false;
         });
       });
     });
@@ -101,22 +131,22 @@ describe('TestElement', () => {
     describe('with default', () => {
       describe('when defined', () => {
         beforeEach(() => {
-          component = fixture('<test-element multi-word-property-default="true"></test-element>');
+          component = fixture('<test-element multi-word-property-default="[true]"></test-element>');
         });
 
         it('is case converted', () => {
-          expect(component.multiWordPropertyDefault).to.be.true;
+          expect(component.multiWordPropertyDefault).to.eql([true]);
         });
       });
 
       describe('when set', () => {
         beforeEach(() => {
           component = fixture('<test-element></test-element>');
-          component.multiWordPropertyDefault = true;
+          component.multiWordPropertyDefault = [true];
         });
 
-        it('is case converted', () => {
-          expect(component.hasAttribute('multi-word-property-default')).to.be.true;
+        it('is not reflected', () => {
+          expect(component.hasAttribute('multi-word-property-default')).to.be.false;
         });
       });
     });

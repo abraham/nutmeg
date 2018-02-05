@@ -17,9 +17,13 @@ function observeType(type: any): string {
   return isPrimitive(type) ? 'observedAttributes' : 'observedProperties';
 }
 
+function observeName(prop: string, type: any): string {
+  return isPrimitive(type) ? attributeNameFromProperty(prop) : prop;
+}
+
 function observe(target: HTMLElement, name: string, type: any) {
   if (!alreadyObserved(target, name, type)) {
-    (<any>target).constructor[observeType(type)].push(name);
+    (<any>target).constructor[observeType(type)].push(observeName(name, type));
   }
 }
 
@@ -74,9 +78,9 @@ function setter(name: string, type: any) {
   };
 }
 
-export function Property() {
+export function Property(options?: { type: any }) {
   return function(target: HTMLElement, name: string) {
-    const type = Reflect.getMetadata('design:type', target, name);
+    const type = (options && options.type) || Reflect.getMetadata('design:type', target, name);
     observe(target, name, type);
 
     Object.defineProperty(target, name, {

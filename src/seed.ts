@@ -14,7 +14,7 @@ interface Seed {
 class Seed extends HTMLElement {
   private _connected = false;
   public _ignoredDefaultAttributes: { [index: string]: boolean } = {};
-  private static observedProperties: string[] = [];
+  public static observedProperties: string[] = [];
   public static observedAttributes: string[] = [];
 
   constructor() {
