@@ -7,6 +7,11 @@ import { NotifyOptions } from 'update-notifier';
 
 const pkg = require('../package.json');
 
+function tsconfigPath(workingDir: string): string {
+  const modernPath = path.resolve(workingDir, 'tsconfig.production.json');
+  return fs.existsSync(modernPath) ? modernPath : path.resolve(workingDir, 'tsconfig.json')
+}
+
 function notifyOfUpdate() {
   updateNotifier({ pkg: pkg }).notify({ defer: true } as NotifyOptions);
 }
@@ -79,4 +84,5 @@ export {
   isNutmegComponent,
   loadPackageJson,
   notifyOfUpdate,
+  tsconfigPath,
 };
