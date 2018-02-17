@@ -1,3 +1,4 @@
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
@@ -5,6 +6,7 @@ const webpack = require('webpack');
 const name = 'seed';
 
 module.exports = {
+  mode: 'production',
   devServer: {
     contentBase: path.resolve(__dirname, '.'),
   },
@@ -26,7 +28,7 @@ module.exports = {
         ecma: 7,
       },
     }),
-    new webpack.NamedModulesPlugin(),
+    // new BundleAnalyzerPlugin(),
   ],
   resolve: {
     extensions: ['.js'],
