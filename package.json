@@ -81,7 +81,7 @@
     "through2": "2.0.3",
     "ts-loader": "3.5.0",
     "typescript": "2.6.2",
-    "uglifyjs-webpack-plugin": "1.2.0",
+    "uglifyjs-webpack-plugin": "1.2.1",
     "update-notifier": "2.3.0",
     "webpack": "3.11.0",
     "webpack-bundle-analyzer": "2.10.0",
