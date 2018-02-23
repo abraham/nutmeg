@@ -186,6 +186,16 @@ describe('TestElement', () => {
           it('is rendered in shadowRoot', () => {
             expect(component.$('.content').innerText).to.include('string: sauce');
           });
+
+          describe('with nothing', () => {
+            beforeEach(() => {
+              component.string = '';
+            });
+
+            it('is removed', () => {
+              expect(component.hasAttribute('string')).to.be.false;
+            });
+          });
         });
       });
 

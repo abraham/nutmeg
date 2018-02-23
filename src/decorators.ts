@@ -57,7 +57,7 @@ function setter(name: string, type: any) {
       this._ignoredDefaultAttributes[name] = true;
     }
 
-    if (value === null || value === undefined || value === false) {
+    if (value === null || value === undefined || value === false || value === '') {
       this.removeAttribute(attributeName);
     } else {
       switch (type) {
