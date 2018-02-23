@@ -85,7 +85,8 @@
     "update-notifier": "2.3.0",
     "webpack": "3.11.0",
     "webpack-bundle-analyzer": "2.10.1",
-    "webpack-dev-server": "2.11.1"
+    "webpack-dev-server": "2.11.1",
+    "webpack-stylish": "0.1.6"
   },
   "devDependencies": {
     "@types/lodash.template": "4.4.3",

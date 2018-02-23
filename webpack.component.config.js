@@ -1,6 +1,7 @@
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const Stylish = require('webpack-stylish');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
 
@@ -27,6 +28,7 @@ module.exports = function(env, argv) {
       chunks: [`${tag}.bundled`],
     }),
     new webpack.NamedModulesPlugin(),
+    new Stylish(),
   ];
 
   if (analyzer) {
@@ -40,6 +42,7 @@ module.exports = function(env, argv) {
   }
 
   return {
+    stats: 'none',
     context: workingDir,
     devServer: {
       contentBase: path.resolve(workingDir, '.'),
