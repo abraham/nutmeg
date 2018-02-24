@@ -77,7 +77,7 @@
     "pascal-case": "2.0.1",
     "recursive-copy": "2.0.9",
     "shelljs": "0.8.1",
-    "sinon": "4.4.0",
+    "sinon": "4.4.1",
     "through2": "2.0.3",
     "ts-loader": "3.5.0",
     "typescript": "2.7.2",
