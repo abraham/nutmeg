@@ -5,6 +5,8 @@ export interface Property {
   name: string;
   type: Primative;
   value: string | number | boolean | null;
+  primitive: boolean;
+  tmplValue: string;
 }
 
 export type Primative = 'boolean' | 'number' | 'string';
@@ -15,8 +17,13 @@ export class Properties {
   private defaultValues = {
     string: 'Pickle',
     number: 42,
-    boolean: true
-  }
+    boolean: true,
+  };
+  private templateValues = {
+    string: "''",
+    number: "0",
+    boolean: "false",
+  };
 
   constructor(requestedProperties: string[]) {
     this.properties = this.parseProperties(requestedProperties);
@@ -51,6 +58,8 @@ export class Properties {
         name: propertyNameFromAttribute(name),
         type: type,
         value: this.defaultValues[type],
+        tmplValue: this.templateValues[type],
+        primitive: this.primitiveTypes.includes(type),
       };
     })
   }
