@@ -27,7 +27,6 @@ module.exports = function(env, argv) {
       template: 'index.html',
       chunks: [`${tag}.bundled`],
     }),
-    new webpack.NamedModulesPlugin(),
     new Stylish(),
   ];
 
@@ -42,6 +41,7 @@ module.exports = function(env, argv) {
   }
 
   return {
+    mode: production ? 'production' : 'development',
     stats: 'none',
     context: workingDir,
     devServer: {
