@@ -2,7 +2,11 @@ import { Seed, Property, html, TemplateResult } from '@nutmeg/seed';
 
 export class <%= name %> extends Seed {
 <% properties.properties.forEach((property) => {
-    print(`  @Property() public ${property.name}: ${property.type};\n`);
+  if (property.primitive) {
+    print(`  @Property() public ${property.name}: ${property.type} = ${property.tmplValue};\n`);
+  } else {
+    print(`  @Property() public ${property.name}: ${property.type} | undefined;\n`);
+  }
 }); %>
   constructor() {
     super();
