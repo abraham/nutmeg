@@ -80,7 +80,7 @@
     "sinon": "4.4.9",
     "through2": "2.0.3",
     "ts-loader": "4.1.0",
-    "typescript": "2.7.2",
+    "typescript": "2.8.1",
     "uglifyjs-webpack-plugin": "1.2.4",
     "update-notifier": "2.4.0",
     "webpack": "4.3.0",
