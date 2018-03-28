@@ -1,6 +1,6 @@
 {
   "name": "@nutmeg/cli",
-  "version": "0.12.4",
+  "version": "0.13.0",
   "description": "Build, test, and publish vanilla Web Components with a little spice",
   "main": "dist/cli.js",
   "types": "dist/cli.d.ts",
