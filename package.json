@@ -64,7 +64,7 @@
     "sinon": "5.0.0",
     "typescript": "2.8.1",
     "uglifyjs-webpack-plugin": "1.2.4",
-    "webpack": "4.3.0",
+    "webpack": "4.4.0",
     "webpack-bundle-analyzer": "2.11.1",
     "webpack-cli": "2.0.13"
   }
