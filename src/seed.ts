@@ -1,4 +1,5 @@
-import { html, render, svg } from 'lit-html/lib/lit-extended';
+import { html, svg } from 'lit-html/lib/lit-extended';
+import { render } from 'lit-html/lib/shady-render';
 import { TemplateResult } from 'lit-html';
 
 import { Property } from './decorators';
@@ -43,7 +44,7 @@ class Seed extends HTMLElement {
   /** Render the component. */
   public render(): void {
     if (this._connected) {
-      render(this._template, this.shadowRoot);
+      render(this._template, this.shadowRoot, this.tagName.toLowerCase());
     }
   }
 
