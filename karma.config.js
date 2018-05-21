@@ -3,7 +3,7 @@ module.exports = function(config) {
     frameworks: ['mocha', 'chai', 'karma-typescript', 'sinon'],
     browsers: ['ChromeHeadless', 'FirefoxHeadless'],
     files: [
-      './node_modules/@webcomponents/webcomponentsjs/webcomponents-sd-ce.js',
+      './node_modules/@webcomponents/webcomponentsjs/bundles/webcomponents-sd-ce.js',
       { pattern: 'src/*.ts' },
       { pattern: 'test/*.ts' },
     ],
