@@ -85,7 +85,7 @@
     "update-notifier": "2.5.0",
     "webpack": "4.10.2",
     "webpack-bundle-analyzer": "2.13.1",
-    "webpack-cli": "2.1.4",
+    "webpack-cli": "2.1.5",
     "webpack-dev-server": "3.1.4",
     "webpack-stylish": "0.1.8"
   },
