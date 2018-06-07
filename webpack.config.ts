@@ -1,10 +1,9 @@
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const path = require('path');
-const webpack = require('webpack');
+import path from 'path';
+import webpack from 'webpack';
 
 const name = 'seed';
 
-module.exports = {
+const config: webpack.Configuration = {
   mode: 'production',
   devServer: {
     contentBase: path.resolve(__dirname, '.'),
@@ -18,10 +17,9 @@ module.exports = {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
   },
-  plugins: [
-    // new BundleAnalyzerPlugin(),
-  ],
   resolve: {
     extensions: ['.js'],
   },
 };
+
+export default config;
