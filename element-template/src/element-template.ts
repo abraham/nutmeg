@@ -37,7 +37,8 @@ export class <%= name %> extends Seed {
     return html`
       <style>
         :host {
-          box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0 ,0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+          border: 1px solid #000000;
+          border-radius: 8px;
         }
 
         * {
@@ -45,8 +46,8 @@ export class <%= name %> extends Seed {
         }
 
         .content {
-          background-color: var(--<%= tag %>-background-color, #FAFAFA);
-          color: #212121;
+          background-color: var(--<%= tag %>-background-color, #FFFFFF);
+          color: #000000;
           padding: 16px;
         }
       </style>
