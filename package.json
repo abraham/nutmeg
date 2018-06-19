@@ -27,12 +27,12 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "tsc --project tsconfig.production.json && webpack",
+    "build": "tsc --project tsconfig.production.json && webpack --require ts-node/register",
     "clean": "rm -rf dist/*",
     "prebuild": "npm run clean",
     "prepare": "npm run build",
     "test": "karma start karma.config.js",
-    "watch": "tsc --watch & webpack --watch"
+    "watch": "tsc --watch & webpack --require ts-node/register --watch"
   },
   "author": {
     "name": "Abraham Williams",
@@ -50,6 +50,8 @@
   "devDependencies": {
     "@types/chai": "4.1.4",
     "@types/mocha": "5.2.2",
+    "@types/node": "10.3.4",
+    "@types/webpack": "4.4.1",
     "@webcomponents/webcomponentsjs": "2.0.2",
     "chai": "4.1.2",
     "karma": "2.0.3",
@@ -62,10 +64,11 @@
     "karma-typescript-es6-transform": "1.0.4",
     "mocha": "5.2.0",
     "sinon": "6.0.0",
+    "ts-node": "6.1.0",
     "typescript": "2.9.2",
     "uglifyjs-webpack-plugin": "1.2.5",
     "webpack": "4.12.0",
     "webpack-bundle-analyzer": "2.13.1",
-    "webpack-cli": "3.0.8"
+    "webpack-command": "0.2.1"
   }
 }
