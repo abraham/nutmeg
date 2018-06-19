@@ -62,7 +62,7 @@ jobs:
       xcode: "9.4.0"
     steps:
       - checkout
-      - run: brew upgrade yarn
+      - run: brew upgrade yarn || true
       - run: brew install caskroom/cask/firefox caskroom/cask/google-chrome
       - run: node --version
       - run: yarn --version
