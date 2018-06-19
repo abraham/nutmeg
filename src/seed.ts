@@ -64,6 +64,7 @@ class Seed extends HTMLElement {
     <style>
       :host {
         display: block;
+        overflow: hidden;
       }
 
       :host([hidden]) {
