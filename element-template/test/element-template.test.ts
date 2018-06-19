@@ -38,7 +38,7 @@ describe('<<%= tag %>>', () => {
       });
 
       it('is set', () => {
-        expect(getComputedStyle(component.$('.content')).backgroundColor).equal('rgb(250, 250, 250)');
+        expect(getComputedStyle(component.$('.content')).backgroundColor).equal('rgb(255, 255, 255)');
       });
     });
 
