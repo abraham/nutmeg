@@ -7,7 +7,7 @@ Install
 Polyfill tags if you need them. This will include ShadowDOM and Custom Elements support.
 
 ```
-<script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-sd-ce.js"></script>
+<script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/bundles/webcomponents-sd-ce.js"></script>
 ```
 
 Loading this component. It would be a good idea to use a specific version instead of `latest`.
