@@ -1,9 +1,9 @@
+import { attributeNameFromProperty, propertyNameFromAttribute } from './utils';
 import { html, svg } from 'lit-html/lib/lit-extended';
-import { render } from 'lit-html/lib/shady-render';
-import { TemplateResult } from 'lit-html';
 
 import { Property } from './decorators';
-import { attributeNameFromProperty, propertyNameFromAttribute } from './utils';
+import { TemplateResult } from 'lit-html';
+import { render } from 'lit-html/lib/shady-render';
 
 /** Extending classes are expected to define `template` and `styles`. */
 interface Seed {
