@@ -3,7 +3,7 @@ version: 2
 jobs:
   node8_npm:
     macos:
-      xcode: "9.1.0"
+      xcode: "9.4.0"
     steps:
       - checkout
       - run: brew install caskroom/cask/firefox caskroom/cask/google-chrome
@@ -19,9 +19,9 @@ jobs:
       - run: npm build
       - run: npm install --global .
       - run: npm run test
-  node9_npm:
+  node10_npm:
     macos:
-      xcode: "9.1.0"
+      xcode: "9.4.0"
     steps:
       - checkout
       - run: brew upgrade npm
@@ -40,7 +40,7 @@ jobs:
       - run: npm run test
   node8_yarn:
     macos:
-      xcode: "9.1.0"
+      xcode: "9.4.0"
     steps:
       - checkout
       - run: brew install caskroom/cask/firefox caskroom/cask/google-chrome
@@ -57,12 +57,12 @@ jobs:
       - run: yarn global add file:$PWD
       - run: yarn run pretest
       - run: yarn run test:yarn
-  node9_yarn:
+  node10_yarn:
     macos:
-      xcode: "9.1.0"
+      xcode: "9.4.0"
     steps:
       - checkout
-      - run: brew upgrade yarn
+      - run: brew upgrade yarn || true
       - run: brew install caskroom/cask/firefox caskroom/cask/google-chrome
       - run: node --version
       - run: yarn --version
@@ -83,6 +83,6 @@ workflows:
   build:
     jobs:
       - node8_npm
-      - node9_npm
+      - node10_npm
       - node8_yarn
-      - node9_yarn
+      - node10_yarn
