@@ -69,6 +69,6 @@
     "uglifyjs-webpack-plugin": "1.2.7",
     "webpack": "4.12.2",
     "webpack-bundle-analyzer": "2.13.1",
-    "webpack-command": "0.3.0"
+    "webpack-command": "0.3.1"
   }
 }
