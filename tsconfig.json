@@ -2,7 +2,6 @@
   "extends": "./tsconfig.production",
   "include": [
     "src",
-    "test",
-    "webpack.config.ts"
+    "test"
   ],
 }

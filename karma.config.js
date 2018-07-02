@@ -19,7 +19,6 @@ module.exports = function(config) {
     },
     karmaTypescriptConfig: {
       compilerOptions: {
-        allowSyntheticDefaultImports: true,
         target: 'esnext',
         lib: ['esnext', 'dom'],
       },

@@ -1,9 +1,9 @@
-import path from 'path';
-import webpack from 'webpack';
+const path = require('path');
+const webpack = require('webpack');
 
 const name = 'seed';
 
-const config: webpack.Configuration = {
+const config = {
   mode: 'production',
   devServer: {
     contentBase: path.resolve(__dirname, '.'),
@@ -22,4 +22,4 @@ const config: webpack.Configuration = {
   },
 };
 
-export default config;
+module.exports = config;

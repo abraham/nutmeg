@@ -1,16 +1,14 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
     "declaration": true,
     "inlineSources": true,
     "lib": ["esnext", "dom"],
-    "module": "commonjs",
+    "module": "esnext",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noUnusedParameters": true,
-    "esModuleInterop": true,
     "outDir": "dist",
     "skipLibCheck": true,
     "sourceMap": true,
