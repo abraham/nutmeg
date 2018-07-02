@@ -20,7 +20,7 @@ module.exports = function(config) {
     karmaTypescriptConfig: {
       compilerOptions: {
         allowSyntheticDefaultImports: true,
-        target: 'es2015',
+        target: 'esnext',
         lib: ['esnext', 'dom'],
       },
       bundlerOptions: {
