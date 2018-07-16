@@ -83,7 +83,7 @@
     "typescript": "2.9.2",
     "uglifyjs-webpack-plugin": "1.2.7",
     "update-notifier": "2.5.0",
-    "webpack": "4.16.0",
+    "webpack": "4.16.1",
     "webpack-bundle-analyzer": "2.13.1",
     "webpack-cli": "3.0.8",
     "webpack-dev-server": "3.1.4",
