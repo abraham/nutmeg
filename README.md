@@ -129,7 +129,7 @@ With `start` running you can make edits to the component and see the changes tak
 Running the tests from within `hello-world`.
 
 ```bash
-npm run test
+npm test
 ```
 
 ### 🔭 Continuous Integration
