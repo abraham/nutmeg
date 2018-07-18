@@ -18,7 +18,7 @@ jobs:
             - ./node_modules
       - run: npm build
       - run: npm install --global .
-      - run: npm run test
+      - run: npm test
   node10_npm:
     macos:
       xcode: "9.4.0"
@@ -37,7 +37,7 @@ jobs:
             - ./node_modules
       - run: npm build
       - run: npm install --global .
-      - run: npm run test
+      - run: npm test
   node8_yarn:
     macos:
       xcode: "9.4.0"

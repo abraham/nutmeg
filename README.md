@@ -119,17 +119,17 @@ grilledCheese.cheese.includes('sharp cheddar') === true;
 You can now serve the component for development on http://localhost:8080 by running:
 
 ```bash
-npm run serve
+npm start
 ```
 
-With `serve` running you can make edits to the component and see the changes take effect automatically without manually refreshing.
+With `start` running you can make edits to the component and see the changes take effect automatically without manually refreshing.
 
 ## 🔬 Test
 
 Running the tests from within `hello-world`.
 
 ```bash
-npm run test
+npm test
 ```
 
 ### 🔭 Continuous Integration

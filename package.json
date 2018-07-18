@@ -43,8 +43,8 @@
     "build": "tsc",
     "prepare": "npm run build",
     "pretest": "mkdir tmp && npm pack . && node ./scripts/rename-pack.js",
-    "test": "cd tmp && nutmeg new ci-test first:number second:string third:boolean --no-yarn --cli-source file:../../nutmeg-cli-latest.tgz && cd ci-test && npm run test",
-    "test:yarn": "cd tmp && nutmeg new ci-test first:number second:string third:boolean --yarn --cli-source file:../.. && cd ci-test && npm run test",
+    "test": "cd tmp && nutmeg new ci-test first:number second:string third:boolean --no-yarn --cli-source file:../../nutmeg-cli-latest.tgz && cd ci-test && npm test",
+    "test:yarn": "cd tmp && nutmeg new ci-test first:number second:string third:boolean --yarn --cli-source file:../.. && cd ci-test && npm test",
     "watch": "tsc --watch"
   },
   "engines": {

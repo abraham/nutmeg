@@ -22,7 +22,7 @@
     "prebuild": "npx nutmeg clean .",
     "prepare": "npm run build -- --production",
     "pretest": "npm run build",
-    "serve": "npx nutmeg serve .",
+    "start": "npx nutmeg serve .",
     "test": "npx nutmeg test .",
     "watch": "npx nutmeg watch ."
   },

@@ -21,7 +21,7 @@ before_script:
   - if [[ "$PKG_ENV" == "yarn" ]]; then yarn global add file:$PWD; fi
   - if [[ "$PKG_ENV" == "yarn" ]]; then yarn pretest; fi
 script:
-  - if [[ "$PKG_ENV" == "npm" ]]; then npm run test; fi
+  - if [[ "$PKG_ENV" == "npm" ]]; then npm test; fi
   - if [[ "$PKG_ENV" == "yarn" ]]; then yarn run test:yarn; fi
 os:
   - linux
