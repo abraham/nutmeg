@@ -1,9 +1,8 @@
-import { attributeNameFromProperty, propertyNameFromAttribute } from './utils';
-import { html, svg } from 'lit-html/lib/lit-extended';
-
-import { Property } from './decorators';
 import { TemplateResult } from 'lit-html';
+import { html, svg } from 'lit-html/lib/lit-extended';
 import { render } from 'lit-html/lib/shady-render';
+import { Property } from './decorators';
+import { attributeNameFromProperty, propertyNameFromAttribute } from './utils';
 
 /** Extending classes are expected to define `template` and `styles`. */
 interface Seed {
@@ -108,13 +107,4 @@ class Seed extends HTMLElement {
   }
 }
 
-export {
-  attributeNameFromProperty,
-  html,
-  Property as Prop,
-  Property,
-  propertyNameFromAttribute,
-  Seed,
-  svg,
-  TemplateResult,
-};
+export { attributeNameFromProperty, html, Property as Prop, Property, propertyNameFromAttribute, Seed, svg, TemplateResult, };
