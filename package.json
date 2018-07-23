@@ -44,8 +44,8 @@
   },
   "homepage": "https://nutmeg.tools",
   "dependencies": {
-    "lit-html": "0.10.2",
-    "reflect-metadata": "0.1.12"
+    "@abraham/reflection": "0.1.0",
+    "lit-html": "0.10.2"
   },
   "devDependencies": {
     "@types/chai": "4.1.4",

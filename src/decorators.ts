@@ -1,4 +1,4 @@
-import 'reflect-metadata';
+import { Reflection as Reflect } from '@abraham/reflection';
 
 import { attributeNameFromProperty, privatePropertyName } from './utils';
 
