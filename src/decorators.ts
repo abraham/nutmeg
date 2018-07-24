@@ -1,8 +1,6 @@
-import 'reflect-metadata';
-
-import { attributeNameFromProperty, privatePropertyName } from './utils';
-
+import { Reflection as Reflect } from '@abraham/reflection';
 import { Seed } from './seed';
+import { attributeNameFromProperty, privatePropertyName } from './utils';
 
 const primitiveTypes = [Boolean, Number, String];
 
