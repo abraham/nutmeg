@@ -44,7 +44,7 @@
   },
   "homepage": "https://nutmeg.tools",
   "dependencies": {
-    "@abraham/reflection": "0.1.0",
+    "@abraham/reflection": "0.2.2",
     "lit-html": "0.10.2"
   },
   "devDependencies": {
