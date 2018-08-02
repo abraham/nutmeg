@@ -31,10 +31,5 @@
   },
   "devDependencies": {
     "@nutmeg/cli": "<%= cliSource %>"
-  },
-  "renovate": {
-    "extends": [
-      "config:base"
-    ]
   }
 }
