@@ -61,7 +61,7 @@
     "commander": "2.16.0",
     "hasbin": "1.2.3",
     "html-webpack-plugin": "3.2.0",
-    "karma": "2.0.4",
+    "karma": "2.0.5",
     "karma-chai": "0.1.0",
     "karma-chrome-launcher": "2.2.0",
     "karma-firefox-launcher": "1.1.0",
@@ -90,7 +90,7 @@
     "webpack-stylish": "0.1.8"
   },
   "devDependencies": {
-    "@types/lodash.template": "4.4.3",
+    "@types/lodash.template": "4.4.4",
     "@types/node": "9.6.23",
     "@types/shelljs": "0.8.0",
     "@types/through2": "2.0.33",
