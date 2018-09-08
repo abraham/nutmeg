@@ -1,101 +1,12 @@
 {
-  "name": "@nutmeg/cli",
-  "version": "0.15.1",
-  "description": "Build, test, and publish vanilla Web Components with a little spice",
-  "main": "dist/cli.js",
-  "types": "dist/cli.d.ts",
-  "bin": {
-    "nutmeg-build": "bin/nutmeg-build",
-    "nutmeg-clean": "bin/nutmeg-clean",
-    "nutmeg-new": "bin/nutmeg-new",
-    "nutmeg-serve": "bin/nutmeg-serve",
-    "nutmeg-test": "bin/nutmeg-test",
-    "nutmeg-watch": "bin/nutmeg-watch",
-    "nutmeg": "bin/nutmeg"
-  },
-  "directories": {
-    "test": "test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/abraham/nutmeg-cli.git"
-  },
-  "keywords": [
-    "web-components",
-    "webcomponents",
-    "shadow-dom",
-    "shadowdom",
-    "lit-html",
-    "nutmeg",
-    "typescript"
-  ],
-  "author": {
-    "name": "Abraham Williams",
-    "email": "abraham@abrah.am",
-    "url": "https://abrah.am"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/abraham/nutmeg-cli/issues"
-  },
-  "homepage": "https://github.com/abraham/nutmeg-cli",
+  "name": "root",
+  "private": true,
   "scripts": {
-    "build": "tsc",
-    "prepare": "npm run build",
-    "pretest": "mkdir tmp && npm pack . && node ./scripts/rename-pack.js",
-    "test": "cd tmp && nutmeg new ci-test first:number second:string third:boolean --cli-source file:../../nutmeg-cli-latest.tgz && cd ci-test && npm test",
-    "watch": "tsc --watch"
-  },
-  "engines": {
-    "node": ">=8"
-  },
-  "dependencies": {
-    "@nutmeg/seed": "0.13.0",
-    "@types/chai": "4.1.4",
-    "@types/mocha": "5.2.5",
-    "@types/sinon": "5.0.2",
-    "@webcomponents/webcomponentsjs": "2.1.1",
-    "babel-preset-env": "1.7.0",
-    "chai": "4.1.2",
-    "commander": "2.18.0",
-    "html-webpack-plugin": "3.2.0",
-    "karma": "3.0.0",
-    "karma-chai": "0.1.0",
-    "karma-chrome-launcher": "2.2.0",
-    "karma-firefox-launcher": "1.1.0",
-    "karma-mocha": "1.3.0",
-    "karma-opera-launcher": "1.0.0",
-    "karma-safari-launcher": "1.0.0",
-    "karma-sinon": "1.0.5",
-    "karma-typescript": "3.0.13",
-    "karma-typescript-es6-transform": "1.0.4",
-    "karma-webpack": "3.0.4",
-    "lodash.template": "4.4.0",
-    "mocha": "5.2.0",
-    "pascal-case": "2.0.1",
-    "recursive-copy": "2.0.9",
-    "shelljs": "0.8.2",
-    "sinon": "6.2.0",
-    "through2": "2.0.3",
-    "ts-loader": "5.1.0",
-    "typescript": "3.0.3",
-    "uglifyjs-webpack-plugin": "1.3.0",
-    "update-notifier": "2.5.0",
-    "webpack": "4.18.1",
-    "webpack-bundle-analyzer": "3.0.1",
-    "webpack-cli": "3.1.0",
-    "webpack-dev-server": "3.1.8",
-    "webpack-stylish": "0.1.8"
+    "postinstall": "lerna bootstrap --no-ci",
+    "test": "lerna run test"
   },
   "devDependencies": {
-    "@types/lodash.template": "4.4.4",
-    "@types/node": "9.6.32",
-    "@types/shelljs": "0.8.0",
-    "@types/through2": "2.0.34",
-    "@types/update-notifier": "2.2.0"
-  },
-  "browser": {
-    "fs": false,
-    "child_process": false
+    "lerna": "3.3.0",
+    "rimraf": "2.6.2"
   }
 }
