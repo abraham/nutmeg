@@ -6,8 +6,3 @@ declare module 'recursive-copy' {
   declare const recursiveCopy: copy|Copy;
   export = recursiveCopy;
 }
-
-declare module 'hasbin' {
-  declare function sync(name: string): boolean;
-  export = { sync: sync };
-}

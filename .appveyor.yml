@@ -1,33 +1,20 @@
 environment:
   matrix:
     - nodejs_version: "10"
-      PKG: "yarn"
-    - nodejs_version: "10"
-      PKG: "npm"
     - nodejs_version: "8"
-      PKG: "yarn"
-    - nodejs_version: "8"
-      PKG: "npm"
 
 install:
   - ps: Install-Product node $env:nodejs_version
-  - IF "%PKG%" == "npm" npm install
-  - IF "%PKG%" == "npm" npm run build
-  - IF "%PKG%" == "npm" npm install --global . --no-optional
-  - IF "%PKG%" == "yarn" yarn install
-  - IF "%PKG%" == "yarn" yarn run build
-  - IF "%PKG%" == "yarn" yarn global add file:%cd%
+  - npm install
+  - npm run build
+  - npm install --global . --no-optional
 
 test_script:
   - node --version
-  - IF "%PKG%" == "npm" npm --version
-  - IF "%PKG%" == "npm" npm test
-  - IF "%PKG%" == "yarn" yarn --version
-  - IF "%PKG%" == "yarn" yarn pretest
-  - IF "%PKG%" == "yarn" yarn run test:yarn
+  - npm --version
+  - npm test
 
 cache:
- - "%LOCALAPPDATA%\\Yarn"
  - node_modules
  - '%APPDATA%\npm-cache'
 
