@@ -1,7 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as shell from 'shelljs';
-import hasbin = require('hasbin');
 import * as updateNotifier from 'update-notifier';
 import { NotifyOptions } from 'update-notifier';
 
@@ -30,9 +29,6 @@ function loadPackageJson(dir: string): { dependencies: {}, main: string } {
   return JSON.parse(fs.readFileSync(packagePath).toString());
 }
 
-function hasYarn(): boolean {
-  return hasbin.sync('yarn');
-}
 
 function exit(message: string, condition = true): void {
   if (condition) {
@@ -48,17 +44,12 @@ function commitToGit(): void {
   console.log('🗄️  Commiting files to initial Git repository');
 }
 
-function installDependencies(options: { withYarn: boolean, withDependencies: boolean }): void {
+function installDependencies(options: { withDependencies: boolean }): void {
   if (!options.withDependencies) {
     console.log('📦 Skipping dependencies');
   } else {
-    const useYarn = hasYarn() && options.withYarn;
-    console.log(`🎁  Installing dependencies with ${useYarn ? 'Yarn' : 'NPM'}`);
-    if (useYarn) {
-      shell.exec('yarn', { silent: true });
-    } else {
-      shell.exec('npm install', { silent: true });
-    }
+    console.log(`🎁 Installing dependencies`);
+    shell.exec('npm install', { silent: true });
   }
 }
 
@@ -79,7 +70,6 @@ export function propertyNameFromAttribute(name :string): string {
 export {
   commitToGit,
   exit,
-  hasYarn,
   installDependencies,
   isNutmegComponent,
   loadPackageJson,

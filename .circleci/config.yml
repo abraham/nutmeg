@@ -1,7 +1,7 @@
 version: 2
 
 jobs:
-  node8_npm:
+  node8:
     macos:
       xcode: "9.4.0"
     steps:
@@ -19,7 +19,7 @@ jobs:
       - run: npm build
       - run: npm install --global .
       - run: npm test
-  node10_npm:
+  node10:
     macos:
       xcode: "9.4.0"
     steps:
@@ -38,51 +38,10 @@ jobs:
       - run: npm build
       - run: npm install --global .
       - run: npm test
-  node8_yarn:
-    macos:
-      xcode: "9.4.0"
-    steps:
-      - checkout
-      - run: brew install caskroom/cask/firefox caskroom/cask/google-chrome
-      - run: node --version
-      - run: yarn --version
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run: yarn install
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
-      - run: yarn run build
-      - run: yarn global add file:$PWD
-      - run: yarn run pretest
-      - run: yarn run test:yarn
-  node10_yarn:
-    macos:
-      xcode: "9.4.0"
-    steps:
-      - checkout
-      - run: brew upgrade yarn || true
-      - run: brew install caskroom/cask/firefox caskroom/cask/google-chrome
-      - run: node --version
-      - run: yarn --version
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run: yarn install
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
-      - run: yarn run build
-      - run: yarn global add file:$PWD
-      - run: yarn run pretest
-      - run: yarn run test:yarn
 
 workflows:
   version: 2
   build:
     jobs:
-      - node8_npm
-      - node10_npm
-      - node8_yarn
-      - node10_yarn
+      - node8
+      - node10

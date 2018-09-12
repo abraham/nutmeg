@@ -35,13 +35,7 @@ Installing is simple via NPM.
 npm install --global @nutmeg/cli
 ```
 
-Or with Yarn
-
-```bash
-yarn global add @nutmeg/cli
-```
-
-_Note: If it's available, Yarn will be used by default for installing dependencies._
+_Note: Yarn is not supported but may work._
 
 ## 🌱 Build
 
