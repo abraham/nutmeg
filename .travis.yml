@@ -8,7 +8,7 @@ before_script:
   - node --version
   - npm --version
   - npm install
-  - npm install --global . --no-optional
+  - npm install --global packages/cli
 script:
   - npm test
 os:

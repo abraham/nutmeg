@@ -1,0 +1,73 @@
+{
+  "name": "@nutmeg/seed",
+  "version": "0.13.0",
+  "description": "Nutmeg Web Component Seed",
+  "main": "dist/seed.js",
+  "module": "dist/seed.js",
+  "unpkg": "dist/seed.min.js",
+  "types": "dist/seed.d.ts",
+  "directories": {
+    "test": "test"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abraham/nutmeg-seed.git"
+  },
+  "keywords": [
+    "web-components",
+    "webcomponents",
+    "shadow-dom",
+    "shadowdom",
+    "lit-html",
+    "nutmeg",
+    "typescript"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc --project tsconfig.production.json && webpack",
+    "clean": "rm -rf dist/*",
+    "prebuild": "npm run clean",
+    "prepare": "npm run build",
+    "test": "karma start karma.config.js",
+    "watch": "tsc --watch & webpack --watch"
+  },
+  "author": {
+    "name": "Abraham Williams",
+    "email": "abraham@abrah.am",
+    "url": "https://abrah.am"
+  },
+  "bugs": {
+    "url": "https://github.com/abraham/nutmeg-cli/issues"
+  },
+  "homepage": "https://nutmeg.tools",
+  "dependencies": {
+    "@abraham/reflection": "0.4.2",
+    "lit-html": "0.10.2"
+  },
+  "devDependencies": {
+    "@types/chai": "4.1.4",
+    "@types/mocha": "5.2.5",
+    "@types/node": "10.9.4",
+    "@types/webpack": "4.4.11",
+    "@webcomponents/webcomponentsjs": "2.1.1",
+    "chai": "4.1.2",
+    "karma": "3.0.0",
+    "karma-chai": "0.1.0",
+    "karma-chrome-launcher": "2.2.0",
+    "karma-firefox-launcher": "1.1.0",
+    "karma-mocha": "1.3.0",
+    "karma-sinon": "1.0.5",
+    "karma-typescript": "3.0.13",
+    "karma-typescript-es6-transform": "1.0.4",
+    "mocha": "5.2.0",
+    "sinon": "6.2.0",
+    "typescript": "3.0.3",
+    "uglifyjs-webpack-plugin": "1.3.0",
+    "webpack": "4.17.2",
+    "webpack-bundle-analyzer": "3.0.1",
+    "webpack-cli": "3.1.0"
+  }
+}

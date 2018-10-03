@@ -1,3 +1,5 @@
+_Warning: this document is not yet updated for the current code organization._
+
 Contributing to the CLI
 ====
 

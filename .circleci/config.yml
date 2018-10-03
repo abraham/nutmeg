@@ -16,8 +16,7 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-      - run: npm build
-      - run: npm install --global .
+      - run: npm install --global packages/cli
       - run: npm test
   node10:
     macos:
@@ -35,8 +34,7 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-      - run: npm build
-      - run: npm install --global .
+      - run: npm install --global packages/cli
       - run: npm test
 
 workflows:

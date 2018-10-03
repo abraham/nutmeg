@@ -1,0 +1,7 @@
+{
+  "extends": "./tsconfig.production",
+  "include": [
+    "src",
+    "test"
+  ],
+}
