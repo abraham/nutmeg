@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/abraham/nutmeg-seed.git"
+    "url": "git+https://github.com/abraham/nutmeg.git"
   },
   "keywords": [
     "web-components",
@@ -40,7 +40,7 @@
     "url": "https://abrah.am"
   },
   "bugs": {
-    "url": "https://github.com/abraham/nutmeg-cli/issues"
+    "url": "https://github.com/abraham/nutmeg/issues"
   },
   "homepage": "https://nutmeg.tools",
   "dependencies": {

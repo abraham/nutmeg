@@ -3,20 +3,20 @@ _Warning: this document is not yet updated for the current code organization._
 Contributing to the CLI
 ====
 
-Please read the [contributing guidelines](https://github.com/abraham/nutmeg-cli/blob/master/CONTRIBUTING.md) and [code of conduct](https://github.com/abraham/nutmeg-cli/blob/master/CODE_OF_CONDUCT.md).
+Please read the [contributing guidelines](https://github.com/abraham/nutmeg/blob/master/CONTRIBUTING.md) and [code of conduct](https://github.com/abraham/nutmeg/blob/master/CODE_OF_CONDUCT.md).
 
 🔽 Install
 ----
 
-Fork the [abraham/nutmeg-cli](https://github.com/abraham/nutmeg-cli) project to your own GitHub profile. Clone the fork to your local machine replacing `abraham` with your GitHub handle.
+Fork the [abraham/nutmeg](https://github.com/abraham/nutmeg) project to your own GitHub profile. Clone the fork to your local machine replacing `abraham` with your GitHub handle.
 
 ```
-git clone git@github.com:abraham/nutmeg-cli.git
+git clone git@github.com:abraham/nutmeg-.git
 ```
 
-Within the `nutmeg-cli` run `npm install` to install the development dependancies.
+Within the `nutmeg` run `npm install` to install the development dependencies.
 
-To make the development CLI available locally on your machine run `npm install --global` from within `nutmeg-cli` to make this development version available as `nutmeg`.
+To make the development CLI available locally on your machine run `npm install --global` from within `nutmeg/packages/cli` to make this development version available as `nutmeg`.
 
 🚧  **Be sure to run `npm install --global @nutmeg/cli` after you are done developing to go back to stable.**
 
@@ -37,7 +37,7 @@ Once you are happy with your changes commit them to Git with a short but descrip
 git commit -m 'Added useful feature'
 ```
 
-Push the branch to your GitHub fork and create a [pull request](https://github.com/abraham/nutmeg-cli/pulls) to abraham/nutmeg-cli.
+Push the branch to your GitHub fork and create a [pull request](https://github.com/abraham/nutmeg/pulls) to abraham/nutmeg.
 
 📁 Files
 ----
