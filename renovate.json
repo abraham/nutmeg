@@ -1,3 +1,5 @@
 {
-  "extends": [":library"]
+  "extends": [
+    "config:base"
+  ]
 }
