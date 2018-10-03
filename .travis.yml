@@ -8,7 +8,7 @@ before_script:
   - npm --version
   - npm install
 script:
-  - npm run test
+  - npm test
 os:
   - linux
 cache:
