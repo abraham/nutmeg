@@ -4,10 +4,10 @@
 Build, test, and publish vanilla Web Components with a little spice
 
 [![Version Status](https://img.shields.io/npm/v/@nutmeg/cli.svg?style=flat&label=version&colorB=4bc524)](https://npmjs.com/package/@nutmeg/cli)
-[![macOS Build Status](https://img.shields.io/circleci/project/github/abraham/nutmeg-cli.svg?style=flat&label=macos)](https://circleci.com/gh/abraham/nutmeg-cli)
-[![Linux Build Status](https://img.shields.io/travis/abraham/nutmeg-cli.svg?style=flat&label=linux)](https://travis-ci.org/abraham/nutmeg-cli)
-[![Windows Build Status](https://img.shields.io/appveyor/ci/abraham/nutmeg-cli.svg?style=flat&label=windows)](https://ci.appveyor.com/project/abraham/nutmeg-cli)
-[![Dependency Status](https://david-dm.org/abraham/nutmeg-cli.svg?style=flat)](https://david-dm.org/abraham/nutmeg-cli)
+[![macOS Build Status](https://img.shields.io/circleci/project/github/abraham/nutmeg.svg?style=flat&label=macos)](https://circleci.com/gh/abraham/nutmeg)
+[![Linux Build Status](https://img.shields.io/travis/abraham/nutmeg.svg?style=flat&label=linux)](https://travis-ci.org/abraham/nutmeg)
+[![Windows Build Status](https://img.shields.io/appveyor/ci/abraham/nutmeg.svg?style=flat&label=windows)](https://ci.appveyor.com/project/abraham/nutmeg)
+[![Dependency Status](https://david-dm.org/abraham/nutmeg.svg?style=flat)](https://david-dm.org/abraham/nutmeg)
 
 🚧  *Nutmeg is in active development and it's APIs are still in flux.*
 
