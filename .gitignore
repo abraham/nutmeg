@@ -1,3 +1,5 @@
 node_modules
 dist
 coverage
+packages/cli/tmp/
+packages/cli/nutmeg-cli-latest.tgz
