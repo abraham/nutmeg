@@ -92,7 +92,7 @@
     "@types/shelljs": "0.8.0",
     "@types/through2": "2.0.34",
     "@types/update-notifier": "2.2.0",
-    "ts-node": "^7.0.1"
+    "ts-node": "7.0.1"
   },
   "browser": {
     "fs": false,
