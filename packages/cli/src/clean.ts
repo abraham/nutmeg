@@ -1,15 +1,13 @@
-import * as path from 'path';
 import * as program from 'commander';
+import * as path from 'path';
 import * as shell from 'shelljs';
-
-import { isNutmegComponent, exit, notifyOfUpdate } from './utils';
+import { exit, isNutmegComponent, notifyOfUpdate } from './utils';
 
 notifyOfUpdate();
 
 program.command('clean <path>', "clean a Web Component's compiled files")
        .parse(process.argv);
 
-const nutmegDir = path.resolve(process.argv[1], '../..');
 const workingDir = path.resolve(program.args[0]);
 const distDir = path.resolve(workingDir, './dist');
 

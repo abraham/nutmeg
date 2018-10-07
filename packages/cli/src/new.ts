@@ -1,12 +1,11 @@
-import * as fs from 'fs';
-import * as path from 'path';
 import * as program from 'commander';
+import * as path from 'path';
 import * as shell from 'shelljs';
-
+import { dependencies, version } from '../package.json';
 import { Component } from './component';
 import { Generator } from './generator';
-import { exit, commitToGit, installDependencies, notifyOfUpdate } from './utils';
-import { Properties, Property } from './properties';
+import { Properties } from './properties';
+import { commitToGit, exit, installDependencies, notifyOfUpdate } from './utils';
 
 notifyOfUpdate();
 
@@ -17,8 +16,7 @@ program.command('new <component-name> [property:type...]', 'generate a Web Compo
 
 program.parse(process.argv);
 
-const pkg = require('../package.json');
-const seedVersion = pkg['dependencies']['@nutmeg/seed'];
+const seedVersion = dependencies['@nutmeg/seed'];
 const component = new Component(program.args[0]);
 const nutmegDir = path.resolve(process.argv[1], '../..');
 const workingDir = path.resolve('./');
@@ -26,7 +24,7 @@ const requestedProperties = program.args.slice(1);
 const properties = new Properties(requestedProperties);
 const generator = new Generator(nutmegDir, workingDir, component.tag);
 const data = {
-  cliSource: program.cliSource || pkg['version'],
+  cliSource: program.cliSource || version,
   seedSource: program.seedSource || seedVersion,
   seedVersion,
   name: component.name,
@@ -44,8 +42,8 @@ generator.execute(data)
     shell.cd(component.tag);
     commitToGit();
     installDependencies({ withDependencies: program.dependencies });
-    console.log(`🎉  Component generated`);
-    console.log(`🌱  Run \`npm start\` from ${component.tag} to start building`);
+    console.log(`🎉 Component generated`);
+    console.log(`🌱 Run \`npm start\` from ${component.tag} to start building`);
   })
   .catch((error: object) => {
     return console.error(`Copy failed: ${error}`);
