@@ -1,23 +1,23 @@
-import { Seed, Property, html, TemplateResult } from '../src/seed';
+import { Seed, property, html, TemplateResult } from '../src/seed';
 
 export class TestElement extends Seed {
   // Attributes
-  @Property({ type: Boolean }) public boolean: boolean | undefined;
-  @Property() public booleanDefault: boolean = true;
-  @Property({ type: Boolean }) public multiWordAttribute: boolean | undefined;
-  @Property() public multiWordAttributeDefault: boolean = false;
-  @Property({ type: Number }) public number: number | undefined;
-  @Property() public numberDefault: number = 0;
-  @Property({ type: String }) public string: string | undefined;
-  @Property() public stringDefault: string = 'default';
+  @property({ type: Boolean }) public boolean: boolean | undefined;
+  @property() public booleanDefault: boolean = true;
+  @property({ type: Boolean }) public multiWordAttribute: boolean | undefined;
+  @property() public multiWordAttributeDefault: boolean = false;
+  @property({ type: Number }) public number: number | undefined;
+  @property() public numberDefault: number = 0;
+  @property({ type: String }) public string: string | undefined;
+  @property() public stringDefault: string = 'default';
 
   // Properties
-  @Property() public multiWordProperty: boolean[] | undefined;
-  @Property() public multiWordPropertyDefault: boolean[] = [false];
-  @Property() public object: object | undefined;
-  @Property() public objectDefault: {} = { default: true };
-  @Property() public stringArray: string[] | undefined;
-  @Property() public stringArrayDefault: string[] = ['default'];
+  @property() public multiWordProperty: boolean[] | undefined;
+  @property() public multiWordPropertyDefault: boolean[] = [false];
+  @property() public object: object | undefined;
+  @property() public objectDefault: {} = { default: true };
+  @property() public stringArray: string[] | undefined;
+  @property() public stringArrayDefault: string[] = ['default'];
 
   constructor() {
     super();

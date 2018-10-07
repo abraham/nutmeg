@@ -1,11 +1,11 @@
-import { Seed, Property, html, TemplateResult } from '@nutmeg/seed';
+import { Seed, property, html, TemplateResult } from '@nutmeg/seed';
 
 export class <%= name %> extends Seed {
 <% properties.properties.forEach((property) => {
   if (property.primitive) {
-    print(`  @Property() public ${property.name}: ${property.type} = ${property.tmplValue};\n`);
+    print(`  @property() public ${property.name}: ${property.type} = ${property.tmplValue};\n`);
   } else {
-    print(`  @Property() public ${property.name}: ${property.type} | undefined;\n`);
+    print(`  @property() public ${property.name}: ${property.type} | undefined;\n`);
   }
 }); %>
   constructor() {

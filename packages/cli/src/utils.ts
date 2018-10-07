@@ -67,12 +67,4 @@ export function propertyNameFromAttribute(name :string): string {
   }
 }
 
-export {
-  commitToGit,
-  exit,
-  installDependencies,
-  isNutmegComponent,
-  loadPackageJson,
-  notifyOfUpdate,
-  tsconfigPath,
-};
+export { commitToGit, exit, installDependencies, isNutmegComponent, loadPackageJson, notifyOfUpdate, tsconfigPath, };
