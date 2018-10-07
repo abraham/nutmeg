@@ -1,12 +1,10 @@
 import * as program from 'commander';
-
+import { version } from '../package.json';
 import { notifyOfUpdate } from './utils';
-
-const pkg = require('../package.json');
 
 notifyOfUpdate();
 
-program.version(pkg.version)
+program.version(version)
        .usage('new <copmonent-name> [property:type...]')
        .command('build <path>', 'compile a Web Component')
        .command('clean <path>', "clean a Web Component's compiled files")

@@ -1,7 +1,6 @@
 import * as path from 'path';
-import pascalCase = require('pascal-case');
-
 import { loadPackageJson } from './utils';
+import pascalCase = require('pascal-case');
 
 export class Component {
   public tag: string;
@@ -11,8 +10,8 @@ export class Component {
   }
 
   public static tagFromPackage(workingDir: string): string {
-    const meta = loadPackageJson(workingDir);
-    return path.parse(meta.main).name;
+    const { main } = loadPackageJson(workingDir);
+    return path.parse(main).name;
   }
 
   public get valid(): boolean {

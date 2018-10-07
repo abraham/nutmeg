@@ -1,9 +1,8 @@
-import * as path from 'path';
 import * as program from 'commander';
+import * as path from 'path';
 import * as shell from 'shelljs';
-
 import { Component } from './component';
-import { isNutmegComponent, exit, notifyOfUpdate, tsconfigPath } from './utils';
+import { exit, isNutmegComponent, notifyOfUpdate, tsconfigPath } from './utils';
 
 notifyOfUpdate();
 

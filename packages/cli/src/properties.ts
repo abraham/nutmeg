@@ -1,4 +1,4 @@
-import { propertyNameFromAttribute, attributeNameFromProperty } from './utils';
+import { attributeNameFromProperty, propertyNameFromAttribute } from './utils';
 
 export interface Property {
   attribute: string;

@@ -2,9 +2,9 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as shell from 'shelljs';
 import * as updateNotifier from 'update-notifier';
-import { NotifyOptions } from 'update-notifier';
+import * as pkg from '../package.json';
 
-const pkg = require('../package.json');
+const silent = true;
 
 function tsconfigPath(workingDir: string): string {
   const modernPath = path.resolve(workingDir, 'tsconfig.production.json');
@@ -12,13 +12,13 @@ function tsconfigPath(workingDir: string): string {
 }
 
 function notifyOfUpdate() {
-  updateNotifier({ pkg: pkg }).notify({ defer: true } as NotifyOptions);
+  updateNotifier({ pkg }).notify({ defer: true });
 }
 
 function isNutmegComponent(workingDir: string): boolean {
   try {
-    const meta = loadPackageJson(workingDir);
-    return meta && meta.dependencies && meta.dependencies.hasOwnProperty('@nutmeg/seed');
+    const { dependencies } = loadPackageJson(workingDir);
+    return dependencies && dependencies.hasOwnProperty('@nutmeg/seed');
   } catch(e) {
     return false;
   }
@@ -38,9 +38,9 @@ function exit(message: string, condition = true): void {
 }
 
 function commitToGit(): void {
-  shell.exec('git init', { silent: true });
-  shell.exec('git add .', { silent: true });
-  shell.exec('git commit -m "Initial commit from @nutmeg/cli"', { silent: true });
+  shell.exec('git init', { silent });
+  shell.exec('git add .', { silent });
+  shell.exec('git commit -m "Initial commit from @nutmeg/cli"', { silent });
   console.log('🗄️  Commiting files to initial Git repository');
 }
 
@@ -49,7 +49,7 @@ function installDependencies(options: { withDependencies: boolean }): void {
     console.log('📦 Skipping dependencies');
   } else {
     console.log(`🎁 Installing dependencies`);
-    shell.exec('npm install', { silent: true });
+    shell.exec('npm install', { silent });
   }
 }
 

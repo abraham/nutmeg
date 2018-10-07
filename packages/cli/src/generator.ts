@@ -1,10 +1,9 @@
-import * as copy from 'recursive-copy';
 import * as fs from 'fs';
 import * as path from 'path';
+import * as copy from 'recursive-copy';
 import * as through from 'through2';
-import template = require('lodash.template');
-
 import { Properties } from './properties';
+import template = require('lodash.template');
 
 export interface data {
   name: string;
