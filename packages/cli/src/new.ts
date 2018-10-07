@@ -12,11 +12,13 @@ notifyOfUpdate();
 
 program.command('new <component-name> [property:type...]', 'generate a Web Component')
        .option('--cli-source <location>', 'install @nutmeg/cli dependency from local or github')
+       .option('--seed-source <location>', 'install @nutmeg/seed dependency from local or github')
        .option('--no-dependencies', 'skip installing dependencies');
 
 program.parse(process.argv);
 
 const pkg = require('../package.json');
+const seedVersion = pkg['dependencies']['@nutmeg/seed'];
 const component = new Component(program.args[0]);
 const nutmegDir = path.resolve(process.argv[1], '../..');
 const workingDir = path.resolve('./');
@@ -25,10 +27,11 @@ const properties = new Properties(requestedProperties);
 const generator = new Generator(nutmegDir, workingDir, component.tag);
 const data = {
   cliSource: program.cliSource || pkg['version'],
-  seedVersion: pkg['dependencies']['@nutmeg/seed'],
+  seedSource: program.seedSource || seedVersion,
+  seedVersion,
   name: component.name,
   primitiveTypes: properties.primitiveTypes,
-  properties: properties,
+  properties,
   tag: component.tag,
 };
 
