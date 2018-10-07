@@ -18,13 +18,13 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "npx nutmeg build .",
-    "prebuild": "npx nutmeg clean .",
+    "build": "nutmeg build .",
+    "prebuild": "nutmeg clean .",
     "prepare": "npm run build -- --production",
     "pretest": "npm run build",
-    "start": "npx nutmeg serve .",
-    "test": "npx nutmeg test .",
-    "watch": "npx nutmeg watch ."
+    "start": "nutmeg serve .",
+    "test": "nutmeg test .",
+    "watch": "nutmeg watch ."
   },
   "dependencies": {
     "@nutmeg/seed": "<%= seedSource %>"
