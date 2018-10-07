@@ -1,3 +1,4 @@
 #!/usr/bin/env node
 
-require('../dist/watch');
+require('ts-node').register({ fast: true});
+require('../src/watch.ts');

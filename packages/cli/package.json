@@ -40,10 +40,7 @@
   },
   "homepage": "https://github.com/abraham/nutmeg",
   "scripts": {
-    "build": "tsc",
-    "prepare": "npm run build",
-    "test": "ts-node ./scripts/test.ts",
-    "watch": "tsc --watch"
+    "test": "ts-node ./scripts/test.ts"
   },
   "engines": {
     "node": ">=8"
