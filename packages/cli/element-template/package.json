@@ -27,7 +27,7 @@
     "watch": "npx nutmeg watch ."
   },
   "dependencies": {
-    "@nutmeg/seed": "<%= seedVersion %>"
+    "@nutmeg/seed": "<%= seedSource %>"
   },
   "devDependencies": {
     "@nutmeg/cli": "<%= cliSource %>"

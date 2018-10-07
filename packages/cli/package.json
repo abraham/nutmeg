@@ -42,10 +42,7 @@
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build",
-    "pretest": "npm run clean:test && mkdir tmp && npm pack . && node ./scripts/rename-pack.js",
-    "test": "cd tmp && nutmeg new ci-test first:number second:string third:boolean --cli-source file:../../nutmeg-cli-latest.tgz && cd ci-test && npm test",
-    "posttest": "npm run clean:test",
-    "clean:test": "rimraf tmp nutmeg-cli-latest.tgz",
+    "test": "ts-node ./scripts/test.ts",
     "watch": "tsc --watch"
   },
   "engines": {
@@ -94,7 +91,8 @@
     "@types/node": "9.6.34",
     "@types/shelljs": "0.8.0",
     "@types/through2": "2.0.34",
-    "@types/update-notifier": "2.2.0"
+    "@types/update-notifier": "2.2.0",
+    "ts-node": "^7.0.1"
   },
   "browser": {
     "fs": false,
