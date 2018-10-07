@@ -1,6 +1,6 @@
 import { html, svg, TemplateResult } from 'lit-html';
 import { render } from 'lit-html/lib/shady-render';
-import { Property } from './decorators';
+import { property } from './decorators';
 import { attributeNameFromProperty, propertyNameFromAttribute } from './utils';
 
 /** Extending classes are expected to define `template` and `styles`. */
@@ -106,4 +106,4 @@ class Seed extends HTMLElement {
   }
 }
 
-export { attributeNameFromProperty, html, Property as Prop, Property, propertyNameFromAttribute, Seed, svg, TemplateResult, };
+export { attributeNameFromProperty, html, property, propertyNameFromAttribute, Seed, svg, TemplateResult };

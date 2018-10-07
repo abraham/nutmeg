@@ -59,22 +59,22 @@ Properties are the public API of your Web Component and external code can set/ge
 
 ```javascript
 export class GrilledCheese extends Seed {
-  @Property() public bread: string;
-  @Property() public cheese: string[];
-  @Property() public pickles: boolean;
-  @Property() public quantity: number;
+  @property() public bread: string;
+  @property() public cheese: string[];
+  @property() public pickles: boolean;
+  @property() public quantity: number;
   ...
 }
 ```
 
-The `@Property()` decorator provides some nice features out of the box. There are two kinds of properties.
+The `@property()` decorator provides some nice features out of the box. There are two kinds of properties.
 
 - Primitive: `boolean`, `string`, and `number`.
 - Complex: any types that are not primitive.
 
 #### ✍️ Automatic rendering
 
-Any properties decorated with `@Property` will automatically render when set.
+Any properties decorated with `@property` will automatically render when set.
 
 #### 📟 Primitive properties are reflected to the DOM
 

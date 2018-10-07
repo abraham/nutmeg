@@ -77,7 +77,7 @@ function setter(name: string, type: any) {
   };
 }
 
-export function Property(options?: { type: any }) {
+export function property(options?: { type: any }) {
   return function(target: HTMLElement, name: string) {
     const type = (options && options.type) || Reflect.getMetadata('design:type', target, name);
     observe(target, name, type);
