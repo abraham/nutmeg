@@ -40,12 +40,7 @@
   },
   "homepage": "https://github.com/abraham/nutmeg",
   "scripts": {
-    "prebuild": "npm run clean",
-    "build": "tsc",
-    "clean": "rimraf dist",
-    "prepare": "npm run build",
-    "test": "ts-node ./scripts/test.ts",
-    "watch": "tsc --watch"
+    "test": "ts-node ./scripts/test.ts"
   },
   "engines": {
     "node": ">=8"
@@ -79,6 +74,7 @@
     "sinon": "6.3.5",
     "through2": "2.0.3",
     "ts-loader": "5.2.1",
+    "ts-node": "7.0.1",
     "typescript": "3.1.1",
     "uglifyjs-webpack-plugin": "2.0.1",
     "update-notifier": "2.5.0",
@@ -93,9 +89,7 @@
     "@types/node": "9.6.34",
     "@types/shelljs": "0.8.0",
     "@types/through2": "2.0.34",
-    "@types/update-notifier": "2.2.0",
-    "rimraf": "2.6.2",
-    "ts-node": "7.0.1"
+    "@types/update-notifier": "2.2.0"
   },
   "browser": {
     "fs": false,
