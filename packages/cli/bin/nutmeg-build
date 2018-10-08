@@ -1,3 +1,4 @@
 #!/usr/bin/env node
 
-require('../dist/build');
+require('ts-node').register({ transpileOnly: true });
+require('../src/build.ts');
