@@ -1,10 +1,10 @@
-import * as shell from 'shelljs';
 import * as path from 'path';
-import * as cliPkg from '../package.json';
+import * as shell from 'shelljs';
+import { pkg } from '../src/utils';
 
 shell.config.verbose = process.env.DEBUG === 'true';
 
-const cliTgzName = `nutmeg-cli-${cliPkg.version}.tgz`;
+const cliTgzName = `nutmeg-cli-${pkg.version}.tgz`;
 const pkgsDir = path.resolve('..');
 const cliDir = path.resolve(pkgsDir, 'cli');
 const seedDir = path.resolve(pkgsDir, 'seed');

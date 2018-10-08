@@ -1,11 +1,10 @@
 import * as program from 'commander';
 import * as path from 'path';
 import * as shell from 'shelljs';
-import { dependencies, version } from '../package.json';
 import { Component } from './component';
 import { Generator } from './generator';
 import { Properties } from './properties';
-import { commitToGit, exit, installDependencies, notifyOfUpdate } from './utils';
+import { commitToGit, exit, installDependencies, notifyOfUpdate, nutmegDir, pkg } from './utils';
 
 notifyOfUpdate();
 
@@ -16,15 +15,14 @@ program.command('new <component-name> [property:type...]', 'generate a Web Compo
 
 program.parse(process.argv);
 
-const seedVersion = dependencies['@nutmeg/seed'];
+const seedVersion = pkg.dependencies['@nutmeg/seed'];
 const component = new Component(program.args[0]);
-const nutmegDir = path.resolve(process.argv[1], '../..');
-const workingDir = path.resolve('./');
+const workingDir = path.resolve(process.cwd());
 const requestedProperties = program.args.slice(1);
 const properties = new Properties(requestedProperties);
 const generator = new Generator(nutmegDir, workingDir, component.tag);
 const data = {
-  cliSource: program.cliSource || version,
+  cliSource: program.cliSource || pkg.version,
   seedSource: program.seedSource || seedVersion,
   seedVersion,
   name: component.name,
