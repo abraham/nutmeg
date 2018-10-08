@@ -15,11 +15,6 @@
     "strict": true,
     "target": "esnext",
   },
-  "exclude": [
-    "node_modules",
-    "element-template",
-    "dist",
-  ],
   "include": [
     "src",
   ],
