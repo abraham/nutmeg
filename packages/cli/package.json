@@ -40,7 +40,9 @@
   },
   "homepage": "https://github.com/abraham/nutmeg",
   "scripts": {
+    "prebuild": "npm run clean",
     "build": "tsc",
+    "clean": "rimraf dist",
     "prepare": "npm run build",
     "test": "ts-node ./scripts/test.ts",
     "watch": "tsc --watch"
@@ -92,6 +94,7 @@
     "@types/shelljs": "0.8.0",
     "@types/through2": "2.0.34",
     "@types/update-notifier": "2.2.0",
+    "rimraf": "2.6.2",
     "ts-node": "7.0.1"
   },
   "browser": {
