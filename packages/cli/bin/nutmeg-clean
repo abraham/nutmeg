@@ -1,3 +1,4 @@
 #!/usr/bin/env node
 
-require('../dist/clean');
+require('ts-node').register({ fast: true});
+require('../src/clean.ts');

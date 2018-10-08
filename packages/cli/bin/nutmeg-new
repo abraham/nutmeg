@@ -1,3 +1,4 @@
 #!/usr/bin/env node
 
-require('../dist/new');
+require('ts-node').register({ fast: true});
+require('../src/new.ts');

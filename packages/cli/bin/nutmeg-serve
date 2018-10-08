@@ -1,3 +1,4 @@
 #!/usr/bin/env node
 
-require('../dist/serve');
+require('ts-node').register({ fast: true});
+require('../src/serve.ts');
