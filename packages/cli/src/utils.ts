@@ -2,9 +2,17 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as shell from 'shelljs';
 import * as updateNotifier from 'update-notifier';
-import * as pkg from '../package.json';
 
 const silent = true;
+const nutmegDir = path.resolve(__dirname, '..');
+const pkg = loadPackageJson(nutmegDir);
+
+interface Pkg {
+    dependencies: { [index: string]: string };
+    main: string;
+    name: string;
+    version: string;
+}
 
 function tsconfigPath(workingDir: string): string {
   const modernPath = path.resolve(workingDir, 'tsconfig.production.json');
@@ -24,7 +32,7 @@ function isNutmegComponent(workingDir: string): boolean {
   }
 }
 
-function loadPackageJson(dir: string): { dependencies: {}, main: string } {
+function loadPackageJson(dir: string): Pkg {
   const packagePath = path.resolve(dir, 'package.json');
   return JSON.parse(fs.readFileSync(packagePath).toString());
 }
@@ -67,4 +75,4 @@ export function propertyNameFromAttribute(name :string): string {
   }
 }
 
-export { commitToGit, exit, installDependencies, isNutmegComponent, loadPackageJson, notifyOfUpdate, tsconfigPath, };
+export { commitToGit, exit, installDependencies, isNutmegComponent, loadPackageJson, notifyOfUpdate, tsconfigPath, nutmegDir, pkg };
