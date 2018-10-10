@@ -36,7 +36,7 @@
     "@nutmeg/cli": "0.15.0"
   },
   "devDependencies": {
-    "@types/node": "10.11.6",
+    "@types/node": "10.11.7",
     "@types/shelljs": "0.8.0",
     "shelljs": "0.8.2",
     "ts-node": "7.0.1",
