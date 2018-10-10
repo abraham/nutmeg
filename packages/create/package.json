@@ -37,8 +37,8 @@
   },
   "devDependencies": {
     "@types/node": "10.11.6",
-    "@types/shelljs": "^0.8.0",
-    "shelljs": "^0.8.2",
+    "@types/shelljs": "0.8.0",
+    "shelljs": "0.8.2",
     "ts-node": "7.0.1",
     "typescript": "3.1.2"
   },
