@@ -3,3 +3,4 @@ dist
 coverage
 packages/cli/tmp/
 packages/cli/nutmeg-cli-latest.tgz
+package-lock.json

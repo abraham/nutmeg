@@ -2,7 +2,7 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "postinstall": "lerna bootstrap",
+    "postinstall": "lerna bootstrap --no-ci",
     "test": "lerna run test",
     "release": "lerna publish"
   },
