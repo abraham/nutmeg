@@ -1,6 +1,6 @@
 import * as path from 'path';
 import * as shell from 'shelljs';
-import { pkg } from '../src/utils';
+import { pkg } from '../../cli/src/utils';
 
 shell.config.verbose = process.env.DEBUG === 'true';
 
@@ -13,7 +13,7 @@ const nutmegPath = path.resolve(cliDir, 'bin', 'nutmeg');
 const sources = `--cli-source file:${cliTgz} --seed-source file:${seedDir}`;
 const attributes = 'first:number second:string third:boolean';
 const installCmd = `${nutmegPath} new ci-test ${attributes} ${sources}`;
-const testDir = path.resolve(shell.tempdir(), 'nutmeg', 'cli');
+const testDir = path.resolve(shell.tempdir(), 'nutmeg', 'create');
 
 setupForTests();
 

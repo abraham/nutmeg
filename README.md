@@ -27,32 +27,38 @@ By default you get the following:
 - MIT license
 - Web Component best practices
 
-## 📌 Install
+## 🌱 Build
 
-Installing is simple via NPM.
+Generating a Nutmeg Web Component skeleton with [npm init](https://docs.npmjs.com/cli/init) has the API `<element-name> [property:type...]`.
+
+```bash
+npm init @nutmeg hello-world name:string
+```
+
+This will create a `hello-world` directory, stub out a base Web Component class `HelloWorld` that extends the Nutmeg `Seed` base class, and install the default dependencies. You can use either `fullName` or `full-name` for multi-word properties and `full-name` will be used for HTML attributes and `fullName` will be used in JavaScript.
+
+### 📌 Install
+
+Optionally you can install the full CLI.
 
 ```bash
 npm install --global @nutmeg/cli
 ```
 
-_Note: Yarn is not supported but may work._
-
-## 🌱 Build
-
-Once Nutmeg is installed you can generate a new Web Component with `nutmeg new <element-name> [property:type...]`.
+Then generating a component is done with the `new` subcommand.
 
 ```bash
 nutmeg new hello-world name:string
 ```
 
-This will create a `hello-world` directory, stub out a base Web Component class `HelloWorld` that extends the Nutmeg `Seed` base class, and install the default dependencies. You can use either `fooBar` or `foo-bar` for multi-word properties and `fooBar` will be used in HTML and `fooBar` will be used in JavaScript.
+_Note: Yarn is not supported but may work._
 
 ### 🏡 Properties
 
 Properties must be valid TypeScript types. For example `string`, `boolean`, `number`, `string[]`, `Element`.
 
 ```bash
-nutmeg new grilled-cheese quantity:number pickles:boolean cheese:string[]
+npm init @nutmeg grilled-cheese quantity:number pickles:boolean cheese:string[]
 ```
 
 Properties are the public API of your Web Component and external code can set/get them.
