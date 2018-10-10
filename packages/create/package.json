@@ -1,0 +1,45 @@
+{
+  "name": "@nutmeg/create",
+  "version": "0.1.0",
+  "description": "Create a Nutmeg Web Component",
+  "bin": "bin/create-nutmeg",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abraham/nutmeg.git"
+  },
+  "keywords": [
+    "web-components",
+    "webcomponents",
+    "shadow-dom",
+    "shadowdom",
+    "lit-html",
+    "nutmeg",
+    "typescript"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "test": "ts-node ./scripts/test.ts"
+  },
+  "author": {
+    "name": "Abraham Williams",
+    "email": "abraham@abrah.am",
+    "url": "https://abrah.am"
+  },
+  "bugs": {
+    "url": "https://github.com/abraham/nutmeg/issues"
+  },
+  "homepage": "https://nutmeg.tools",
+  "dependencies": {
+    "@nutmeg/cli": "0.15.0"
+  },
+  "devDependencies": {
+    "@types/node": "10.11.6",
+    "@types/shelljs": "^0.8.0",
+    "shelljs": "^0.8.2",
+    "ts-node": "7.0.1",
+    "typescript": "3.1.2"
+  }
+}
