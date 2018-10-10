@@ -100,5 +100,8 @@
   "browser": {
     "fs": false,
     "child_process": false
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

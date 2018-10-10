@@ -41,5 +41,8 @@
     "shelljs": "^0.8.2",
     "ts-node": "7.0.1",
     "typescript": "3.1.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
