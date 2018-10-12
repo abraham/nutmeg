@@ -1,15 +1,15 @@
 import * as path from 'path';
 import * as shell from 'shelljs';
-import { pkg } from '../src/utils';
+import { loadPackageJson } from '../src/utils';
 
 shell.config.verbose = process.env.DEBUG === 'true';
 
-const cliTgzName = `nutmeg-cli-${pkg.version}.tgz`;
-const seedTgzName = `nutmeg-seed-${pkg.version}.tgz`;
 const pkgsDir = path.resolve('..');
 const cliDir = path.resolve(pkgsDir, 'cli');
 const seedDir = path.resolve(pkgsDir, 'seed');
 const createDir = path.resolve(pkgsDir, 'create');
+const cliTgzName = `nutmeg-cli-${loadPackageJson(cliDir).version}.tgz`;
+const seedTgzName = `nutmeg-seed-${loadPackageJson(seedDir).version}.tgz`;
 const cliTgz = path.resolve(cliDir, cliTgzName);
 const seedTgz = path.resolve(seedDir, seedTgzName);
 const sources = `--cli-source file:${cliTgz} --seed-source file:${seedTgz}`;
