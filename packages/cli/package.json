@@ -44,7 +44,8 @@
     "build": "tsc",
     "clean": "rimraf dist",
     "prepare": "npm run build",
-    "test": "ts-node ./scripts/test.ts",
+    "test": "npm run build",
+    "xtest": "ts-node ./scripts/test.ts",
     "watch": "tsc --watch"
   },
   "engines": {

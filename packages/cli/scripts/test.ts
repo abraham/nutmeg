@@ -12,13 +12,12 @@ const cliTgz = path.resolve(cliDir, cliTgzName);
 const nutmegPath = path.resolve(cliDir, 'bin', 'nutmeg');
 const sources = `--cli-source file:${cliTgz} --seed-source file:${seedDir}`;
 const attributes = 'first:number second:string third:boolean';
-const installCmd = `${nutmegPath} new ci-test ${attributes} ${sources}`;
 const testDir = path.resolve(shell.tempdir(), 'nutmeg', 'cli');
 
 setupForTests();
 
 shell.cd(testDir);
-shell.exec(installCmd);
+shell.exec(`${nutmegPath} new ci-test ${attributes} ${sources}`);
 shell.cd('ci-test');
 shell.exec('npm test');
 
