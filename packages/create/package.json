@@ -39,19 +39,19 @@
   },
   "homepage": "https://nutmeg.tools",
   "dependencies": {
-    "lodash.template": "^4.4.0",
-    "pascal-case": "^2.0.1",
-    "recursive-copy": "^2.0.9",
+    "lodash.template": "4.4.0",
+    "pascal-case": "2.0.1",
+    "recursive-copy": "2.0.9",
     "shelljs": "0.8.2",
-    "through2": "^2.0.3",
-    "update-notifier": "^2.5.0"
+    "through2": "2.0.3",
+    "update-notifier": "2.5.0"
   },
   "devDependencies": {
-    "@types/lodash.template": "^4.4.4",
+    "@types/lodash.template": "4.4.4",
     "@types/node": "10.11.7",
     "@types/shelljs": "0.8.0",
-    "@types/through2": "^2.0.34",
-    "@types/update-notifier": "^2.2.0",
+    "@types/through2": "2.0.34",
+    "@types/update-notifier": "2.2.0",
     "ts-node": "7.0.1",
     "typescript": "3.1.3"
   },
