@@ -13,7 +13,7 @@ const seedTgzName = `nutmeg-seed-${loadPackageJson(seedDir).version}.tgz`;
 const cliTgz = path.resolve(cliDir, cliTgzName);
 const seedTgz = path.resolve(seedDir, seedTgzName);
 const sources = `--cli-source file:${cliTgz} --seed-source file:${seedTgz}`;
-const attributes = 'first:number second:string third:boolean';
+const attributes = 'first-attr:number secondAttr:string third-attr:boolean';
 const testDir = path.resolve(shell.tempdir(), 'nutmeg', 'create');
 
 setupForTests();
