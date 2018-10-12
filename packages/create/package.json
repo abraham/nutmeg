@@ -1,6 +1,6 @@
 {
   "name": "@nutmeg/create",
-  "version": "0.16.3",
+  "version": "0.16.4",
   "description": "Create a Nutmeg Web Component",
   "bin": "bin/create-nutmeg",
   "engines": {
