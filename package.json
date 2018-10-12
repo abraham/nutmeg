@@ -5,7 +5,7 @@
     "postinstall": "lerna bootstrap --no-ci",
     "build": "lerna run build",
     "test": "lerna run test",
-    "prerelease": "lerna version --exact && npm run build",
+    "prerelease": "lerna version --exact",
     "release": "lerna publish from-git"
   },
   "devDependencies": {
