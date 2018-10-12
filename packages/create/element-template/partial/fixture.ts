@@ -1,6 +1,6 @@
 component = fixture('<<%= tag %><%
   if (property.type == 'boolean') {
-    print(` ${property.name}`);
+    print(` ${property.attribute}`);
   } else if(['number', 'string'].includes(property.type)) {
     print(` ${property.attribute}="${property.value}"`);
   } %>></<%= tag %>>');<% if (!['number', 'string', 'boolean'].includes(property.type)) {
