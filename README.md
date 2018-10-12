@@ -37,7 +37,7 @@ npm init @nutmeg hello-world name:string
 
 This will create a `hello-world` directory, stub out a base Web Component class `HelloWorld` that extends the Nutmeg `Seed` base class, and install the default dependencies. You can use either `fullName` or `full-name` for multi-word properties and `full-name` will be used for HTML attributes and `fullName` will be used in JavaScript.
 
-### 📌 Install
+<!-- ### 📌 Install
 
 Optionally you can install the full CLI.
 
@@ -49,7 +49,7 @@ Then generating a component is done with the `new` subcommand.
 
 ```bash
 nutmeg new hello-world name:string
-```
+``` -->
 
 _Note: Yarn is not supported but may work._
 

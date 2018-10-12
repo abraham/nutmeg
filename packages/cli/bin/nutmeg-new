@@ -1,3 +1,5 @@
 #!/usr/bin/env node
 
-require('../dist/new');
+// require('../dist/new');
+
+console.log('Run `npm init @nutmeg <copmonent-name> [property:type...]` to generate a component.');
