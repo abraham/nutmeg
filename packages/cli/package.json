@@ -71,7 +71,7 @@
     "karma-sinon": "1.0.5",
     "karma-typescript": "3.0.13",
     "karma-typescript-es6-transform": "1.0.4",
-    "karma-webpack": "4.0.0-rc.3",
+    "karma-webpack": "4.0.0-rc.4",
     "lodash.template": "4.4.0",
     "mocha": "5.2.0",
     "pascal-case": "2.0.1",
