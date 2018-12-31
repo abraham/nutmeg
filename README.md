@@ -85,7 +85,7 @@ Any properties decorated with `@property` will automatically render when set.
 #### 📟 Primitive properties are reflected to the DOM
 
 - **boolean**: `grilledCheese.pickle = true;` => `<grilled-cheese pickle></grilled-cheese>`
-- **number**: `grilledCheese.quantity = 5;` => `<grilled-cheese count="5"></grilled-cheese>`
+- **number**: `grilledCheese.quantity = 5;` => `<grilled-cheese quantity="5"></grilled-cheese>`
 - **string**: `grilledCheese.bread = 'sourdough';` => `<grilled-cheese bread="sourdough"></grilled-cheese>`
 
 #### 📱 One-time complex property loading from attributes
