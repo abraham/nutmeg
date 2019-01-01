@@ -9,7 +9,7 @@
     "release": "lerna publish from-git"
   },
   "devDependencies": {
-    "lerna": "3.8.0",
+    "lerna": "3.8.1",
     "rimraf": "2.6.2"
   }
 }
