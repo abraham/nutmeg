@@ -95,7 +95,7 @@
     "@types/shelljs": "0.8.1",
     "@types/through2": "2.0.34",
     "@types/update-notifier": "2.5.0",
-    "rimraf": "2.6.2",
+    "rimraf": "2.6.3",
     "ts-node": "7.0.1"
   },
   "browser": {
