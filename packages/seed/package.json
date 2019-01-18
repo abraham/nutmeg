@@ -52,7 +52,7 @@
     "@types/mocha": "5.2.5",
     "@types/node": "10.12.18",
     "@types/webpack": "4.4.23",
-    "@webcomponents/webcomponentsjs": "2.2.2",
+    "@webcomponents/webcomponentsjs": "2.2.4",
     "chai": "4.2.0",
     "karma": "3.1.4",
     "karma-chai": "0.1.0",
