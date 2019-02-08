@@ -50,7 +50,7 @@
   "devDependencies": {
     "@types/chai": "4.1.7",
     "@types/mocha": "5.2.5",
-    "@types/node": "10.12.23",
+    "@types/node": "10.12.24",
     "@types/webpack": "4.4.24",
     "@webcomponents/webcomponentsjs": "2.2.7",
     "chai": "4.2.0",
