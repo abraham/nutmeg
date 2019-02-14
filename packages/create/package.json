@@ -51,7 +51,7 @@
   "devDependencies": {
     "@types/lodash.template": "4.4.5",
     "@types/node": "10.12.26",
-    "@types/shelljs": "0.8.2",
+    "@types/shelljs": "0.8.3",
     "@types/through2": "2.0.34",
     "@types/update-notifier": "2.5.0",
     "ts-node": "8.0.2",
