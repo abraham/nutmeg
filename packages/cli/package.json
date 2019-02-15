@@ -54,7 +54,7 @@
   "dependencies": {
     "@nutmeg/seed": "^0.16.1",
     "@types/chai": "4.1.7",
-    "@types/mocha": "5.2.5",
+    "@types/mocha": "5.2.6",
     "@types/sinon": "7.0.6",
     "@webcomponents/webcomponentsjs": "2.2.7",
     "babel-preset-env": "1.7.0",
