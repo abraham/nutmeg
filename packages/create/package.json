@@ -45,7 +45,7 @@
     "pascal-case": "2.0.1",
     "recursive-copy": "2.0.10",
     "shelljs": "0.8.3",
-    "through2": "3.0.0",
+    "through2": "3.0.1",
     "update-notifier": "2.5.0"
   },
   "devDependencies": {
