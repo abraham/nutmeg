@@ -63,7 +63,7 @@
     "karma-typescript": "3.0.13",
     "karma-typescript-es6-transform": "1.0.4",
     "mocha": "6.0.2",
-    "sinon": "7.2.5",
+    "sinon": "7.2.6",
     "typescript": "3.3.3333",
     "uglifyjs-webpack-plugin": "2.1.2",
     "webpack": "4.29.6",
