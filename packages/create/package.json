@@ -55,7 +55,7 @@
     "@types/through2": "2.0.34",
     "@types/update-notifier": "2.5.0",
     "ts-node": "8.0.3",
-    "typescript": "3.3.4000"
+    "typescript": "3.4.1"
   },
   "publishConfig": {
     "access": "public"
