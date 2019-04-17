@@ -54,7 +54,7 @@
     "@types/webpack": "4.4.27",
     "@webcomponents/webcomponentsjs": "2.2.8",
     "chai": "4.2.0",
-    "karma": "4.0.1",
+    "karma": "4.1.0",
     "karma-chai": "0.1.0",
     "karma-chrome-launcher": "2.2.0",
     "karma-firefox-launcher": "1.1.0",
