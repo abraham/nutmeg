@@ -82,7 +82,7 @@
     "ts-loader": "5.4.4",
     "typescript": "3.4.5",
     "uglifyjs-webpack-plugin": "2.1.2",
-    "update-notifier": "2.5.0",
+    "update-notifier": "3.0.0",
     "webpack": "4.30.0",
     "webpack-bundle-analyzer": "3.3.2",
     "webpack-cli": "3.3.2",
