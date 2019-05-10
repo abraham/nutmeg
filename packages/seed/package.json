@@ -51,7 +51,7 @@
     "@types/chai": "4.1.7",
     "@types/mocha": "5.2.6",
     "@types/node": "10.14.6",
-    "@types/webpack": "4.4.29",
+    "@types/webpack": "4.4.31",
     "@webcomponents/webcomponentsjs": "2.2.10",
     "chai": "4.2.0",
     "karma": "4.1.0",
@@ -66,7 +66,7 @@
     "sinon": "7.3.2",
     "typescript": "3.4.5",
     "uglifyjs-webpack-plugin": "2.1.2",
-    "webpack": "4.30.0",
+    "webpack": "4.31.0",
     "webpack-bundle-analyzer": "3.3.2",
     "webpack-cli": "3.3.2"
   },
