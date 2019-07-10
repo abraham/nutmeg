@@ -41,7 +41,7 @@
   "dependencies": {
     "commander": "2.20.0",
     "latest-version": "5.1.0",
-    "lodash.template": "4.4.0",
+    "lodash.template": "4.5.0",
     "pascal-case": "2.0.1",
     "recursive-copy": "2.0.10",
     "shelljs": "0.8.3",
