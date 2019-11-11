@@ -6,6 +6,7 @@ jobs:
       xcode: "9.4.0"
     steps:
       - checkout
+      - run: echo "ruby-2.5.1" > ~/.ruby-version
       - run: brew install caskroom/cask/firefox caskroom/cask/google-chrome
       - run: node --version
       - run: npm --version
@@ -23,6 +24,7 @@ jobs:
       xcode: "9.4.0"
     steps:
       - checkout
+      - run: echo "ruby-2.5.1" > ~/.ruby-version
       - run: brew upgrade npm
       - run: brew install caskroom/cask/firefox caskroom/cask/google-chrome
       - run: node --version
