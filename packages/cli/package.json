@@ -92,7 +92,7 @@
   "devDependencies": {
     "@types/lodash.template": "4.4.6",
     "@types/node": "10.14.20",
-    "@types/shelljs": "0.8.5",
+    "@types/shelljs": "0.8.6",
     "@types/through2": "2.0.34",
     "@types/update-notifier": "2.5.0",
     "rimraf": "3.0.0",
