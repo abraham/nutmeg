@@ -39,7 +39,7 @@
   },
   "homepage": "https://nutmeg.tools",
   "dependencies": {
-    "commander": "2.20.3",
+    "commander": "4.0.1",
     "latest-version": "5.1.0",
     "lodash.template": "4.5.0",
     "pascal-case": "2.0.1",
