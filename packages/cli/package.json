@@ -49,7 +49,7 @@
     "watch": "tsc --watch"
   },
   "engines": {
-    "node": ">=8"
+    "node": "12"
   },
   "dependencies": {
     "@nutmeg/seed": "^0.16.1",
