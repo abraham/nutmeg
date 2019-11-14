@@ -1,12 +1,24 @@
 version: 2
+
+nvm: &nvm
+  name: Setup NVM
+  command: |
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash -s -- --no-use
+    echo 'export NVM_DIR=$HOME/.nvm' >> $BASH_ENV
+    echo 'source $NVM_DIR/nvm.sh' >> $BASH_ENV
+    echo 'nvm install $NODE_VERSION' >> $BASH_ENV
+    echo 'nvm alias default $NODE_VERSION' >> $BASH_ENV
+
 jobs:
   build:
     macos:
-      xcode: "9.1.0"
+      xcode: "11.2.0"
+    environment:
+      NODE_VERSION: "10"
     steps:
       - checkout
-      - run: brew upgrade npm
-      - run: brew install caskroom/cask/firefox caskroom/cask/google-chrome
+      - run: *nvm
+      - run: brew cask install firefox google-chrome
       - run: node --version
       - run: npm --version
       - restore_cache:

@@ -11,5 +11,8 @@
   "devDependencies": {
     "lerna": "3.18.4",
     "rimraf": "3.0.0"
+  },
+  "engines": {
+    "node": "12"
   }
 }
