@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { TestElement } from './test-element';
 
 declare global {
-  interface window {
+  interface Window {
     ShadyCSS?: {
       nativeShadow: boolean;
     };
