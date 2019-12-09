@@ -96,7 +96,7 @@
     "@types/through2": "2.0.34",
     "@types/update-notifier": "2.5.0",
     "rimraf": "3.0.0",
-    "ts-node": "8.5.2"
+    "ts-node": "8.5.4"
   },
   "browser": {
     "fs": false,
