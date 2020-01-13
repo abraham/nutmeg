@@ -54,7 +54,7 @@
     "@types/shelljs": "0.8.6",
     "@types/through2": "2.0.34",
     "@types/update-notifier": "2.5.0",
-    "ts-node": "8.6.1",
+    "ts-node": "8.6.2",
     "typescript": "3.7.4"
   },
   "publishConfig": {
