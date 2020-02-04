@@ -42,7 +42,7 @@
     "commander": "4.1.1",
     "latest-version": "5.1.0",
     "lodash.template": "4.5.0",
-    "pascal-case": "2.0.1",
+    "pascal-case": "3.1.1",
     "recursive-copy": "2.0.10",
     "shelljs": "0.8.3",
     "through2": "3.0.1",
