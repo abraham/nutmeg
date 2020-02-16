@@ -4,3 +4,4 @@ coverage
 packages/cli/tmp/
 packages/cli/nutmeg-cli-latest.tgz
 packages/**/package-lock.json
+*.log
