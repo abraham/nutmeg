@@ -1,5 +1,5 @@
-# Work-around for https://github.com/travis-ci/travis-ci/issues/8836
-sudo: true
+os: linux
+dist: bionic
 language: node_js
 node_js:
   - 10
@@ -11,11 +11,9 @@ before_script:
   - npm install --global packages/cli
 script:
   - npm test
-os:
-  - linux
 cache:
   directories:
   - node_modules
 addons:
-  firefox: latest
+  firefox: latest-esr
   chrome: stable

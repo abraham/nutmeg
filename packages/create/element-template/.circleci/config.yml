@@ -12,9 +12,9 @@ nvm: &nvm
 jobs:
   build:
     macos:
-      xcode: "11.2.0"
+      xcode: "11.3.1"
     environment:
-      NODE_VERSION: "10"
+      NODE_VERSION: "12"
     steps:
       - checkout
       - run: *nvm
