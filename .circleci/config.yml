@@ -12,13 +12,13 @@ nvm: &nvm
 jobs:
   node10:
     macos:
-      xcode: "11.2.0"
+      xcode: "11.3.1"
     environment:
       NODE_VERSION: "10"
     steps:
       - checkout
       - run: *nvm
-      - run: brew cask install firefox google-chrome
+      - run: brew cask install firefox-esr google-chrome
       - run: node --version
       - run: npm --version
       - restore_cache:
@@ -32,13 +32,13 @@ jobs:
       - run: npm test
   node12:
     macos:
-      xcode: "11.2.0"
+      xcode: "11.3.1"
     environment:
       NODE_VERSION: "12"
     steps:
       - checkout
       - run: *nvm
-      - run: brew cask install firefox google-chrome
+      - run: brew cask install firefox-esr google-chrome
       - run: node --version
       - run: npm --version
       - restore_cache:
