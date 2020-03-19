@@ -23,7 +23,7 @@ module.exports = function(config) {
         lib: ['esnext', 'dom'],
       },
       bundlerOptions: {
-        transforms: [require('karma-typescript-es6-transform')({ presets: 'env' })],
+        transforms: [require('karma-typescript-es6-transform')({ presets: ['@babel/preset-env'] })],
       },
     },
   });
