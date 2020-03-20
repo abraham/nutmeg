@@ -45,7 +45,7 @@
   "homepage": "https://nutmeg.tools",
   "dependencies": {
     "@abraham/reflection": "0.7.0",
-    "lit-html": "1.2.0"
+    "lit-html": "1.2.1"
   },
   "devDependencies": {
     "@types/chai": "4.2.11",
