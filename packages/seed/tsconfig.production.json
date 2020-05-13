@@ -16,9 +16,7 @@
     "strict": true,
     "target": "esnext",
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
+    "emitDecoratorMetadata": true
   },
-  "include": [
-    "src",
-  ],
+  "include": ["src"]
 }

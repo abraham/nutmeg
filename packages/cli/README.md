@@ -9,7 +9,7 @@ Build, test, and publish vanilla Web Components with a little spice
 [![Windows Build Status](https://img.shields.io/appveyor/ci/abraham/nutmeg.svg?style=flat&label=windows)](https://ci.appveyor.com/project/abraham/nutmeg)
 [![Dependency Status](https://david-dm.org/abraham/nutmeg.svg?style=flat)](https://david-dm.org/abraham/nutmeg)
 
-This is the @nutmeg/cli package used to build and test [Nutmeg  components](https://nutmeg.tools).
+This is the @nutmeg/cli package used to build and test [Nutmeg components](https://nutmeg.tools).
 
 ## 👔 License
 

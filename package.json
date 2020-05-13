@@ -2,14 +2,17 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "postinstall": "lerna bootstrap --no-ci",
     "build": "lerna run build",
-    "test": "lerna run test",
+    "format": "prettier --write .",
+    "lint": "prettier --check .",
+    "postinstall": "lerna bootstrap --no-ci",
     "prerelease": "lerna version --exact",
-    "release": "lerna publish from-git"
+    "release": "lerna publish from-git",
+    "test": "lerna run test"
   },
   "devDependencies": {
     "lerna": "3.21.0",
+    "prettier": "2.0.5",
     "rimraf": "3.0.2"
   },
   "engines": {

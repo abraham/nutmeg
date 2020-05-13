@@ -1,7 +1,7 @@
 environment:
   matrix:
-    - nodejs_version: "10"
-    - nodejs_version: "12"
+    - nodejs_version: '10'
+    - nodejs_version: '12'
 
 install:
   - ps: Install-Product node $env:nodejs_version
@@ -14,7 +14,7 @@ test_script:
   - npm test
 
 cache:
- - node_modules
- - '%APPDATA%\npm-cache'
+  - node_modules
+  - '%APPDATA%\npm-cache'
 
 build: off

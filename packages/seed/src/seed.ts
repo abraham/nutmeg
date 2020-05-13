@@ -35,14 +35,20 @@ class Seed extends HTMLElement {
   }
 
   /** Rerender when the observed attributes change. */
-  public attributeChangedCallback(_name: string, _oldValue: any, _newValue: any) {
+  public attributeChangedCallback(
+    _name: string,
+    _oldValue: any,
+    _newValue: any
+  ) {
     this.render();
   }
 
   /** Render the component. */
   public render(): void {
     if (this._connected) {
-      render(this._template, this.shadowRoot, { scopeName: this.tagName.toLowerCase() });
+      render(this._template, this.shadowRoot, {
+        scopeName: this.tagName.toLowerCase(),
+      });
     }
   }
 
@@ -59,31 +65,32 @@ class Seed extends HTMLElement {
   /** Combine the components styles and template. */
   private get _template(): TemplateResult {
     return html`
-    <style>
-      :host {
-        display: block;
-        overflow: hidden;
-      }
+      <style>
+        :host {
+          display: block;
+          overflow: hidden;
+        }
 
-      :host([hidden]) {
-        display: none;
-      }
-    </style>
-    ${this.styles}
-    ${this.template}
-    <!-- Built, tested, and published with Nutmeg. https://nutmeg.tools -->
+        :host([hidden]) {
+          display: none;
+        }
+      </style>
+      ${this.styles} ${this.template}
+      <!-- Built, tested, and published with Nutmeg. https://nutmeg.tools -->
     `;
   }
 
   /** Support lazy properties https://developers.google.com/web/fundamentals/web-components/best-practices#lazy-properties */
   private upgradeProperties() {
     const instance = <any>this;
-    const props = (instance).constructor['observedAttributes'].concat((instance).constructor['observedProperties']);
+    const props = instance.constructor['observedAttributes'].concat(
+      instance.constructor['observedProperties']
+    );
     props.forEach((prop: string) => {
       if (instance.hasOwnProperty(prop)) {
-        let value = (instance)[prop];
-        delete (instance)[prop];
-        (instance)[prop] = value;
+        let value = instance[prop];
+        delete instance[prop];
+        instance[prop] = value;
       }
     });
   }
@@ -91,10 +98,10 @@ class Seed extends HTMLElement {
   /** Perform a one-time upgrade of complex properties from JSON encoded attributes. */
   private upgradePropertyAttributes() {
     const instance = <any>this;
-    (instance).constructor['observedProperties'].forEach((prop: string) => {
+    instance.constructor['observedProperties'].forEach((prop: string) => {
       const attribute = attributeNameFromProperty(prop);
       if (instance.hasAttribute(attribute)) {
-        (instance)[prop] = JSON.parse(instance.getAttribute(attribute));
+        instance[prop] = JSON.parse(instance.getAttribute(attribute));
         instance.removeAttribute(attribute);
       }
     });
@@ -102,8 +109,20 @@ class Seed extends HTMLElement {
 
   /** Assume TypeScript is setting a default value and it should be ignored because of a user set value. */
   public _ignoreDefaultValue(name: string): boolean {
-    return !this._connected && !this._ignoredDefaultAttributes[name] && this.hasAttribute(attributeNameFromProperty(name));
+    return (
+      !this._connected &&
+      !this._ignoredDefaultAttributes[name] &&
+      this.hasAttribute(attributeNameFromProperty(name))
+    );
   }
 }
 
-export { attributeNameFromProperty, html, property, propertyNameFromAttribute, Seed, svg, TemplateResult };
+export {
+  attributeNameFromProperty,
+  html,
+  property,
+  propertyNameFromAttribute,
+  Seed,
+  svg,
+  TemplateResult,
+};

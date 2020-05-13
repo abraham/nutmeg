@@ -13,7 +13,7 @@ script:
   - npm test
 cache:
   directories:
-  - node_modules
+    - node_modules
 addons:
   firefox: latest-esr
   chrome: stable

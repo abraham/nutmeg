@@ -1,11 +1,12 @@
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const Stylish = require('webpack-stylish');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
 
-module.exports = function(env, argv) {
+module.exports = function (env, argv) {
   const analyzer = env.analyzer;
   const production = env.production;
   const tag = env.tag;
@@ -59,4 +60,4 @@ module.exports = function(env, argv) {
       extensions: ['.js'],
     },
   };
-}
+};

@@ -28,7 +28,7 @@ removeTestFiles();
 function setupForTests() {
   removeTestFiles();
   shell.mkdir('-p', testDir);
-  [cliDir, seedDir].forEach(dir => {
+  [cliDir, seedDir].forEach((dir) => {
     shell.cd(dir);
     shell.exec('npm pack .', { silent: true });
   });

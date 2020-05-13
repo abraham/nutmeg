@@ -1,4 +1,4 @@
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
     frameworks: ['mocha', 'chai', 'karma-typescript', 'sinon'],
     browsers: ['ChromeHeadless', 'FirefoxHeadless'],
@@ -23,8 +23,12 @@ module.exports = function(config) {
         lib: ['esnext', 'dom'],
       },
       bundlerOptions: {
-        transforms: [require('karma-typescript-es6-transform')({ presets: ['@babel/preset-env'] })],
+        transforms: [
+          require('karma-typescript-es6-transform')({
+            presets: ['@babel/preset-env'],
+          }),
+        ],
       },
     },
   });
-}
+};

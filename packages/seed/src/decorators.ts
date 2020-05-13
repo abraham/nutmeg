@@ -28,8 +28,8 @@ function observe(target: HTMLElement, name: string, type: any) {
 
 function getter(name: string, type: any) {
   const attributeName = attributeNameFromProperty(name);
-  return function(this: Seed) {
-    switch(type) {
+  return function (this: Seed) {
+    switch (type) {
       case String:
         return this.getAttribute(attributeName);
       case Number:
@@ -43,12 +43,12 @@ function getter(name: string, type: any) {
       default:
         return (<any>this)[privatePropertyName(name)];
     }
-  }
+  };
 }
 
 function setter(name: string, type: any) {
   const attributeName = attributeNameFromProperty(name);
-  return function(this: Seed, value: any) {
+  return function (this: Seed, value: any) {
     if (this._ignoreDefaultValue(name) && isPrimitive(type)) {
       this._ignoredDefaultAttributes[name] = true;
       return;
@@ -56,7 +56,12 @@ function setter(name: string, type: any) {
       this._ignoredDefaultAttributes[name] = true;
     }
 
-    if (value === null || value === undefined || value === false || value === '') {
+    if (
+      value === null ||
+      value === undefined ||
+      value === false ||
+      value === ''
+    ) {
       this.removeAttribute(attributeName);
     } else {
       switch (type) {
@@ -70,7 +75,7 @@ function setter(name: string, type: any) {
           this.setAttribute(attributeName, '');
           break;
         default:
-         (<any>this)[privatePropertyName(name)] = value;
+          (<any>this)[privatePropertyName(name)] = value;
       }
     }
     this.render();
@@ -78,8 +83,10 @@ function setter(name: string, type: any) {
 }
 
 export function property(options?: { type: any }) {
-  return function(target: HTMLElement, name: string) {
-    const type = (options && options.type) || Reflect.getMetadata('design:type', target, name);
+  return function (target: HTMLElement, name: string) {
+    const type =
+      (options && options.type) ||
+      Reflect.getMetadata('design:type', target, name);
     observe(target, name, type);
 
     Object.defineProperty(target, name, {
@@ -88,5 +95,5 @@ export function property(options?: { type: any }) {
       get: getter(name, type),
       set: setter(name, type),
     });
-  }
+  };
 }

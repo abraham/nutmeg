@@ -6,7 +6,7 @@ export class Component {
   public tag: string;
 
   constructor(tag: string) {
-      this.tag = tag;
+    this.tag = tag;
   }
 
   public static tagFromPackage(workingDir: string): string {
@@ -15,9 +15,11 @@ export class Component {
   }
 
   public get valid(): boolean {
-    return 0 < this.tag.indexOf('-')
-      && this.tag.indexOf('-') < this.tag.length - 1
-      && this.tag === this.tag.toLowerCase();
+    return (
+      0 < this.tag.indexOf('-') &&
+      this.tag.indexOf('-') < this.tag.length - 1 &&
+      this.tag === this.tag.toLowerCase()
+    );
   }
 
   public get name(): string {
