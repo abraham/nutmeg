@@ -124,7 +124,7 @@ npm start
 
 With `start` running you can make edits to the component and see the changes take effect automatically without manually refreshing.
 
-## 🔬 Test
+## 🧪 Test
 
 Running the tests from within `hello-world`.
 
