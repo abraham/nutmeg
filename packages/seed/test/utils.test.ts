@@ -1,7 +1,11 @@
 import 'mocha';
 import { expect } from 'chai';
 
-import { attributeNameFromProperty, propertyNameFromAttribute, privatePropertyName } from './../src/utils';
+import {
+  attributeNameFromProperty,
+  propertyNameFromAttribute,
+  privatePropertyName,
+} from './../src/utils';
 
 describe('utils', () => {
   describe('propertyNameFromAttribute', () => {

@@ -21,8 +21,8 @@ export class Properties {
   };
   private templateValues = {
     string: "''",
-    number: "0",
-    boolean: "false",
+    number: '0',
+    boolean: 'false',
   };
 
   constructor(requestedProperties: string[]) {
@@ -30,11 +30,15 @@ export class Properties {
   }
 
   public get complex(): Property[] {
-    return this.properties.filter(attr => !this.primitiveTypes.includes(attr.type));
+    return this.properties.filter(
+      (attr) => !this.primitiveTypes.includes(attr.type)
+    );
   }
 
   public get primitive(): Property[] {
-    return this.properties.filter(attr => this.primitiveTypes.includes(attr.type));
+    return this.properties.filter((attr) =>
+      this.primitiveTypes.includes(attr.type)
+    );
   }
 
   public get valid(): boolean {
@@ -42,8 +46,12 @@ export class Properties {
   }
 
   private validProperty(property: Property): boolean {
-    return typeof property.name === 'string' && typeof property.type === 'string'
-      && property.name.length > 0 && property.type.length > 0;
+    return (
+      typeof property.name === 'string' &&
+      typeof property.type === 'string' &&
+      property.name.length > 0 &&
+      property.type.length > 0
+    );
   }
 
   private split(property: string): [string, Primative] {
@@ -61,6 +69,6 @@ export class Properties {
         tmplValue: this.templateValues[type],
         primitive: this.primitiveTypes.includes(type),
       };
-    })
+    });
   }
 }

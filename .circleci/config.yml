@@ -12,9 +12,9 @@ nvm: &nvm
 jobs:
   node10:
     macos:
-      xcode: "11.3.1"
+      xcode: '11.3.1'
     environment:
-      NODE_VERSION: "10"
+      NODE_VERSION: '10'
     steps:
       - checkout
       - run: *nvm
@@ -32,9 +32,9 @@ jobs:
       - run: npm test
   node12:
     macos:
-      xcode: "11.3.1"
+      xcode: '11.3.1'
     environment:
-      NODE_VERSION: "12"
+      NODE_VERSION: '12'
     steps:
       - checkout
       - run: *nvm

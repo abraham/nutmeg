@@ -8,9 +8,9 @@ import template = require('lodash.template');
 export interface data {
   name: string;
   tag: string;
-  properties: Properties,
-  primitiveTypes: string[],
-};
+  properties: Properties;
+  primitiveTypes: string[];
+}
 
 export class Generator {
   private nutmegDir: string;
@@ -18,7 +18,7 @@ export class Generator {
   private tag: string;
   private data: data | undefined;
   private originTag = 'element-template';
-  private fileFilter = [ '**/*', '!partial', '!partial/*' ];
+  private fileFilter = ['**/*', '!partial', '!partial/*'];
 
   constructor(nutmegDir: string, workingDir: string, tag: string) {
     this.nutmegDir = nutmegDir;
@@ -37,11 +37,13 @@ export class Generator {
         // console.info('Copying file ' + this.trimFilename(copyOperation.dest));
       })
       .on(copy.events.ERROR, (_error: object, copyOperation: any) => {
-        console.error('Unable to copy ' + this.trimFilename(copyOperation.dest));
+        console.error(
+          'Unable to copy ' + this.trimFilename(copyOperation.dest)
+        );
       })
       .then((results: object[]) => {
         console.info(`🖨️  Generating component with ${results.length} files`);
-      })
+      });
   }
 
   private get copyOptions(): {} {
@@ -51,7 +53,7 @@ export class Generator {
       filter: this.fileFilter,
       rename: this.rename.bind(this),
       transform: this.transform.bind(this),
-    }
+    };
   }
 
   private get templateOptions(): {} {
@@ -59,11 +61,13 @@ export class Generator {
       interpolate: /<%=([\s\S]+?)%>/g,
       imports: {
         partial: (partialName: string, data: object) => {
-          let partial = fs.readFileSync(this.partialPath(partialName)).toString();
+          let partial = fs
+            .readFileSync(this.partialPath(partialName))
+            .toString();
           return template(partial, this.templateOptions)(data);
         },
       },
-    }
+    };
   }
 
   private partialPath(partialName: string) {
@@ -89,7 +93,7 @@ export class Generator {
   }
 
   private dotFile(filePath: string): boolean {
-    return ['gitignore', 'travis.yml', 'appveyor.yml'].includes(filePath)
+    return ['gitignore', 'travis.yml', 'appveyor.yml'].includes(filePath);
   }
 
   private rename(filePath: string) {

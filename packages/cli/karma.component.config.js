@@ -1,4 +1,4 @@
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
     basePath: process.env['INIT_CWD'],
     frameworks: ['mocha', 'chai', 'karma-typescript', 'sinon'],
@@ -7,7 +7,12 @@ module.exports = function(config) {
       './node_modules/@webcomponents/webcomponentsjs/bundles/webcomponents-sd-ce.js',
       { pattern: 'dist/*.bundled.js' },
       { pattern: 'test/*.test.ts' },
-      { pattern: 'test/**/*.json', watched: true, served: true, included: false },
+      {
+        pattern: 'test/**/*.json',
+        watched: true,
+        served: true,
+        included: false,
+      },
     ],
     reporters: ['progress', 'karma-typescript'],
     singleRun: true,
@@ -25,8 +30,10 @@ module.exports = function(config) {
         lib: ['dom', 'esnext'],
       },
       bundlerOptions: {
-        transforms: [require('karma-typescript-es6-transform')({ presets: 'env' })],
+        transforms: [
+          require('karma-typescript-es6-transform')({ presets: 'env' }),
+        ],
       },
     },
   });
-}
+};

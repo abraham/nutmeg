@@ -19,7 +19,9 @@ describe('TestElement', () => {
     });
 
     it('renders default', () => {
-      expect(component.$('.content').innerText).to.include('Welcome to <test-element>');
+      expect(component.$('.content').innerText).to.include(
+        'Welcome to <test-element>'
+      );
     });
   });
 
@@ -59,7 +61,9 @@ describe('TestElement', () => {
     });
 
     it('is rendered', () => {
-      const text = (component.$('slot') as HTMLSlotElement).assignedNodes()[0] as Text;
+      const text = (component.$(
+        'slot'
+      ) as HTMLSlotElement).assignedNodes()[0] as Text;
       expect(text.wholeText.trim()).to.eq('slot content');
     });
   });
@@ -68,7 +72,9 @@ describe('TestElement', () => {
     describe('without default', () => {
       describe('when defined', () => {
         beforeEach(() => {
-          component = fixture('<test-element multi-word-attribute></test-element>');
+          component = fixture(
+            '<test-element multi-word-attribute></test-element>'
+          );
         });
 
         it('is case converted', () => {
@@ -91,7 +97,9 @@ describe('TestElement', () => {
     describe('with default', () => {
       describe('when defined', () => {
         beforeEach(() => {
-          component = fixture('<test-element multi-word-attribute-default></test-element>');
+          component = fixture(
+            '<test-element multi-word-attribute-default></test-element>'
+          );
         });
 
         it('is case converted', () => {
@@ -106,7 +114,8 @@ describe('TestElement', () => {
         });
 
         it('is case converted', () => {
-          expect(component.hasAttribute('multi-word-attribute-default')).to.be.true;
+          expect(component.hasAttribute('multi-word-attribute-default')).to.be
+            .true;
         });
       });
     });
@@ -116,7 +125,9 @@ describe('TestElement', () => {
     describe('without default', () => {
       describe('when defined', () => {
         beforeEach(() => {
-          component = fixture('<test-element multi-word-property="[true]"></test-element>');
+          component = fixture(
+            '<test-element multi-word-property="[true]"></test-element>'
+          );
         });
 
         it('is case converted', () => {
@@ -139,7 +150,9 @@ describe('TestElement', () => {
     describe('with default', () => {
       describe('when defined', () => {
         beforeEach(() => {
-          component = fixture('<test-element multi-word-property-default="[true]"></test-element>');
+          component = fixture(
+            '<test-element multi-word-property-default="[true]"></test-element>'
+          );
         });
 
         it('is case converted', () => {
@@ -154,7 +167,8 @@ describe('TestElement', () => {
         });
 
         it('is not reflected', () => {
-          expect(component.hasAttribute('multi-word-property-default')).to.be.false;
+          expect(component.hasAttribute('multi-word-property-default')).to.be
+            .false;
         });
       });
     });
@@ -165,7 +179,9 @@ describe('TestElement', () => {
       describe('without default', () => {
         describe('when defined', () => {
           beforeEach(() => {
-            component = fixture('<test-element string="awesome"></test-element>');
+            component = fixture(
+              '<test-element string="awesome"></test-element>'
+            );
           });
 
           it('is gettable', () => {
@@ -173,13 +189,17 @@ describe('TestElement', () => {
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include('string: awesome');
+            expect(component.$('.content').innerText).to.include(
+              'string: awesome'
+            );
           });
         });
 
         describe('when set', () => {
           beforeEach(() => {
-            component = fixture('<test-element string="awesome"></test-element>');
+            component = fixture(
+              '<test-element string="awesome"></test-element>'
+            );
             component.string = 'sauce';
           });
 
@@ -192,7 +212,9 @@ describe('TestElement', () => {
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include('string: sauce');
+            expect(component.$('.content').innerText).to.include(
+              'string: sauce'
+            );
           });
 
           describe('with nothing', () => {
@@ -218,13 +240,17 @@ describe('TestElement', () => {
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include('stringDefault: default');
+            expect(component.$('.content').innerText).to.include(
+              'stringDefault: default'
+            );
           });
         });
 
         describe('when defined', () => {
           beforeEach(() => {
-            component = fixture('<test-element string-default="awesome"></test-element>');
+            component = fixture(
+              '<test-element string-default="awesome"></test-element>'
+            );
           });
 
           it('is gettable', () => {
@@ -232,13 +258,17 @@ describe('TestElement', () => {
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include('stringDefault: awesome');
+            expect(component.$('.content').innerText).to.include(
+              'stringDefault: awesome'
+            );
           });
         });
 
         describe('when set', () => {
           beforeEach(() => {
-            component = fixture('<test-element string-default="awesome"></test-element>');
+            component = fixture(
+              '<test-element string-default="awesome"></test-element>'
+            );
             component.stringDefault = 'sauce';
           });
 
@@ -251,7 +281,9 @@ describe('TestElement', () => {
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include('stringDefault: sauce');
+            expect(component.$('.content').innerText).to.include(
+              'stringDefault: sauce'
+            );
           });
         });
       });
@@ -296,7 +328,9 @@ describe('TestElement', () => {
       describe('with default', () => {
         describe('when defined', () => {
           beforeEach(() => {
-            component = fixture('<test-element number-default="13"></test-element>');
+            component = fixture(
+              '<test-element number-default="13"></test-element>'
+            );
           });
 
           it('is gettable', () => {
@@ -304,13 +338,17 @@ describe('TestElement', () => {
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include('numberDefault: 13');
+            expect(component.$('.content').innerText).to.include(
+              'numberDefault: 13'
+            );
           });
         });
 
         describe('when set', () => {
           beforeEach(() => {
-            component = fixture('<test-element number-default="13"></test-element>');
+            component = fixture(
+              '<test-element number-default="13"></test-element>'
+            );
             component.numberDefault = 42;
           });
 
@@ -323,7 +361,9 @@ describe('TestElement', () => {
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include('numberDefault: 42');
+            expect(component.$('.content').innerText).to.include(
+              'numberDefault: 42'
+            );
           });
         });
       });
@@ -341,7 +381,9 @@ describe('TestElement', () => {
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include('boolean: true');
+            expect(component.$('.content').innerText).to.include(
+              'boolean: true'
+            );
           });
         });
 
@@ -360,7 +402,9 @@ describe('TestElement', () => {
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include('boolean: false');
+            expect(component.$('.content').innerText).to.include(
+              'boolean: false'
+            );
           });
         });
       });
@@ -377,7 +421,9 @@ describe('TestElement', () => {
         });
 
         it('is rendered in shadowRoot', () => {
-          expect(component.$('.content').innerText).to.include('booleanDefault: true');
+          expect(component.$('.content').innerText).to.include(
+            'booleanDefault: true'
+          );
         });
       });
 
@@ -396,7 +442,9 @@ describe('TestElement', () => {
         });
 
         it('is rendered in shadowRoot', () => {
-          expect(component.$('.content').innerText).to.include('booleanDefault: false');
+          expect(component.$('.content').innerText).to.include(
+            'booleanDefault: false'
+          );
         });
       });
     });
@@ -407,7 +455,9 @@ describe('TestElement', () => {
       describe('without default', () => {
         describe('when defined', () => {
           beforeEach(() => {
-            component = fixture('<test-element string-array=\'["a","b"]\'></test-element>');
+            component = fixture(
+              '<test-element string-array=\'["a","b"]\'></test-element>'
+            );
           });
 
           it('is gettable', () => {
@@ -419,13 +469,17 @@ describe('TestElement', () => {
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include('stringArray: ab');
+            expect(component.$('.content').innerText).to.include(
+              'stringArray: ab'
+            );
           });
         });
 
         describe('when set', () => {
           beforeEach(() => {
-            component = fixture('<test-element string-array=\'["a","b"]\'></test-element>');
+            component = fixture(
+              '<test-element string-array=\'["a","b"]\'></test-element>'
+            );
             component.stringArray = ['c', 'd'];
           });
 
@@ -438,7 +492,9 @@ describe('TestElement', () => {
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include('stringArray: cd');
+            expect(component.$('.content').innerText).to.include(
+              'stringArray: cd'
+            );
           });
         });
       });
@@ -446,7 +502,9 @@ describe('TestElement', () => {
       describe('with default', () => {
         describe('when defined', () => {
           beforeEach(() => {
-            component = fixture('<test-element string-array-default=\'["a","b"]\'></test-element>');
+            component = fixture(
+              '<test-element string-array-default=\'["a","b"]\'></test-element>'
+            );
           });
 
           it('is gettable', () => {
@@ -458,13 +516,17 @@ describe('TestElement', () => {
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include('stringArrayDefault: ab');
+            expect(component.$('.content').innerText).to.include(
+              'stringArrayDefault: ab'
+            );
           });
         });
 
         describe('when set', () => {
           beforeEach(() => {
-            component = fixture('<test-element string-array-default=\'["a","b"]\'></test-element>');
+            component = fixture(
+              '<test-element string-array-default=\'["a","b"]\'></test-element>'
+            );
             component.stringArrayDefault = ['c', 'd'];
           });
 
@@ -477,7 +539,9 @@ describe('TestElement', () => {
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include('stringArrayDefault: cd');
+            expect(component.$('.content').innerText).to.include(
+              'stringArrayDefault: cd'
+            );
           });
         });
       });
@@ -487,11 +551,13 @@ describe('TestElement', () => {
       describe('without default', () => {
         describe('when defined', () => {
           beforeEach(() => {
-            component = fixture('<test-element object=\'{"a":"b"}\'></test-element>');
+            component = fixture(
+              '<test-element object=\'{"a":"b"}\'></test-element>'
+            );
           });
 
           it('is gettable', () => {
-            expect(component.object).to.eql({a: 'b'});
+            expect(component.object).to.eql({ a: 'b' });
           });
 
           it('attribute is removed', () => {
@@ -499,18 +565,22 @@ describe('TestElement', () => {
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include('object: [object Object]');
+            expect(component.$('.content').innerText).to.include(
+              'object: [object Object]'
+            );
           });
         });
 
         describe('when set', () => {
           beforeEach(() => {
-            component = fixture('<test-element object=\'{"a":"b"}\'></test-element>');
-            component.object = {c: 'd'};
+            component = fixture(
+              '<test-element object=\'{"a":"b"}\'></test-element>'
+            );
+            component.object = { c: 'd' };
           });
 
           it('is gettable', () => {
-            expect(component.object).to.eql({c: 'd'});
+            expect(component.object).to.eql({ c: 'd' });
           });
 
           it('is reflected to attribute', () => {
@@ -518,7 +588,9 @@ describe('TestElement', () => {
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include('object: [object Object]');
+            expect(component.$('.content').innerText).to.include(
+              'object: [object Object]'
+            );
           });
         });
       });
@@ -526,11 +598,13 @@ describe('TestElement', () => {
       describe('with default', () => {
         describe('when defined', () => {
           beforeEach(() => {
-            component = fixture('<test-element object-default=\'{"a":"b"}\'></test-element>');
+            component = fixture(
+              '<test-element object-default=\'{"a":"b"}\'></test-element>'
+            );
           });
 
           it('is gettable', () => {
-            expect(component.objectDefault).to.eql({a: 'b'});
+            expect(component.objectDefault).to.eql({ a: 'b' });
           });
 
           it('attribute is removed', () => {
@@ -538,18 +612,22 @@ describe('TestElement', () => {
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include('objectDefault: [object Object]');
+            expect(component.$('.content').innerText).to.include(
+              'objectDefault: [object Object]'
+            );
           });
         });
 
         describe('when set', () => {
           beforeEach(() => {
-            component = fixture('<test-element object-default=\'{"a":"b"}\'></test-element>');
-            component.objectDefault = {c: 'd'};
+            component = fixture(
+              '<test-element object-default=\'{"a":"b"}\'></test-element>'
+            );
+            component.objectDefault = { c: 'd' };
           });
 
           it('is gettable', () => {
-            expect(component.objectDefault).to.eql({c: 'd'});
+            expect(component.objectDefault).to.eql({ c: 'd' });
           });
 
           it('is not reflected to attribute', () => {
@@ -558,7 +636,9 @@ describe('TestElement', () => {
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include('objectDefault: [object Object]');
+            expect(component.$('.content').innerText).to.include(
+              'objectDefault: [object Object]'
+            );
           });
         });
       });
@@ -593,7 +673,9 @@ describe('TestElement', () => {
       });
 
       it('is set', () => {
-        expect(getComputedStyle(component.$('.content')).backgroundColor).equal('rgb(250, 250, 250)');
+        expect(getComputedStyle(component.$('.content')).backgroundColor).equal(
+          'rgb(250, 250, 250)'
+        );
       });
     });
 
@@ -612,7 +694,9 @@ describe('TestElement', () => {
       });
 
       it('is set blue', () => {
-        expect(getComputedStyle(component.$('.content')).backgroundColor).equal('rgb(3, 169, 244)');
+        expect(getComputedStyle(component.$('.content')).backgroundColor).equal(
+          'rgb(3, 169, 244)'
+        );
       });
     });
   });
@@ -624,8 +708,12 @@ describe('TestElement', () => {
 
     it('has classes set if polyfilled', () => {
       const polyfilled = !window.ShadyCSS.nativeShadow;
-      expect(component.$('div').classList.contains('style-scope')).to.be.eq(polyfilled);
-      expect(component.$('div').classList.contains('test-element')).to.be.eq(polyfilled);
+      expect(component.$('div').classList.contains('style-scope')).to.be.eq(
+        polyfilled
+      );
+      expect(component.$('div').classList.contains('test-element')).to.be.eq(
+        polyfilled
+      );
     });
   });
 });
@@ -636,7 +724,9 @@ function fixture(tag: string): TestElement {
     div.classList.add('fixture');
     return div;
   }
-  let fixture = document.body.querySelector('.fixture') || document.body.appendChild(fixtureContainer());
+  let fixture =
+    document.body.querySelector('.fixture') ||
+    document.body.appendChild(fixtureContainer());
   fixture.innerHTML = tag;
   return fixture.children[0] as TestElement;
 }

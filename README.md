@@ -9,7 +9,7 @@ Build, test, and publish vanilla Web Components with a little spice
 [![Windows Build Status](https://img.shields.io/appveyor/ci/abraham/nutmeg.svg?style=flat&label=windows)](https://ci.appveyor.com/project/abraham/nutmeg)
 [![Dependency Status](https://david-dm.org/abraham/nutmeg.svg?path=packages/seed&style=flat)](https://david-dm.org/abraham/nutmeg)
 
-🚧  *Nutmeg is in active development and it's APIs are still in flux.*
+🚧 _Nutmeg is in active development and it's APIs are still in flux._
 
 ## 👌 Overview
 
@@ -93,6 +93,7 @@ Any properties decorated with `@property` will automatically render when set.
 On instantiation of a Web Component a one-time loading and JSON parsing happens of complex properties. In the following example `cheese` has the type of `string[]`. When connected the component will have the attribute removed and the value set as a property after `JSON.parse`.
 
 The following example:
+
 ```html
 <grilled-cheese cheese="[\"sharp cheddar\"]"></grilled-cheese>
 ```
@@ -143,6 +144,7 @@ Publishing to NPM is easy but make sure you are logged in first with `npm login`
 ```bash
 npm publish
 ```
+
 ### 📇 Dependencies
 
 Once published, it's recommended that you set up [Renovate](https://renovateapp.com/) to keep your dependencies current. Nutmeg has already setup a default renovate config for you, you just have to [install the free GitHub app](https://github.com/apps/renovate).
