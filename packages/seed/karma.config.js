@@ -1,7 +1,9 @@
 module.exports = function (config) {
   config.set({
     frameworks: ['mocha', 'chai', 'karma-typescript', 'sinon'],
-    browsers: ['ChromeHeadless', 'FirefoxHeadless'],
+    browsers: ['ChromeHeadless'],
+    // TODO: Enable FirefoxHeadless again
+    // browsers: ['ChromeHeadless', 'FirefoxHeadless'],
     files: [
       './node_modules/@webcomponents/webcomponentsjs/bundles/webcomponents-sd-ce.js',
       { pattern: 'src/*.ts' },
