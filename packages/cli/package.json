@@ -90,7 +90,7 @@
     "webpack-stylish": "0.1.8"
   },
   "devDependencies": {
-    "@types/lodash.template": "4.4.6",
+    "@types/lodash.template": "4.5.0",
     "@types/node": "10.17.24",
     "@types/shelljs": "0.8.8",
     "@types/through2": "2.0.36",
