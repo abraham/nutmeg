@@ -12,8 +12,7 @@
   },
   "devDependencies": {
     "lerna": "3.22.0",
-    "prettier": "2.0.5",
-    "rimraf": "3.0.2"
+    "prettier": "2.0.5"
   },
   "engines": {
     "node": "12"
