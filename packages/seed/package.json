@@ -48,7 +48,7 @@
     "lit-html": "1.2.1"
   },
   "devDependencies": {
-    "@types/chai": "4.2.11",
+    "@types/chai": "4.2.12",
     "@types/mocha": "7.0.1",
     "@types/node": "10.17.27",
     "@types/webpack": "4.41.21",

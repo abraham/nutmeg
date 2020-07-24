@@ -53,7 +53,7 @@
   },
   "dependencies": {
     "@nutmeg/seed": "^0.17.2",
-    "@types/chai": "4.2.11",
+    "@types/chai": "4.2.12",
     "@types/mocha": "7.0.1",
     "@types/sinon": "9.0.4",
     "@webcomponents/webcomponentsjs": "2.4.4",
