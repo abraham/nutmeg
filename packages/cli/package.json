@@ -54,7 +54,7 @@
   "dependencies": {
     "@nutmeg/seed": "^0.17.2",
     "@types/chai": "4.2.12",
-    "@types/mocha": "7.0.1",
+    "@types/mocha": "8.0.1",
     "@types/sinon": "9.0.4",
     "@webcomponents/webcomponentsjs": "2.4.4",
     "babel-preset-env": "1.7.0",
@@ -73,7 +73,7 @@
     "karma-typescript-es6-transform": "5.0.3",
     "karma-webpack": "4.0.2",
     "lodash.template": "4.5.0",
-    "mocha": "7.0.1",
+    "mocha": "8.1.0",
     "pascal-case": "3.1.1",
     "recursive-copy": "2.0.10",
     "shelljs": "0.8.4",
