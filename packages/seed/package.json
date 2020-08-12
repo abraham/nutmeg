@@ -61,7 +61,7 @@
     "karma-mocha": "2.0.1",
     "karma-sinon": "1.0.5",
     "karma-typescript": "5.1.0",
-    "karma-typescript-es6-transform": "5.0.3",
+    "karma-typescript-es6-transform": "5.1.0",
     "mocha": "8.1.1",
     "sinon": "9.0.3",
     "typescript": "3.9.7",
