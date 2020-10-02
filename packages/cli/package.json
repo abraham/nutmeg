@@ -1,9 +1,25 @@
 {
   "name": "@nutmeg/cli",
   "version": "0.17.2",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "Build, test, and publish vanilla Web Components with a little spice",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abraham/nutmeg.git"
+  },
+  "author": {
+    "name": "Abraham Williams",
+    "email": "abraham@abrah.am",
+    "url": "https://abrah.am"
+  },
+  "homepage": "https://github.com/abraham/nutmeg",
+  "bugs": {
+    "url": "https://github.com/abraham/nutmeg/issues"
+  },
   "main": "dist/cli.js",
-  "types": "dist/cli.d.ts",
   "bin": {
     "nutmeg-build": "bin/nutmeg-build",
     "nutmeg-clean": "bin/nutmeg-clean",
@@ -13,12 +29,17 @@
     "nutmeg-watch": "bin/nutmeg-watch",
     "nutmeg": "bin/nutmeg"
   },
-  "directories": {
-    "test": "test"
+  "engines": {
+    "node": "12"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/abraham/nutmeg.git"
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "prepare": "npm run build",
+    "test": "npm run build",
+    "watch": "tsc --watch",
+    "xtest": "ts-node ./scripts/test.ts"
   },
   "keywords": [
     "web-components",
@@ -29,28 +50,6 @@
     "nutmeg",
     "typescript"
   ],
-  "author": {
-    "name": "Abraham Williams",
-    "email": "abraham@abrah.am",
-    "url": "https://abrah.am"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/abraham/nutmeg/issues"
-  },
-  "homepage": "https://github.com/abraham/nutmeg",
-  "scripts": {
-    "prebuild": "npm run clean",
-    "build": "tsc",
-    "clean": "rimraf dist",
-    "prepare": "npm run build",
-    "test": "npm run build",
-    "xtest": "ts-node ./scripts/test.ts",
-    "watch": "tsc --watch"
-  },
-  "engines": {
-    "node": "12"
-  },
   "dependencies": {
     "@nutmeg/seed": "^0.17.2",
     "@types/chai": "4.2.12",
@@ -98,11 +97,12 @@
     "rimraf": "3.0.2",
     "ts-node": "9.0.0"
   },
+  "types": "dist/cli.d.ts",
   "browser": {
     "fs": false,
     "child_process": false
   },
-  "publishConfig": {
-    "access": "public"
+  "directories": {
+    "test": "test"
   }
 }
