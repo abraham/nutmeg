@@ -1,14 +1,36 @@
 {
   "name": "@nutmeg/create",
   "version": "0.17.2",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "Create a Nutmeg Web Component",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abraham/nutmeg.git"
+  },
+  "author": {
+    "name": "Abraham Williams",
+    "email": "abraham@abrah.am",
+    "url": "https://abrah.am"
+  },
+  "homepage": "https://nutmeg.tools",
+  "bugs": {
+    "url": "https://github.com/abraham/nutmeg/issues"
+  },
   "bin": "bin/create-nutmeg",
   "engines": {
     "node": "12"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/abraham/nutmeg.git"
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "prepare": "npm run build",
+    "pretest": "npm run build",
+    "test": "ts-node ./scripts/test.ts",
+    "watch": "tsc --watch"
   },
   "keywords": [
     "web-components",
@@ -19,25 +41,6 @@
     "nutmeg",
     "typescript"
   ],
-  "license": "MIT",
-  "scripts": {
-    "prebuild": "npm run clean",
-    "build": "tsc",
-    "clean": "rimraf dist",
-    "prepare": "npm run build",
-    "pretest": "npm run build",
-    "test": "ts-node ./scripts/test.ts",
-    "watch": "tsc --watch"
-  },
-  "author": {
-    "name": "Abraham Williams",
-    "email": "abraham@abrah.am",
-    "url": "https://abrah.am"
-  },
-  "bugs": {
-    "url": "https://github.com/abraham/nutmeg/issues"
-  },
-  "homepage": "https://nutmeg.tools",
   "dependencies": {
     "commander": "6.1.0",
     "latest-version": "5.1.0",
@@ -57,8 +60,5 @@
     "rimraf": "3.0.2",
     "ts-node": "9.0.0",
     "typescript": "4.0.3"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }
