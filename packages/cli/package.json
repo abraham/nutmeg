@@ -55,7 +55,7 @@
     "@types/chai": "4.2.14",
     "@types/mocha": "8.0.3",
     "@types/sinon": "9.0.8",
-    "@webcomponents/webcomponentsjs": "2.4.4",
+    "@webcomponents/webcomponentsjs": "2.5.0",
     "babel-preset-env": "1.7.0",
     "chai": "4.2.0",
     "commander": "6.1.0",
