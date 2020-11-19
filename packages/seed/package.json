@@ -62,7 +62,7 @@
     "karma-typescript-es6-transform": "5.2.0",
     "mocha": "8.1.3",
     "sinon": "9.2.1",
-    "typescript": "4.0.5",
+    "typescript": "4.1.2",
     "uglifyjs-webpack-plugin": "2.2.0",
     "webpack": "5.6.0",
     "webpack-bundle-analyzer": "4.1.0",
