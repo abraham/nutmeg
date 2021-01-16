@@ -1,7 +1,7 @@
-import * as fs from 'fs';
-import * as path from 'path';
-import * as shell from 'shelljs';
-import * as updateNotifier from 'update-notifier';
+import fs from 'fs';
+import path from 'path';
+import shell from 'shelljs';
+import updateNotifier from 'update-notifier';
 
 const silent = true;
 const nutmegDir = path.resolve(__dirname, '..');

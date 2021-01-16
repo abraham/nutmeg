@@ -1,7 +1,7 @@
-import * as program from 'commander';
-import * as latestVersion from 'latest-version';
-import * as path from 'path';
-import * as shell from 'shelljs';
+import program from 'commander';
+import latestVersion from 'latest-version';
+import path from 'path';
+import shell from 'shelljs';
 import { Component } from './component';
 import { Generator } from './generator';
 import { Properties } from './properties';

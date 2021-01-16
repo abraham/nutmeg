@@ -1,6 +1,6 @@
-import * as program from 'commander';
-import * as path from 'path';
-import * as shell from 'shelljs';
+import program from 'commander';
+import path from 'path';
+import shell from 'shelljs';
 import { Component } from './component';
 import {
   exit,
