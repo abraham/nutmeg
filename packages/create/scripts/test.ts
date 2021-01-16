@@ -1,5 +1,5 @@
-import * as path from 'path';
-import * as shell from 'shelljs';
+import path from 'path';
+import shell from 'shelljs';
 import { loadPackageJson } from '../src/utils';
 
 shell.config.verbose = process.env.DEBUG === 'true';
