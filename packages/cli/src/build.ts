@@ -18,14 +18,15 @@ program
   .option('--production', 'compile a Web Component for deployment')
   .parse(process.argv);
 
+const options = program.opts();
 const workingDir = path.resolve(process.cwd(), program.args[0]);
 const webpackConfigFile = path.resolve(
   nutmegDir,
   'webpack.component.config.js'
 );
 const tag = Component.tagFromPackage(workingDir);
-const productionFlag = program.production ? '--env.production' : '';
-const analyzerFlag = program.analyzer ? '--env.analyzer' : '';
+const productionFlag = options.production ? '--env.production' : '';
+const analyzerFlag = options.analyzer ? '--env.analyzer' : '';
 const tscCmd = `tsc --project ${tsconfigPath(workingDir)}`;
 const webpackCmd = `webpack --config ${webpackConfigFile} --env.tag=${tag} ${productionFlag} ${analyzerFlag} --env.workingDir=${workingDir}`;
 
