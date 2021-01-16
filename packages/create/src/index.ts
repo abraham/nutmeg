@@ -32,6 +32,7 @@ program
 
 program.parse(process.argv);
 
+const options = program.opts();
 const component = new Component(program.args[0]);
 const workingDir = path.resolve(process.cwd());
 const requestedProperties = program.args.slice(1);
@@ -54,15 +55,15 @@ exit(
 exit('Properties must be in format of `name:type`', !properties.valid);
 
 async function generate() {
-  data.cliSource = program.cliSource || (await latestVersion('@nutmeg/cli'));
-  data.seedSource = program.seedSource || (await latestVersion('@nutmeg/seed'));
+  data.cliSource = options.cliSource || (await latestVersion('@nutmeg/cli'));
+  data.seedSource = options.seedSource || (await latestVersion('@nutmeg/seed'));
 
   generator
     .execute(data)
     .then(() => {
       shell.cd(component.tag);
       commitToGit();
-      installDependencies({ withDependencies: program.dependencies });
+      installDependencies({ withDependencies: options.dependencies });
       console.log(`🎉 Component generated`);
       console.log(
         `🌱 Run \`npm start\` from ${component.tag} to start building`
