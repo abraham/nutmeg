@@ -49,7 +49,7 @@
     "recursive-copy": "2.0.11",
     "shelljs": "0.8.4",
     "through2": "4.0.2",
-    "update-notifier": "5.0.1"
+    "update-notifier": "5.1.0"
   },
   "devDependencies": {
     "@types/lodash.template": "4.5.0",
