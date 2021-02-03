@@ -59,7 +59,7 @@
     "babel-preset-env": "1.7.0",
     "chai": "4.2.0",
     "commander": "7.0.0",
-    "html-webpack-plugin": "4.5.1",
+    "html-webpack-plugin": "5.0.0",
     "karma": "6.0.4",
     "karma-chai": "0.1.0",
     "karma-chrome-launcher": "3.1.0",
