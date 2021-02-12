@@ -51,7 +51,7 @@
     "@types/node": "10.17.51",
     "@webcomponents/webcomponentsjs": "2.5.0",
     "chai": "4.3.0",
-    "karma": "6.1.0",
+    "karma": "6.1.1",
     "karma-chai": "0.1.0",
     "karma-chrome-launcher": "3.1.0",
     "karma-firefox-launcher": "2.1.0",
