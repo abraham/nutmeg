@@ -68,7 +68,7 @@
     "karma-opera-launcher": "1.0.0",
     "karma-safari-launcher": "1.0.0",
     "karma-sinon": "1.0.5",
-    "karma-typescript": "5.3.0",
+    "karma-typescript": "5.4.0",
     "karma-typescript-es6-transform": "5.4.0",
     "karma-webpack": "5.0.0",
     "lodash.template": "4.5.0",
