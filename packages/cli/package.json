@@ -57,7 +57,7 @@
     "@types/sinon": "9.0.10",
     "@webcomponents/webcomponentsjs": "2.5.0",
     "babel-preset-env": "1.7.0",
-    "chai": "4.3.0",
+    "chai": "4.3.3",
     "commander": "7.1.0",
     "html-webpack-plugin": "5.2.0",
     "karma": "6.1.1",
