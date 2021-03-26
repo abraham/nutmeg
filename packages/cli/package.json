@@ -69,7 +69,7 @@
     "karma-safari-launcher": "1.0.0",
     "karma-sinon": "1.0.5",
     "karma-typescript": "5.5.0",
-    "karma-typescript-es6-transform": "5.5.0",
+    "karma-typescript-es6-transform": "5.5.1",
     "karma-webpack": "5.0.0",
     "lodash.template": "4.5.0",
     "mocha": "8.1.3",
