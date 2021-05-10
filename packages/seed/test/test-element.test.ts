@@ -61,9 +61,9 @@ describe('TestElement', () => {
     });
 
     it('is rendered', () => {
-      const text = (component.$(
-        'slot'
-      ) as HTMLSlotElement).assignedNodes()[0] as Text;
+      const text = (
+        component.$('slot') as HTMLSlotElement
+      ).assignedNodes()[0] as Text;
       expect(text.wholeText.trim()).to.eq('slot content');
     });
   });
