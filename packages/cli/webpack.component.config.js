@@ -2,7 +2,6 @@ const BundleAnalyzerPlugin =
   require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const Stylish = require('webpack-stylish');
 const webpack = require('webpack');
 
 module.exports = function (env, argv) {
@@ -19,7 +18,6 @@ module.exports = function (env, argv) {
       template: 'index.html',
       chunks: [`${tag}.bundled`],
     }),
-    new Stylish(),
   ];
 
   if (analyzer) {
