@@ -22,7 +22,7 @@
   "main": "dist/seed.js",
   "module": "dist/seed.js",
   "engines": {
-    "node": "14"
+    "node": "16"
   },
   "scripts": {
     "build": "tsc --project tsconfig.production.json && webpack",
