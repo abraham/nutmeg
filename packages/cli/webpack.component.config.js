@@ -3,7 +3,6 @@ const BundleAnalyzerPlugin =
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const Stylish = require('webpack-stylish');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = function (env, argv) {
@@ -15,14 +14,6 @@ module.exports = function (env, argv) {
     [`${tag}.bundled`]: path.resolve('dist', `${tag}.js`),
   };
   let plugins = [
-    new UglifyJsPlugin({
-      include: /\.min\.js$/,
-      parallel: true,
-      sourceMap: true,
-      uglifyOptions: {
-        ecma: 6,
-      },
-    }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
