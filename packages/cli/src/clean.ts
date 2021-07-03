@@ -1,9 +1,11 @@
-import program from 'commander';
+import { Command } from 'commander';
 import path from 'path';
 import shell from 'shelljs';
 import { exit, isNutmegComponent, notifyOfUpdate } from './utils';
 
 notifyOfUpdate();
+
+const program = new Command();
 
 program
   .command('clean <path>', "clean a Web Component's compiled files")
