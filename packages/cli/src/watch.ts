@@ -1,4 +1,4 @@
-import program from 'commander';
+import { Command } from 'commander';
 import path from 'path';
 import shell from 'shelljs';
 import { Component } from './component';
@@ -11,6 +11,8 @@ import {
 } from './utils';
 
 notifyOfUpdate();
+
+const program = new Command();
 
 program.command('build <path>', 'compile a Web Component').parse(process.argv);
 

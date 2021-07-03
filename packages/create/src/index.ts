@@ -1,4 +1,4 @@
-import program from 'commander';
+import { Command } from 'commander';
 import latestVersion from 'latest-version';
 import path from 'path';
 import shell from 'shelljs';
@@ -14,6 +14,8 @@ import {
 } from './utils';
 
 notifyOfUpdate();
+
+const program = new Command();
 
 program
   .command(

@@ -1,7 +1,9 @@
-import program from 'commander';
+import { Command } from 'commander';
 import { notifyOfUpdate, pkg } from './utils';
 
 notifyOfUpdate();
+
+const program = new Command();
 
 program
   .version(pkg.version)
