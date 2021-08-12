@@ -58,7 +58,7 @@
     "@webcomponents/webcomponentsjs": "2.6.0",
     "babel-preset-env": "1.7.0",
     "chai": "4.3.4",
-    "commander": "8.0.0",
+    "commander": "8.1.0",
     "html-webpack-plugin": "5.3.2",
     "karma": "6.3.4",
     "karma-chai": "0.1.0",
