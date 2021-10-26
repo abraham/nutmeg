@@ -54,7 +54,7 @@
     "@nutmeg/seed": "^0.17.2",
     "@types/chai": "4.2.22",
     "@types/mocha": "8.0.3",
-    "@types/sinon": "10.0.4",
+    "@types/sinon": "10.0.6",
     "@webcomponents/webcomponentsjs": "2.6.0",
     "babel-preset-env": "1.7.0",
     "chai": "4.3.4",
