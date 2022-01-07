@@ -47,7 +47,7 @@
     "lodash.template": "4.5.0",
     "pascal-case": "3.1.2",
     "recursive-copy": "2.0.13",
-    "shelljs": "0.8.4",
+    "shelljs": "0.8.5",
     "through2": "4.0.2",
     "update-notifier": "5.1.0"
   },
