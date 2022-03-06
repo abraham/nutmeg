@@ -4,7 +4,6 @@ module.exports = function (config) {
     frameworks: ['mocha', 'chai', 'karma-typescript', 'sinon'],
     browsers: ['ChromeHeadless'],
     files: [
-      { pattern: 'dist/*.bundled.js' },
       { pattern: 'test/*.test.ts' },
       {
         pattern: 'test/**/*.json',
