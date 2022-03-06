@@ -2,14 +2,6 @@ import 'mocha';
 import { expect } from 'chai';
 import { TestElement } from './test-element';
 
-declare global {
-  interface Window {
-    ShadyCSS?: {
-      nativeShadow: boolean;
-    };
-  }
-}
-
 describe('TestElement', () => {
   let component: TestElement;
 
@@ -698,22 +690,6 @@ describe('TestElement', () => {
           'rgb(3, 169, 244)'
         );
       });
-    });
-  });
-
-  describe('shady dom', () => {
-    beforeEach(() => {
-      component = fixture('<test-element></test-element>');
-    });
-
-    it('has classes set if polyfilled', () => {
-      const polyfilled = !window.ShadyCSS.nativeShadow;
-      expect(component.$('div').classList.contains('style-scope')).to.be.eq(
-        polyfilled
-      );
-      expect(component.$('div').classList.contains('test-element')).to.be.eq(
-        polyfilled
-      );
     });
   });
 });
