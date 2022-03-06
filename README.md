@@ -21,7 +21,6 @@ By default you get the following:
 - Shadow DOM v1
 - TypeScript
 - lit-html
-- Webpack
 - Karma test runner with headless browser launchers
 - Git
 - MIT license
