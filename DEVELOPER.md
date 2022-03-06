@@ -2,7 +2,7 @@ _Warning: this document is not yet updated for the current code organization._
 
 # Contributing to the CLI
 
-Please read the [contributing guidelines](https://github.com/abraham/nutmeg/blob/master/CONTRIBUTING.md) and [code of conduct](https://github.com/abraham/nutmeg/blob/master/CODE_OF_CONDUCT.md).
+Please read the [contributing guidelines](https://github.com/abraham/nutmeg/blob/HEAD/CONTRIBUTING.md) and [code of conduct](https://github.com/abraham/nutmeg/blob/HEAD/CODE_OF_CONDUCT.md).
 
 ## 🔽 Install
 
