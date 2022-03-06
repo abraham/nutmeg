@@ -4,7 +4,6 @@
   "description": "Generated Nutmeg Web Component",
   "main": "dist/<%= tag %>.js",
   "module": "dist/<%= tag %>.js",
-  "unpkg": "dist/<%= tag %>.min.js",
   "types": "dist/<%= tag %>.d.ts",
   "directories": {
     "test": "test"
