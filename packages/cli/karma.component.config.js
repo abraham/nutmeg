@@ -4,7 +4,6 @@ module.exports = function (config) {
     frameworks: ['mocha', 'chai', 'karma-typescript', 'sinon'],
     browsers: ['ChromeHeadless'],
     files: [
-      './node_modules/@webcomponents/webcomponentsjs/bundles/webcomponents-sd-ce.js',
       { pattern: 'dist/*.bundled.js' },
       { pattern: 'test/*.test.ts' },
       {

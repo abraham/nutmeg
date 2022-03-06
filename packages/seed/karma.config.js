@@ -4,11 +4,7 @@ module.exports = function (config) {
     browsers: ['ChromeHeadless'],
     // TODO: Enable FirefoxHeadless again
     // browsers: ['ChromeHeadless', 'FirefoxHeadless'],
-    files: [
-      './node_modules/@webcomponents/webcomponentsjs/bundles/webcomponents-sd-ce.js',
-      { pattern: 'src/*.ts' },
-      { pattern: 'test/*.ts' },
-    ],
+    files: [{ pattern: 'src/*.ts' }, { pattern: 'test/*.ts' }],
     reporters: ['progress', 'karma-typescript'],
     singleRun: true,
     port: 9876,
