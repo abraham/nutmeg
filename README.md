@@ -21,7 +21,7 @@ By default you get the following:
 - Shadow DOM v1
 - TypeScript
 - lit-html
-- Karma test runner with headless browser launchers
+- Vitest test runner
 - Git
 - MIT license
 - Web Component best practices

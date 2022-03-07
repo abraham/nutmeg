@@ -1,6 +1,4 @@
-import 'mocha';
-import { expect } from 'chai';
-import sinon from 'sinon';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 import { <%= name %> } from '../src/<%= tag %>';
 

@@ -1,18 +1,17 @@
-import 'mocha';
-import { expect } from 'chai';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { TestElement } from './test-element';
 
 describe('TestElement', () => {
   let component: TestElement;
 
-  describe('renders', () => {
-    beforeEach(() => {
-      component = fixture('<test-element></test-element>');
+  describe('renders', async () => {
+    beforeEach(async () => {
+      component = await fixture('<test-element></test-element>');
     });
 
     it('renders default', () => {
       expect(component.$('.content').innerText).to.include(
-        'Welcome to <test-element>'
+        'Welcome to &lt;test-element&gt;'
       );
     });
   });
@@ -48,8 +47,8 @@ describe('TestElement', () => {
   });
 
   describe('slot', () => {
-    beforeEach(() => {
-      component = fixture('<test-element>slot content</test-element>');
+    beforeEach(async () => {
+      component = await fixture('<test-element>slot content</test-element>');
     });
 
     it('is rendered', () => {
@@ -63,8 +62,8 @@ describe('TestElement', () => {
   describe('multi word attribute', () => {
     describe('without default', () => {
       describe('when defined', () => {
-        beforeEach(() => {
-          component = fixture(
+        beforeEach(async () => {
+          component = await fixture(
             '<test-element multi-word-attribute></test-element>'
           );
         });
@@ -75,8 +74,8 @@ describe('TestElement', () => {
       });
 
       describe('when set', () => {
-        beforeEach(() => {
-          component = fixture('<test-element></test-element>');
+        beforeEach(async () => {
+          component = await fixture('<test-element></test-element>');
           component.multiWordAttribute = true;
         });
 
@@ -88,8 +87,8 @@ describe('TestElement', () => {
 
     describe('with default', () => {
       describe('when defined', () => {
-        beforeEach(() => {
-          component = fixture(
+        beforeEach(async () => {
+          component = await fixture(
             '<test-element multi-word-attribute-default></test-element>'
           );
         });
@@ -100,8 +99,8 @@ describe('TestElement', () => {
       });
 
       describe('when set', () => {
-        beforeEach(() => {
-          component = fixture('<test-element></test-element>');
+        beforeEach(async () => {
+          component = await fixture('<test-element></test-element>');
           component.multiWordAttributeDefault = true;
         });
 
@@ -116,8 +115,8 @@ describe('TestElement', () => {
   describe('multi word property', () => {
     describe('without default', () => {
       describe('when defined', () => {
-        beforeEach(() => {
-          component = fixture(
+        beforeEach(async () => {
+          component = await fixture(
             '<test-element multi-word-property="[true]"></test-element>'
           );
         });
@@ -128,8 +127,8 @@ describe('TestElement', () => {
       });
 
       describe('when set', () => {
-        beforeEach(() => {
-          component = fixture('<test-element></test-element>');
+        beforeEach(async () => {
+          component = await fixture('<test-element></test-element>');
           component.multiWordProperty = [true];
         });
 
@@ -141,8 +140,8 @@ describe('TestElement', () => {
 
     describe('with default', () => {
       describe('when defined', () => {
-        beforeEach(() => {
-          component = fixture(
+        beforeEach(async () => {
+          component = await fixture(
             '<test-element multi-word-property-default="[true]"></test-element>'
           );
         });
@@ -153,8 +152,8 @@ describe('TestElement', () => {
       });
 
       describe('when set', () => {
-        beforeEach(() => {
-          component = fixture('<test-element></test-element>');
+        beforeEach(async () => {
+          component = await fixture('<test-element></test-element>');
           component.multiWordPropertyDefault = [true];
         });
 
@@ -170,8 +169,8 @@ describe('TestElement', () => {
     describe('as a string', () => {
       describe('without default', () => {
         describe('when defined', () => {
-          beforeEach(() => {
-            component = fixture(
+          beforeEach(async () => {
+            component = await fixture(
               '<test-element string="awesome"></test-element>'
             );
           });
@@ -188,8 +187,8 @@ describe('TestElement', () => {
         });
 
         describe('when set', () => {
-          beforeEach(() => {
-            component = fixture(
+          beforeEach(async () => {
+            component = await fixture(
               '<test-element string="awesome"></test-element>'
             );
             component.string = 'sauce';
@@ -223,8 +222,8 @@ describe('TestElement', () => {
 
       describe('with default', () => {
         describe('as default', () => {
-          beforeEach(() => {
-            component = fixture('<test-element></test-element>');
+          beforeEach(async () => {
+            component = await fixture('<test-element></test-element>');
           });
 
           it('is gettable', () => {
@@ -239,8 +238,8 @@ describe('TestElement', () => {
         });
 
         describe('when defined', () => {
-          beforeEach(() => {
-            component = fixture(
+          beforeEach(async () => {
+            component = await fixture(
               '<test-element string-default="awesome"></test-element>'
             );
           });
@@ -257,8 +256,8 @@ describe('TestElement', () => {
         });
 
         describe('when set', () => {
-          beforeEach(() => {
-            component = fixture(
+          beforeEach(async () => {
+            component = await fixture(
               '<test-element string-default="awesome"></test-element>'
             );
             component.stringDefault = 'sauce';
@@ -284,8 +283,10 @@ describe('TestElement', () => {
     describe('as a number', () => {
       describe('without default', () => {
         describe('when defined', () => {
-          beforeEach(() => {
-            component = fixture('<test-element number="13"></test-element>');
+          beforeEach(async () => {
+            component = await fixture(
+              '<test-element number="13"></test-element>'
+            );
           });
 
           it('is gettable', () => {
@@ -298,8 +299,10 @@ describe('TestElement', () => {
         });
 
         describe('when set', () => {
-          beforeEach(() => {
-            component = fixture('<test-element number="13"></test-element>');
+          beforeEach(async () => {
+            component = await fixture(
+              '<test-element number="13"></test-element>'
+            );
             component.number = 42;
           });
 
@@ -319,8 +322,8 @@ describe('TestElement', () => {
 
       describe('with default', () => {
         describe('when defined', () => {
-          beforeEach(() => {
-            component = fixture(
+          beforeEach(async () => {
+            component = await fixture(
               '<test-element number-default="13"></test-element>'
             );
           });
@@ -337,8 +340,8 @@ describe('TestElement', () => {
         });
 
         describe('when set', () => {
-          beforeEach(() => {
-            component = fixture(
+          beforeEach(async () => {
+            component = await fixture(
               '<test-element number-default="13"></test-element>'
             );
             component.numberDefault = 42;
@@ -364,8 +367,8 @@ describe('TestElement', () => {
     describe('as a boolean', () => {
       describe('without default', () => {
         describe('when defined', () => {
-          beforeEach(() => {
-            component = fixture('<test-element boolean></test-element>');
+          beforeEach(async () => {
+            component = await fixture('<test-element boolean></test-element>');
           });
 
           it('is gettable', () => {
@@ -380,8 +383,8 @@ describe('TestElement', () => {
         });
 
         describe('when set', () => {
-          beforeEach(() => {
-            component = fixture('<test-element boolean></test-element>');
+          beforeEach(async () => {
+            component = await fixture('<test-element boolean></test-element>');
             component.boolean = false;
           });
 
@@ -404,8 +407,10 @@ describe('TestElement', () => {
 
     describe('with default', () => {
       describe('when defined', () => {
-        beforeEach(() => {
-          component = fixture('<test-element boolean-default></test-element>');
+        beforeEach(async () => {
+          component = await fixture(
+            '<test-element boolean-default></test-element>'
+          );
         });
 
         it('is gettable', () => {
@@ -420,8 +425,10 @@ describe('TestElement', () => {
       });
 
       describe('when set', () => {
-        beforeEach(() => {
-          component = fixture('<test-element boolean-default></test-element>');
+        beforeEach(async () => {
+          component = await fixture(
+            '<test-element boolean-default></test-element>'
+          );
           component.booleanDefault = false;
         });
 
@@ -446,8 +453,8 @@ describe('TestElement', () => {
     describe('as an array', () => {
       describe('without default', () => {
         describe('when defined', () => {
-          beforeEach(() => {
-            component = fixture(
+          beforeEach(async () => {
+            component = await fixture(
               '<test-element string-array=\'["a","b"]\'></test-element>'
             );
           });
@@ -468,8 +475,8 @@ describe('TestElement', () => {
         });
 
         describe('when set', () => {
-          beforeEach(() => {
-            component = fixture(
+          beforeEach(async () => {
+            component = await fixture(
               '<test-element string-array=\'["a","b"]\'></test-element>'
             );
             component.stringArray = ['c', 'd'];
@@ -493,8 +500,8 @@ describe('TestElement', () => {
 
       describe('with default', () => {
         describe('when defined', () => {
-          beforeEach(() => {
-            component = fixture(
+          beforeEach(async () => {
+            component = await fixture(
               '<test-element string-array-default=\'["a","b"]\'></test-element>'
             );
           });
@@ -515,8 +522,8 @@ describe('TestElement', () => {
         });
 
         describe('when set', () => {
-          beforeEach(() => {
-            component = fixture(
+          beforeEach(async () => {
+            component = await fixture(
               '<test-element string-array-default=\'["a","b"]\'></test-element>'
             );
             component.stringArrayDefault = ['c', 'd'];
@@ -542,8 +549,8 @@ describe('TestElement', () => {
     describe('as an object', () => {
       describe('without default', () => {
         describe('when defined', () => {
-          beforeEach(() => {
-            component = fixture(
+          beforeEach(async () => {
+            component = await fixture(
               '<test-element object=\'{"a":"b"}\'></test-element>'
             );
           });
@@ -564,8 +571,8 @@ describe('TestElement', () => {
         });
 
         describe('when set', () => {
-          beforeEach(() => {
-            component = fixture(
+          beforeEach(async () => {
+            component = await fixture(
               '<test-element object=\'{"a":"b"}\'></test-element>'
             );
             component.object = { c: 'd' };
@@ -589,8 +596,8 @@ describe('TestElement', () => {
 
       describe('with default', () => {
         describe('when defined', () => {
-          beforeEach(() => {
-            component = fixture(
+          beforeEach(async () => {
+            component = await fixture(
               '<test-element object-default=\'{"a":"b"}\'></test-element>'
             );
           });
@@ -611,8 +618,8 @@ describe('TestElement', () => {
         });
 
         describe('when set', () => {
-          beforeEach(() => {
-            component = fixture(
+          beforeEach(async () => {
+            component = await fixture(
               '<test-element object-default=\'{"a":"b"}\'></test-element>'
             );
             component.objectDefault = { c: 'd' };
@@ -638,8 +645,8 @@ describe('TestElement', () => {
   });
 
   describe('$', () => {
-    beforeEach(() => {
-      component = fixture('<test-element></test-element>');
+    beforeEach(async () => {
+      component = await fixture('<test-element></test-element>');
     });
 
     it('selects a single element', () => {
@@ -648,8 +655,8 @@ describe('TestElement', () => {
   });
 
   describe('$$', () => {
-    beforeEach(() => {
-      component = fixture('<test-element></test-element>');
+    beforeEach(async () => {
+      component = await fixture('<test-element></test-element>');
     });
 
     it('selects several elements', () => {
@@ -660,8 +667,8 @@ describe('TestElement', () => {
 
   describe('--test-element-background-color', () => {
     describe('with default', () => {
-      beforeEach(() => {
-        component = fixture('<test-element></test-element>');
+      beforeEach(async () => {
+        component = await fixture('<test-element></test-element>');
       });
 
       it('is set', () => {
@@ -672,8 +679,9 @@ describe('TestElement', () => {
     });
 
     describe('with outside value', () => {
-      beforeEach(() => {
-        component = fixture(`
+      beforeEach(async () => {
+        component = (
+          await fixture(`
           <div>
             <style>
               test-element.blue {
@@ -682,7 +690,8 @@ describe('TestElement', () => {
             </style>
             <test-element class="blue"></test-element>
           </div>
-        `).querySelector('test-element') as TestElement;
+        `)
+        ).querySelector('test-element') as TestElement;
       });
 
       it('is set blue', () => {
@@ -694,7 +703,7 @@ describe('TestElement', () => {
   });
 });
 
-function fixture(tag: string): TestElement {
+async function fixture(tag: string): Promise<TestElement> {
   function fixtureContainer(): HTMLElement {
     let div = document.createElement('div');
     div.classList.add('fixture');
@@ -704,5 +713,9 @@ function fixture(tag: string): TestElement {
     document.body.querySelector('.fixture') ||
     document.body.appendChild(fixtureContainer());
   fixture.innerHTML = tag;
+  console.log(document.body.innerHTML);
+  await (window as any).happyDOM.whenAsyncComplete();
+  await new Promise((resolve) => setTimeout(resolve, 0));
+  console.log(document.body.innerHTML);
   return fixture.children[0] as TestElement;
 }

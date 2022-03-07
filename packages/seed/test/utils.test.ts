@@ -1,10 +1,8 @@
-import 'mocha';
-import { expect } from 'chai';
-
+import { describe, expect, it } from 'vitest';
 import {
   attributeNameFromProperty,
-  propertyNameFromAttribute,
   privatePropertyName,
+  propertyNameFromAttribute,
 } from './../src/utils';
 
 describe('utils', () => {
