@@ -42,7 +42,7 @@
     "typescript"
   ],
   "dependencies": {
-    "@abraham/reflection": "0.9.1",
+    "@abraham/reflection": "0.10.0",
     "lit-html": "2.2.1"
   },
   "devDependencies": {
