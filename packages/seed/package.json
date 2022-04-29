@@ -43,7 +43,7 @@
   ],
   "dependencies": {
     "@abraham/reflection": "0.10.0",
-    "lit-html": "2.2.2"
+    "lit-html": "2.2.3"
   },
   "devDependencies": {
     "@types/chai": "^4.0.0",
