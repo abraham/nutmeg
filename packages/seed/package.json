@@ -22,7 +22,7 @@
   "main": "dist/seed.js",
   "module": "dist/seed.js",
   "engines": {
-    "node": "16"
+    "node": "14 || 16 || 18"
   },
   "scripts": {
     "build": "tsc --project tsconfig.production.json",
