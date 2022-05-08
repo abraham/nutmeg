@@ -73,7 +73,7 @@
     "pascal-case": "^3.0.0",
     "recursive-copy": "^2.0.0",
     "shelljs": "^0.8.0",
-    "sinon": "^13.0.0",
+    "sinon": "^14.0.0",
     "through2": "^4.0.0",
     "ts-loader": "^9.0.0",
     "typescript": "4.2.4",
