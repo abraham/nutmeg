@@ -48,7 +48,7 @@
   "devDependencies": {
     "@types/chai": "^4.0.0",
     "@types/mocha": "^8.0.0",
-    "@types/node": "^16.0.0",
+    "@types/node": "^18.0.0",
     "chai": "^4.0.0",
     "karma": "^6.0.0",
     "karma-chai": "^0.1.0",
