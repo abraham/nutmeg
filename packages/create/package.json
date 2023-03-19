@@ -42,7 +42,7 @@
     "typescript"
   ],
   "dependencies": {
-    "commander": "^9.0.0",
+    "commander": "^10.0.0",
     "latest-version": "^7.0.0",
     "lodash.template": "^4.0.0",
     "pascal-case": "^3.0.0",
