@@ -57,7 +57,7 @@
     "@types/sinon": "^10.0.0",
     "babel-preset-env": "^1.0.0",
     "chai": "^4.0.0",
-    "commander": "^10.0.0",
+    "commander": "^11.0.0",
     "karma": "^6.0.0",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^3.0.0",
