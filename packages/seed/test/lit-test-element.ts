@@ -1,0 +1,75 @@
+import { LitSeed, html, property } from '../src/lit-seed';
+import type { TemplateResult } from '../src/lit-seed';
+
+/** LitElement-backed port of `TestElement`, exercising `LitSeed`. */
+export class LitTestElement extends LitSeed {
+  // Attributes
+  @property({ type: Boolean }) public boolean: boolean | undefined;
+  @property({ type: Boolean }) public booleanDefault: boolean = true;
+  @property({ type: Boolean }) public multiWordAttribute: boolean | undefined;
+  @property({ type: Boolean }) public multiWordAttributeDefault: boolean =
+    false;
+  @property({ type: Number }) public number: number | undefined;
+  @property({ type: Number }) public numberDefault: number = 0;
+  @property({ type: String }) public string: string | undefined;
+  @property({ type: String }) public stringDefault: string = 'default';
+
+  // Properties
+  @property() public multiWordProperty: boolean[] | undefined;
+  @property() public multiWordPropertyDefault: boolean[] = [false];
+  @property() public object: object | undefined;
+  @property() public objectDefault: {} = { default: true };
+  @property() public stringArray: string[] | undefined;
+  @property() public stringArrayDefault: string[] = ['default'];
+
+  /** Styling for the component. */
+  public get styles(): TemplateResult {
+    return html`
+      <style>
+        :host {
+          box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+            0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        }
+
+        .content {
+          background-color: var(
+            --lit-test-element-background-color,
+            #fafafa
+          );
+          color: #212121;
+          padding: 16px;
+        }
+      </style>
+    `;
+  }
+
+  /** HTML Template for the component. */
+  public get template(): TemplateResult {
+    return html`
+      <div class="content">
+        Welcome to &lt;lit-test-element&gt;
+
+        <ul>
+          <li>string: ${this.string}</li>
+          <li>number: ${this.number}</li>
+          <li>boolean: ${this.boolean}</li>
+          <li>stringArray: ${this.stringArray}</li>
+          <li>object: ${this.object}</li>
+          <li>stringDefault: ${this.stringDefault}</li>
+          <li>numberDefault: ${this.numberDefault}</li>
+          <li>booleanDefault: ${this.booleanDefault}</li>
+          <li>stringArrayDefault: ${this.stringArrayDefault}</li>
+          <li>objectDefault: ${this.objectDefault}</li>
+        </ul>
+
+        <div id="money">money</div>
+        <div class="monies">monies</div>
+        <div class="monies">monies</div>
+
+        <slot></slot>
+      </div>
+    `;
+  }
+}
+
+window.customElements.define('lit-test-element', LitTestElement);

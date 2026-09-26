@@ -1,4 +1,5 @@
-import { LitElement, TemplateResult, html, svg } from 'lit';
+import { LitElement, html, svg } from 'lit';
+import type { TemplateResult } from 'lit';
 import { property as litProperty } from 'lit/decorators.js';
 import { attributeNameFromProperty, propertyNameFromAttribute } from './utils';
 
@@ -24,6 +25,33 @@ function observeComplexProperty(target: LitSeed, name: string): void {
   }
 }
 
+/** Mirrors the legacy setter: null/undefined/false/'' remove the attribute. */
+function primitiveConverter(type: unknown) {
+  return {
+    toAttribute(value: unknown): string | null {
+      if (
+        value === null ||
+        value === undefined ||
+        value === false ||
+        value === ''
+      ) {
+        return null;
+      }
+      return String(value);
+    },
+    fromAttribute(value: string | null): unknown {
+      switch (type) {
+        case Boolean:
+          return value !== null;
+        case Number:
+          return value === null ? null : Number(value);
+        default:
+          return value;
+      }
+    },
+  };
+}
+
 /**
  * Drop-in replacement for the legacy `@property()` decorator, backed by
  * Lit's reactive property system. Primitive types (`Boolean`/`Number`/
@@ -39,8 +67,8 @@ export function property(options?: { type?: unknown }) {
 
     if (type && isPrimitive(type)) {
       litProperty({
-        type: type as { new (...args: any[]): unknown },
         attribute: attributeNameFromProperty(name),
+        converter: primitiveConverter(type),
         reflect: true,
       })(target, name);
       return;
@@ -114,11 +142,5 @@ class LitSeed extends LitElement {
   }
 }
 
-export {
-  attributeNameFromProperty,
-  html,
-  LitSeed,
-  propertyNameFromAttribute,
-  svg,
-  TemplateResult,
-};
+export { attributeNameFromProperty, html, LitSeed, propertyNameFromAttribute, svg };
+export type { TemplateResult };
