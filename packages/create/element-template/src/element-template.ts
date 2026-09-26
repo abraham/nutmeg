@@ -1,37 +1,14 @@
-import { Seed, property, html, TemplateResult } from '@nutmeg/seed';
+import { LitSeed, property, html, TemplateResult } from '@nutmeg/seed/lit';
 
-export class <%= name %> extends Seed {
+export class <%= name %> extends LitSeed {
 <% properties.properties.forEach((property) => {
   if (property.primitive) {
-    print(`  @property() public ${property.name}: ${property.type} = ${property.tmplValue};\n`);
+    const ctor = { boolean: 'Boolean', number: 'Number', string: 'String' }[property.type];
+    print(`  @property({ type: ${ctor} }) public ${property.name}: ${property.type} = ${property.tmplValue};\n`);
   } else {
     print(`  @property() public ${property.name}: ${property.type} | undefined;\n`);
   }
 }); %>
-  constructor() {
-    super();
-  }
-
-  /** The component instance has been inserted into the DOM. */
-  public connectedCallback() {
-    super.connectedCallback();
-  }
-
-  /** The component instance has been removed from the DOM. */
-  public disconnectedCallback() {
-    super.disconnectedCallback();
-  }
-
-  /** Watch for changes to these attributes. */
-  public static get observedAttributes(): string[] {
-    return super.observedAttributes;
-  }
-
-  /** Rerender when the observed attributes change. */
-  public attributeChangedCallback(name: string, oldValue: any, newValue: any) {
-    super.attributeChangedCallback(name, oldValue, newValue);
-  }
-
   /** Styling for the component. */
   public get styles(): TemplateResult {
     return html`

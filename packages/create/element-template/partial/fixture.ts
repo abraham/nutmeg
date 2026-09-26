@@ -7,3 +7,4 @@ component = fixture('<<%= tag %><%
   print('\n      /** Set typical complex property. */\n');
   print(`      // component.${property.name} = ${property.type}`);
 } %>
+      await component.updateComplete;

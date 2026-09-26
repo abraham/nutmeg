@@ -100,8 +100,8 @@ class LitSeed extends LitElement {
   }
 
   /** Helper to query the rendered shadowRoot with querySelector. `this.$('tag.class')` */
-  public $(selectors: string): HTMLElement | null {
-    return this.renderRoot.querySelector<HTMLElement>(selectors);
+  public $(selectors: string): HTMLElement {
+    return this.renderRoot.querySelector<HTMLElement>(selectors) as HTMLElement;
   }
 
   /** Helper to query the rendered shadowRoot with querySelectorAll. `this.$$('tag.class')` */

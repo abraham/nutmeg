@@ -8,8 +8,9 @@ describe('<<%= tag %>>', () => {
   let component: <%= name %>;
 
   describe('without properties', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       component = fixture('<<%= tag %>></<%= tag %>>');
+      await component.updateComplete;
     });
 
     it('renders default', () => {
@@ -22,8 +23,9 @@ describe('<<%= tag %>>', () => {
   }) %>
 
   describe('slot', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       component = fixture('<<%= tag %>>slot content</<%= tag %>>');
+      await component.updateComplete;
     });
 
     it('is rendered', () => {
@@ -33,8 +35,9 @@ describe('<<%= tag %>>', () => {
 
   describe('--<%= tag %>-background-color', () => {
     describe('with default', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         component = fixture('<<%= tag %>></<%= tag %>>');
+        await component.updateComplete;
       });
 
       it('is set', () => {
@@ -43,7 +46,7 @@ describe('<<%= tag %>>', () => {
     });
 
     describe('with outside value', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         component = fixture(`
           <div>
             <style>
@@ -54,6 +57,7 @@ describe('<<%= tag %>>', () => {
             <<%= tag %> class="blue"></<%= tag %>>
           </div>
         `).querySelector('<%= tag %>') as <%= name %>;
+        await component.updateComplete;
       });
 
       it('is set', () => {
