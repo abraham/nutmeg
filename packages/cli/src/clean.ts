@@ -8,7 +8,9 @@ notifyOfUpdate();
 const program = new Command();
 
 program
-  .command('clean <path>', "clean a Web Component's compiled files")
+  .description("clean a Web Component's compiled files")
+  .argument('<path>')
+  .allowUnknownOption()
   .parse(process.argv);
 
 const workingDir = path.resolve(process.cwd(), program.args[0]);

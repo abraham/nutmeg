@@ -19,7 +19,7 @@ const testDir = path.resolve(shell.tempdir(), 'nutmeg', 'create');
 setupForTests();
 
 shell.cd(testDir);
-shell.exec(`npx ${createDir} new ci-test ${attributes} ${sources}`);
+shell.exec(`npx ${createDir} ci-test ${attributes} ${sources}`);
 shell.cd('ci-test');
 shell.exec('npm test');
 
