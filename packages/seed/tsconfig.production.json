@@ -16,7 +16,6 @@
     "strict": true,
     "target": "esnext",
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
     "useDefineForClassFields": false
   },
   "include": ["src"]

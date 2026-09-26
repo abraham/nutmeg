@@ -29,6 +29,7 @@
     "@nutmeg/seed": "<%= seedSource %>"
   },
   "devDependencies": {
-    "@nutmeg/cli": "<%= cliSource %>"
+    "@nutmeg/cli": "<%= cliSource %>",
+    "vite": "^7.3.6"
   }
 }

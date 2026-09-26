@@ -7,7 +7,11 @@ notifyOfUpdate();
 
 const program = new Command();
 
-program.command('build <path>', 'compile a Web Component').parse(process.argv);
+program
+  .description('compile a Web Component')
+  .argument('<path>')
+  .allowUnknownOption()
+  .parse(process.argv);
 
 const workingDir = path.resolve(process.cwd(), program.args[0]);
 const tscCmd = `tsc --project ${tsconfigPath(workingDir)} --watch`;

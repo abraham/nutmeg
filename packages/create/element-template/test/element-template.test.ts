@@ -1,6 +1,4 @@
-import 'mocha';
-import { expect } from 'chai';
-import sinon from 'sinon';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 import { <%= name %> } from '../src/<%= tag %>';
 
@@ -8,12 +6,13 @@ describe('<<%= tag %>>', () => {
   let component: <%= name %>;
 
   describe('without properties', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       component = fixture('<<%= tag %>></<%= tag %>>');
+      await component.updateComplete;
     });
 
     it('renders default', () => {
-      expect(component.$('.content').innerText).to.include('Welcome to <<%= tag %>>');
+      expect(component.$('.content').innerText).toContain('Welcome to <<%= tag %>>');
     });
   });
 
@@ -22,28 +21,30 @@ describe('<<%= tag %>>', () => {
   }) %>
 
   describe('slot', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       component = fixture('<<%= tag %>>slot content</<%= tag %>>');
+      await component.updateComplete;
     });
 
     it('is rendered', () => {
-      expect(component.innerText).equal('slot content');
+      expect(component.innerText).toBe('slot content');
     });
   });
 
   describe('--<%= tag %>-background-color', () => {
     describe('with default', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         component = fixture('<<%= tag %>></<%= tag %>>');
+        await component.updateComplete;
       });
 
       it('is set', () => {
-        expect(getComputedStyle(component.$('.content')).backgroundColor).equal('rgb(255, 255, 255)');
+        expect(getComputedStyle(component.$('.content')).backgroundColor).toBe('rgb(255, 255, 255)');
       });
     });
 
     describe('with outside value', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         component = fixture(`
           <div>
             <style>
@@ -54,10 +55,11 @@ describe('<<%= tag %>>', () => {
             <<%= tag %> class="blue"></<%= tag %>>
           </div>
         `).querySelector('<%= tag %>') as <%= name %>;
+        await component.updateComplete;
       });
 
       it('is set', () => {
-        expect(getComputedStyle(component.$('.content')).backgroundColor).equal('rgb(3, 169, 244)');
+        expect(getComputedStyle(component.$('.content')).backgroundColor).toBe('rgb(3, 169, 244)');
       });
     });
   });

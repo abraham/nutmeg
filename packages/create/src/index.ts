@@ -18,10 +18,9 @@ notifyOfUpdate();
 const program = new Command();
 
 program
-  .command(
-    'new <component-name> [property:type...]',
-    'generate a Web Component'
-  )
+  .description('generate a Web Component')
+  .argument('<component-name>')
+  .argument('[property:type...]')
   .option(
     '--cli-source <location>',
     'install @nutmeg/cli dependency from local or github'
