@@ -23,6 +23,9 @@ module.exports = function (config) {
         // breaks property accessors defined by the `@property()` decorator
         // when a class field initializer (e.g. `= 'default'`) is present.
         useDefineForClassFields: false,
+        // Avoids duplicate identifier errors from vitest's bundled @types/chai
+        // conflicting with the root @types/chai.
+        skipLibCheck: true,
       },
       bundlerOptions: {
         transforms: [
