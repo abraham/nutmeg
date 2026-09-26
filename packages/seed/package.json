@@ -22,7 +22,7 @@
   "main": "dist/seed.js",
   "module": "dist/seed.js",
   "engines": {
-    "node": "18 || 20 || 22"
+    "node": "22 || 24 || 26"
   },
   "scripts": {
     "build": "tsc --project tsconfig.production.json",
@@ -46,7 +46,7 @@
     "lit": "3.3.3"
   },
   "devDependencies": {
-    "@types/node": "^20.0.0",
+    "@types/node": "^22.0.0",
     "@vitest/browser-playwright": "^5.0.2",
     "playwright": "^1.63.0",
     "typescript": "7.0.2",
