@@ -116,9 +116,9 @@ describe('TestElement', () => {
         });
 
         it('is case converted', () => {
-          expect(
-            component.hasAttribute('multi-word-attribute-default')
-          ).toBe(true);
+          expect(component.hasAttribute('multi-word-attribute-default')).toBe(
+            true
+          );
         });
       });
     });
@@ -174,9 +174,9 @@ describe('TestElement', () => {
         });
 
         it('is not reflected', () => {
-          expect(
-            component.hasAttribute('multi-word-property-default')
-          ).toBe(false);
+          expect(component.hasAttribute('multi-word-property-default')).toBe(
+            false
+          );
         });
       });
     });
@@ -307,9 +307,7 @@ describe('TestElement', () => {
       describe('without default', () => {
         describe('when defined', () => {
           beforeEach(async () => {
-            component = fixture(
-              '<test-element number="13"></test-element>'
-            );
+            component = fixture('<test-element number="13"></test-element>');
             await component.updateComplete;
           });
 
@@ -318,17 +316,13 @@ describe('TestElement', () => {
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content')!.innerText).toContain(
-              'number: 13'
-            );
+            expect(component.$('.content')!.innerText).toContain('number: 13');
           });
         });
 
         describe('when set', () => {
           beforeEach(async () => {
-            component = fixture(
-              '<test-element number="13"></test-element>'
-            );
+            component = fixture('<test-element number="13"></test-element>');
             component.number = 42;
             await component.updateComplete;
           });
@@ -342,9 +336,7 @@ describe('TestElement', () => {
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content')!.innerText).toContain(
-              'number: 42'
-            );
+            expect(component.$('.content')!.innerText).toContain('number: 42');
           });
         });
       });
@@ -441,9 +433,7 @@ describe('TestElement', () => {
     describe('with default', () => {
       describe('when defined', () => {
         beforeEach(async () => {
-          component = fixture(
-            '<test-element boolean-default></test-element>'
-          );
+          component = fixture('<test-element boolean-default></test-element>');
           await component.updateComplete;
         });
 
@@ -460,9 +450,7 @@ describe('TestElement', () => {
 
       describe('when set', () => {
         beforeEach(async () => {
-          component = fixture(
-            '<test-element boolean-default></test-element>'
-          );
+          component = fixture('<test-element boolean-default></test-element>');
           component.booleanDefault = false;
           await component.updateComplete;
         });
@@ -549,9 +537,7 @@ describe('TestElement', () => {
           });
 
           it('attribute is removed', () => {
-            expect(component.hasAttribute('string-array-default')).toBe(
-              false
-            );
+            expect(component.hasAttribute('string-array-default')).toBe(false);
           });
 
           it('is rendered in shadowRoot', () => {
@@ -575,9 +561,7 @@ describe('TestElement', () => {
           });
 
           it('is not reflected to attribute', () => {
-            expect(component.hasAttribute('string-array-default')).toBe(
-              false
-            );
+            expect(component.hasAttribute('string-array-default')).toBe(false);
           });
 
           it('is rendered in shadowRoot', () => {
@@ -722,9 +706,9 @@ describe('TestElement', () => {
       });
 
       it('is set', () => {
-        expect(
-          getComputedStyle(component.$('.content')!).backgroundColor
-        ).toBe('rgb(250, 250, 250)');
+        expect(getComputedStyle(component.$('.content')!).backgroundColor).toBe(
+          'rgb(250, 250, 250)'
+        );
       });
     });
 
@@ -744,9 +728,9 @@ describe('TestElement', () => {
       });
 
       it('is set blue', () => {
-        expect(
-          getComputedStyle(component.$('.content')!).backgroundColor
-        ).toBe('rgb(3, 169, 244)');
+        expect(getComputedStyle(component.$('.content')!).backgroundColor).toBe(
+          'rgb(3, 169, 244)'
+        );
       });
     });
   });

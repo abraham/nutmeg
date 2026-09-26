@@ -142,5 +142,11 @@ class Seed extends LitElement {
   }
 }
 
-export { attributeNameFromProperty, html, Seed, propertyNameFromAttribute, svg };
+export {
+  attributeNameFromProperty,
+  html,
+  Seed,
+  propertyNameFromAttribute,
+  svg,
+};
 export type { TemplateResult };
