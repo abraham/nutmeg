@@ -16,6 +16,15 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: npm run test
+  test-success:
+    if: always()
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require all test matrix jobs to pass
+        if: ${{ needs.test.result != 'success' }}
+        run: exit 1
+      - run: echo "All test matrix jobs passed."
   lint:
     runs-on: ubuntu-latest
     steps:
