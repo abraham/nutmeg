@@ -1,6 +1,6 @@
-import { LitSeed, property, html, TemplateResult } from '@nutmeg/seed/lit';
+import { Seed, property, html, TemplateResult } from '@nutmeg/seed';
 
-export class <%= name %> extends LitSeed {
+export class <%= name %> extends Seed {
 <% properties.properties.forEach((property) => {
   if (property.primitive) {
     const ctor = { boolean: 'Boolean', number: 'Number', string: 'String' }[property.type];

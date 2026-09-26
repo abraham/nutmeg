@@ -1,15 +1,17 @@
-import { Seed, property, html, TemplateResult } from '../src/seed';
+import { Seed, html, property } from '../src/seed';
+import type { TemplateResult } from '../src/seed';
 
 export class TestElement extends Seed {
   // Attributes
   @property({ type: Boolean }) public boolean: boolean | undefined;
-  @property() public booleanDefault: boolean = true;
+  @property({ type: Boolean }) public booleanDefault: boolean = true;
   @property({ type: Boolean }) public multiWordAttribute: boolean | undefined;
-  @property() public multiWordAttributeDefault: boolean = false;
+  @property({ type: Boolean }) public multiWordAttributeDefault: boolean =
+    false;
   @property({ type: Number }) public number: number | undefined;
-  @property() public numberDefault: number = 0;
+  @property({ type: Number }) public numberDefault: number = 0;
   @property({ type: String }) public string: string | undefined;
-  @property() public stringDefault: string = 'default';
+  @property({ type: String }) public stringDefault: string = 'default';
 
   // Properties
   @property() public multiWordProperty: boolean[] | undefined;
@@ -18,30 +20,6 @@ export class TestElement extends Seed {
   @property() public objectDefault: {} = { default: true };
   @property() public stringArray: string[] | undefined;
   @property() public stringArrayDefault: string[] = ['default'];
-
-  constructor() {
-    super();
-  }
-
-  /** The component instance has been inserted into the DOM. */
-  public connectedCallback() {
-    super.connectedCallback();
-  }
-
-  /** The component instance has been removed from the DOM. */
-  public disconnectedCallback() {
-    super.disconnectedCallback();
-  }
-
-  /** Watch for changes to these attributes. */
-  public static get observedAttributes(): string[] {
-    return super.observedAttributes;
-  }
-
-  /** Rerender when the observed attributes change. */
-  public attributeChangedCallback(name: string, oldValue: any, newValue: any) {
-    super.attributeChangedCallback(name, oldValue, newValue);
-  }
 
   /** Styling for the component. */
   public get styles(): TemplateResult {

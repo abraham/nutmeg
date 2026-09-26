@@ -1,17 +1,18 @@
-import 'mocha';
-import { expect } from 'chai';
+import { beforeEach, describe, expect, it } from 'vitest';
+
 import { TestElement } from './test-element';
 
 describe('TestElement', () => {
   let component: TestElement;
 
   describe('renders', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       component = fixture('<test-element></test-element>');
+      await component.updateComplete;
     });
 
     it('renders default', () => {
-      expect(component.$('.content').innerText).to.include(
+      expect(component.$('.content')!.innerText).toContain(
         'Welcome to <test-element>'
       );
     });
@@ -29,7 +30,9 @@ describe('TestElement', () => {
         'string-default',
         'string',
       ];
-      expect(TestElement.observedAttributes.sort()).to.eql(expected.sort());
+      expect([...TestElement.observedAttributes].sort()).toEqual(
+        expected.sort()
+      );
     });
   });
 
@@ -43,71 +46,79 @@ describe('TestElement', () => {
         'stringArrayDefault',
         'stringArray',
       ];
-      expect(TestElement.observedProperties.sort()).to.eql(expected.sort());
+      expect([...TestElement.observedProperties].sort()).toEqual(
+        expected.sort()
+      );
     });
   });
 
   describe('slot', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       component = fixture('<test-element>slot content</test-element>');
+      await component.updateComplete;
     });
 
     it('is rendered', () => {
       const text = (
         component.$('slot') as HTMLSlotElement
       ).assignedNodes()[0] as Text;
-      expect(text.wholeText.trim()).to.eq('slot content');
+      expect(text.wholeText.trim()).toBe('slot content');
     });
   });
 
   describe('multi word attribute', () => {
     describe('without default', () => {
       describe('when defined', () => {
-        beforeEach(() => {
+        beforeEach(async () => {
           component = fixture(
             '<test-element multi-word-attribute></test-element>'
           );
+          await component.updateComplete;
         });
 
         it('is case converted', () => {
-          expect(component.multiWordAttribute).to.be.true;
+          expect(component.multiWordAttribute).toBe(true);
         });
       });
 
       describe('when set', () => {
-        beforeEach(() => {
+        beforeEach(async () => {
           component = fixture('<test-element></test-element>');
           component.multiWordAttribute = true;
+          await component.updateComplete;
         });
 
         it('is case converted', () => {
-          expect(component.hasAttribute('multi-word-attribute')).to.be.true;
+          expect(component.hasAttribute('multi-word-attribute')).toBe(true);
         });
       });
     });
 
     describe('with default', () => {
       describe('when defined', () => {
-        beforeEach(() => {
+        beforeEach(async () => {
           component = fixture(
             '<test-element multi-word-attribute-default></test-element>'
           );
+          await component.updateComplete;
         });
 
         it('is case converted', () => {
-          expect(component.multiWordAttributeDefault).to.be.true;
+          expect(component.multiWordAttributeDefault).toBe(true);
         });
       });
 
       describe('when set', () => {
-        beforeEach(() => {
+        beforeEach(async () => {
           component = fixture('<test-element></test-element>');
           component.multiWordAttributeDefault = true;
+          await component.updateComplete;
         });
 
         it('is case converted', () => {
-          expect(component.hasAttribute('multi-word-attribute-default')).to.be
-            .true;
+          expect(
+            component.hasAttribute('multi-word-attribute-default')
+          ).toBe(true);
         });
       });
     });
@@ -116,51 +127,56 @@ describe('TestElement', () => {
   describe('multi word property', () => {
     describe('without default', () => {
       describe('when defined', () => {
-        beforeEach(() => {
+        beforeEach(async () => {
           component = fixture(
             '<test-element multi-word-property="[true]"></test-element>'
           );
+          await component.updateComplete;
         });
 
         it('is case converted', () => {
-          expect(component.multiWordProperty).to.eql([true]);
+          expect(component.multiWordProperty).toEqual([true]);
         });
       });
 
       describe('when set', () => {
-        beforeEach(() => {
+        beforeEach(async () => {
           component = fixture('<test-element></test-element>');
           component.multiWordProperty = [true];
+          await component.updateComplete;
         });
 
         it('is not reflected', () => {
-          expect(component.hasAttribute('multi-word-property')).to.be.false;
+          expect(component.hasAttribute('multi-word-property')).toBe(false);
         });
       });
     });
 
     describe('with default', () => {
       describe('when defined', () => {
-        beforeEach(() => {
+        beforeEach(async () => {
           component = fixture(
             '<test-element multi-word-property-default="[true]"></test-element>'
           );
+          await component.updateComplete;
         });
 
         it('is case converted', () => {
-          expect(component.multiWordPropertyDefault).to.eql([true]);
+          expect(component.multiWordPropertyDefault).toEqual([true]);
         });
       });
 
       describe('when set', () => {
-        beforeEach(() => {
+        beforeEach(async () => {
           component = fixture('<test-element></test-element>');
           component.multiWordPropertyDefault = [true];
+          await component.updateComplete;
         });
 
         it('is not reflected', () => {
-          expect(component.hasAttribute('multi-word-property-default')).to.be
-            .false;
+          expect(
+            component.hasAttribute('multi-word-property-default')
+          ).toBe(false);
         });
       });
     });
@@ -170,52 +186,55 @@ describe('TestElement', () => {
     describe('as a string', () => {
       describe('without default', () => {
         describe('when defined', () => {
-          beforeEach(() => {
+          beforeEach(async () => {
             component = fixture(
               '<test-element string="awesome"></test-element>'
             );
+            await component.updateComplete;
           });
 
           it('is gettable', () => {
-            expect(component.string).equal('awesome');
+            expect(component.string).toBe('awesome');
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include(
+            expect(component.$('.content')!.innerText).toContain(
               'string: awesome'
             );
           });
         });
 
         describe('when set', () => {
-          beforeEach(() => {
+          beforeEach(async () => {
             component = fixture(
               '<test-element string="awesome"></test-element>'
             );
             component.string = 'sauce';
+            await component.updateComplete;
           });
 
           it('is gettable', () => {
-            expect(component.string).equal('sauce');
+            expect(component.string).toBe('sauce');
           });
 
           it('is reflected to attribute', () => {
-            expect(component.getAttribute('string')).equal('sauce');
+            expect(component.getAttribute('string')).toBe('sauce');
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include(
+            expect(component.$('.content')!.innerText).toContain(
               'string: sauce'
             );
           });
 
           describe('with nothing', () => {
-            beforeEach(() => {
+            beforeEach(async () => {
               component.string = '';
+              await component.updateComplete;
             });
 
             it('is removed', () => {
-              expect(component.hasAttribute('string')).to.be.false;
+              expect(component.hasAttribute('string')).toBe(false);
             });
           });
         });
@@ -223,57 +242,60 @@ describe('TestElement', () => {
 
       describe('with default', () => {
         describe('as default', () => {
-          beforeEach(() => {
+          beforeEach(async () => {
             component = fixture('<test-element></test-element>');
+            await component.updateComplete;
           });
 
           it('is gettable', () => {
-            expect(component.stringDefault).equal('default');
+            expect(component.stringDefault).toBe('default');
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include(
+            expect(component.$('.content')!.innerText).toContain(
               'stringDefault: default'
             );
           });
         });
 
         describe('when defined', () => {
-          beforeEach(() => {
+          beforeEach(async () => {
             component = fixture(
               '<test-element string-default="awesome"></test-element>'
             );
+            await component.updateComplete;
           });
 
           it('is gettable', () => {
-            expect(component.stringDefault).equal('awesome');
+            expect(component.stringDefault).toBe('awesome');
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include(
+            expect(component.$('.content')!.innerText).toContain(
               'stringDefault: awesome'
             );
           });
         });
 
         describe('when set', () => {
-          beforeEach(() => {
+          beforeEach(async () => {
             component = fixture(
               '<test-element string-default="awesome"></test-element>'
             );
             component.stringDefault = 'sauce';
+            await component.updateComplete;
           });
 
           it('is gettable', () => {
-            expect(component.stringDefault).equal('sauce');
+            expect(component.stringDefault).toBe('sauce');
           });
 
           it('is reflected to attribute', () => {
-            expect(component.getAttribute('string-default')).equal('sauce');
+            expect(component.getAttribute('string-default')).toBe('sauce');
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include(
+            expect(component.$('.content')!.innerText).toContain(
               'stringDefault: sauce'
             );
           });
@@ -284,76 +306,88 @@ describe('TestElement', () => {
     describe('as a number', () => {
       describe('without default', () => {
         describe('when defined', () => {
-          beforeEach(() => {
-            component = fixture('<test-element number="13"></test-element>');
+          beforeEach(async () => {
+            component = fixture(
+              '<test-element number="13"></test-element>'
+            );
+            await component.updateComplete;
           });
 
           it('is gettable', () => {
-            expect(component.number).equal(13);
+            expect(component.number).toBe(13);
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include('number: 13');
+            expect(component.$('.content')!.innerText).toContain(
+              'number: 13'
+            );
           });
         });
 
         describe('when set', () => {
-          beforeEach(() => {
-            component = fixture('<test-element number="13"></test-element>');
+          beforeEach(async () => {
+            component = fixture(
+              '<test-element number="13"></test-element>'
+            );
             component.number = 42;
+            await component.updateComplete;
           });
 
           it('is gettable', () => {
-            expect(component.number).equal(42);
+            expect(component.number).toBe(42);
           });
 
           it('is reflected to attribute', () => {
-            expect(component.getAttribute('number')).equal('42');
+            expect(component.getAttribute('number')).toBe('42');
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include('number: 42');
+            expect(component.$('.content')!.innerText).toContain(
+              'number: 42'
+            );
           });
         });
       });
 
       describe('with default', () => {
         describe('when defined', () => {
-          beforeEach(() => {
+          beforeEach(async () => {
             component = fixture(
               '<test-element number-default="13"></test-element>'
             );
+            await component.updateComplete;
           });
 
           it('is gettable', () => {
-            expect(component.numberDefault).equal(13);
+            expect(component.numberDefault).toBe(13);
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include(
+            expect(component.$('.content')!.innerText).toContain(
               'numberDefault: 13'
             );
           });
         });
 
         describe('when set', () => {
-          beforeEach(() => {
+          beforeEach(async () => {
             component = fixture(
               '<test-element number-default="13"></test-element>'
             );
             component.numberDefault = 42;
+            await component.updateComplete;
           });
 
           it('is gettable', () => {
-            expect(component.numberDefault).equal(42);
+            expect(component.numberDefault).toBe(42);
           });
 
           it('is reflected to attribute', () => {
-            expect(component.getAttribute('number-default')).equal('42');
+            expect(component.getAttribute('number-default')).toBe('42');
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include(
+            expect(component.$('.content')!.innerText).toContain(
               'numberDefault: 42'
             );
           });
@@ -364,37 +398,39 @@ describe('TestElement', () => {
     describe('as a boolean', () => {
       describe('without default', () => {
         describe('when defined', () => {
-          beforeEach(() => {
+          beforeEach(async () => {
             component = fixture('<test-element boolean></test-element>');
+            await component.updateComplete;
           });
 
           it('is gettable', () => {
-            expect(component.boolean).to.be.true;
+            expect(component.boolean).toBe(true);
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include(
+            expect(component.$('.content')!.innerText).toContain(
               'boolean: true'
             );
           });
         });
 
         describe('when set', () => {
-          beforeEach(() => {
+          beforeEach(async () => {
             component = fixture('<test-element boolean></test-element>');
             component.boolean = false;
+            await component.updateComplete;
           });
 
           it('is gettable', () => {
-            expect(component.boolean).to.be.false;
+            expect(component.boolean).toBe(false);
           });
 
           it('is reflected to attribute', () => {
-            expect(component.hasAttribute('boolean')).to.be.false;
+            expect(component.hasAttribute('boolean')).toBe(false);
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include(
+            expect(component.$('.content')!.innerText).toContain(
               'boolean: false'
             );
           });
@@ -404,37 +440,43 @@ describe('TestElement', () => {
 
     describe('with default', () => {
       describe('when defined', () => {
-        beforeEach(() => {
-          component = fixture('<test-element boolean-default></test-element>');
+        beforeEach(async () => {
+          component = fixture(
+            '<test-element boolean-default></test-element>'
+          );
+          await component.updateComplete;
         });
 
         it('is gettable', () => {
-          expect(component.booleanDefault).to.be.true;
+          expect(component.booleanDefault).toBe(true);
         });
 
         it('is rendered in shadowRoot', () => {
-          expect(component.$('.content').innerText).to.include(
+          expect(component.$('.content')!.innerText).toContain(
             'booleanDefault: true'
           );
         });
       });
 
       describe('when set', () => {
-        beforeEach(() => {
-          component = fixture('<test-element boolean-default></test-element>');
+        beforeEach(async () => {
+          component = fixture(
+            '<test-element boolean-default></test-element>'
+          );
           component.booleanDefault = false;
+          await component.updateComplete;
         });
 
         it('is gettable', () => {
-          expect(component.booleanDefault).to.be.false;
+          expect(component.booleanDefault).toBe(false);
         });
 
         it('is reflected to attribute', () => {
-          expect(component.hasAttribute('boolean-default')).to.be.false;
+          expect(component.hasAttribute('boolean-default')).toBe(false);
         });
 
         it('is rendered in shadowRoot', () => {
-          expect(component.$('.content').innerText).to.include(
+          expect(component.$('.content')!.innerText).toContain(
             'booleanDefault: false'
           );
         });
@@ -446,45 +488,47 @@ describe('TestElement', () => {
     describe('as an array', () => {
       describe('without default', () => {
         describe('when defined', () => {
-          beforeEach(() => {
+          beforeEach(async () => {
             component = fixture(
               '<test-element string-array=\'["a","b"]\'></test-element>'
             );
+            await component.updateComplete;
           });
 
           it('is gettable', () => {
-            expect(component.stringArray).to.eql(['a', 'b']);
+            expect(component.stringArray).toEqual(['a', 'b']);
           });
 
           it('attribute is removed', () => {
-            expect(component.hasAttribute('string-array')).to.be.false;
+            expect(component.hasAttribute('string-array')).toBe(false);
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include(
+            expect(component.$('.content')!.innerText).toContain(
               'stringArray: ab'
             );
           });
         });
 
         describe('when set', () => {
-          beforeEach(() => {
+          beforeEach(async () => {
             component = fixture(
               '<test-element string-array=\'["a","b"]\'></test-element>'
             );
             component.stringArray = ['c', 'd'];
+            await component.updateComplete;
           });
 
           it('is gettable', () => {
-            expect(component.stringArray).to.eql(['c', 'd']);
+            expect(component.stringArray).toEqual(['c', 'd']);
           });
 
           it('is reflected to attribute', () => {
-            expect(component.hasAttribute('string-array')).equal(false);
+            expect(component.hasAttribute('string-array')).toBe(false);
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include(
+            expect(component.$('.content')!.innerText).toContain(
               'stringArray: cd'
             );
           });
@@ -493,45 +537,51 @@ describe('TestElement', () => {
 
       describe('with default', () => {
         describe('when defined', () => {
-          beforeEach(() => {
+          beforeEach(async () => {
             component = fixture(
               '<test-element string-array-default=\'["a","b"]\'></test-element>'
             );
+            await component.updateComplete;
           });
 
           it('is gettable', () => {
-            expect(component.stringArrayDefault).to.eql(['a', 'b']);
+            expect(component.stringArrayDefault).toEqual(['a', 'b']);
           });
 
           it('attribute is removed', () => {
-            expect(component.hasAttribute('string-array-default')).to.be.false;
+            expect(component.hasAttribute('string-array-default')).toBe(
+              false
+            );
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include(
+            expect(component.$('.content')!.innerText).toContain(
               'stringArrayDefault: ab'
             );
           });
         });
 
         describe('when set', () => {
-          beforeEach(() => {
+          beforeEach(async () => {
             component = fixture(
               '<test-element string-array-default=\'["a","b"]\'></test-element>'
             );
             component.stringArrayDefault = ['c', 'd'];
+            await component.updateComplete;
           });
 
           it('is gettable', () => {
-            expect(component.stringArrayDefault).to.eql(['c', 'd']);
+            expect(component.stringArrayDefault).toEqual(['c', 'd']);
           });
 
           it('is not reflected to attribute', () => {
-            expect(component.hasAttribute('string-array-default')).equal(false);
+            expect(component.hasAttribute('string-array-default')).toBe(
+              false
+            );
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include(
+            expect(component.$('.content')!.innerText).toContain(
               'stringArrayDefault: cd'
             );
           });
@@ -542,45 +592,47 @@ describe('TestElement', () => {
     describe('as an object', () => {
       describe('without default', () => {
         describe('when defined', () => {
-          beforeEach(() => {
+          beforeEach(async () => {
             component = fixture(
               '<test-element object=\'{"a":"b"}\'></test-element>'
             );
+            await component.updateComplete;
           });
 
           it('is gettable', () => {
-            expect(component.object).to.eql({ a: 'b' });
+            expect(component.object).toEqual({ a: 'b' });
           });
 
           it('attribute is removed', () => {
-            expect(component.hasAttribute('object')).to.be.false;
+            expect(component.hasAttribute('object')).toBe(false);
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include(
+            expect(component.$('.content')!.innerText).toContain(
               'object: [object Object]'
             );
           });
         });
 
         describe('when set', () => {
-          beforeEach(() => {
+          beforeEach(async () => {
             component = fixture(
               '<test-element object=\'{"a":"b"}\'></test-element>'
             );
             component.object = { c: 'd' };
+            await component.updateComplete;
           });
 
           it('is gettable', () => {
-            expect(component.object).to.eql({ c: 'd' });
+            expect(component.object).toEqual({ c: 'd' });
           });
 
           it('is reflected to attribute', () => {
-            expect(component.hasAttribute('object')).to.be.false;
+            expect(component.hasAttribute('object')).toBe(false);
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include(
+            expect(component.$('.content')!.innerText).toContain(
               'object: [object Object]'
             );
           });
@@ -589,46 +641,48 @@ describe('TestElement', () => {
 
       describe('with default', () => {
         describe('when defined', () => {
-          beforeEach(() => {
+          beforeEach(async () => {
             component = fixture(
               '<test-element object-default=\'{"a":"b"}\'></test-element>'
             );
+            await component.updateComplete;
           });
 
           it('is gettable', () => {
-            expect(component.objectDefault).to.eql({ a: 'b' });
+            expect(component.objectDefault).toEqual({ a: 'b' });
           });
 
           it('attribute is removed', () => {
-            expect(component.hasAttribute('object-default')).to.be.false;
+            expect(component.hasAttribute('object-default')).toBe(false);
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include(
+            expect(component.$('.content')!.innerText).toContain(
               'objectDefault: [object Object]'
             );
           });
         });
 
         describe('when set', () => {
-          beforeEach(() => {
+          beforeEach(async () => {
             component = fixture(
               '<test-element object-default=\'{"a":"b"}\'></test-element>'
             );
             component.objectDefault = { c: 'd' };
+            await component.updateComplete;
           });
 
           it('is gettable', () => {
-            expect(component.objectDefault).to.eql({ c: 'd' });
+            expect(component.objectDefault).toEqual({ c: 'd' });
           });
 
           it('is not reflected to attribute', () => {
-            expect(component.hasAttribute('object-default')).to.be.false;
-            expect(component.hasAttribute('objectDefault')).to.be.false;
+            expect(component.hasAttribute('object-default')).toBe(false);
+            expect(component.hasAttribute('objectDefault')).toBe(false);
           });
 
           it('is rendered in shadowRoot', () => {
-            expect(component.$('.content').innerText).to.include(
+            expect(component.$('.content')!.innerText).toContain(
               'objectDefault: [object Object]'
             );
           });
@@ -638,41 +692,44 @@ describe('TestElement', () => {
   });
 
   describe('$', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       component = fixture('<test-element></test-element>');
+      await component.updateComplete;
     });
 
     it('selects a single element', () => {
-      expect(component.$('#money').innerText).to.eq('money');
+      expect(component.$('#money')!.innerText).toBe('money');
     });
   });
 
   describe('$$', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       component = fixture('<test-element></test-element>');
+      await component.updateComplete;
     });
 
     it('selects several elements', () => {
-      expect(component.$$('.monies').length).to.eq(2);
-      expect(component.$$('.monies')[0].innerText).to.eq('monies');
+      expect(component.$$('.monies').length).toBe(2);
+      expect(component.$$('.monies')[0].innerText).toBe('monies');
     });
   });
 
   describe('--test-element-background-color', () => {
     describe('with default', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         component = fixture('<test-element></test-element>');
+        await component.updateComplete;
       });
 
       it('is set', () => {
-        expect(getComputedStyle(component.$('.content')).backgroundColor).equal(
-          'rgb(250, 250, 250)'
-        );
+        expect(
+          getComputedStyle(component.$('.content')!).backgroundColor
+        ).toBe('rgb(250, 250, 250)');
       });
     });
 
     describe('with outside value', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         component = fixture(`
           <div>
             <style>
@@ -683,12 +740,13 @@ describe('TestElement', () => {
             <test-element class="blue"></test-element>
           </div>
         `).querySelector('test-element') as TestElement;
+        await component.updateComplete;
       });
 
       it('is set blue', () => {
-        expect(getComputedStyle(component.$('.content')).backgroundColor).equal(
-          'rgb(3, 169, 244)'
-        );
+        expect(
+          getComputedStyle(component.$('.content')!).backgroundColor
+        ).toBe('rgb(3, 169, 244)');
       });
     });
   });
@@ -696,11 +754,11 @@ describe('TestElement', () => {
 
 function fixture(tag: string): TestElement {
   function fixtureContainer(): HTMLElement {
-    let div = document.createElement('div');
+    const div = document.createElement('div');
     div.classList.add('fixture');
     return div;
   }
-  let fixture =
+  const fixture =
     document.body.querySelector('.fixture') ||
     document.body.appendChild(fixtureContainer());
   fixture.innerHTML = tag;
