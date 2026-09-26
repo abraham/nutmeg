@@ -16,7 +16,8 @@
     "sourceRoot": "src",
     "strict": true,
     "target": "esnext",
-    "useDefineForClassFields": false
+    "useDefineForClassFields": false,
+    "verbatimModuleSyntax": true
   },
   "include": [
     "src"

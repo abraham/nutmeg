@@ -16,7 +16,8 @@
     "strict": true,
     "target": "esnext",
     "experimentalDecorators": true,
-    "useDefineForClassFields": false
+    "useDefineForClassFields": false,
+    "verbatimModuleSyntax": true
   },
   "include": ["src"]
 }
