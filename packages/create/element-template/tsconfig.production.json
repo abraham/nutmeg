@@ -16,7 +16,8 @@
     "sourceMap": true,
     "sourceRoot": "src",
     "strict": true,
-    "target": "esnext"
+    "target": "esnext",
+    "useDefineForClassFields": false
   },
   "include": [
     "src"

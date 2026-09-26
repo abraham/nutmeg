@@ -2,7 +2,7 @@
   "name": "nutmeg",
   "private": true,
   "engines": {
-    "node": "14 || 16 || 18"
+    "node": "18 || 20 || 22"
   },
   "scripts": {
     "build": "lerna run build",

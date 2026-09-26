@@ -22,7 +22,7 @@
   "main": "dist/seed.js",
   "module": "dist/seed.js",
   "engines": {
-    "node": "14 || 16 || 18"
+    "node": "18 || 20 || 22"
   },
   "scripts": {
     "build": "tsc --project tsconfig.production.json",
@@ -60,7 +60,7 @@
     "karma-typescript-es6-transform": "^5.0.0",
     "mocha": "8.1.3",
     "sinon": "^16.0.0",
-    "typescript": "4.2.4"
+    "typescript": "5.2.2"
   },
   "types": "dist/seed.d.ts",
   "directories": {
