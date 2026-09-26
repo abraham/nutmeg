@@ -19,11 +19,15 @@ const testDir = path.resolve(shell.tempdir(), 'nutmeg', 'create');
 setupForTests();
 
 shell.cd(testDir);
-shell.exec(`npx ${createDir} ci-test ${attributes} ${sources}`);
+const generate = shell.exec(
+  `npx ${createDir} ci-test ${attributes} ${sources}`
+);
 shell.cd('ci-test');
-shell.exec('npm test');
+const test = generate.code === 0 ? shell.exec('npm test') : generate;
 
 removeTestFiles();
+
+process.exit(test.code);
 
 function setupForTests() {
   removeTestFiles();
