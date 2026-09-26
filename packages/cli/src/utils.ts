@@ -18,6 +18,12 @@ function tsconfigPath(workingDir: string): string {
   return path.resolve(workingDir, 'tsconfig.production.json');
 }
 
+// Vite's fs.allow check compares paths as posix strings; a backslash-based
+// Windows path passed as --root/--config causes it to reject its own files.
+function toPosixPath(input: string): string {
+  return input.replace(/\\/g, '/');
+}
+
 function notifyOfUpdate() {
   updateNotifier({ pkg }).notify({ defer: true });
 }
@@ -80,6 +86,7 @@ export {
   isNutmegComponent,
   loadPackageJson,
   notifyOfUpdate,
+  toPosixPath,
   tsconfigPath,
   nutmegDir,
   pkg,

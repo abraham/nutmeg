@@ -20,7 +20,7 @@ setupForTests();
 
 shell.cd(testDir);
 const generate = shell.exec(
-  `npx ${createDir} ci-test ${attributes} ${sources}`
+  `npx ${createDir} ci-test ${attributes} ${sources}`,
 );
 shell.cd('ci-test');
 const test = generate.code === 0 ? shell.exec('npm test') : generate;
