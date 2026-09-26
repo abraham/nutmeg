@@ -1,9 +1,5 @@
 {
   "packages": ["packages/*"],
-  "command": {
-    "bootstrap": {
-      "npmClientArgs": ["--no-package-lock"]
-    }
-  },
+  "useWorkspaces": true,
   "version": "0.17.2"
 }
