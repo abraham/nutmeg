@@ -9,7 +9,7 @@
     "test": "test"
   },
   "engines": {
-    "node": "14 || 16 || 18"
+    "node": "18 || 20 || 22"
   },
   "keywords": [
     "<%= tag %>",

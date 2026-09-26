@@ -26,6 +26,10 @@ module.exports = function (config) {
       compilerOptions: {
         target: 'esnext',
         lib: ['dom', 'esnext'],
+        // TypeScript >=4.3 defaults this to true for esnext targets, which
+        // breaks property accessors defined by the `@property()` decorator
+        // when a class field initializer (e.g. `= 'default'`) is present.
+        useDefineForClassFields: false,
       },
       bundlerOptions: {
         transforms: [
