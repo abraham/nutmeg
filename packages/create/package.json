@@ -42,10 +42,10 @@
     "typescript"
   ],
   "dependencies": {
+    "change-case": "^5.4.4",
     "commander": "^11.0.0",
     "latest-version": "^9.0.0",
     "lodash.template": "^4.0.0",
-    "pascal-case": "^3.0.0",
     "recursive-copy": "^2.0.0",
     "shelljs": "^0.8.0",
     "through2": "^4.0.0",

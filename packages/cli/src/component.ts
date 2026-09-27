@@ -1,6 +1,6 @@
 import path from 'path';
 import { loadPackageJson } from './utils';
-import { pascalCase } from 'pascal-case';
+import { pascalCase } from 'change-case';
 
 export class Component {
   public tag: string;
