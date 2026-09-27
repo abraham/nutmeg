@@ -64,10 +64,10 @@ Properties are the public API of your Web Component and external code can set/ge
 
 ```javascript
 export class GrilledCheese extends Seed {
-  @property() public bread: string;
-  @property() public cheese: string[];
-  @property() public pickles: boolean;
-  @property() public quantity: number;
+  @property() accessor bread: string;
+  @property() accessor cheese: string[];
+  @property() accessor pickles: boolean;
+  @property() accessor quantity: number;
   ...
 }
 ```
