@@ -1,5 +1,5 @@
 import path from 'path';
-import { loadPackageJson } from './utils';
+import { loadPackageJson } from './utils.js';
 import { pascalCase } from 'change-case';
 
 export class Component {

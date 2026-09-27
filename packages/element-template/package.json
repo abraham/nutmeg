@@ -8,6 +8,7 @@
   "main": "dist/example-component.js",
   "module": "dist/example-component.js",
   "types": "dist/example-component.d.ts",
+  "type": "module",
   "directories": {
     "test": "test"
   },

@@ -2,6 +2,7 @@
   "name": "nutmeg",
   "version": "0.17.2",
   "private": true,
+  "type": "module",
   "engines": {
     "node": "22 || 24 || 26"
   },

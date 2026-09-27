@@ -2,9 +2,9 @@ import { Command } from 'commander';
 import latestVersion from 'latest-version';
 import path from 'path';
 import shell from 'shelljs';
-import { Component } from './component';
-import { Generator } from './generator';
-import { Properties } from './properties';
+import { Component } from './component.js';
+import { Generator } from './generator.js';
+import { Properties } from './properties.js';
 import {
   commitToGit,
   exit,
@@ -12,7 +12,7 @@ import {
   normalizeFileSource,
   notifyOfUpdate,
   nutmegDir,
-} from './utils';
+} from './utils.js';
 
 notifyOfUpdate();
 
