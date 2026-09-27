@@ -36,9 +36,9 @@
     "build": "tsc",
     "clean": "rimraf dist",
     "prebuild": "npm run clean",
-    "test": "npm run build",
-    "watch": "tsc --watch",
-    "xtest": "tsx ./scripts/test.ts"
+    "pretest": "npm run build",
+    "test": "tsx ./scripts/test.ts",
+    "watch": "tsc --watch"
   },
   "keywords": [
     "web-components",
