@@ -46,7 +46,12 @@ describe('TestElement', () => {
         'stringArrayDefault',
         'stringArray',
       ];
-      expect([...TestElement.observedProperties].sort()).toEqual(
+      const metadata = (
+        TestElement as unknown as {
+          [Symbol.metadata]: { nutmegObservedProperties: string[] };
+        }
+      )[Symbol.metadata];
+      expect([...metadata.nutmegObservedProperties].sort()).toEqual(
         expected.sort(),
       );
     });

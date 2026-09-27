@@ -3,23 +3,23 @@ import type { TemplateResult } from '../src/seed';
 
 export class TestElement extends Seed {
   // Attributes
-  @property({ type: Boolean }) public boolean: boolean | undefined;
-  @property({ type: Boolean }) public booleanDefault: boolean = true;
-  @property({ type: Boolean }) public multiWordAttribute: boolean | undefined;
-  @property({ type: Boolean }) public multiWordAttributeDefault: boolean =
+  @property({ type: Boolean }) accessor boolean: boolean | undefined;
+  @property({ type: Boolean }) accessor booleanDefault: boolean = true;
+  @property({ type: Boolean }) accessor multiWordAttribute: boolean | undefined;
+  @property({ type: Boolean }) accessor multiWordAttributeDefault: boolean =
     false;
-  @property({ type: Number }) public number: number | undefined;
-  @property({ type: Number }) public numberDefault: number = 0;
-  @property({ type: String }) public string: string | undefined;
-  @property({ type: String }) public stringDefault: string = 'default';
+  @property({ type: Number }) accessor number: number | undefined;
+  @property({ type: Number }) accessor numberDefault: number = 0;
+  @property({ type: String }) accessor string: string | undefined;
+  @property({ type: String }) accessor stringDefault: string = 'default';
 
   // Properties
-  @property() public multiWordProperty: boolean[] | undefined;
-  @property() public multiWordPropertyDefault: boolean[] = [false];
-  @property() public object: object | undefined;
-  @property() public objectDefault: {} = { default: true };
-  @property() public stringArray: string[] | undefined;
-  @property() public stringArrayDefault: string[] = ['default'];
+  @property() accessor multiWordProperty: boolean[] | undefined;
+  @property() accessor multiWordPropertyDefault: boolean[] = [false];
+  @property() accessor object: object | undefined;
+  @property() accessor objectDefault: {} = { default: true };
+  @property() accessor stringArray: string[] | undefined;
+  @property() accessor stringArrayDefault: string[] = ['default'];
 
   /** Styling for the component. */
   public get styles(): TemplateResult {

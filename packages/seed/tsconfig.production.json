@@ -16,7 +16,6 @@
     "sourceRoot": "src",
     "strict": true,
     "target": "esnext",
-    "experimentalDecorators": true,
     "useDefineForClassFields": false,
     "verbatimModuleSyntax": true
   },

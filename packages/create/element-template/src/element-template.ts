@@ -5,9 +5,9 @@ export class <%= name %> extends Seed {
 <% properties.properties.forEach((property) => {
   if (property.primitive) {
     const ctor = { boolean: 'Boolean', number: 'Number', string: 'String' }[property.type];
-    print(`  @property({ type: ${ctor} }) public ${property.name}: ${property.type} = ${property.tmplValue};\n`);
+    print(`  @property({ type: ${ctor} }) accessor ${property.name}: ${property.type} = ${property.tmplValue};\n`);
   } else {
-    print(`  @property() public ${property.name}: ${property.type} | undefined;\n`);
+    print(`  @property() accessor ${property.name}: ${property.type} | undefined;\n`);
   }
 }); %>
   /** Styling for the component. */

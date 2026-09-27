@@ -3,26 +3,35 @@ import type { TemplateResult } from 'lit';
 import { property as litProperty } from 'lit/decorators.js';
 import { attributeNameFromProperty, propertyNameFromAttribute } from './utils';
 
+// `context.metadata` (used below for `observedProperties` bookkeeping) is
+// only populated by the class-decorator evaluation when `Symbol.metadata`
+// exists; it's not yet a native built-in in current JS engines (Node 22/V8),
+// so polyfill it with the minimal, standard, engine-agnostic approach.
+(Symbol as unknown as { metadata: symbol }).metadata ??=
+  Symbol('Symbol.metadata');
+
 const primitiveTypes = [Boolean, Number, String];
+const observedPropertiesKey = 'nutmegObservedProperties';
+
+interface SeedMetadata {
+  [observedPropertiesKey]?: string[];
+}
 
 function isPrimitive(type: unknown): boolean {
   return primitiveTypes.includes(type as BooleanConstructor);
 }
 
-interface ObservedPropertiesConstructor {
-  observedProperties: string[];
-}
-
 /** Track `name` as a complex property needing a one-time JSON attribute upgrade. */
-function observeComplexProperty(target: Seed, name: string): void {
-  const ctor = target.constructor as unknown as ObservedPropertiesConstructor;
+function observeComplexProperty(
+  metadata: DecoratorMetadata,
+  name: string,
+): void {
+  const target = metadata as SeedMetadata;
   // Own-property check so subclasses don't mutate their parent's array.
-  if (!Object.prototype.hasOwnProperty.call(ctor, 'observedProperties')) {
-    ctor.observedProperties = [...(ctor.observedProperties || [])];
+  if (!Object.prototype.hasOwnProperty.call(target, observedPropertiesKey)) {
+    target[observedPropertiesKey] = [...(target[observedPropertiesKey] || [])];
   }
-  if (!ctor.observedProperties.includes(name)) {
-    ctor.observedProperties.push(name);
-  }
+  (target[observedPropertiesKey] as string[]).push(name);
 }
 
 /** Mirrors the legacy setter: null/undefined/false/'' remove the attribute. */
@@ -54,28 +63,34 @@ function primitiveConverter(type: unknown) {
 
 /**
  * Drop-in replacement for the legacy `@property()` decorator, backed by
- * Lit's reactive property system. Primitive types (`Boolean`/`Number`/
- * `String`) are declared explicitly (no `reflect-metadata` type inference)
+ * Lit's reactive property system and TC39 standard decorators. Must be
+ * applied to an `accessor` class field — Lit's own standard-decorator
+ * support only implements the `accessor`/`setter` decorator locations, not
+ * plain fields (throws `Unsupported decorator location` otherwise).
+ * Primitive types (`Boolean`/`Number`/`String`) are declared explicitly
  * and reflect to a kebab-case attribute exactly like the legacy decorator.
  * All other types opt out of Lit's attribute handling and instead get a
  * one-time JSON upgrade from a matching attribute, performed by
- * `Seed#connectedCallback`.
+ * `Seed#connectedCallback`, tracked via `context.metadata`.
  */
 export function property(options?: { type?: unknown }) {
-  return function (target: Seed, name: string): void {
+  return function <C extends Seed, V>(
+    value: ClassAccessorDecoratorTarget<C, V>,
+    context: ClassAccessorDecoratorContext<C, V>,
+  ): ClassAccessorDecoratorResult<C, V> {
+    const name = context.name as string;
     const type = options && options.type;
 
     if (type && isPrimitive(type)) {
-      litProperty({
+      return litProperty({
         attribute: attributeNameFromProperty(name),
         converter: primitiveConverter(type),
         reflect: true,
-      })(target, name);
-      return;
+      })(value, context);
     }
 
-    observeComplexProperty(target, name);
-    litProperty({ attribute: false })(target, name);
+    observeComplexProperty(context.metadata, name);
+    return litProperty({ attribute: false })(value, context);
   };
 }
 
@@ -92,8 +107,6 @@ interface Seed {
  * primitive attribute reflection to Lit.
  */
 class Seed extends LitElement {
-  public static observedProperties: string[] = [];
-
   public connectedCallback(): void {
     super.connectedCallback();
     this.upgradePropertyAttributes();
@@ -129,8 +142,11 @@ class Seed extends LitElement {
 
   /** Perform a one-time upgrade of complex properties from JSON encoded attributes. */
   private upgradePropertyAttributes(): void {
-    const ctor = this.constructor as unknown as ObservedPropertiesConstructor;
-    ctor.observedProperties.forEach((name) => {
+    const metadata = (this.constructor as typeof Seed)[Symbol.metadata] as
+      SeedMetadata | null | undefined;
+    const observedProperties =
+      (metadata && metadata[observedPropertiesKey]) || [];
+    observedProperties.forEach((name) => {
       const attribute = attributeNameFromProperty(name);
       if (this.hasAttribute(attribute)) {
         const value = this.getAttribute(attribute) as string;
