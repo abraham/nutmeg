@@ -54,15 +54,6 @@ Within each package: `src` holds the TypeScript source, `dist` holds the compile
 
 ## 📰 Publish
 
-### Prerelase
+Run `npm run prerelease` (`lerna version --exact --no-push`) to bump every package's version in lockstep and create a local release commit + `v*` tag — neither is pushed yet.
 
-```bash
-$ NPM_CONFIG_OTP=123456 npx lerna publish --canary [minor]
-```
-
-### Release
-
-```bash
-$ npx lerna version [minor]
-$ NPM_CONFIG_OTP=123456 npx lerna publish from-git
-```
+Push the commit first (`git push`) without the tag, and wait for the [Index](.github/workflows/index.yaml) workflow to pass on `main`. Once it's green, push the tag (`git push origin <tag>`) to trigger [publish.yml](.github/workflows/publish.yml), which builds, tests, and runs `npm publish --workspaces`.
