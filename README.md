@@ -134,7 +134,7 @@ npm test
 
 ### 🔭 Continuous Integration
 
-Components are generated with [AppVeyor](https://www.appveyor.com/), [CircleCI](https://circleci.com/), and [TravisCI](https://travis-ci.org/) pre-configured to run tests on Windows, macOS, and Linux respectively.
+Components are generated with a [GitHub Actions](https://github.com/features/actions) workflow pre-configured to run tests on Windows, macOS, and Linux.
 
 ## 🗞️ Publish
 
@@ -146,7 +146,7 @@ npm publish
 
 ### 📇 Dependencies
 
-Once published, it's recommended that you set up [Renovate](https://renovateapp.com/) to keep your dependencies current. Nutmeg has already setup a default renovate config for you, you just have to [install the free GitHub app](https://github.com/apps/renovate).
+Components are generated with a [Dependabot](https://docs.github.com/en/code-security/dependabot) config to keep your dependencies current.
 
 ## 😎 Best practices
 
