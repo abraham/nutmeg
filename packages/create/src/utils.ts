@@ -18,6 +18,11 @@ function tsconfigPath(workingDir: string): string {
   return path.resolve(workingDir, 'tsconfig.production.json');
 }
 
+// Windows path separators break JSON parsing when embedded in generated package.json
+function normalizeFileSource(source: string): string {
+  return source.startsWith('file:') ? source.replace(/\\/g, '/') : source;
+}
+
 function notifyOfUpdate() {
   updateNotifier({ pkg }).notify({ defer: true });
 }
@@ -79,6 +84,7 @@ export {
   installDependencies,
   isNutmegComponent,
   loadPackageJson,
+  normalizeFileSource,
   notifyOfUpdate,
   tsconfigPath,
   nutmegDir,

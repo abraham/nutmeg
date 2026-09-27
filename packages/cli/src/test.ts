@@ -1,7 +1,13 @@
 import { Command } from 'commander';
 import path from 'path';
 import shell from 'shelljs';
-import { exit, isNutmegComponent, notifyOfUpdate, nutmegDir } from './utils';
+import {
+  exit,
+  isNutmegComponent,
+  notifyOfUpdate,
+  nutmegDir,
+  toPosixPath,
+} from './utils';
 
 notifyOfUpdate();
 
@@ -15,7 +21,9 @@ program
 
 const workingDir = path.resolve(process.cwd(), program.args[0]);
 const vitestConfigFile = path.resolve(nutmegDir, 'vitest.component.config.ts');
-const vitestCmd = `vitest run --root ${workingDir} --config ${vitestConfigFile}`;
+const vitestCmd = `vitest run --root ${toPosixPath(
+  workingDir,
+)} --config ${toPosixPath(vitestConfigFile)}`;
 
 exit(
   "Directory doesn't have a package.json with @nutmeg/seed as a dependancy.",

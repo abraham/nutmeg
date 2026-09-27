@@ -9,6 +9,7 @@ import {
   commitToGit,
   exit,
   installDependencies,
+  normalizeFileSource,
   notifyOfUpdate,
   nutmegDir,
 } from './utils';
@@ -56,8 +57,12 @@ exit(
 exit('Properties must be in format of `name:type`', !properties.valid);
 
 async function generate() {
-  data.cliSource = options.cliSource || (await latestVersion('@nutmeg/cli'));
-  data.seedSource = options.seedSource || (await latestVersion('@nutmeg/seed'));
+  data.cliSource = normalizeFileSource(
+    options.cliSource || (await latestVersion('@nutmeg/cli')),
+  );
+  data.seedSource = normalizeFileSource(
+    options.seedSource || (await latestVersion('@nutmeg/seed')),
+  );
 
   generator
     .execute(data)
