@@ -18,5 +18,5 @@
     "target": "esnext"
   },
   "include": ["src"],
-  "exclude": ["node_modules", "element-template", "dist"]
+  "exclude": ["node_modules", "dist"]
 }

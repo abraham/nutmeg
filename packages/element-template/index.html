@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>example-component demos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://nutmeg.tools/favicon.png" />
+
+    <!-- Use `npm start` to start a development server. -->
+
+    <style>
+      body {
+        background-color: #fff;
+        padding: 24px;
+      }
+
+      example-component {
+        margin: 8px;
+      }
+
+      example-component.blue {
+        --example-component-background-color: #03a9f4;
+      }
+    </style>
+  </head>
+  <body>
+    <example-component></example-component>
+
+    <example-component
+      example-number="42"
+      example-string="Pickle"
+      example-boolean
+    ></example-component>
+
+    <example-component>Slot content</example-component>
+
+    <example-component class="blue"></example-component>
+
+    <script>
+      /** Set complex properties */
+      // document.querySelector('example-component').exampleProperty = ['a', 'b'];
+    </script>
+
+    <!-- In development `example-component.ts` will automatically be loaded. -->
+  </body>
+</html>

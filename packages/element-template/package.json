@@ -1,0 +1,37 @@
+{
+  "name": "@nutmeg/element-template",
+  "version": "0.17.2",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "Real, buildable/testable example component: both a CI-verified demo and the copy source for `create-nutmeg`",
+  "main": "dist/example-component.js",
+  "module": "dist/example-component.js",
+  "types": "dist/example-component.d.ts",
+  "directories": {
+    "test": "test"
+  },
+  "engines": {
+    "node": "22 || 24 || 26"
+  },
+  "keywords": [
+    "example-component",
+    "nutmeg"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "nutmeg build .",
+    "prebuild": "nutmeg clean .",
+    "pretest": "npm run build",
+    "start": "nutmeg serve .",
+    "test": "nutmeg test .",
+    "watch": "nutmeg watch ."
+  },
+  "dependencies": {
+    "@nutmeg/seed": "0.17.2"
+  },
+  "devDependencies": {
+    "@nutmeg/cli": "0.17.2",
+    "vite": "^7.3.6"
+  }
+}
