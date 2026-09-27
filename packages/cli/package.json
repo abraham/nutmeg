@@ -36,7 +36,6 @@
     "build": "tsc",
     "clean": "rimraf dist",
     "prebuild": "npm run clean",
-    "prepare": "npm run build",
     "test": "npm run build",
     "watch": "tsc --watch",
     "xtest": "tsx ./scripts/test.ts"

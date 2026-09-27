@@ -28,7 +28,6 @@
     "build": "tsc --project tsconfig.production.json",
     "clean": "rm -rf dist/*",
     "prebuild": "npm run clean",
-    "prepare": "npm run build",
     "test": "npm run test:unit && npm run test:dom",
     "test:dom": "vitest run --config vitest.browser.config.ts",
     "test:unit": "vitest run",
