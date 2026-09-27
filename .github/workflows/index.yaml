@@ -3,6 +3,7 @@ on: push
 jobs:
   test:
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
     strategy:
       fail-fast: false
       matrix:
@@ -21,6 +22,7 @@ jobs:
     if: always()
     needs: test
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Require all test matrix jobs to pass
         if: ${{ needs.test.result != 'success' }}
@@ -28,6 +30,7 @@ jobs:
       - run: echo "All test matrix jobs passed."
   lint:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
