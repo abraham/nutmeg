@@ -1,27 +1,36 @@
 import fs from 'fs';
 import path from 'path';
 import copy from 'recursive-copy';
-import through from 'through2';
-import { Properties } from './properties';
-import template = require('lodash.template');
+import { Transform } from 'stream';
+import { ClassDeclaration, Project, Statement, SyntaxKind } from 'ts-morph';
+import { Properties, Property } from './properties';
 
 export interface data {
+  cliSource: string;
   name: string;
-  tag: string;
-  properties: Properties;
   primitiveTypes: string[];
+  properties: Properties;
+  seedSource: string;
+  tag: string;
 }
 
+// Name/tag of the real, buildable/testable example component that ships as
+// `@nutmeg/element-template`; copied wholesale and then customized below.
+const originName = 'ExampleComponent';
+const originTag = 'example-component';
+const exampleProperties = [
+  'exampleNumber',
+  'exampleString',
+  'exampleBoolean',
+  'exampleProperty',
+];
+
 export class Generator {
-  private nutmegDir: string;
   private workingDir: string;
   private tag: string;
   private data: data | undefined;
-  private originTag = 'element-template';
-  private fileFilter = ['**/*', '!partial', '!partial/*'];
 
-  constructor(nutmegDir: string, workingDir: string, tag: string) {
-    this.nutmegDir = nutmegDir;
+  constructor(_nutmegDir: string, workingDir: string, tag: string) {
     this.workingDir = workingDir;
     this.tag = tag;
   }
@@ -30,76 +39,196 @@ export class Generator {
     return fs.existsSync(this.destinationDir);
   }
 
-  public execute(data: data) {
+  public async execute(data: data): Promise<void> {
     this.data = data;
-    return copy(this.templateDir, this.destinationDir, this.copyOptions)
-      .on(copy.events.COPY_FILE_START, (_copyOperation: any) => {
-        // console.info('Copying file ' + this.trimFilename(copyOperation.dest));
-      })
-      .on(copy.events.ERROR, (_error: object, copyOperation: any) => {
-        console.error(
-          'Unable to copy ' + this.trimFilename(copyOperation.dest),
-        );
-      })
-      .then((results: object[]) => {
-        console.info(`🖨️  Generating component with ${results.length} files`);
-      });
-  }
-
-  private get copyOptions(): {} {
-    return {
+    const results = await copy(this.templateDir, this.destinationDir, {
       overwrite: true,
       dot: true,
-      filter: this.fileFilter,
+      filter: [
+        '**/*',
+        '!node_modules',
+        '!node_modules/**',
+        '!dist',
+        '!dist/**',
+      ],
       rename: this.rename.bind(this),
       transform: this.transform.bind(this),
-    };
+    });
+    console.info(`🖨️  Generating component with ${results.length} files`);
+    this.rewritePackageJson();
+    this.rewriteComponentSource();
+    this.rewriteComponentTest();
   }
 
-  private get templateOptions(): {} {
-    return {
-      interpolate: /<%=([\s\S]+?)%>/g,
-      imports: {
-        partial: (partialName: string, data: object) => {
-          let partial = fs
-            .readFileSync(this.partialPath(partialName))
-            .toString();
-          return template(partial, this.templateOptions)(data);
-        },
-      },
-    };
-  }
-
-  private partialPath(partialName: string) {
-    return path.resolve(this.templateDir, 'partial', partialName);
-  }
-
+  /** Resolve `@nutmeg/element-template`'s installed location via normal Node resolution. */
   private get templateDir(): string {
-    return path.resolve(this.nutmegDir, this.originTag);
+    return path.dirname(
+      require.resolve('@nutmeg/element-template/package.json'),
+    );
   }
 
   private get destinationDir(): string {
     return path.resolve(this.workingDir, this.tag);
   }
 
-  private trimFilename(filePath: string): string {
-    return filePath.split(`${this.workingDir}${path.sep}`)[1];
+  private rename(filePath: string): string {
+    return filePath.replace(originTag, this.tag);
   }
 
-  private transform(_src: string, _dest: string, _stats: object) {
-    return through((chunk: string, _enc: string, done: any) => {
-      done(null, template(chunk, this.templateOptions)(this.data));
+  /** Swap the example component's name/tag for the requested ones in every copied file. */
+  private transform(): Transform {
+    const tag = this.tag;
+    const name = (this.data as data).name;
+    return new Transform({
+      transform(chunk: Buffer, _enc, done) {
+        const content = chunk
+          .toString()
+          .split(originTag)
+          .join(tag)
+          .split(originName)
+          .join(name);
+        done(null, content);
+      },
     });
   }
 
-  private dotFile(filePath: string): boolean {
-    return ['gitignore', 'travis.yml', 'appveyor.yml'].includes(filePath);
+  /** Patch the fields a plain rename can't compute: package name, dependency versions. */
+  private rewritePackageJson(): void {
+    const data = this.data as data;
+    const packagePath = path.resolve(this.destinationDir, 'package.json');
+    const pkg = JSON.parse(fs.readFileSync(packagePath).toString());
+    pkg.name = data.tag;
+    pkg.version = '0.1.0';
+    delete pkg.publishConfig;
+    pkg.scripts.prepare = 'npm run build';
+    pkg.dependencies['@nutmeg/seed'] = data.seedSource;
+    pkg.devDependencies['@nutmeg/cli'] = data.cliSource;
+    fs.writeFileSync(packagePath, JSON.stringify(pkg, null, 2) + '\n');
   }
 
-  private rename(filePath: string) {
-    if (this.dotFile(filePath)) {
-      return `.${filePath}`;
-    }
-    return filePath.replace(this.originTag, this.tag);
+  /** Replace the example component's demo properties with the requested ones. */
+  private rewriteComponentSource(): void {
+    const data = this.data as data;
+    const sourcePath = path.resolve(
+      this.destinationDir,
+      'src',
+      `${data.tag}.ts`,
+    );
+    const project = new Project();
+    const sourceFile = project.addSourceFileAtPath(sourcePath);
+    const classDeclaration = sourceFile.getClassOrThrow(data.name);
+
+    exampleProperties.forEach((name) => {
+      classDeclaration.getPropertyOrThrow(name).remove();
+    });
+    data.properties.properties
+      .slice()
+      .reverse()
+      .forEach((property) => {
+        classDeclaration.insertMember(0, propertySource(property));
+      });
+
+    this.rewriteDemoList(classDeclaration, data.properties);
+
+    project.saveSync();
   }
+
+  /** Rebuild the `<ul>` demo list inside `template` to list the requested primitive properties. */
+  private rewriteDemoList(
+    classDeclaration: ClassDeclaration,
+    properties: Properties,
+  ): void {
+    const template = classDeclaration
+      .getGetAccessorOrThrow('template')
+      .getFirstDescendantByKindOrThrow(SyntaxKind.TaggedTemplateExpression);
+    const items = properties.primitive
+      .map(
+        (property) =>
+          `          <li>${property.name}: \${this.${property.name}}</li>`,
+      )
+      .join('\n');
+    const newText = template
+      .getText()
+      .replace(/<ul>[\s\S]*?<\/ul>/, `<ul>\n${items}\n        </ul>`);
+    template.replaceWithText(newText);
+  }
+
+  /** Replace the example component's demo tests with ones for the requested properties. */
+  private rewriteComponentTest(): void {
+    const data = this.data as data;
+    const testPath = path.resolve(
+      this.destinationDir,
+      'test',
+      `${data.tag}.test.ts`,
+    );
+    const project = new Project();
+    const sourceFile = project.addSourceFileAtPath(testPath);
+    const outerDescribe = sourceFile
+      .getDescendantsOfKind(SyntaxKind.CallExpression)
+      .find((call) => call.getExpression().getText() === 'describe');
+    const body = outerDescribe!
+      .getArguments()[1]
+      .asKindOrThrow(SyntaxKind.ArrowFunction)
+      .getBody()
+      .asKindOrThrow(SyntaxKind.Block);
+
+    const statements = body.getStatements();
+    const exampleStatements = exampleProperties
+      .map((name) =>
+        statements.find((statement: Statement) =>
+          statement.getText().includes(`describe('${name}'`),
+        ),
+      )
+      .filter((statement): statement is NonNullable<typeof statement> =>
+        Boolean(statement),
+      );
+    const insertIndex = exampleStatements[0].getChildIndex();
+    exampleStatements.forEach((statement) => statement.remove());
+
+    const blocks = data.properties.properties
+      .map((property) => propertyTestSource(property, data.tag))
+      .join('');
+    if (blocks) {
+      body.insertStatements(insertIndex, blocks);
+    }
+
+    project.saveSync();
+  }
+}
+
+/** Class member source for a requested property, matching the example component's style. */
+function propertySource(property: Property): string {
+  if (property.primitive) {
+    const ctor = { boolean: 'Boolean', number: 'Number', string: 'String' }[
+      property.type
+    ];
+    return `  @property({ type: ${ctor} }) accessor ${property.name}: ${property.type} = ${property.tmplValue};\n`;
+  }
+  return `  @property() accessor ${property.name}: ${property.type} | undefined;\n`;
+}
+
+/** Test block source for a requested property, matching the example component's style. */
+function propertyTestSource(property: Property, tag: string): string {
+  let attribute = '';
+  if (property.type === 'boolean') {
+    attribute = ` ${property.attribute}`;
+  } else if (property.type === 'number' || property.type === 'string') {
+    attribute = ` ${property.attribute}="${property.value}"`;
+  }
+  const complexNote = property.primitive
+    ? ''
+    : `\n      /** Set typical complex property. */\n      // component.${property.name} = ${property.type}`;
+  const assertionPrefix = property.primitive ? '' : '// ';
+  return `
+  describe('${property.name}', () => {
+    beforeEach(async () => {
+      component = fixture('<${tag}${attribute}></${tag}>');${complexNote}
+      await component.updateComplete;
+    });
+
+    it('is rendered', () => {
+      ${assertionPrefix}expect(component.$('.content').innerText).toContain('${property.name}: ${property.value}');
+    });
+  });
+`;
 }
