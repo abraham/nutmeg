@@ -18,7 +18,7 @@ const tscCmd = `tsc --project ${tsconfigPath(workingDir)} --watch`;
 
 exit(
   "Directory doesn't have a package.json with @nutmeg/seed as a dependancy.",
-  !isNutmegComponent(workingDir)
+  !isNutmegComponent(workingDir),
 );
 
 shell.exec(`npx ${tscCmd}`);

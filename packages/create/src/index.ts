@@ -23,11 +23,11 @@ program
   .argument('[property:type...]')
   .option(
     '--cli-source <location>',
-    'install @nutmeg/cli dependency from local or github'
+    'install @nutmeg/cli dependency from local or github',
   )
   .option(
     '--seed-source <location>',
-    'install @nutmeg/seed dependency from local or github'
+    'install @nutmeg/seed dependency from local or github',
   )
   .option('--no-dependencies', 'skip installing dependencies');
 
@@ -51,7 +51,7 @@ const data = {
 exit('Component name must be in format of `foo-bar`', !component.valid);
 exit(
   `Directory "${component.tag}" already exists`,
-  generator.destinationDirExists
+  generator.destinationDirExists,
 );
 exit('Properties must be in format of `name:type`', !properties.valid);
 
@@ -67,7 +67,7 @@ async function generate() {
       installDependencies({ withDependencies: options.dependencies });
       console.log(`🎉 Component generated`);
       console.log(
-        `🌱 Run \`npm start\` from ${component.tag} to start building`
+        `🌱 Run \`npm start\` from ${component.tag} to start building`,
       );
     })
     .catch((error: object) => {

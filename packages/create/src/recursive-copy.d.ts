@@ -5,7 +5,7 @@ declare module 'recursive-copy' {
   declare function copy(
     src: string,
     dest: string,
-    options: object | null
+    options: object | null,
   ): Copy;
   declare const recursiveCopy: copy | Copy;
   export = recursiveCopy;

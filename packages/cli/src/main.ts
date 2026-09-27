@@ -12,7 +12,7 @@ program
   .command('clean <path>', "clean a Web Component's compiled files")
   .command(
     'new <copmonent-name> [property:type...]',
-    'generate a Web Component'
+    'generate a Web Component',
   )
   .command('serve <path>', 'start and open a dev server')
   .command('test <path>', 'test a Web Component')

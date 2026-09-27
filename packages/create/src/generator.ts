@@ -38,7 +38,7 @@ export class Generator {
       })
       .on(copy.events.ERROR, (_error: object, copyOperation: any) => {
         console.error(
-          'Unable to copy ' + this.trimFilename(copyOperation.dest)
+          'Unable to copy ' + this.trimFilename(copyOperation.dest),
         );
       })
       .then((results: object[]) => {
