@@ -8,8 +8,8 @@ const cliTgzName = `nutmeg-cli-${pkg.version}.tgz`;
 const pkgsDir = path.resolve('..');
 const cliDir = path.resolve(pkgsDir, 'cli');
 const seedDir = path.resolve(pkgsDir, 'seed');
+const createDir = path.resolve(pkgsDir, 'create');
 const cliTgz = path.resolve(cliDir, cliTgzName);
-const nutmegPath = path.resolve(cliDir, 'bin', 'nutmeg');
 const sources = `--cli-source file:${cliTgz} --seed-source file:${seedDir}`;
 const attributes = 'first:number second:string third:boolean';
 const testDir = path.resolve(shell.tempdir(), 'nutmeg', 'cli');
@@ -17,11 +17,16 @@ const testDir = path.resolve(shell.tempdir(), 'nutmeg', 'cli');
 setupForTests();
 
 shell.cd(testDir);
-shell.exec(`${nutmegPath} new ci-test ${attributes} ${sources}`);
+// `nutmeg new` is deprecated in favor of `create-nutmeg`, so generate via that instead.
+const generate = shell.exec(
+  `npx ${createDir} ci-test ${attributes} ${sources}`,
+);
 shell.cd('ci-test');
-shell.exec('npm test');
+const test = generate.code === 0 ? shell.exec('npm test') : generate;
 
 removeTestFiles();
+
+process.exit(test.code);
 
 function setupForTests() {
   removeTestFiles();
