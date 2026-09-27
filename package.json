@@ -14,10 +14,10 @@
     "test": "lerna run test"
   },
   "devDependencies": {
-    "lerna": "^7.0.0",
+    "lerna": "^8.0.0",
     "prettier": "3.9.9",
     "prettier-plugin-package": "2.0.0",
-    "syncpack": "^15.3.3"
+    "syncpack": "^15.0.0"
   },
   "workspaces": [
     "packages/*"

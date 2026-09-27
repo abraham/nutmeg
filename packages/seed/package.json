@@ -43,15 +43,15 @@
     "typescript"
   ],
   "dependencies": {
-    "lit": "3.3.3"
+    "lit": "3.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
-    "@vitest/browser-playwright": "^5.0.2",
-    "playwright": "^1.63.0",
-    "typescript": "7.0.2",
-    "vite": "^7.3.6",
-    "vitest": "^5.0.2"
+    "@vitest/browser-playwright": "^5.0.0",
+    "playwright": "^1.0.0",
+    "typescript": "^7.0.0",
+    "vite": "^8.0.0",
+    "vitest": "^5.0.0"
   },
   "types": "dist/seed.d.ts",
   "directories": {
