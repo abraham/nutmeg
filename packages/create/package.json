@@ -1,6 +1,6 @@
 {
   "name": "@nutmeg/create",
-  "version": "0.17.2",
+  "version": "1.0.0-alpha.0",
   "publishConfig": {
     "access": "public"
   },
@@ -41,7 +41,7 @@
     "typescript"
   ],
   "dependencies": {
-    "@nutmeg/element-template": "0.17.2",
+    "@nutmeg/element-template": "1.0.0-alpha.0",
     "change-case": "^5.4.4",
     "commander": "^11.0.0",
     "latest-version": "^9.0.0",

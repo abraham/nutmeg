@@ -1,6 +1,6 @@
 {
   "name": "@nutmeg/element-template",
-  "version": "0.17.2",
+  "version": "1.0.0-alpha.0",
   "publishConfig": {
     "access": "public"
   },
@@ -28,10 +28,10 @@
     "watch": "nutmeg watch ."
   },
   "dependencies": {
-    "@nutmeg/seed": "0.17.2"
+    "@nutmeg/seed": "1.0.0-alpha.0"
   },
   "devDependencies": {
-    "@nutmeg/cli": "0.17.2",
+    "@nutmeg/cli": "1.0.0-alpha.0",
     "vite": "^7.3.6"
   }
 }
