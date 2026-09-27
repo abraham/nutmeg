@@ -1,6 +1,6 @@
 {
   "name": "@nutmeg/cli",
-  "version": "0.17.2",
+  "version": "1.0.0-alpha.0",
   "publishConfig": {
     "access": "public"
   },
@@ -50,7 +50,7 @@
     "typescript"
   ],
   "dependencies": {
-    "@nutmeg/seed": "0.17.2",
+    "@nutmeg/seed": "1.0.0-alpha.0",
     "@vitest/browser-playwright": "^5.0.2",
     "change-case": "^5.4.4",
     "commander": "^11.0.0",

@@ -9,8 +9,7 @@
     "build": "lerna run build",
     "format": "prettier --write .",
     "lint": "prettier --check . && syncpack lint",
-    "prerelease": "lerna version --exact",
-    "release": "lerna publish from-git",
+    "prerelease": "lerna version --exact --no-push",
     "syncpack:fix": "syncpack fix",
     "test": "lerna run test"
   },
