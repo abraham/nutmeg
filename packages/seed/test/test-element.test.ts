@@ -13,7 +13,7 @@ describe('TestElement', () => {
 
     it('renders default', () => {
       expect(component.$('.content')!.innerText).toContain(
-        'Welcome to <test-element>'
+        'Welcome to <test-element>',
       );
     });
   });
@@ -31,7 +31,7 @@ describe('TestElement', () => {
         'string',
       ];
       expect([...TestElement.observedAttributes].sort()).toEqual(
-        expected.sort()
+        expected.sort(),
       );
     });
   });
@@ -47,7 +47,7 @@ describe('TestElement', () => {
         'stringArray',
       ];
       expect([...TestElement.observedProperties].sort()).toEqual(
-        expected.sort()
+        expected.sort(),
       );
     });
   });
@@ -71,7 +71,7 @@ describe('TestElement', () => {
       describe('when defined', () => {
         beforeEach(async () => {
           component = fixture(
-            '<test-element multi-word-attribute></test-element>'
+            '<test-element multi-word-attribute></test-element>',
           );
           await component.updateComplete;
         });
@@ -98,7 +98,7 @@ describe('TestElement', () => {
       describe('when defined', () => {
         beforeEach(async () => {
           component = fixture(
-            '<test-element multi-word-attribute-default></test-element>'
+            '<test-element multi-word-attribute-default></test-element>',
           );
           await component.updateComplete;
         });
@@ -117,7 +117,7 @@ describe('TestElement', () => {
 
         it('is case converted', () => {
           expect(component.hasAttribute('multi-word-attribute-default')).toBe(
-            true
+            true,
           );
         });
       });
@@ -129,7 +129,7 @@ describe('TestElement', () => {
       describe('when defined', () => {
         beforeEach(async () => {
           component = fixture(
-            '<test-element multi-word-property="[true]"></test-element>'
+            '<test-element multi-word-property="[true]"></test-element>',
           );
           await component.updateComplete;
         });
@@ -156,7 +156,7 @@ describe('TestElement', () => {
       describe('when defined', () => {
         beforeEach(async () => {
           component = fixture(
-            '<test-element multi-word-property-default="[true]"></test-element>'
+            '<test-element multi-word-property-default="[true]"></test-element>',
           );
           await component.updateComplete;
         });
@@ -175,7 +175,7 @@ describe('TestElement', () => {
 
         it('is not reflected', () => {
           expect(component.hasAttribute('multi-word-property-default')).toBe(
-            false
+            false,
           );
         });
       });
@@ -188,7 +188,7 @@ describe('TestElement', () => {
         describe('when defined', () => {
           beforeEach(async () => {
             component = fixture(
-              '<test-element string="awesome"></test-element>'
+              '<test-element string="awesome"></test-element>',
             );
             await component.updateComplete;
           });
@@ -199,7 +199,7 @@ describe('TestElement', () => {
 
           it('is rendered in shadowRoot', () => {
             expect(component.$('.content')!.innerText).toContain(
-              'string: awesome'
+              'string: awesome',
             );
           });
         });
@@ -207,7 +207,7 @@ describe('TestElement', () => {
         describe('when set', () => {
           beforeEach(async () => {
             component = fixture(
-              '<test-element string="awesome"></test-element>'
+              '<test-element string="awesome"></test-element>',
             );
             component.string = 'sauce';
             await component.updateComplete;
@@ -223,7 +223,7 @@ describe('TestElement', () => {
 
           it('is rendered in shadowRoot', () => {
             expect(component.$('.content')!.innerText).toContain(
-              'string: sauce'
+              'string: sauce',
             );
           });
 
@@ -253,7 +253,7 @@ describe('TestElement', () => {
 
           it('is rendered in shadowRoot', () => {
             expect(component.$('.content')!.innerText).toContain(
-              'stringDefault: default'
+              'stringDefault: default',
             );
           });
         });
@@ -261,7 +261,7 @@ describe('TestElement', () => {
         describe('when defined', () => {
           beforeEach(async () => {
             component = fixture(
-              '<test-element string-default="awesome"></test-element>'
+              '<test-element string-default="awesome"></test-element>',
             );
             await component.updateComplete;
           });
@@ -272,7 +272,7 @@ describe('TestElement', () => {
 
           it('is rendered in shadowRoot', () => {
             expect(component.$('.content')!.innerText).toContain(
-              'stringDefault: awesome'
+              'stringDefault: awesome',
             );
           });
         });
@@ -280,7 +280,7 @@ describe('TestElement', () => {
         describe('when set', () => {
           beforeEach(async () => {
             component = fixture(
-              '<test-element string-default="awesome"></test-element>'
+              '<test-element string-default="awesome"></test-element>',
             );
             component.stringDefault = 'sauce';
             await component.updateComplete;
@@ -296,7 +296,7 @@ describe('TestElement', () => {
 
           it('is rendered in shadowRoot', () => {
             expect(component.$('.content')!.innerText).toContain(
-              'stringDefault: sauce'
+              'stringDefault: sauce',
             );
           });
         });
@@ -345,7 +345,7 @@ describe('TestElement', () => {
         describe('when defined', () => {
           beforeEach(async () => {
             component = fixture(
-              '<test-element number-default="13"></test-element>'
+              '<test-element number-default="13"></test-element>',
             );
             await component.updateComplete;
           });
@@ -356,7 +356,7 @@ describe('TestElement', () => {
 
           it('is rendered in shadowRoot', () => {
             expect(component.$('.content')!.innerText).toContain(
-              'numberDefault: 13'
+              'numberDefault: 13',
             );
           });
         });
@@ -364,7 +364,7 @@ describe('TestElement', () => {
         describe('when set', () => {
           beforeEach(async () => {
             component = fixture(
-              '<test-element number-default="13"></test-element>'
+              '<test-element number-default="13"></test-element>',
             );
             component.numberDefault = 42;
             await component.updateComplete;
@@ -380,7 +380,7 @@ describe('TestElement', () => {
 
           it('is rendered in shadowRoot', () => {
             expect(component.$('.content')!.innerText).toContain(
-              'numberDefault: 42'
+              'numberDefault: 42',
             );
           });
         });
@@ -401,7 +401,7 @@ describe('TestElement', () => {
 
           it('is rendered in shadowRoot', () => {
             expect(component.$('.content')!.innerText).toContain(
-              'boolean: true'
+              'boolean: true',
             );
           });
         });
@@ -423,7 +423,7 @@ describe('TestElement', () => {
 
           it('is rendered in shadowRoot', () => {
             expect(component.$('.content')!.innerText).toContain(
-              'boolean: false'
+              'boolean: false',
             );
           });
         });
@@ -443,7 +443,7 @@ describe('TestElement', () => {
 
         it('is rendered in shadowRoot', () => {
           expect(component.$('.content')!.innerText).toContain(
-            'booleanDefault: true'
+            'booleanDefault: true',
           );
         });
       });
@@ -465,7 +465,7 @@ describe('TestElement', () => {
 
         it('is rendered in shadowRoot', () => {
           expect(component.$('.content')!.innerText).toContain(
-            'booleanDefault: false'
+            'booleanDefault: false',
           );
         });
       });
@@ -478,7 +478,7 @@ describe('TestElement', () => {
         describe('when defined', () => {
           beforeEach(async () => {
             component = fixture(
-              '<test-element string-array=\'["a","b"]\'></test-element>'
+              '<test-element string-array=\'["a","b"]\'></test-element>',
             );
             await component.updateComplete;
           });
@@ -493,7 +493,7 @@ describe('TestElement', () => {
 
           it('is rendered in shadowRoot', () => {
             expect(component.$('.content')!.innerText).toContain(
-              'stringArray: ab'
+              'stringArray: ab',
             );
           });
         });
@@ -501,7 +501,7 @@ describe('TestElement', () => {
         describe('when set', () => {
           beforeEach(async () => {
             component = fixture(
-              '<test-element string-array=\'["a","b"]\'></test-element>'
+              '<test-element string-array=\'["a","b"]\'></test-element>',
             );
             component.stringArray = ['c', 'd'];
             await component.updateComplete;
@@ -517,7 +517,7 @@ describe('TestElement', () => {
 
           it('is rendered in shadowRoot', () => {
             expect(component.$('.content')!.innerText).toContain(
-              'stringArray: cd'
+              'stringArray: cd',
             );
           });
         });
@@ -527,7 +527,7 @@ describe('TestElement', () => {
         describe('when defined', () => {
           beforeEach(async () => {
             component = fixture(
-              '<test-element string-array-default=\'["a","b"]\'></test-element>'
+              '<test-element string-array-default=\'["a","b"]\'></test-element>',
             );
             await component.updateComplete;
           });
@@ -542,7 +542,7 @@ describe('TestElement', () => {
 
           it('is rendered in shadowRoot', () => {
             expect(component.$('.content')!.innerText).toContain(
-              'stringArrayDefault: ab'
+              'stringArrayDefault: ab',
             );
           });
         });
@@ -550,7 +550,7 @@ describe('TestElement', () => {
         describe('when set', () => {
           beforeEach(async () => {
             component = fixture(
-              '<test-element string-array-default=\'["a","b"]\'></test-element>'
+              '<test-element string-array-default=\'["a","b"]\'></test-element>',
             );
             component.stringArrayDefault = ['c', 'd'];
             await component.updateComplete;
@@ -566,7 +566,7 @@ describe('TestElement', () => {
 
           it('is rendered in shadowRoot', () => {
             expect(component.$('.content')!.innerText).toContain(
-              'stringArrayDefault: cd'
+              'stringArrayDefault: cd',
             );
           });
         });
@@ -578,7 +578,7 @@ describe('TestElement', () => {
         describe('when defined', () => {
           beforeEach(async () => {
             component = fixture(
-              '<test-element object=\'{"a":"b"}\'></test-element>'
+              '<test-element object=\'{"a":"b"}\'></test-element>',
             );
             await component.updateComplete;
           });
@@ -593,7 +593,7 @@ describe('TestElement', () => {
 
           it('is rendered in shadowRoot', () => {
             expect(component.$('.content')!.innerText).toContain(
-              'object: [object Object]'
+              'object: [object Object]',
             );
           });
         });
@@ -601,7 +601,7 @@ describe('TestElement', () => {
         describe('when set', () => {
           beforeEach(async () => {
             component = fixture(
-              '<test-element object=\'{"a":"b"}\'></test-element>'
+              '<test-element object=\'{"a":"b"}\'></test-element>',
             );
             component.object = { c: 'd' };
             await component.updateComplete;
@@ -617,7 +617,7 @@ describe('TestElement', () => {
 
           it('is rendered in shadowRoot', () => {
             expect(component.$('.content')!.innerText).toContain(
-              'object: [object Object]'
+              'object: [object Object]',
             );
           });
         });
@@ -627,7 +627,7 @@ describe('TestElement', () => {
         describe('when defined', () => {
           beforeEach(async () => {
             component = fixture(
-              '<test-element object-default=\'{"a":"b"}\'></test-element>'
+              '<test-element object-default=\'{"a":"b"}\'></test-element>',
             );
             await component.updateComplete;
           });
@@ -642,7 +642,7 @@ describe('TestElement', () => {
 
           it('is rendered in shadowRoot', () => {
             expect(component.$('.content')!.innerText).toContain(
-              'objectDefault: [object Object]'
+              'objectDefault: [object Object]',
             );
           });
         });
@@ -650,7 +650,7 @@ describe('TestElement', () => {
         describe('when set', () => {
           beforeEach(async () => {
             component = fixture(
-              '<test-element object-default=\'{"a":"b"}\'></test-element>'
+              '<test-element object-default=\'{"a":"b"}\'></test-element>',
             );
             component.objectDefault = { c: 'd' };
             await component.updateComplete;
@@ -667,7 +667,7 @@ describe('TestElement', () => {
 
           it('is rendered in shadowRoot', () => {
             expect(component.$('.content')!.innerText).toContain(
-              'objectDefault: [object Object]'
+              'objectDefault: [object Object]',
             );
           });
         });
@@ -707,7 +707,7 @@ describe('TestElement', () => {
 
       it('is set', () => {
         expect(getComputedStyle(component.$('.content')!).backgroundColor).toBe(
-          'rgb(250, 250, 250)'
+          'rgb(250, 250, 250)',
         );
       });
     });
@@ -729,7 +729,7 @@ describe('TestElement', () => {
 
       it('is set blue', () => {
         expect(getComputedStyle(component.$('.content')!).backgroundColor).toBe(
-          'rgb(3, 169, 244)'
+          'rgb(3, 169, 244)',
         );
       });
     });

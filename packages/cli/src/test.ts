@@ -19,7 +19,7 @@ const vitestCmd = `vitest run --root ${workingDir} --config ${vitestConfigFile}`
 
 exit(
   "Directory doesn't have a package.json with @nutmeg/seed as a dependancy.",
-  !isNutmegComponent(workingDir)
+  !isNutmegComponent(workingDir),
 );
 
 const result = shell.exec(`npx ${vitestCmd}`);

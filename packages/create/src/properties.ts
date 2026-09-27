@@ -31,13 +31,13 @@ export class Properties {
 
   public get complex(): Property[] {
     return this.properties.filter(
-      (attr) => !this.primitiveTypes.includes(attr.type)
+      (attr) => !this.primitiveTypes.includes(attr.type),
     );
   }
 
   public get primitive(): Property[] {
     return this.properties.filter((attr) =>
-      this.primitiveTypes.includes(attr.type)
+      this.primitiveTypes.includes(attr.type),
     );
   }
 

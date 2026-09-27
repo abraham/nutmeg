@@ -18,7 +18,7 @@ const distDir = path.resolve(workingDir, './dist');
 
 exit(
   "Directory doesn't have a package.json with @nutmeg/seed as a dependancy.",
-  !isNutmegComponent(workingDir)
+  !isNutmegComponent(workingDir),
 );
 
 console.log(`Cleaning ${distDir}`);
