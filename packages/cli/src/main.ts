@@ -1,5 +1,5 @@
 import { Command } from 'commander';
-import { notifyOfUpdate, pkg } from './utils';
+import { notifyOfUpdate, pkg } from './utils.js';
 
 notifyOfUpdate();
 

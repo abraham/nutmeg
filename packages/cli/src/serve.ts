@@ -1,7 +1,12 @@
 import { Command } from 'commander';
 import path from 'path';
 import shell from 'shelljs';
-import { exit, isNutmegComponent, notifyOfUpdate, tsconfigPath } from './utils';
+import {
+  exit,
+  isNutmegComponent,
+  notifyOfUpdate,
+  tsconfigPath,
+} from './utils.js';
 
 notifyOfUpdate();
 

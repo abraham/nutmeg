@@ -21,6 +21,7 @@
   },
   "main": "dist/seed.js",
   "module": "dist/seed.js",
+  "type": "module",
   "engines": {
     "node": "22 || 24 || 26"
   },

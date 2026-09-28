@@ -3,7 +3,8 @@ import path from 'path';
 import copy from 'recursive-copy';
 import { Transform } from 'stream';
 import { ClassDeclaration, Project, Statement, SyntaxKind } from 'ts-morph';
-import { Properties, Property } from './properties';
+import { fileURLToPath } from 'url';
+import { Properties, Property } from './properties.js';
 
 export interface data {
   cliSource: string;
@@ -63,7 +64,9 @@ export class Generator {
   /** Resolve `@nutmeg/element-template`'s installed location via normal Node resolution. */
   private get templateDir(): string {
     return path.dirname(
-      require.resolve('@nutmeg/element-template/package.json'),
+      fileURLToPath(
+        import.meta.resolve('@nutmeg/element-template/package.json'),
+      ),
     );
   }
 

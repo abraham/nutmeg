@@ -7,7 +7,7 @@ import {
   notifyOfUpdate,
   nutmegDir,
   toPosixPath,
-} from './utils';
+} from './utils.js';
 
 notifyOfUpdate();
 

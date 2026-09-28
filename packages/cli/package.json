@@ -20,6 +20,7 @@
     "url": "https://github.com/abraham/nutmeg/issues"
   },
   "main": "dist/cli.js",
+  "type": "module",
   "bin": {
     "nutmeg-build": "bin/nutmeg-build",
     "nutmeg-clean": "bin/nutmeg-clean",

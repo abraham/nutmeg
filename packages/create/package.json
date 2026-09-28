@@ -20,6 +20,7 @@
     "url": "https://github.com/abraham/nutmeg/issues"
   },
   "bin": "bin/create-nutmeg",
+  "type": "module",
   "engines": {
     "node": "22 || 24 || 26"
   },

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// require('../dist/new');
+// import '../dist/new.js';
 
 console.log(
   'Run `npm init @nutmeg <copmonent-name> [property:type...]` to generate a component.',

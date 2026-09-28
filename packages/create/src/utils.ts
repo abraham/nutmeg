@@ -1,10 +1,12 @@
 import fs from 'fs';
 import path from 'path';
 import shell from 'shelljs';
+import { fileURLToPath } from 'url';
 import updateNotifier from 'update-notifier';
 
 const silent = true;
-const nutmegDir = path.resolve(__dirname, '..');
+const currentDir = path.dirname(fileURLToPath(import.meta.url));
+const nutmegDir = path.resolve(currentDir, '..');
 const pkg = loadPackageJson(nutmegDir);
 
 interface Pkg {

@@ -1,4 +1,7 @@
-import { attributeNameFromProperty, propertyNameFromAttribute } from './utils';
+import {
+  attributeNameFromProperty,
+  propertyNameFromAttribute,
+} from './utils.js';
 
 export interface Property {
   attribute: string;
