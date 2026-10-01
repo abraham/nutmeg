@@ -47,7 +47,7 @@
     "lit": "3.3.3"
   },
   "devDependencies": {
-    "@types/node": "^22.0.0",
+    "@types/node": "^25.9.8",
     "@vitest/browser-playwright": "^5.0.2",
     "playwright": "^1.63.0",
     "typescript": "7.0.2",
