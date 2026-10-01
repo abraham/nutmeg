@@ -10,3 +10,8 @@ updates:
       - 'packages/*'
     schedule:
       interval: weekly
+    groups:
+      across-directories:
+        group-by: dependency-name
+        patterns:
+          - '*'
