@@ -52,7 +52,7 @@
   ],
   "dependencies": {
     "@nutmeg/seed": "1.0.0-alpha.0",
-    "@vitest/browser-playwright": "^5.0.2",
+    "@vitest/browser-playwright": "^5.0.3",
     "change-case": "^5.4.4",
     "commander": "^15.0.0",
     "lodash.template": "^4.0.0",
